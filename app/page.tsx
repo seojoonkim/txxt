@@ -81,7 +81,7 @@ export default function Home() {
 
         <motion.div
           className="relative z-10 max-w-4xl mx-auto px-6 text-center pt-20"
-          initial="hidden"
+          initial="visible"
           animate="visible"
           variants={stagger}
         >
@@ -171,9 +171,7 @@ export default function Home() {
       <section className="py-24 relative">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0 }}
+            initial="visible"
             variants={stagger}
           >
             <motion.p variants={fadeUp} className="text-xs tracking-widest text-[#7C3AED] mb-6" style={{ fontFamily: "'Fira Code', monospace" }}>
@@ -222,9 +220,7 @@ export default function Home() {
       <section className="py-24 bg-[#0A0A16]">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0 }}
+            initial="visible"
             variants={stagger}
             className="text-center mb-16"
           >
@@ -237,9 +233,7 @@ export default function Home() {
           </motion.div>
 
           <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0 }}
+            initial="visible"
             variants={stagger}
             className="grid md:grid-cols-3 gap-6"
           >
@@ -304,9 +298,7 @@ export default function Home() {
       <section className="py-24 relative">
         <div className="max-w-5xl mx-auto px-6">
           <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0 }}
+            initial="visible"
             variants={stagger}
           >
             <motion.div variants={fadeUp} className="text-center mb-16">
@@ -359,9 +351,7 @@ export default function Home() {
       <section className="py-24 bg-[#0A0A16]">
         <div className="max-w-4xl mx-auto px-6">
           <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0 }}
+            initial="visible"
             variants={stagger}
           >
             <motion.div variants={fadeUp} className="text-center mb-12">
@@ -436,9 +426,7 @@ export default function Home() {
 
         <div className="relative z-10 max-w-3xl mx-auto px-6 text-center">
           <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0 }}
+            initial="visible"
             variants={stagger}
           >
             <motion.p variants={fadeUp} className="text-xs tracking-widest text-[#00F5C4] mb-6" style={{ fontFamily: "'Fira Code', monospace" }}>
