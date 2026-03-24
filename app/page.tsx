@@ -168,7 +168,7 @@ export default function Home() {
       </section>
 
       {/* ===== THE PROBLEM ===== */}
-      <section className="py-24 relative">
+      <section className="py-32 relative">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <motion.div
             initial="visible"
@@ -217,7 +217,7 @@ export default function Home() {
       </section>
 
       {/* ===== HOW IT WORKS ===== */}
-      <section className="py-24 bg-[#0A0A16]">
+      <section className="py-32 bg-[#0A0A16]">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial="visible"
@@ -275,7 +275,7 @@ export default function Home() {
               <motion.div
                 key={card.label}
                 variants={fadeUp}
-                className="card-hover rounded-xl p-8 bg-[rgba(255,255,255,0.02)]"
+                className="card-hover rounded-xl p-10 bg-[rgba(255,255,255,0.02)]"
               >
                 <div className="text-3xl mb-4">{card.icon}</div>
                 <p className="text-xs tracking-widest text-[#00F5C4] mb-2" style={{ fontFamily: "'Fira Code', monospace" }}>
@@ -295,7 +295,7 @@ export default function Home() {
       </section>
 
       {/* ===== TOKENLESS ===== */}
-      <section className="py-24 relative">
+      <section className="py-32 relative">
         <div className="max-w-5xl mx-auto px-6">
           <motion.div
             initial="visible"
@@ -348,7 +348,7 @@ export default function Home() {
       </section>
 
       {/* ===== AGENTSCRIPT ===== */}
-      <section className="py-24 bg-[#0A0A16]">
+      <section className="py-32 bg-[#0A0A16]">
         <div className="max-w-4xl mx-auto px-6">
           <motion.div
             initial="visible"
@@ -420,7 +420,7 @@ export default function Home() {
       </section>
 
       {/* ===== FINAL CTA ===== */}
-      <section className="py-24 relative overflow-hidden">
+      <section className="py-32 relative overflow-hidden">
         <div className="absolute inset-0 grid-bg opacity-30" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-[radial-gradient(circle,rgba(0,245,196,0.04)_0%,transparent_70%)]" />
 
