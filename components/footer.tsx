@@ -33,7 +33,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6 py-16">
         <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
           <div className="col-span-2 md:col-span-1">
-            <span className="text-xl font-bold tracking-tight" style={{ fontFamily: "'Fira Code', monospace" }}>
+            <span className="text-xl font-bold tracking-tight" style={{ fontFamily: "var(--font-fira), 'Courier New', monospace" }}>
               <span className="text-[#00F5C4]">txxt</span>
             </span>
             <p className="mt-3 text-sm text-[rgba(255,255,255,0.4)] leading-relaxed">
@@ -62,7 +62,7 @@ export default function Footer() {
           <p className="text-xs text-[rgba(255,255,255,0.3)]">
             © 2026 txxt. Agent-Native Infrastructure.
           </p>
-          <p className="text-xs text-[rgba(255,255,255,0.2)]" style={{ fontFamily: "'Fira Code', monospace" }}>
+          <p className="text-xs text-[rgba(255,255,255,0.2)]" style={{ fontFamily: "var(--font-fira), 'Courier New', monospace" }}>
             Trust is Math, Not Faith.
           </p>
         </div>

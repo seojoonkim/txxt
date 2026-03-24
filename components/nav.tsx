@@ -18,7 +18,7 @@ export default function Nav() {
     <nav className="fixed top-0 left-0 right-0 z-50 border-b border-[rgba(255,255,255,0.06)] bg-[rgba(8,8,16,0.8)] backdrop-blur-xl">
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
-          <span className="text-xl font-bold tracking-tight" style={{ fontFamily: "'Fira Code', monospace" }}>
+          <span className="text-xl font-bold tracking-tight" style={{ fontFamily: "var(--font-fira), 'Courier New', monospace" }}>
             <span className="text-[#00F5C4]">txxt</span>
           </span>
         </Link>

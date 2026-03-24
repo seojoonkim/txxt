@@ -58,7 +58,7 @@ export default function Home() {
             marginBottom: 40,
           }}>
             <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#00F5C4', display: 'inline-block' }} />
-            <span style={{ fontSize: 11, letterSpacing: '0.15em', color: 'rgba(255,255,255,0.4)', fontFamily: "'Fira Code', monospace" }}>
+            <span style={{ fontSize: 11, letterSpacing: '0.15em', color: 'rgba(255,255,255,0.4)', fontFamily: "var(--font-fira), 'Courier New', monospace" }}>
               AGENT-NATIVE L1 · 100K TPS · GAS IN USDC
             </span>
           </div>
@@ -70,7 +70,7 @@ export default function Home() {
             letterSpacing: '-0.04em',
             lineHeight: 1,
             color: '#00F5C4',
-            fontFamily: "'Fira Code', monospace",
+            fontFamily: "var(--font-fira), 'Courier New', monospace",
             marginBottom: 20,
             textShadow: '0 0 60px rgba(0,245,196,0.3), 0 0 120px rgba(0,245,196,0.1)',
           }}>
@@ -83,7 +83,7 @@ export default function Home() {
           </h1>
 
           {/* Sub */}
-          <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.4)', fontFamily: "'Fira Code', monospace", marginBottom: 20, letterSpacing: '0.05em' }}>
+          <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.4)', fontFamily: "var(--font-fira), 'Courier New', monospace", marginBottom: 20, letterSpacing: '0.05em' }}>
             Identity. Reputation. Validation. Native.
           </p>
 
@@ -120,7 +120,7 @@ export default function Home() {
           {STATS.map(s => (
             <div key={s.label} style={{ textAlign: 'center' }}>
               <div style={{ fontSize: 28, fontWeight: 700, letterSpacing: '-0.02em', marginBottom: 8 }}>{s.value}</div>
-              <div style={{ fontSize: 10, letterSpacing: '0.12em', color: 'rgba(255,255,255,0.25)', fontFamily: "'Fira Code', monospace" }}>{s.label}</div>
+              <div style={{ fontSize: 10, letterSpacing: '0.12em', color: 'rgba(255,255,255,0.25)', fontFamily: "var(--font-fira), 'Courier New', monospace" }}>{s.label}</div>
             </div>
           ))}
         </div>
@@ -128,7 +128,7 @@ export default function Home() {
 
       {/* ===== THE PROBLEM ===== */}
       <section style={{ padding: '128px 24px', textAlign: 'center', maxWidth: 680, margin: '0 auto' }}>
-        <div style={{ fontSize: 11, letterSpacing: '0.15em', color: '#7C3AED', fontFamily: "'Fira Code', monospace", marginBottom: 24 }}>
+        <div style={{ fontSize: 11, letterSpacing: '0.15em', color: '#7C3AED', fontFamily: "var(--font-fira), 'Courier New', monospace", marginBottom: 24 }}>
           THE MISSING LAYER
         </div>
         <h2 style={{ fontSize: 'clamp(36px, 7vw, 72px)', fontWeight: 700, letterSpacing: '-0.03em', lineHeight: 1.1, marginBottom: 48 }}>
@@ -146,7 +146,7 @@ export default function Home() {
               padding: '10px 20px', borderRadius: 8,
               border: `1px solid ${item.ok ? 'rgba(255,255,255,0.07)' : 'rgba(239,68,68,0.2)'}`,
               background: item.ok ? 'rgba(255,255,255,0.02)' : 'rgba(239,68,68,0.04)',
-              fontFamily: "'Fira Code', monospace", fontSize: 13,
+              fontFamily: "var(--font-fira), 'Courier New', monospace", fontSize: 13,
               color: item.ok ? 'rgba(255,255,255,0.5)' : '#f87171',
             }}>
               <span style={{ color: item.ok ? '#00F5C4' : '#ef4444' }}>{item.ok ? '✓' : '✗'}</span>
@@ -166,7 +166,7 @@ export default function Home() {
       <section style={{ padding: '128px 24px', background: '#0A0A16' }}>
         <div style={{ maxWidth: 1100, margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: 80 }}>
-            <div style={{ fontSize: 11, letterSpacing: '0.15em', color: '#00F5C4', fontFamily: "'Fira Code', monospace", marginBottom: 20 }}>
+            <div style={{ fontSize: 11, letterSpacing: '0.15em', color: '#00F5C4', fontFamily: "var(--font-fira), 'Courier New', monospace", marginBottom: 20 }}>
               CORE INFRASTRUCTURE
             </div>
             <h2 style={{ fontSize: 'clamp(28px, 5vw, 48px)', fontWeight: 700, letterSpacing: '-0.02em' }}>
@@ -217,13 +217,13 @@ export default function Home() {
                 transition: 'border-color 0.2s',
               }}>
                 <div style={{ fontSize: 36, marginBottom: 20 }}>{card.icon}</div>
-                <div style={{ fontSize: 10, letterSpacing: '0.15em', color: '#00F5C4', fontFamily: "'Fira Code', monospace", marginBottom: 12 }}>
+                <div style={{ fontSize: 10, letterSpacing: '0.15em', color: '#00F5C4', fontFamily: "var(--font-fira), 'Courier New', monospace", marginBottom: 12 }}>
                   {card.label}
                 </div>
                 <h3 style={{ fontSize: 20, fontWeight: 600, marginBottom: 14, lineHeight: 1.4 }}>{card.title}</h3>
                 <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.35)', lineHeight: 1.8, marginBottom: 24 }}>{card.desc}</p>
                 <div style={{ borderRadius: 8, background: '#080810', border: '1px solid rgba(255,255,255,0.05)', padding: '16px', overflow: 'auto' }}>
-                  <pre style={{ fontSize: 12, fontFamily: "'Fira Code', monospace", color: 'rgba(255,255,255,0.45)', margin: 0, lineHeight: 1.8 }}>
+                  <pre style={{ fontSize: 12, fontFamily: "var(--font-fira), 'Courier New', monospace", color: 'rgba(255,255,255,0.45)', margin: 0, lineHeight: 1.8 }}>
                     <code>{card.code}</code>
                   </pre>
                 </div>
@@ -239,7 +239,7 @@ export default function Home() {
       <section style={{ padding: '128px 24px' }}>
         <div style={{ maxWidth: 820, margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: 72 }}>
-            <div style={{ fontSize: 11, letterSpacing: '0.15em', color: '#7C3AED', fontFamily: "'Fira Code', monospace", marginBottom: 20 }}>
+            <div style={{ fontSize: 11, letterSpacing: '0.15em', color: '#7C3AED', fontFamily: "var(--font-fira), 'Courier New', monospace", marginBottom: 20 }}>
               TOKENLESS BY DESIGN
             </div>
             <h2 style={{ fontSize: 'clamp(28px, 5vw, 52px)', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.15, marginBottom: 24 }}>
@@ -255,7 +255,7 @@ export default function Home() {
                 <tr style={{ borderBottom: '1px solid rgba(255,255,255,0.06)', background: 'rgba(255,255,255,0.02)' }}>
                   <th style={{ textAlign: 'left', padding: '16px 24px', color: 'rgba(255,255,255,0.25)', fontWeight: 500 }}></th>
                   <th style={{ textAlign: 'center', padding: '16px 24px', color: 'rgba(255,255,255,0.25)', fontWeight: 500 }}>Traditional Chains</th>
-                  <th style={{ textAlign: 'center', padding: '16px 24px', color: '#00F5C4', fontWeight: 600, fontFamily: "'Fira Code', monospace" }}>txxt</th>
+                  <th style={{ textAlign: 'center', padding: '16px 24px', color: '#00F5C4', fontWeight: 600, fontFamily: "var(--font-fira), 'Courier New', monospace" }}>txxt</th>
                 </tr>
               </thead>
               <tbody>
@@ -284,7 +284,7 @@ export default function Home() {
       <section style={{ padding: '128px 24px', background: '#0A0A16' }}>
         <div style={{ maxWidth: 720, margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: 64 }}>
-            <div style={{ fontSize: 11, letterSpacing: '0.15em', color: '#00F5C4', fontFamily: "'Fira Code', monospace", marginBottom: 20 }}>
+            <div style={{ fontSize: 11, letterSpacing: '0.15em', color: '#00F5C4', fontFamily: "var(--font-fira), 'Courier New', monospace", marginBottom: 20 }}>
               AGENTSCRIPT
             </div>
             <h2 style={{ fontSize: 'clamp(28px, 5vw, 48px)', fontWeight: 700, letterSpacing: '-0.02em', marginBottom: 16 }}>
@@ -300,14 +300,14 @@ export default function Home() {
               <div style={{ display: 'flex', gap: 6 }}>
                 {['#ff5f57','#febc2e','#28c840'].map(c => <div key={c} style={{ width: 12, height: 12, borderRadius: '50%', background: c }} />)}
               </div>
-              <span style={{ fontSize: 12, color: 'rgba(255,255,255,0.2)', fontFamily: "'Fira Code', monospace", marginLeft: 8 }}>
+              <span style={{ fontSize: 12, color: 'rgba(255,255,255,0.2)', fontFamily: "var(--font-fira), 'Courier New', monospace", marginLeft: 8 }}>
                 travel_planner.agent
               </span>
               <span style={{ marginLeft: 'auto' }}><TerminalCursor /></span>
             </div>
             {/* Code */}
             <div style={{ padding: '32px' }}>
-              <pre style={{ fontSize: 13, fontFamily: "'Fira Code', monospace", lineHeight: 2, margin: 0, overflowX: 'auto' }}>
+              <pre style={{ fontSize: 13, fontFamily: "var(--font-fira), 'Courier New', monospace", lineHeight: 2, margin: 0, overflowX: 'auto' }}>
                 <code>
                   <span style={{ color: '#7C3AED' }}>agent</span>{' '}
                   <span style={{ color: '#00F5C4' }}>TravelPlanner</span>{' '}
@@ -358,7 +358,7 @@ export default function Home() {
           background: 'radial-gradient(ellipse 700px 500px at 50% 50%, rgba(0,245,196,0.05) 0%, transparent 70%)',
         }} />
         <div style={{ position: 'relative', zIndex: 1, maxWidth: 560, margin: '0 auto' }}>
-          <div style={{ fontSize: 11, letterSpacing: '0.15em', color: '#00F5C4', fontFamily: "'Fira Code', monospace", marginBottom: 24 }}>
+          <div style={{ fontSize: 11, letterSpacing: '0.15em', color: '#00F5C4', fontFamily: "var(--font-fira), 'Courier New', monospace", marginBottom: 24 }}>
             READY?
           </div>
           <h2 style={{ fontSize: 'clamp(32px, 7vw, 64px)', fontWeight: 700, letterSpacing: '-0.03em', lineHeight: 1.1, marginBottom: 24 }}>
