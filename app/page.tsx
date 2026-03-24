@@ -167,17 +167,20 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ===== DIVIDER ===== */}
+      <div className="h-px bg-gradient-to-r from-transparent via-[rgba(255,255,255,0.08)] to-transparent" />
+
       {/* ===== THE PROBLEM ===== */}
-      <section className="py-32 relative">
+      <section className="py-40 md:py-52 relative mt-20">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <motion.div
             initial="visible"
             variants={stagger}
           >
-            <motion.p variants={fadeUp} className="text-xs tracking-widest text-[#7C3AED] mb-6" style={{ fontFamily: "'Fira Code', monospace" }}>
+            <motion.p variants={fadeUp} className="text-xs tracking-widest text-[#7C3AED] mb-16" style={{ fontFamily: "'Fira Code', monospace" }}>
               THE MISSING LAYER
             </motion.p>
-            <motion.h2 variants={fadeUp} className="text-4xl md:text-5xl font-bold tracking-tight mb-12">
+            <motion.h2 variants={fadeUp} className="text-5xl md:text-7xl font-bold tracking-tight mb-16">
               Agents have no passport.
             </motion.h2>
 
@@ -216,8 +219,11 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ===== DIVIDER ===== */}
+      <div className="h-px bg-gradient-to-r from-transparent via-[rgba(255,255,255,0.08)] to-transparent" />
+
       {/* ===== HOW IT WORKS ===== */}
-      <section className="py-32 bg-[#0A0A16]">
+      <section className="py-40 md:py-52 bg-[#0A0A16]">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial="visible"
@@ -227,7 +233,7 @@ export default function Home() {
             <motion.p variants={fadeUp} className="text-xs tracking-widest text-[#00F5C4] mb-4" style={{ fontFamily: "'Fira Code', monospace" }}>
               CORE INFRASTRUCTURE
             </motion.p>
-            <motion.h2 variants={fadeUp} className="text-4xl md:text-5xl font-bold tracking-tight">
+            <motion.h2 variants={fadeUp} className="text-5xl md:text-7xl font-bold tracking-tight">
               Three pillars. Zero compromise.
             </motion.h2>
           </motion.div>
@@ -235,7 +241,7 @@ export default function Home() {
           <motion.div
             initial="visible"
             variants={stagger}
-            className="grid md:grid-cols-3 gap-6"
+            className="grid md:grid-cols-3 gap-8"
           >
             {[
               {
@@ -277,12 +283,12 @@ export default function Home() {
                 variants={fadeUp}
                 className="card-hover rounded-xl p-10 bg-[rgba(255,255,255,0.02)]"
               >
-                <div className="text-3xl mb-4">{card.icon}</div>
-                <p className="text-xs tracking-widest text-[#00F5C4] mb-2" style={{ fontFamily: "'Fira Code', monospace" }}>
+                <div className="text-5xl mb-6">{card.icon}</div>
+                <p className="text-xs tracking-widest text-[#00F5C4] mb-4" style={{ fontFamily: "'Fira Code', monospace" }}>
                   {card.label}
                 </p>
-                <h3 className="text-xl font-semibold mb-3">{card.title}</h3>
-                <p className="text-sm text-[rgba(255,255,255,0.4)] mb-6 leading-relaxed">{card.desc}</p>
+                <h3 className="text-2xl font-semibold mb-4">{card.title}</h3>
+                <p className="text-sm text-[rgba(255,255,255,0.4)] mb-8 leading-relaxed">{card.desc}</p>
                 <div className="rounded-lg bg-[#080810] border border-[rgba(255,255,255,0.06)] p-4 overflow-x-auto">
                   <pre className="text-xs text-[rgba(255,255,255,0.5)]" style={{ fontFamily: "'Fira Code', monospace" }}>
                     <code>{card.code}</code>
@@ -294,8 +300,11 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ===== DIVIDER ===== */}
+      <div className="h-px bg-gradient-to-r from-transparent via-[rgba(255,255,255,0.08)] to-transparent" />
+
       {/* ===== TOKENLESS ===== */}
-      <section className="py-32 relative">
+      <section className="py-40 md:py-52 relative">
         <div className="max-w-5xl mx-auto px-6">
           <motion.div
             initial="visible"
@@ -305,7 +314,7 @@ export default function Home() {
               <p className="text-xs tracking-widest text-[#7C3AED] mb-4" style={{ fontFamily: "'Fira Code', monospace" }}>
                 TOKENLESS BY DESIGN
               </p>
-              <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">
+              <h2 className="text-5xl md:text-7xl font-bold tracking-tight mb-6">
                 No Token. No Speculation.<br />Just Gas.
               </h2>
               <p className="text-lg text-[rgba(255,255,255,0.4)] max-w-2xl mx-auto leading-relaxed">
@@ -347,18 +356,21 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ===== DIVIDER ===== */}
+      <div className="h-px bg-gradient-to-r from-transparent via-[rgba(255,255,255,0.08)] to-transparent" />
+
       {/* ===== AGENTSCRIPT ===== */}
-      <section className="py-32 bg-[#0A0A16]">
+      <section className="py-40 md:py-52 bg-[#0A0A16]">
         <div className="max-w-4xl mx-auto px-6">
           <motion.div
             initial="visible"
             variants={stagger}
           >
-            <motion.div variants={fadeUp} className="text-center mb-12">
+            <motion.div variants={fadeUp} className="text-center mb-16">
               <p className="text-xs tracking-widest text-[#00F5C4] mb-4" style={{ fontFamily: "'Fira Code', monospace" }}>
                 AGENTSCRIPT
               </p>
-              <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
+              <h2 className="text-5xl md:text-7xl font-bold tracking-tight mb-6">
                 Code for agents,<br />by agents.
               </h2>
               <p className="text-[rgba(255,255,255,0.4)] max-w-xl mx-auto">
@@ -419,8 +431,11 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ===== DIVIDER ===== */}
+      <div className="h-px bg-gradient-to-r from-transparent via-[rgba(255,255,255,0.08)] to-transparent" />
+
       {/* ===== FINAL CTA ===== */}
-      <section className="py-32 relative overflow-hidden">
+      <section className="py-40 md:py-52 relative overflow-hidden">
         <div className="absolute inset-0 grid-bg opacity-30" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-[radial-gradient(circle,rgba(0,245,196,0.04)_0%,transparent_70%)]" />
 
@@ -432,7 +447,7 @@ export default function Home() {
             <motion.p variants={fadeUp} className="text-xs tracking-widest text-[#00F5C4] mb-6" style={{ fontFamily: "'Fira Code', monospace" }}>
               READY?
             </motion.p>
-            <motion.h2 variants={fadeUp} className="text-4xl md:text-6xl font-bold tracking-tight mb-6">
+            <motion.h2 variants={fadeUp} className="text-5xl md:text-7xl font-bold tracking-tight mb-6">
               Deploy your first agent.
             </motion.h2>
             <motion.p variants={fadeUp} className="text-lg text-[rgba(255,255,255,0.4)] mb-10">
