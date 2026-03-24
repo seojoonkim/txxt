@@ -72,7 +72,7 @@ export default function Home() {
   return (
     <div className="relative">
       {/* ===== HERO ===== */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
         {/* Grid background */}
         <div className="absolute inset-0 grid-bg opacity-50" />
         {/* Radial glow */}
@@ -168,12 +168,12 @@ export default function Home() {
       </section>
 
       {/* ===== THE PROBLEM ===== */}
-      <section className="py-32 relative">
+      <section className="py-24 relative">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0 }}
             variants={stagger}
           >
             <motion.p variants={fadeUp} className="text-xs tracking-widest text-[#7C3AED] mb-6" style={{ fontFamily: "'Fira Code', monospace" }}>
@@ -219,12 +219,12 @@ export default function Home() {
       </section>
 
       {/* ===== HOW IT WORKS ===== */}
-      <section className="py-32 bg-[#0A0A16]">
+      <section className="py-24 bg-[#0A0A16]">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0 }}
             variants={stagger}
             className="text-center mb-16"
           >
@@ -239,7 +239,7 @@ export default function Home() {
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0 }}
             variants={stagger}
             className="grid md:grid-cols-3 gap-6"
           >
@@ -301,12 +301,12 @@ export default function Home() {
       </section>
 
       {/* ===== TOKENLESS ===== */}
-      <section className="py-32 relative">
+      <section className="py-24 relative">
         <div className="max-w-5xl mx-auto px-6">
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0 }}
             variants={stagger}
           >
             <motion.div variants={fadeUp} className="text-center mb-16">
@@ -356,12 +356,12 @@ export default function Home() {
       </section>
 
       {/* ===== AGENTSCRIPT ===== */}
-      <section className="py-32 bg-[#0A0A16]">
+      <section className="py-24 bg-[#0A0A16]">
         <div className="max-w-4xl mx-auto px-6">
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0 }}
             variants={stagger}
           >
             <motion.div variants={fadeUp} className="text-center mb-12">
@@ -430,7 +430,7 @@ export default function Home() {
       </section>
 
       {/* ===== FINAL CTA ===== */}
-      <section className="py-32 relative overflow-hidden">
+      <section className="py-24 relative overflow-hidden">
         <div className="absolute inset-0 grid-bg opacity-30" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-[radial-gradient(circle,rgba(0,245,196,0.04)_0%,transparent_70%)]" />
 
@@ -438,7 +438,7 @@ export default function Home() {
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0 }}
             variants={stagger}
           >
             <motion.p variants={fadeUp} className="text-xs tracking-widest text-[#00F5C4] mb-6" style={{ fontFamily: "'Fira Code', monospace" }}>
