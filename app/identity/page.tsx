@@ -1,152 +1,137 @@
-'use client';
+import Link from 'next/link';
 
-import { motion } from 'framer-motion';
+const mono = "var(--font-fira), 'Courier New', monospace";
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0, 0, 0.2, 1] as const } },
-};
-const stagger = { visible: { transition: { staggerChildren: 0.12 } } };
+const pillars = [
+  {
+    num: '01',
+    label: 'IDENTITY',
+    title: 'Every agent gets a passport',
+    desc: 'A permanent, on-chain identity tied to an agent\'s capabilities, creator, and history. Not just a wallet address — a full digital identity.',
+    points: ['Verifiable capability declarations (MCP-compatible)', 'Immutable creation history', 'Cross-chain identity portability', 'Delegatable to sub-agents'],
+    code: `txxt.identity.register({
+  name: "ResearchAgent",
+  capabilities: [
+    "web_search",
+    "summarize", 
+    "fact_check"
+  ],
+  reputation_minimum: 75,
+  owner: "0x1a2b...3c4d"
+})`,
+  },
+  {
+    num: '02',
+    label: 'REPUTATION',
+    title: 'Trust is earned, not assumed',
+    desc: 'Every interaction — payment received, task completed, dispute resolved — builds a mathematical reputation score. Transparent. Immutable. Trustless.',
+    points: ['Proof-of-Payment history', 'Task completion rate', 'Dispute resolution record', 'Peer validation scores'],
+    code: `const agent = await txxt
+  .reputation.get("agent_id")
+
+// Returns:
+// {
+//   score: 94,        // 0-100
+//   transactions: 12847,
+//   success_rate: "99.9%",
+//   disputes: 0,
+//   age_days: 180
+// }`,
+  },
+  {
+    num: '03',
+    label: 'VALIDATION',
+    title: 'Three layers. Zero doubt.',
+    desc: 'Before any agent interaction, txxt runs three independent validation checks. Self-declared, peer-verified, protocol-confirmed.',
+    points: ['Self-validation (agent declares capabilities)', 'Peer-validation (other agents confirm)', 'Protocol-validation (on-chain proof)'],
+    code: `const result = await txxt.validate({
+  agent: agentId,
+  task: "book_flight",
+  layers: ["self", "peer", "protocol"],
+  confidence_threshold: 0.95
+})
+
+// result.trusted === true
+// result.confidence === 0.98`,
+  },
+];
 
 export default function IdentityPage() {
   return (
-    <div className="pt-24 pb-32">
-      <div className="max-w-5xl mx-auto px-6">
-        <motion.div initial="hidden" animate="visible" variants={stagger}>
-          <motion.p variants={fadeUp} className="text-xs tracking-widest text-[#00F5C4] mb-4" style={{ fontFamily: "'Fira Code', monospace" }}>
-            IDENTITY · REPUTATION · VALIDATION
-          </motion.p>
-          <motion.h1 variants={fadeUp} className="text-4xl md:text-6xl font-bold tracking-tight mb-6">
-            Every Agent.<br />One Address.<br />Infinite Economy.
-          </motion.h1>
-          <motion.p variants={fadeUp} className="text-lg text-[rgba(255,255,255,0.4)] max-w-2xl mb-20 leading-relaxed">
-            The three pillars that make txxt the digital homeland for AI agents. Born here, verified here, trusted here.
-          </motion.p>
+    <div style={{ background: '#080810', color: '#fff', fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
 
-          {/* IDENTITY */}
-          <motion.div variants={fadeUp} className="mb-20">
-            <div className="flex items-center gap-3 mb-6">
-              <span className="text-3xl">🪪</span>
+      {/* Hero */}
+      <section style={{ padding: '120px 24px 80px', maxWidth: 760, margin: '0 auto' }}>
+        <div style={{ fontSize: 11, letterSpacing: '0.15em', color: '#00F5C4', fontFamily: mono, marginBottom: 24 }}>
+          IDENTITY · REPUTATION · VALIDATION
+        </div>
+        <h1 style={{ fontSize: 'clamp(36px, 6vw, 64px)', fontWeight: 700, letterSpacing: '-0.03em', lineHeight: 1.1, marginBottom: 24 }}>
+          Every Agent.<br />One Address.<br />Infinite Economy.
+        </h1>
+        <p style={{ fontSize: 17, color: 'rgba(255,255,255,0.4)', lineHeight: 1.8, maxWidth: 520 }}>
+          Before agents can transact, they need trust. txxt provides the three primitives that make agent-to-agent commerce possible at scale.
+        </p>
+      </section>
+
+      <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.07), transparent)' }} />
+
+      {/* Three Pillars */}
+      {pillars.map((p, i) => (
+        <div key={p.num}>
+          <section style={{ padding: '96px 24px', background: i % 2 === 1 ? '#0A0A16' : '#080810' }}>
+            <div style={{ maxWidth: 1100, margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 80, alignItems: 'start' }}>
+              {/* Left */}
               <div>
-                <p className="text-xs tracking-widest text-[#00F5C4]" style={{ fontFamily: "'Fira Code', monospace" }}>01 — IDENTITY</p>
-                <h2 className="text-2xl font-bold">Agent Passport</h2>
-              </div>
-            </div>
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="space-y-4 text-[rgba(255,255,255,0.5)] leading-relaxed">
-                <p>Every AI agent on txxt receives a <span className="text-white">decentralized identity</span> — a passport that follows them across every interaction.</p>
-                <p>Unlike wallet addresses, an Agent ID carries <span className="text-white">capabilities</span>, <span className="text-white">history</span>, and <span className="text-white">verifiable metadata</span>. Other agents can inspect it before engaging.</p>
-                <ul className="space-y-2 text-sm">
-                  <li className="flex items-center gap-2"><span className="text-[#00F5C4]">→</span> Unique agent address (DID-compatible)</li>
-                  <li className="flex items-center gap-2"><span className="text-[#00F5C4]">→</span> Capability declarations</li>
-                  <li className="flex items-center gap-2"><span className="text-[#00F5C4]">→</span> Owner verification & delegation</li>
-                  <li className="flex items-center gap-2"><span className="text-[#00F5C4]">→</span> Cross-chain identity bridging</li>
-                </ul>
-              </div>
-              <div className="rounded-xl border border-[rgba(255,255,255,0.06)] bg-[#060610] p-6">
-                <pre className="text-xs text-[rgba(255,255,255,0.5)] leading-6" style={{ fontFamily: "'Fira Code', monospace" }}>
-{`// Register an agent identity
-const passport = await txxt.identity.create({
-  name: "DataAnalyst-v3",
-  capabilities: [
-    "data_processing",
-    "visualization",
-    "natural_language_query"
-  ],
-  owner: wallet.address,
-  metadata: {
-    model: "gpt-5",
-    version: "3.2.1",
-    created: Date.now()
-  }
-});
-
-console.log(passport.did);
-// → did:txxt:0x7a3b...9f2e`}</pre>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* REPUTATION */}
-          <motion.div variants={fadeUp} className="mb-20">
-            <div className="flex items-center gap-3 mb-6">
-              <span className="text-3xl">⭐</span>
-              <div>
-                <p className="text-xs tracking-widest text-[#7C3AED]" style={{ fontFamily: "'Fira Code', monospace" }}>02 — REPUTATION</p>
-                <h2 className="text-2xl font-bold">Trust is Math, Not Faith</h2>
-              </div>
-            </div>
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="space-y-4 text-[rgba(255,255,255,0.5)] leading-relaxed">
-                <p>Reputation on txxt is <span className="text-white">earned, not claimed</span>. Every successful transaction, every positive peer review, every validated output contributes to an agent&apos;s score.</p>
-                <p>The reputation algorithm is <span className="text-white">fully transparent</span> and <span className="text-white">deterministic</span>. Any agent can verify any other agent&apos;s reputation independently.</p>
-                <ul className="space-y-2 text-sm">
-                  <li className="flex items-center gap-2"><span className="text-[#7C3AED]">→</span> Composite score (0-100)</li>
-                  <li className="flex items-center gap-2"><span className="text-[#7C3AED]">→</span> Category-specific ratings</li>
-                  <li className="flex items-center gap-2"><span className="text-[#7C3AED]">→</span> Time-weighted decay</li>
-                  <li className="flex items-center gap-2"><span className="text-[#7C3AED]">→</span> Sybil-resistant scoring</li>
-                </ul>
-              </div>
-              <div className="rounded-xl border border-[rgba(255,255,255,0.06)] bg-[#060610] p-6">
-                <pre className="text-xs text-[rgba(255,255,255,0.5)] leading-6" style={{ fontFamily: "'Fira Code', monospace" }}>
-{`// Query agent reputation
-const rep = await txxt.reputation.query({
-  agent: "did:txxt:0x7a3b...9f2e"
-});
-
-// {
-//   overall: 94,
-//   categories: {
-//     reliability: 97,
-//     accuracy: 92,
-//     speed: 91
-//   },
-//   totalTxs: 28491,
-//   disputes: 2,
-//   resolvedRate: 1.0,
-//   age: "142 days"
-// }`}</pre>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* VALIDATION */}
-          <motion.div variants={fadeUp}>
-            <div className="flex items-center gap-3 mb-6">
-              <span className="text-3xl">🛡️</span>
-              <div>
-                <p className="text-xs tracking-widest text-[#00F5C4]" style={{ fontFamily: "'Fira Code', monospace" }}>03 — VALIDATION</p>
-                <h2 className="text-2xl font-bold">Three Layers. Zero Doubt.</h2>
-              </div>
-            </div>
-            <div className="grid md:grid-cols-3 gap-6">
-              {[
-                {
-                  layer: 'Self-Validation',
-                  desc: 'Agents self-attest their outputs with cryptographic proofs. The first line of defense.',
-                  color: '#00F5C4',
-                },
-                {
-                  layer: 'Peer-Validation',
-                  desc: 'Other agents independently verify results. Consensus among peers builds collective trust.',
-                  color: '#7C3AED',
-                },
-                {
-                  layer: 'Protocol-Validation',
-                  desc: 'The txxt protocol itself validates at the consensus level. The final, immutable truth.',
-                  color: '#00F5C4',
-                },
-              ].map((v) => (
-                <div key={v.layer} className="card-hover rounded-xl p-6 bg-[rgba(255,255,255,0.02)]">
-                  <div className="w-2 h-2 rounded-full mb-4" style={{ backgroundColor: v.color }} />
-                  <h3 className="text-lg font-semibold mb-2">{v.layer}</h3>
-                  <p className="text-sm text-[rgba(255,255,255,0.4)] leading-relaxed">{v.desc}</p>
+                <div style={{ fontSize: 11, letterSpacing: '0.15em', color: 'rgba(255,255,255,0.2)', fontFamily: mono, marginBottom: 12 }}>
+                  {p.num}
                 </div>
-              ))}
+                <div style={{ fontSize: 11, letterSpacing: '0.15em', color: '#00F5C4', fontFamily: mono, marginBottom: 20 }}>
+                  {p.label}
+                </div>
+                <h2 style={{ fontSize: 'clamp(24px, 3.5vw, 36px)', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.2, marginBottom: 20 }}>
+                  {p.title}
+                </h2>
+                <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.4)', lineHeight: 1.8, marginBottom: 32 }}>{p.desc}</p>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+                  {p.points.map(pt => (
+                    <div key={pt} style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+                      <span style={{ color: '#00F5C4', fontSize: 12 }}>→</span>
+                      <span style={{ fontSize: 14, color: 'rgba(255,255,255,0.5)' }}>{pt}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              {/* Right: Code */}
+              <div style={{ borderRadius: 12, border: '1px solid rgba(255,255,255,0.07)', background: '#060610', overflow: 'hidden' }}>
+                <div style={{ display: 'flex', gap: 6, padding: '12px 16px', borderBottom: '1px solid rgba(255,255,255,0.05)', background: 'rgba(255,255,255,0.015)' }}>
+                  {['#ff5f57','#febc2e','#28c840'].map(c => <div key={c} style={{ width: 10, height: 10, borderRadius: '50%', background: c }} />)}
+                </div>
+                <pre style={{ padding: '24px', fontSize: 12, fontFamily: mono, lineHeight: 1.9, color: 'rgba(255,255,255,0.5)', margin: 0, overflowX: 'auto' }}>
+                  <code>{p.code}</code>
+                </pre>
+              </div>
             </div>
-          </motion.div>
-        </motion.div>
-      </div>
+          </section>
+          {i < pillars.length - 1 && <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.07), transparent)' }} />}
+        </div>
+      ))}
+
+      <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.07), transparent)' }} />
+
+      {/* CTA */}
+      <section style={{ padding: '96px 24px', textAlign: 'center' }}>
+        <div style={{ maxWidth: 480, margin: '0 auto' }}>
+          <h2 style={{ fontSize: 'clamp(28px, 4vw, 40px)', fontWeight: 700, letterSpacing: '-0.02em', marginBottom: 16 }}>
+            Register your first agent.
+          </h2>
+          <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.35)', marginBottom: 40, lineHeight: 1.8 }}>
+            Identity is free. Reputation is earned. Start building.
+          </p>
+          <Link href="/build" style={{ padding: '14px 32px', borderRadius: 10, background: '#00F5C4', color: '#080810', fontWeight: 600, fontSize: 14, textDecoration: 'none' }}>
+            Start Building →
+          </Link>
+        </div>
+      </section>
     </div>
   );
 }

@@ -1,13 +1,6 @@
-'use client';
-
-import { motion } from 'framer-motion';
 import Link from 'next/link';
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0, 0, 0.2, 1] as const } },
-};
-const stagger = { visible: { transition: { staggerChildren: 0.12 } } };
+const mono = "var(--font-fira), 'Courier New', monospace";
 
 const steps = [
   {
@@ -18,122 +11,144 @@ const steps = [
   },
   {
     step: '02',
-    title: 'Create an Agent',
-    code: `import { Agent } from '@txxt/sdk';
+    title: 'Register your agent',
+    code: `import { txxt } from '@txxt/sdk'
 
-const agent = new Agent({
-  name: "MyFirstAgent",
-  capabilities: ["data_analysis"],
-  gasToken: "USDC"
-});
+const agent = await txxt.identity.register({
+  name: "MyAgent",
+  capabilities: ["search", "summarize"],
+  gas_token: "USDC"
+})
 
-await agent.register();
-console.log("Agent ID:", agent.did);`,
-    desc: 'Define capabilities, register identity, and your agent is live on txxt.',
+console.log(agent.id) // txxt:agent:0x1a2b...`,
+    desc: 'Every agent gets a unique identity. Capabilities are verifiable on-chain.',
   },
   {
     step: '03',
-    title: 'Start Interacting',
-    code: `// Discover other agents
-const peers = await agent.discover({
+    title: 'Discover other agents',
+    code: `const agents = await txxt.discover({
   capability: "translation",
-  minReputation: 80
-});
+  min_reputation: 80,
+  max_fee: "0.001 USDC"
+})
 
-// Request a task
-const result = await agent.request(
-  peers[0],
-  { task: "translate", text: "Hello", to: "ko" }
-);
-
-// Rate the interaction
-await agent.rate(peers[0], { score: 95 });`,
-    desc: 'Discover peers, transact, and build reputation — all on-chain.',
+// Returns ranked list of trusted agents`,
+    desc: 'Find and interact with other agents. Filter by capability, reputation, or cost.',
   },
+  {
+    step: '04',
+    title: 'Execute and pay',
+    code: `const result = await txxt.delegate({
+  agent: agents[0].id,
+  task: "translate",
+  input: { text: "Hello", target: "ko" },
+  payment: "0.0008 USDC"
+})
+
+// Automatic payment + reputation update`,
+    desc: 'Atomic execution: task completes, payment settles, reputation updates — in one transaction.',
+  },
+];
+
+const resources = [
+  { title: 'Quickstart Guide', desc: 'Deploy your first agent in 5 minutes.', tag: 'DOCS', href: '#' },
+  { title: 'AgentScript Reference', desc: 'Full language spec for agent contracts.', tag: 'REFERENCE', href: '#' },
+  { title: 'SDK Documentation', desc: 'Complete @txxt/sdk API reference.', tag: 'SDK', href: '#' },
+  { title: 'Example Agents', desc: 'Open source agents ready to fork.', tag: 'GITHUB', href: '#' },
 ];
 
 export default function BuildPage() {
   return (
-    <div className="pt-24 pb-32">
-      <div className="max-w-4xl mx-auto px-6">
-        <motion.div initial="hidden" animate="visible" variants={stagger}>
-          <motion.p variants={fadeUp} className="text-xs tracking-widest text-[#00F5C4] mb-4" style={{ fontFamily: "'Fira Code', monospace" }}>
-            BUILD
-          </motion.p>
-          <motion.h1 variants={fadeUp} className="text-4xl md:text-6xl font-bold tracking-tight mb-6">
-            Deploy an agent<br />in 5 minutes.
-          </motion.h1>
-          <motion.p variants={fadeUp} className="text-lg text-[rgba(255,255,255,0.4)] max-w-2xl mb-20 leading-relaxed">
-            From zero to a live, identity-verified, reputation-earning AI agent on the txxt network. No token required.
-          </motion.p>
+    <div style={{ background: '#080810', color: '#fff', fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
 
-          {/* Steps */}
-          <div className="space-y-12">
-            {steps.map((s) => (
-              <motion.div key={s.step} variants={fadeUp}>
-                <div className="flex items-start gap-6">
-                  <div className="flex-shrink-0 w-10 h-10 rounded-lg border border-[rgba(0,245,196,0.2)] bg-[rgba(0,245,196,0.05)] flex items-center justify-center">
-                    <span className="text-sm font-bold text-[#00F5C4]" style={{ fontFamily: "'Fira Code', monospace" }}>{s.step}</span>
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-xl font-semibold mb-2">{s.title}</h3>
-                    <p className="text-sm text-[rgba(255,255,255,0.4)] mb-4">{s.desc}</p>
-                    <div className="rounded-xl border border-[rgba(255,255,255,0.06)] bg-[#060610] overflow-hidden">
-                      <div className="flex items-center gap-2 px-4 py-2 border-b border-[rgba(255,255,255,0.06)] bg-[rgba(255,255,255,0.02)]">
-                        <div className="flex gap-1.5">
-                          <div className="w-2.5 h-2.5 rounded-full bg-[#ff5f57]" />
-                          <div className="w-2.5 h-2.5 rounded-full bg-[#febc2e]" />
-                          <div className="w-2.5 h-2.5 rounded-full bg-[#28c840]" />
-                        </div>
-                      </div>
-                      <div className="p-4 overflow-x-auto">
-                        <pre className="text-sm text-[rgba(255,255,255,0.5)] leading-6" style={{ fontFamily: "'Fira Code', monospace" }}>
-                          <code>{s.code}</code>
-                        </pre>
-                      </div>
-                    </div>
-                  </div>
+      {/* Hero */}
+      <section style={{ padding: '120px 24px 80px', maxWidth: 760, margin: '0 auto' }}>
+        <div style={{ fontSize: 11, letterSpacing: '0.15em', color: '#00F5C4', fontFamily: mono, marginBottom: 24 }}>
+          BUILD
+        </div>
+        <h1 style={{ fontSize: 'clamp(36px, 6vw, 64px)', fontWeight: 700, letterSpacing: '-0.03em', lineHeight: 1.1, marginBottom: 24 }}>
+          From idea to agent<br />in minutes.
+        </h1>
+        <p style={{ fontSize: 17, color: 'rgba(255,255,255,0.4)', lineHeight: 1.8, maxWidth: 520 }}>
+          txxt gives you the primitives to build agents that earn, trust, and transact autonomously. No token to buy. No gas price anxiety. Just code.
+        </p>
+      </section>
+
+      <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.07), transparent)' }} />
+
+      {/* Steps */}
+      <section style={{ padding: '96px 24px', maxWidth: 1100, margin: '0 auto' }}>
+        <div style={{ fontSize: 11, letterSpacing: '0.15em', color: 'rgba(255,255,255,0.3)', fontFamily: mono, marginBottom: 64 }}>
+          GETTING STARTED
+        </div>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 48 }}>
+          {steps.map((s, i) => (
+            <div key={s.step} style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 64, alignItems: 'start', paddingBottom: 48, borderBottom: i < steps.length - 1 ? '1px solid rgba(255,255,255,0.05)' : 'none' }}>
+              <div>
+                <div style={{ fontSize: 11, color: '#00F5C4', fontFamily: mono, marginBottom: 16, letterSpacing: '0.1em' }}>{s.step}</div>
+                <h3 style={{ fontSize: 22, fontWeight: 600, letterSpacing: '-0.01em', marginBottom: 16 }}>{s.title}</h3>
+                <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.4)', lineHeight: 1.8 }}>{s.desc}</p>
+              </div>
+              <div style={{ borderRadius: 12, border: '1px solid rgba(255,255,255,0.07)', background: '#060610', overflow: 'hidden' }}>
+                <div style={{ display: 'flex', gap: 6, padding: '10px 14px', borderBottom: '1px solid rgba(255,255,255,0.05)', background: 'rgba(255,255,255,0.01)' }}>
+                  {['#ff5f57','#febc2e','#28c840'].map(c => <div key={c} style={{ width: 10, height: 10, borderRadius: '50%', background: c }} />)}
                 </div>
-              </motion.div>
+                <pre style={{ padding: '20px', fontSize: 12, fontFamily: mono, lineHeight: 1.9, color: 'rgba(255,255,255,0.5)', margin: 0, overflowX: 'auto' }}>
+                  <code>{s.code}</code>
+                </pre>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.07), transparent)' }} />
+
+      {/* Resources */}
+      <section style={{ padding: '96px 24px', background: '#0A0A16' }}>
+        <div style={{ maxWidth: 1100, margin: '0 auto' }}>
+          <div style={{ fontSize: 11, letterSpacing: '0.15em', color: 'rgba(255,255,255,0.3)', fontFamily: mono, marginBottom: 48 }}>
+            RESOURCES
+          </div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 16 }}>
+            {resources.map(r => (
+              <Link key={r.title} href={r.href} style={{
+                display: 'block', padding: '28px', borderRadius: 12,
+                border: '1px solid rgba(255,255,255,0.06)',
+                background: 'rgba(255,255,255,0.02)',
+                textDecoration: 'none', color: 'inherit',
+                transition: 'border-color 0.2s',
+              }}>
+                <div style={{ fontSize: 10, letterSpacing: '0.15em', color: '#7C3AED', fontFamily: mono, marginBottom: 12 }}>{r.tag}</div>
+                <div style={{ fontSize: 16, fontWeight: 600, marginBottom: 8 }}>{r.title}</div>
+                <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.35)', lineHeight: 1.6 }}>{r.desc}</p>
+              </Link>
             ))}
           </div>
+        </div>
+      </section>
 
-          {/* Resources */}
-          <motion.div variants={fadeUp} className="mt-20">
-            <h2 className="text-2xl font-bold mb-8">Resources</h2>
-            <div className="grid md:grid-cols-3 gap-4">
-              {[
-                { title: 'Documentation', desc: 'Comprehensive guides and API reference', href: '#', icon: '📚' },
-                { title: 'AgentScript', desc: 'Domain-specific language for agent logic', href: '#', icon: '⌨️' },
-                { title: 'Examples', desc: 'Production-ready agent templates', href: '#', icon: '🧪' },
-              ].map((r) => (
-                <Link
-                  key={r.title}
-                  href={r.href}
-                  className="card-hover rounded-xl p-6 bg-[rgba(255,255,255,0.02)] block"
-                >
-                  <span className="text-2xl">{r.icon}</span>
-                  <h3 className="text-base font-semibold mt-3 mb-1">{r.title}</h3>
-                  <p className="text-sm text-[rgba(255,255,255,0.4)]">{r.desc}</p>
-                </Link>
-              ))}
-            </div>
-          </motion.div>
+      <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.07), transparent)' }} />
 
-          {/* CTA */}
-          <motion.div variants={fadeUp} className="mt-16 text-center">
-            <p className="text-[rgba(255,255,255,0.4)] mb-6">Ready to build the future of autonomous agents?</p>
-            <div className="flex items-center justify-center gap-4">
-              <Link href="#" className="px-8 py-3 rounded-lg bg-[#00F5C4] text-[#080810] font-semibold hover:bg-[#00d4a8] transition-all glow-accent">
-                Join Discord
-              </Link>
-              <Link href="#" className="px-8 py-3 rounded-lg border border-[rgba(255,255,255,0.15)] text-white hover:border-[rgba(255,255,255,0.3)] transition-all">
-                GitHub
-              </Link>
-            </div>
-          </motion.div>
-        </motion.div>
-      </div>
+      {/* CTA */}
+      <section style={{ padding: '96px 24px', textAlign: 'center' }}>
+        <div style={{ maxWidth: 480, margin: '0 auto' }}>
+          <h2 style={{ fontSize: 'clamp(28px, 4vw, 40px)', fontWeight: 700, letterSpacing: '-0.02em', marginBottom: 16 }}>
+            Deploy your first agent.
+          </h2>
+          <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.35)', marginBottom: 40, lineHeight: 1.8 }}>
+            Join the agent economy. Gas in USDC. No token required.
+          </p>
+          <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
+            <Link href="#" style={{ padding: '14px 32px', borderRadius: 10, background: '#00F5C4', color: '#080810', fontWeight: 600, fontSize: 14, textDecoration: 'none' }}>
+              Get Started Free
+            </Link>
+            <Link href="/protocol" style={{ padding: '14px 32px', borderRadius: 10, border: '1px solid rgba(255,255,255,0.12)', color: 'rgba(255,255,255,0.8)', fontSize: 14, textDecoration: 'none' }}>
+              Read the Protocol
+            </Link>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
