@@ -48,7 +48,7 @@ export default function Home() {
           background: 'radial-gradient(ellipse 600px 500px at 70% 30%, rgba(124,58,237,0.05) 0%, transparent 70%)',
         }} />
 
-        <div style={{ position: 'relative', zIndex: 1, maxWidth: 720, margin: '0 auto', padding: '120px 24px 80px', textAlign: 'center' }}>
+        <div style={{ position: 'relative', zIndex: 1, maxWidth: 720, margin: '0 auto', padding: '90px 24px 60px', textAlign: 'center' }}>
           {/* Badge */}
           <div style={{
             display: 'inline-flex', alignItems: 'center', gap: 8,
@@ -71,7 +71,7 @@ export default function Home() {
             lineHeight: 1,
             color: '#00F5C4',
             fontFamily: "'Fira Code', monospace",
-            marginBottom: 32,
+            marginBottom: 20,
             textShadow: '0 0 60px rgba(0,245,196,0.3), 0 0 120px rgba(0,245,196,0.1)',
           }}>
             txxt
@@ -220,7 +220,7 @@ export default function Home() {
                 <div style={{ fontSize: 10, letterSpacing: '0.15em', color: '#00F5C4', fontFamily: "'Fira Code', monospace", marginBottom: 12 }}>
                   {card.label}
                 </div>
-                <h3 style={{ fontSize: 18, fontWeight: 600, marginBottom: 12, lineHeight: 1.4 }}>{card.title}</h3>
+                <h3 style={{ fontSize: 20, fontWeight: 600, marginBottom: 14, lineHeight: 1.4 }}>{card.title}</h3>
                 <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.35)', lineHeight: 1.8, marginBottom: 24 }}>{card.desc}</p>
                 <div style={{ borderRadius: 8, background: '#080810', border: '1px solid rgba(255,255,255,0.05)', padding: '16px', overflow: 'auto' }}>
                   <pre style={{ fontSize: 12, fontFamily: "'Fira Code', monospace", color: 'rgba(255,255,255,0.45)', margin: 0, lineHeight: 1.8 }}>
