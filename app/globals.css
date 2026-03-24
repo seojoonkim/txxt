@@ -25,8 +25,19 @@ body {
   background: var(--bg);
   color: var(--text);
   font-family: var(--font-inter), system-ui, sans-serif;
+  /* 크로스플랫폼 폰트 렌더링 — 맥과 동일하게 */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+  font-optical-sizing: auto;
+}
+
+/* 윈도우 ClearType → 맥 antialiased 근사 */
+@media (-webkit-min-device-pixel-ratio: 1) {
+  body {
+    -webkit-font-smoothing: antialiased;
+  }
 }
 
 ::selection {

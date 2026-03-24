@@ -17,6 +17,11 @@ const firaCode = Fira_Code({
   display: "swap",
 });
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+};
+
 export const metadata: Metadata = {
   title: "txxt — The Chain Where Agents Are Born",
   description: "The first public blockchain built from the ground up for AI agents. Identity. Reputation. Validation. Native.",
@@ -34,7 +39,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`dark ${inter.variable} ${firaCode.variable}`}>
-      <body className="min-h-screen bg-[#080810] text-white antialiased" style={{ fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
+      <body className="min-h-screen bg-[#080810] text-white antialiased" style={{
+        fontFamily: "var(--font-inter), system-ui, sans-serif",
+        WebkitFontSmoothing: "antialiased",
+        MozOsxFontSmoothing: "grayscale",
+        textRendering: "optimizeLegibility",
+      }}>
         <Nav />
         <main>{children}</main>
         <Footer />
