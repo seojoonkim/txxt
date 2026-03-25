@@ -106,7 +106,7 @@ export default function Home() {
           width: '50%', height: '100%',
           overflow: 'hidden',
           borderBottomLeftRadius: 40,
-        }} className="hidden lg:block">
+        }} style={{ display: 'none' }} id="hero-video-desktop">
           <video
             src="/hero-video.mp4"
             autoPlay
@@ -120,6 +120,11 @@ export default function Home() {
             }}
           />
         </div>
+        <style>{`
+          @media (min-width: 1024px) {
+            #hero-video-desktop { display: block !important; }
+          }
+        `}</style>
 
       </section>
 
@@ -128,7 +133,8 @@ export default function Home() {
         width: '100%',
         overflow: 'hidden',
         aspectRatio: '16/9',
-      }} className="lg:hidden">
+      }} style={{ display: 'block' }} id="hero-video-mobile">
+      <style>{`@media (min-width: 1024px) { #hero-video-mobile { display: none !important; } }`}</style>
         <video
           src="/hero-video.mp4"
           autoPlay
