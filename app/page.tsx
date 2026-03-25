@@ -29,7 +29,7 @@ export default function Home() {
       }}>
         {/* Left text block */}
         <div style={{
-          maxWidth: 1200, margin: '0 auto', padding: '120px 24px 80px',
+          maxWidth: 1200, margin: '0 auto', padding: 'clamp(80px, 12vw, 120px) 24px 80px',
           width: '100%', position: 'relative', zIndex: 10,
         }}>
           <div style={{ maxWidth: 600 }}>
@@ -43,7 +43,7 @@ export default function Home() {
 
             {/* Giant txxt logo */}
             <div style={{
-              fontSize: 'clamp(100px, 18vw, 200px)',
+              fontSize: 'clamp(72px, 18vw, 200px)',
               fontWeight: 900,
               letterSpacing: '-0.04em',
               lineHeight: 0.9,
@@ -56,7 +56,7 @@ export default function Home() {
 
             {/* Tagline — smaller, muted */}
             <p style={{
-              fontSize: 'clamp(16px, 2.5vw, 22px)',
+              fontSize: 'clamp(15px, 3.5vw, 22px)',
               fontWeight: 400,
               letterSpacing: '-0.01em',
               lineHeight: 1.4,
@@ -70,29 +70,31 @@ export default function Home() {
 
             {/* Sub */}
             <p style={{
-              fontSize: 'clamp(15px, 2.2vw, 17px)', color: '#4A4A4A', lineHeight: 1.7,
+              fontSize: 'clamp(14px, 3vw, 18px)', color: '#444', lineHeight: 1.75,
               marginBottom: 40, maxWidth: 480,
             }}>
               Every AI agent needs a passport. txxt is where they get one.
             </p>
 
             {/* Buttons */}
-            <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' as const }}>
+            <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' as const }} className="hero-buttons">
               <Link href="/build" style={{
                 padding: '16px 40px', borderRadius: 10,
                 background: '#00C896',
-                color: '#0D0E1A', fontWeight: 700, fontSize: 18,
+                color: '#fff', fontWeight: 700, fontSize: 18,
                 textDecoration: 'none',
                 transition: 'all 0.2s ease',
-                boxShadow: '0 2px 12px rgba(0,200,150,0.25)',
+                boxShadow: '0 4px 14px rgba(0,200,150,0.25)',
+                textAlign: 'center' as const,
               }}>Start Building</Link>
               <Link href="/protocol" style={{
                 padding: '16px 32px', borderRadius: 10,
-                background: '#FFFFFF',
-                border: '1px solid rgba(0,0,0,0.15)',
-                color: '#0D0D0D', fontWeight: 500, fontSize: 18,
+                background: '#fff',
+                border: '1.5px solid rgba(0,0,0,0.15)',
+                color: '#0A0A0A', fontWeight: 500, fontSize: 18,
                 textDecoration: 'none',
                 transition: 'all 0.2s ease',
+                textAlign: 'center' as const,
               }}>Read the Protocol</Link>
             </div>
           </div>
@@ -138,12 +140,12 @@ export default function Home() {
       </div>
 
       {/* ===== WHY TXXT — Horizontal breakdown with large numbered items ===== */}
-      <section style={{ background: '#F7F7F7' }}>
+      <section style={{ background: '#F8F8F8', borderTop: '1px solid rgba(0,0,0,0.06)' }}>
         {/* Section label */}
         <div style={{ padding: '80px 24px 0', textAlign: 'center' }}>
           <p style={{
-            fontSize: 11, letterSpacing: '0.12em', color: '#007A5E',
-            fontFamily: mono, margin: 0, fontWeight: 600,
+            fontSize: 11, letterSpacing: '0.1em', color: '#007A5E',
+            fontFamily: mono, margin: 0, fontWeight: 700,
           }}>
             WHY TXXT
           </p>
@@ -165,23 +167,24 @@ export default function Home() {
               alignItems: 'flex-start',
             }}>
               <div style={{
-                fontSize: 56,
+                fontSize: 'clamp(48px, 10vw, 80px)',
                 fontWeight: 900,
                 color: item.color,
                 fontFamily: mono,
-                minWidth: 80,
+                minWidth: '1ch',
+                flexShrink: 0,
                 lineHeight: 1,
                 letterSpacing: '-0.03em',
               }}>
                 {item.letter}
               </div>
-              <div>
+              <div style={{ flex: 1 }}>
                 <div style={{
-                  fontSize: 13, fontWeight: 600, color: '#007A5E',
+                  fontSize: 12, fontWeight: 700, color: '#007A5E',
                   fontFamily: mono, marginBottom: 8, letterSpacing: '0.08em',
                 }}>_{item.word}</div>
                 <p style={{
-                  fontSize: 'clamp(14px, 2vw, 16px)', color: '#444444', lineHeight: 1.7,
+                  fontSize: 'clamp(14px, 2vw, 16px)', color: '#444', lineHeight: 1.75,
                   margin: 0, maxWidth: '65ch',
                 }}>
                   {item.desc}
@@ -208,6 +211,7 @@ export default function Home() {
         textAlign: 'center',
         position: 'relative',
         background: '#FFFFFF',
+        borderTop: '1px solid rgba(0,0,0,0.06)',
       }}>
         {/* Subtle purple glow */}
         <div style={{
@@ -218,8 +222,8 @@ export default function Home() {
         <div style={{ position: 'relative', zIndex: 1 }}>
           {/* Giant headline */}
           <h2 style={{
-            fontSize: 'clamp(48px, 10vw, 120px)',
-            fontWeight: 800,
+            fontSize: 'clamp(32px, 8vw, 72px)',
+            fontWeight: 700,
             letterSpacing: '-0.04em',
             lineHeight: 0.95,
             margin: '0 0 24px 0',
@@ -242,8 +246,8 @@ export default function Home() {
           <div style={{
             maxWidth: 520, margin: '0 auto 48px',
             fontSize: 'clamp(14px, 1.8vw, 17px)',
-            color: '#4A4A4A',
-            lineHeight: 1.9,
+            color: '#444',
+            lineHeight: 1.75,
             textAlign: 'left' as const,
           }}>
             <p style={{ margin: '0 0 16px 0' }}>MCP: agents can describe what they do.<br />A2A: agents can talk to each other.<br />x402: agents can send payments.</p>
@@ -297,12 +301,12 @@ export default function Home() {
       </section>
 
       {/* ===== THREE PILLARS — Stacked full-width, split layout (Stripe style) ===== */}
-      <section style={{ background: '#F7F7F7' }}>
+      <section style={{ background: '#F8F8F8', borderTop: '1px solid rgba(0,0,0,0.06)' }}>
         {/* Section header */}
         <div style={{ padding: '100px 24px 0', textAlign: 'center' }}>
           <p style={{
-            fontSize: 11, letterSpacing: '0.12em', color: '#007A5E',
-            fontFamily: mono, marginBottom: 20, fontWeight: 600,
+            fontSize: 11, letterSpacing: '0.1em', color: '#007A5E',
+            fontFamily: mono, marginBottom: 20, fontWeight: 700,
           }}>
             CORE INFRASTRUCTURE
           </p>
@@ -334,7 +338,7 @@ export default function Home() {
             <h3 style={{ fontSize: 'clamp(24px, 4vw, 36px)', fontWeight: 700, marginBottom: 16, letterSpacing: '-0.03em', lineHeight: 1.2 }}>
               Every agent gets<br />a passport.
             </h3>
-            <p style={{ fontSize: 'clamp(14px, 2vw, 16px)', color: '#444444', lineHeight: 1.8, maxWidth: 400 }}>
+            <p style={{ fontSize: 'clamp(14px, 2vw, 16px)', color: '#444', lineHeight: 1.8, maxWidth: 400 }}>
               Permanent. Portable. Unfakeable. A sovereign identity on-chain — not a plugin, not an afterthought.
             </p>
           </div>
@@ -347,7 +351,7 @@ export default function Home() {
           }}>
             <pre style={{
               fontSize: 'clamp(11px, 1.2vw, 13px)', fontFamily: mono,
-              color: '#444444', lineHeight: 2, margin: 0,
+              color: '#444', lineHeight: 2, margin: 0,
               whiteSpace: 'pre-wrap' as const, wordBreak: 'break-all' as const,
             }}>
               <code>
@@ -376,7 +380,7 @@ export default function Home() {
           }}>
             <pre style={{
               fontSize: 'clamp(11px, 1.2vw, 13px)', fontFamily: mono,
-              color: '#444444', lineHeight: 2, margin: 0,
+              color: '#444', lineHeight: 2, margin: 0,
               whiteSpace: 'pre-wrap' as const, wordBreak: 'break-all' as const,
             }}>
               <code>
@@ -404,7 +408,7 @@ export default function Home() {
             <h3 style={{ fontSize: 'clamp(24px, 4vw, 36px)', fontWeight: 700, marginBottom: 16, letterSpacing: '-0.03em', lineHeight: 1.2 }}>
               Trust is earned<br />on-chain.
             </h3>
-            <p style={{ fontSize: 'clamp(14px, 2vw, 16px)', color: '#444444', lineHeight: 1.8, maxWidth: 400 }}>
+            <p style={{ fontSize: 'clamp(14px, 2vw, 16px)', color: '#444', lineHeight: 1.8, maxWidth: 400 }}>
               No reviews. No stars. Pure math. 94/100 means 12,847 tasks, zero disputes, 99.9% uptime.
             </p>
           </div>
@@ -431,7 +435,7 @@ export default function Home() {
             <h3 style={{ fontSize: 'clamp(24px, 4vw, 36px)', fontWeight: 700, marginBottom: 16, letterSpacing: '-0.03em', lineHeight: 1.2 }}>
               Three layers.<br />Zero doubt.
             </h3>
-            <p style={{ fontSize: 'clamp(14px, 2vw, 16px)', color: '#444444', lineHeight: 1.8, maxWidth: 400 }}>
+            <p style={{ fontSize: 'clamp(14px, 2vw, 16px)', color: '#444', lineHeight: 1.8, maxWidth: 400 }}>
               Before any agent-to-agent deal closes, three things happen: the agent checks itself, peers verify it, and the protocol confirms it. All in under 10ms.
             </p>
           </div>
@@ -444,7 +448,7 @@ export default function Home() {
           }}>
             <pre style={{
               fontSize: 'clamp(11px, 1.2vw, 13px)', fontFamily: mono,
-              color: '#444444', lineHeight: 2, margin: 0,
+              color: '#444', lineHeight: 2, margin: 0,
               whiteSpace: 'pre-wrap' as const, wordBreak: 'break-all' as const,
             }}>
               <code>
@@ -469,6 +473,7 @@ export default function Home() {
         textAlign: 'center',
         position: 'relative',
         background: '#FFFFFF',
+        borderTop: '1px solid rgba(0,0,0,0.06)',
       }}>
         <div style={{
           position: 'absolute', inset: 0, pointerEvents: 'none',
@@ -514,9 +519,14 @@ export default function Home() {
           {/* Comparison table (Stripe style) */}
           <div style={{
             maxWidth: 560, margin: '0 auto',
+            overflowX: 'auto' as const,
+          }}>
+          <div style={{
+            minWidth: 360,
             borderRadius: 12,
             border: '1px solid rgba(0,0,0,0.12)',
             overflow: 'hidden',
+            boxShadow: '0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04)',
           }}>
             {/* Table header */}
             <div style={{
@@ -550,16 +560,17 @@ export default function Home() {
               </div>
             ))}
           </div>
+          </div>
         </div>
       </section>
 
       {/* ===== AGENTSCRIPT — Code showcase ===== */}
-      <section style={{ background: '#F7F7F7', padding: 'clamp(100px, 12vh, 160px) 24px' }}>
+      <section style={{ background: '#F8F8F8', padding: 'clamp(100px, 12vh, 160px) 24px', borderTop: '1px solid rgba(0,0,0,0.06)' }}>
         <div style={{ maxWidth: 720, margin: '0 auto' }}>
           <div style={{ marginBottom: 56 }}>
             <p style={{
-              fontSize: 11, letterSpacing: '0.12em', color: '#007A5E',
-              fontFamily: mono, marginBottom: 16, fontWeight: 600,
+              fontSize: 11, letterSpacing: '0.1em', color: '#007A5E',
+              fontFamily: mono, marginBottom: 16, fontWeight: 700,
             }}>
               AGENTSCRIPT
             </p>
@@ -661,10 +672,11 @@ export default function Home() {
 
       {/* ===== FINAL CTA — Breathing, one line ===== */}
       <section style={{
-        padding: 'clamp(160px, 22vh, 280px) 24px',
+        padding: 'clamp(120px, 22vh, 280px) 24px',
         textAlign: 'center',
         position: 'relative',
         background: '#0A0A0A',
+        borderTop: '1px solid rgba(0,0,0,0.06)',
       }}>
         <div style={{
           position: 'absolute', inset: 0, pointerEvents: 'none',
@@ -694,18 +706,19 @@ export default function Home() {
             Be the infrastructure, not the passenger.
           </p>
 
-          <Link href="/build" style={{
+          <Link href="/build" className="cta-final-btn" style={{
             display: 'inline-block',
             padding: '16px 48px',
             borderRadius: 10,
             background: '#00C896',
-            color: '#0D0E1A',
+            color: '#fff',
             fontWeight: 700,
             fontSize: 15,
             textDecoration: 'none',
             letterSpacing: '0.02em',
             transition: 'all 0.2s ease',
-            boxShadow: '0 2px 16px rgba(0,200,150,0.3)',
+            boxShadow: '0 4px 14px rgba(0,200,150,0.25)',
+            textAlign: 'center' as const,
           }}>
             Start Building
           </Link>

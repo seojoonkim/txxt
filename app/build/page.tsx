@@ -152,9 +152,9 @@ export default function BuildPage() {
                 <div style={{ fontSize: 11, color: '#5B4FFF', fontFamily: mono, letterSpacing: '0.1em' }}>{s.step}</div>
                 <h3 style={{ fontSize: 'clamp(20px, 3vw, 26px)', fontWeight: 600, letterSpacing: '-0.01em' }}>{s.title}</h3>
               </div>
-              <p style={{ fontSize: 14, color: '#555555', lineHeight: 1.8, marginBottom: 24 }}>{s.desc}</p>
+              <p style={{ fontSize: 'clamp(13px, 2vw, 14px)', color: '#555555', lineHeight: 1.8, marginBottom: 24 }}>{s.desc}</p>
 
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 16 }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(280px, 100%), 1fr))', gap: 16 }}>
                 {/* Code */}
                 <div style={{ borderRadius: 12, border: '1px solid rgba(255,255,255,0.08)', background: '#0A0C1E', overflow: 'hidden' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: 6, padding: '10px 14px', borderBottom: '1px solid rgba(255,255,255,0.06)', background: 'rgba(255,255,255,0.03)' }}>
@@ -234,7 +234,7 @@ export default function BuildPage() {
                 <div style={{
                   fontSize: 'clamp(14px, 1.8vw, 16px)',
                   color: 'rgba(255,255,255,0.6)',
-                  lineHeight: 1.7,
+                  lineHeight: 1.75,
                   paddingLeft: 32,
                 }}>
                   <span style={{ color: '#007A5E', fontFamily: mono, marginRight: 12 }}>A:</span>
@@ -280,14 +280,14 @@ export default function BuildPage() {
           <h2 style={{ fontSize: 'clamp(28px, 4vw, 40px)', fontWeight: 700, letterSpacing: '-0.02em', marginBottom: 16 }}>
             Deploy your first agent.
           </h2>
-          <p style={{ fontSize: 15, color: '#555555', marginBottom: 40, lineHeight: 1.8 }}>
+          <p style={{ fontSize: 'clamp(14px, 2vw, 15px)', color: '#555555', marginBottom: 40, lineHeight: 1.8 }}>
             Join the agent economy. Gas in USDC. No token required.
           </p>
           <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Link href="#" style={{ padding: '14px 32px', borderRadius: 10, background: '#00C896', color: '#fff', fontWeight: 600, fontSize: 14, textDecoration: 'none' }}>
+            <Link href="#" style={{ padding: '14px 32px', borderRadius: 10, background: '#00C896', color: '#fff', fontWeight: 600, fontSize: 'clamp(13px, 2vw, 14px)', textDecoration: 'none' }}>
               Get Started Free
             </Link>
-            <Link href="/protocol" style={{ padding: '14px 32px', borderRadius: 10, border: '1px solid rgba(0,0,0,0.15)', color: '#0D0D0D', fontSize: 14, textDecoration: 'none' }}>
+            <Link href="/protocol" style={{ padding: '14px 32px', borderRadius: 10, border: '1px solid rgba(0,0,0,0.15)', color: '#0D0D0D', fontSize: 'clamp(13px, 2vw, 14px)', textDecoration: 'none' }}>
               Read the Protocol
             </Link>
           </div>

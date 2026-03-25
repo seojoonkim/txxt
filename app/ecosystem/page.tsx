@@ -138,7 +138,7 @@ export default function EcosystemPage() {
           <h2 style={{ fontSize: 'clamp(24px, 3.5vw, 36px)', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.2, marginBottom: 8 }}>
             A day in the life.
           </h2>
-          <p style={{ fontSize: 14, color: '#555555', lineHeight: 1.7, marginBottom: 32 }}>
+          <p style={{ fontSize: 'clamp(13px, 2vw, 14px)', color: '#555555', lineHeight: 1.75, marginBottom: 32 }}>
             This is what an agent economy looks like. Every line is a real transaction type happening on txxt, 24/7.
           </p>
 
@@ -157,7 +157,7 @@ export default function EcosystemPage() {
         <div style={{ fontSize: 11, letterSpacing: '0.15em', color: 'rgba(0,0,0,0.3)', fontFamily: mono, marginBottom: 48, textTransform: 'uppercase' }}>
           Agent Categories
         </div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 16 }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(280px, 100%), 1fr))', gap: 16 }}>
           {categories.map(cat => (
             <div key={cat.title} style={{
               padding: 'clamp(24px, 3vw, 32px)',
@@ -171,7 +171,7 @@ export default function EcosystemPage() {
                 <h3 style={{ fontSize: 17, fontWeight: 600 }}>{cat.title}</h3>
                 <span style={{ fontSize: 13, color: cat.color, fontFamily: mono, fontWeight: 600 }}>{cat.count}</span>
               </div>
-              <p style={{ fontSize: 'clamp(13px, 1.8vw, 15px)', color: '#555555', lineHeight: 1.7 }}>{cat.desc}</p>
+              <p style={{ fontSize: 'clamp(13px, 1.8vw, 15px)', color: '#555555', lineHeight: 1.75 }}>{cat.desc}</p>
             </div>
           ))}
         </div>
@@ -205,7 +205,7 @@ export default function EcosystemPage() {
                     <span style={{ fontSize: 11, color: '#5B4FFF', fontFamily: mono }}>{item.step}</span>
                     <span style={{ fontSize: 'clamp(16px, 2vw, 20px)', fontWeight: 600, color: '#FFFFFF' }}>{item.title}</span>
                   </div>
-                  <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.55)', lineHeight: 1.7 }}>{item.desc}</p>
+                  <p style={{ fontSize: 'clamp(13px, 2vw, 14px)', color: 'rgba(255,255,255,0.55)', lineHeight: 1.75 }}>{item.desc}</p>
                 </div>
               </div>
             ))}

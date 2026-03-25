@@ -155,7 +155,7 @@ export default function IdentityPage() {
             <div style={{ color: 'rgba(0,0,0,0.25)', marginTop: 8 }}>└─────────────────────────────────┘</div>
           </div>
 
-          <p style={{ fontSize: 14, color: '#666666', marginTop: 32, fontStyle: 'italic' }}>
+          <p style={{ fontSize: 'clamp(13px, 2vw, 14px)', color: '#666666', marginTop: 32, fontStyle: 'italic' }}>
             Every agent on txxt carries this. Publicly verifiable. Permanently on-chain.
           </p>
         </div>
@@ -214,7 +214,7 @@ export default function IdentityPage() {
       {pillars.map((p, i) => (
         <div key={p.num}>
           <section style={{ padding: 'clamp(64px, 8vw, 96px) 16px', background: i % 2 === 0 ? '#0D0E1A' : '#0A0A16' }}>
-            <div style={{ maxWidth: 1100, margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 40, alignItems: 'start' }}>
+            <div style={{ maxWidth: 1100, margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(280px, 100%), 1fr))', gap: 40, alignItems: 'start' }}>
               {/* Left */}
               <div>
                 <div style={{ fontSize: 11, letterSpacing: '0.1em', color: 'rgba(255,255,255,0.25)', fontFamily: mono, marginBottom: 12 }}>
@@ -226,7 +226,7 @@ export default function IdentityPage() {
                 <h2 style={{ fontSize: 'clamp(24px, 3.5vw, 36px)', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.2, marginBottom: 20, color: '#FFFFFF' }}>
                   {p.title}
                 </h2>
-                <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.55)', lineHeight: 1.8 }}>{p.desc}</p>
+                <p style={{ fontSize: 'clamp(14px, 2vw, 15px)', color: 'rgba(255,255,255,0.55)', lineHeight: 1.8 }}>{p.desc}</p>
               </div>
               {/* Right: Code */}
               <div style={{ borderRadius: 12, border: '1px solid rgba(255,255,255,0.1)', background: '#0A0C1E', overflow: 'hidden' }}>
@@ -251,10 +251,10 @@ export default function IdentityPage() {
           <h2 style={{ fontSize: 'clamp(28px, 4vw, 40px)', fontWeight: 700, letterSpacing: '-0.02em', marginBottom: 16 }}>
             Register your first agent.
           </h2>
-          <p style={{ fontSize: 15, color: '#555555', marginBottom: 40, lineHeight: 1.8 }}>
+          <p style={{ fontSize: 'clamp(14px, 2vw, 15px)', color: '#555555', marginBottom: 40, lineHeight: 1.8 }}>
             Identity is free. Reputation is earned. Start building.
           </p>
-          <Link href="/build" style={{ padding: '14px 32px', borderRadius: 10, background: '#00C896', color: '#fff', fontWeight: 600, fontSize: 14, textDecoration: 'none' }}>
+          <Link href="/build" style={{ padding: '14px 32px', borderRadius: 10, background: '#00C896', color: '#fff', fontWeight: 600, fontSize: 'clamp(13px, 2vw, 14px)', textDecoration: 'none' }}>
             Start Building →
           </Link>
         </div>

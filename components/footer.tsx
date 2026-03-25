@@ -45,7 +45,7 @@ export default function Footer() {
         {/* 상단: 로고 + 링크 그리드 */}
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))',
           gap: 40,
           marginBottom: 64,
         }}>
