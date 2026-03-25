@@ -271,7 +271,7 @@ export default function Home() {
                 textAlign: 'center' as const,
                 whiteSpace: 'nowrap' as const,
                 flex: '1 1 0',
-              }}>Start Building</Link>
+              }}>Build</Link>
               <Link href="/protocol" style={{
                 padding: '13px 0', borderRadius: 10,
                 background: '#fff',
@@ -282,7 +282,7 @@ export default function Home() {
                 textAlign: 'center' as const,
                 whiteSpace: 'nowrap' as const,
                 flex: '1 1 0',
-              }}>Read the Protocol</Link>
+              }}>Protocol</Link>
               <Link href="https://docs.txxt.network" target="_blank" style={{
                 padding: '13px 0', borderRadius: 10,
                 background: 'transparent',
@@ -293,7 +293,7 @@ export default function Home() {
                 textAlign: 'center' as const,
                 whiteSpace: 'nowrap' as const,
                 flex: '1 1 0',
-              }}>Read Docs</Link>
+              }}>Docs</Link>
             </div>
 
             <div style={{
