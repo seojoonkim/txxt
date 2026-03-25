@@ -134,7 +134,8 @@ export default function Home() {
         width: '100%',
         overflow: 'hidden',
         aspectRatio: '16/9',
-      }} style={{ display: 'block' }} id="hero-video-mobile">
+        display: 'block',
+      }} id="hero-video-mobile">
       <style>{`@media (min-width: 1024px) { #hero-video-mobile { display: none !important; } }`}</style>
         <video
           src="/hero-video.mp4"
