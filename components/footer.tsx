@@ -66,9 +66,7 @@ export default function Footer() {
             <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.35)', lineHeight: 1.7, maxWidth: 200, marginBottom: 12 }}>
               The agent middleware layer for every blockchain.
             </p>
-            <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.2)', fontFamily: mono, letterSpacing: '0.05em' }}>
-              t_ransact · x_change · x_ist · t_rust
-            </p>
+
           </div>
 
           {/* 링크 컬럼들 */}
