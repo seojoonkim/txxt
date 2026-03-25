@@ -729,7 +729,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+        </div>      </section>
 
       {/* ===== FINAL CTA ===== */}
       <section style={{
@@ -744,7 +744,7 @@ export default function Home() {
           background: 'radial-gradient(ellipse 50% 50% at 50% 50%, rgba(167,139,250,0.08) 0%, transparent 70%)',
         }} />
 
-        <div style={{ position: 'relative', zIndex: 1 }}>
+        <div style={{ maxWidth: 1300, margin: '0 auto', position: 'relative', zIndex: 1 }}>
           <h2 style={{
             fontSize: 'clamp(28px, 6vw, 64px)',
             fontWeight: 700,
