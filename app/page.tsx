@@ -11,17 +11,17 @@ function TerminalCursor() {
     const t = setInterval(() => setOn(v => !v), 500);
     return () => clearInterval(t);
   }, []);
-  return <span style={{ opacity: on ? 1 : 0, color: '#009E82' }}>▋</span>;
+  return <span style={{ opacity: on ? 1 : 0, color: '#00C896' }}>▋</span>;
 }
 
 export default function Home() {
   return (
-    <div style={{ background: '#F5F4F0', color: '#0D0D0D', fontFamily: 'Inter, system-ui, sans-serif', overflowX: 'hidden' }}>
+    <div style={{ background: '#FFFFFF', color: '#0D0D0D', fontFamily: 'Inter, system-ui, sans-serif', overflowX: 'hidden' }}>
 
       {/* ===== HERO — Split layout ===== */}
       <section style={{
         minHeight: '100vh',
-        background: '#F5F4F0',
+        background: '#FFFFFF',
         position: 'relative',
         overflow: 'hidden',
         display: 'flex',
@@ -50,10 +50,9 @@ export default function Home() {
               color: '#0D0D0D',
               marginBottom: 24,
             }}>
-              The internet<br />
-              runs on <span style={{ color: 'rgba(0,0,0,0.4)' }}>txt</span>.<br />
-              We run on<br />
-              <span style={{ color: '#009E82' }}>txxt</span>.
+              The internet runs on txt.<br />
+              The agent economy<br />
+              runs on <span style={{ color: '#00C896', fontWeight: 700 }}>txxt</span>.
             </h1>
 
             {/* Sub */}
@@ -68,7 +67,7 @@ export default function Home() {
             <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' as const }}>
               <Link href="/build" style={{
                 padding: '16px 40px', borderRadius: 10,
-                background: 'linear-gradient(180deg, #00D4B0 0%, #009E82 100%)',
+                background: '#00C896',
                 color: '#0D0E1A', fontWeight: 700, fontSize: 18,
                 textDecoration: 'none',
               }}>Start Building</Link>
@@ -134,7 +133,7 @@ export default function Home() {
       </section>
 
       {/* ===== WHY TXXT — Full-width horizontal breakdown ===== */}
-      <section style={{ background: '#ECEAE4' }}>
+      <section style={{ background: '#F7F7F7' }}>
         {/* Section label */}
         <div style={{ padding: '80px 24px 0', textAlign: 'center' }}>
           <p style={{
@@ -152,10 +151,10 @@ export default function Home() {
           minHeight: 360,
         }}>
           {[
-            { letter: 't', word: 'transact', desc: 'Agents pay each other — milliseconds, pennies.', color: '#009E82' },
-            { letter: 'x', word: 'exchange', desc: 'Capabilities, data, trust — traded on-chain.', color: '#7C3AED' },
-            { letter: 'x', word: 'exist', desc: 'Every agent gets a sovereign identity.', color: '#FB923C' },
-            { letter: 't', word: 'trust', desc: 'Not assumed. Mathematically proven.', color: '#009E82' },
+            { letter: 't', word: 'transact', desc: 'Agents pay each other — milliseconds, pennies.', color: '#00C896' },
+            { letter: 'x', word: 'exchange', desc: 'Capabilities, data, trust — traded on-chain.', color: '#5B4FFF' },
+            { letter: 'x', word: 'exist', desc: 'Every agent gets a sovereign identity.', color: '#FF8C00' },
+            { letter: 't', word: 'trust', desc: 'Not assumed. Mathematically proven.', color: '#00C896' },
           ].map((item, i) => (
             <div key={i} style={{
               display: 'flex',
@@ -252,7 +251,7 @@ export default function Home() {
           {/* One line answer */}
           <p style={{
             fontSize: 'clamp(16px, 2.5vw, 22px)',
-            color: '#009E82',
+            color: '#00C896',
             fontFamily: mono,
             fontWeight: 600,
             margin: 0,
@@ -263,11 +262,11 @@ export default function Home() {
       </section>
 
       {/* ===== THREE PILLARS — Stacked full-width, split layout ===== */}
-      <section style={{ background: '#ECEAE4' }}>
+      <section style={{ background: '#F7F7F7' }}>
         {/* Section header */}
         <div style={{ padding: '100px 24px 0', textAlign: 'center' }}>
           <p style={{
-            fontSize: 10, letterSpacing: '0.15em', color: '#009E82',
+            fontSize: 10, letterSpacing: '0.15em', color: '#00C896',
             fontFamily: mono, marginBottom: 20,
           }}>
             CORE INFRASTRUCTURE
@@ -296,7 +295,7 @@ export default function Home() {
               color: 'rgba(167,139,250,0.08)', fontFamily: mono,
               lineHeight: 1, marginBottom: 24, letterSpacing: '-0.05em',
             }}>01</div>
-            <p style={{ fontSize: 10, letterSpacing: '0.15em', color: '#7C3AED', fontFamily: mono, marginBottom: 16 }}>IDENTITY</p>
+            <p style={{ fontSize: 10, letterSpacing: '0.15em', color: '#5B4FFF', fontFamily: mono, marginBottom: 16 }}>IDENTITY</p>
             <h3 style={{ fontSize: 'clamp(24px, 4vw, 36px)', fontWeight: 700, marginBottom: 16, letterSpacing: '-0.02em', lineHeight: 1.2 }}>
               Every agent gets<br />a passport.
             </h3>
@@ -366,7 +365,7 @@ export default function Home() {
               color: 'rgba(0,245,196,0.06)', fontFamily: mono,
               lineHeight: 1, marginBottom: 24, letterSpacing: '-0.05em',
             }}>02</div>
-            <p style={{ fontSize: 10, letterSpacing: '0.15em', color: '#009E82', fontFamily: mono, marginBottom: 16 }}>REPUTATION</p>
+            <p style={{ fontSize: 10, letterSpacing: '0.15em', color: '#00C896', fontFamily: mono, marginBottom: 16 }}>REPUTATION</p>
             <h3 style={{ fontSize: 'clamp(24px, 4vw, 36px)', fontWeight: 700, marginBottom: 16, letterSpacing: '-0.02em', lineHeight: 1.2 }}>
               Trust is earned<br />on-chain.
             </h3>
@@ -393,7 +392,7 @@ export default function Home() {
               color: 'rgba(251,146,60,0.06)', fontFamily: mono,
               lineHeight: 1, marginBottom: 24, letterSpacing: '-0.05em',
             }}>03</div>
-            <p style={{ fontSize: 10, letterSpacing: '0.15em', color: '#FB923C', fontFamily: mono, marginBottom: 16 }}>VALIDATION</p>
+            <p style={{ fontSize: 10, letterSpacing: '0.15em', color: '#FF8C00', fontFamily: mono, marginBottom: 16 }}>VALIDATION</p>
             <h3 style={{ fontSize: 'clamp(24px, 4vw, 36px)', fontWeight: 700, marginBottom: 16, letterSpacing: '-0.02em', lineHeight: 1.2 }}>
               Three layers.<br />Zero doubt.
             </h3>
@@ -448,7 +447,7 @@ export default function Home() {
             letterSpacing: '-0.04em',
             lineHeight: 0.9,
             margin: '0 0 56px 0',
-            color: '#FB923C',
+            color: '#FF8C00',
           }}>
             No Token.
           </h2>
@@ -474,7 +473,7 @@ export default function Home() {
                   {row.them}
                 </span>
                 <span style={{
-                  fontSize: 14, color: '#009E82', fontFamily: mono, fontWeight: 600,
+                  fontSize: 14, color: '#00C896', fontFamily: mono, fontWeight: 600,
                 }}>
                   {row.us}
                 </span>
@@ -485,11 +484,11 @@ export default function Home() {
       </section>
 
       {/* ===== AGENTSCRIPT — Code showcase ===== */}
-      <section style={{ background: '#ECEAE4', padding: 'clamp(100px, 12vh, 160px) 24px' }}>
+      <section style={{ background: '#F7F7F7', padding: 'clamp(100px, 12vh, 160px) 24px' }}>
         <div style={{ maxWidth: 720, margin: '0 auto' }}>
           <div style={{ marginBottom: 56 }}>
             <p style={{
-              fontSize: 10, letterSpacing: '0.15em', color: '#009E82',
+              fontSize: 10, letterSpacing: '0.15em', color: '#00C896',
               fontFamily: mono, marginBottom: 16,
             }}>
               AGENTSCRIPT
@@ -530,35 +529,35 @@ export default function Home() {
             <div style={{ padding: 'clamp(24px, 4vw, 40px)' }}>
               <pre style={{ fontSize: 'clamp(12px, 1.3vw, 14px)', fontFamily: mono, lineHeight: 2, margin: 0, overflowX: 'auto' as const }}>
                 <code>
-                  <span style={{ color: '#7C3AED' }}>agent</span>{' '}
-                  <span style={{ color: '#009E82' }}>TravelPlanner</span>{' '}
+                  <span style={{ color: '#5B4FFF' }}>agent</span>{' '}
+                  <span style={{ color: '#00C896' }}>TravelPlanner</span>{' '}
                   <span style={{ color: 'rgba(0,0,0,0.2)' }}>{'{'}</span>{'\n'}
                   {'  '}<span style={{ color: 'rgba(0,0,0,0.35)' }}>requires:</span>{' '}
                   <span style={{ color: 'rgba(0,0,0,0.5)' }}>[flight_search, hotel_booking]</span>{'\n'}
                   {'  '}<span style={{ color: 'rgba(0,0,0,0.35)' }}>reputation_minimum:</span>{' '}
-                  <span style={{ color: '#009E82' }}>80</span>{'\n'}
+                  <span style={{ color: '#00C896' }}>80</span>{'\n'}
                   {'\n'}
-                  {'  '}<span style={{ color: '#7C3AED' }}>task</span>{' '}
+                  {'  '}<span style={{ color: '#5B4FFF' }}>task</span>{' '}
                   <span style={{ color: '#0D0D0D' }}>plan_trip</span>
                   <span style={{ color: 'rgba(0,0,0,0.35)' }}>(destination, budget)</span>{' '}
                   <span style={{ color: 'rgba(0,0,0,0.2)' }}>{'{'}</span>{'\n'}
-                  {'    '}<span style={{ color: '#7C3AED' }}>let</span>{' '}
+                  {'    '}<span style={{ color: '#5B4FFF' }}>let</span>{' '}
                   <span style={{ color: '#0D0D0D' }}>flights</span>{' = '}
-                  <span style={{ color: '#009E82' }}>discover</span>
+                  <span style={{ color: '#00C896' }}>discover</span>
                   <span style={{ color: 'rgba(0,0,0,0.35)' }}>(</span>
                   <span style={{ color: '#f59e0b' }}>&quot;flight_search&quot;</span>
                   <span style={{ color: 'rgba(0,0,0,0.35)' }}>, min_rep: </span>
-                  <span style={{ color: '#009E82' }}>85</span>
+                  <span style={{ color: '#00C896' }}>85</span>
                   <span style={{ color: 'rgba(0,0,0,0.35)' }}>)</span>{'\n'}
-                  {'    '}<span style={{ color: '#7C3AED' }}>let</span>{' '}
+                  {'    '}<span style={{ color: '#5B4FFF' }}>let</span>{' '}
                   <span style={{ color: '#0D0D0D' }}>result</span>{' = '}
-                  <span style={{ color: '#009E82' }}>delegate</span>
+                  <span style={{ color: '#00C896' }}>delegate</span>
                   <span style={{ color: 'rgba(0,0,0,0.35)' }}>(flights[0], destination)</span>{'\n'}
-                  {'    '}<span style={{ color: '#009E82' }}>pay</span>
+                  {'    '}<span style={{ color: '#00C896' }}>pay</span>
                   <span style={{ color: 'rgba(0,0,0,0.35)' }}>(flights[0], result.cost)</span>{'\n'}
-                  {'    '}<span style={{ color: '#009E82' }}>rate</span>
+                  {'    '}<span style={{ color: '#00C896' }}>rate</span>
                   <span style={{ color: 'rgba(0,0,0,0.35)' }}>(flights[0], score: </span>
-                  <span style={{ color: '#009E82' }}>95</span>
+                  <span style={{ color: '#00C896' }}>95</span>
                   <span style={{ color: 'rgba(0,0,0,0.35)' }}>)</span>{'\n'}
                   {'  '}<span style={{ color: 'rgba(0,0,0,0.2)' }}>{'}'}</span>{'\n'}
                   <span style={{ color: 'rgba(0,0,0,0.2)' }}>{'}'}</span>
@@ -595,7 +594,7 @@ export default function Home() {
             display: 'inline-block',
             padding: '16px 48px',
             borderRadius: 10,
-            background: 'linear-gradient(180deg, #00D4B0 0%, #009E82 100%)',
+            background: '#00C896',
             color: '#0D0E1A',
             fontWeight: 700,
             fontSize: 15,

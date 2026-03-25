@@ -7,13 +7,13 @@ const specs = [
     value: '100,000 TPS',
     headline: '100,000 agent transactions per second.',
     sub: 'While you read this sentence, 50,000 deals closed.',
-    color: '#7C3AED',
+    color: '#5B4FFF',
   },
   {
     value: '<10ms Blocks',
     headline: 'Faster than a human blink.',
     sub: 'Slower than an agent thinks.',
-    color: '#009E82',
+    color: '#00C896',
   },
   {
     value: 'USDC Gas',
@@ -25,13 +25,13 @@ const specs = [
     value: 'AgentVM',
     headline: 'A VM that speaks agent.',
     sub: 'Native identity, reputation queries, and multi-agent coordination — built into the instruction set.',
-    color: '#7C3AED',
+    color: '#5B4FFF',
   },
   {
     value: 'Agent-Centric State',
     headline: 'Every agent is a first-class citizen.',
     sub: 'Its own state tree. Its own history. Its own world.',
-    color: '#009E82',
+    color: '#00C896',
   },
   {
     value: 'PoAW Consensus',
@@ -43,9 +43,9 @@ const specs = [
 
 const layers = [
   { num: '04', title: 'Settlement Layer', items: ['USDC/USDT gas', 'Atomic payments', 'No volatility'], color: '#FB923C' },
-  { num: '03', title: 'Consensus Layer', items: ['Proof of Agent Work', 'Reputation-weighted', 'Byzantine fault tolerant'], color: '#7C3AED' },
-  { num: '02', title: 'Identity Layer', items: ['On-chain registry', 'Capability proofs', 'Reputation scores'], color: '#009E82' },
-  { num: '01', title: 'Execution Layer', items: ['AgentVM', 'Parallel execution', '<10ms blocks'], color: '#7C3AED' },
+  { num: '03', title: 'Consensus Layer', items: ['Proof of Agent Work', 'Reputation-weighted', 'Byzantine fault tolerant'], color: '#5B4FFF' },
+  { num: '02', title: 'Identity Layer', items: ['On-chain registry', 'Capability proofs', 'Reputation scores'], color: '#00C896' },
+  { num: '01', title: 'Execution Layer', items: ['AgentVM', 'Parallel execution', '<10ms blocks'], color: '#5B4FFF' },
 ];
 
 const poawSteps = [
@@ -57,17 +57,17 @@ const poawSteps = [
 
 export default function ProtocolPage() {
   return (
-    <div style={{ background: '#F5F4F0', color: '#0D0D0D', fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
+    <div style={{ background: '#FFFFFF', color: '#0D0D0D', fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
 
       {/* Hero */}
       <section style={{ padding: 'clamp(80px, 12vw, 140px) 24px 80px', maxWidth: 760, margin: '0 auto' }}>
-        <div style={{ fontSize: 11, letterSpacing: '0.15em', color: '#7C3AED', fontFamily: mono, marginBottom: 24, textTransform: 'uppercase' }}>
+        <div style={{ fontSize: 11, letterSpacing: '0.15em', color: '#5B4FFF', fontFamily: mono, marginBottom: 24, textTransform: 'uppercase' }}>
           Protocol
         </div>
         <h1 style={{ fontSize: 'clamp(36px, 6vw, 64px)', fontWeight: 700, letterSpacing: '-0.03em', lineHeight: 1.1, marginBottom: 24 }}>
           The engine room of<br />the agent economy.
         </h1>
-        <p style={{ fontSize: 13, color: '#7C3AED', fontFamily: mono, marginBottom: 16, letterSpacing: '0.05em' }}>
+        <p style={{ fontSize: 13, color: '#5B4FFF', fontFamily: mono, marginBottom: 16, letterSpacing: '0.05em' }}>
           txt: v1 · txxt: v2 — same wires, different civilization
         </p>
         <p style={{ fontSize: 'clamp(15px, 2vw, 18px)', color: 'rgba(255,255,255,0.45)', lineHeight: 1.8, maxWidth: 520 }}>
@@ -85,7 +85,7 @@ export default function ProtocolPage() {
         </div>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 1, background: 'rgba(255,255,255,0.06)', borderRadius: 16, overflow: 'hidden', border: '1px solid rgba(0,0,0,0.08)' }}>
           {specs.map((s) => (
-            <div key={s.value} style={{ padding: 'clamp(28px, 4vw, 40px) clamp(24px, 3vw, 36px)', background: '#F5F4F0' }}>
+            <div key={s.value} style={{ padding: 'clamp(28px, 4vw, 40px) clamp(24px, 3vw, 36px)', background: '#FFFFFF' }}>
               <div style={{ fontSize: 'clamp(28px, 4vw, 42px)', fontWeight: 800, letterSpacing: '-0.03em', color: s.color, fontFamily: mono, marginBottom: 16, lineHeight: 1.1 }}>
                 {s.value}
               </div>
@@ -103,7 +103,7 @@ export default function ProtocolPage() {
       <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.07), transparent)' }} />
 
       {/* Architecture — ASCII Layer Diagram */}
-      <section style={{ padding: 'clamp(64px, 8vw, 96px) 16px', background: '#ECEAE4' }}>
+      <section style={{ padding: 'clamp(64px, 8vw, 96px) 16px', background: '#F7F7F7' }}>
         <div style={{ maxWidth: 760, margin: '0 auto' }}>
           <div style={{ fontSize: 11, letterSpacing: '0.15em', color: 'rgba(0,0,0,0.3)', fontFamily: mono, marginBottom: 48, textTransform: 'uppercase' }}>
             Architecture
@@ -182,7 +182,7 @@ export default function ProtocolPage() {
           </h2>
           <p style={{ fontSize: 'clamp(14px, 1.8vw, 17px)', color: 'rgba(0,0,0,0.45)', lineHeight: 1.8, marginBottom: 48, maxWidth: 560 }}>
             Most blockchains reward you for having money (PoS) or burning electricity (PoW).
-            txxt rewards you for <span style={{ color: '#009E82' }}>actually doing useful work</span>.
+            txxt rewards you for <span style={{ color: '#00C896' }}>actually doing useful work</span>.
             Revolutionary? No. Obvious? Yes. Someone had to build it.
           </p>
 
@@ -215,8 +215,8 @@ export default function ProtocolPage() {
           }}>
             <div style={{ color: 'rgba(0,0,0,0.25)', marginBottom: 8 }}>{'// consensus comparison'}</div>
             <div><span style={{ color: '#FB923C' }}>PoW:</span> {"\"I burned electricity\"  → here's a block"}</div>
-            <div><span style={{ color: '#7C3AED' }}>PoS:</span> {"\"I have money\"         → here's a block"}</div>
-            <div><span style={{ color: '#009E82' }}>PoAW:</span> {"\"I did useful work\"    → here's a block  ✓"}</div>
+            <div><span style={{ color: '#5B4FFF' }}>PoS:</span> {"\"I have money\"         → here's a block"}</div>
+            <div><span style={{ color: '#00C896' }}>PoAW:</span> {"\"I did useful work\"    → here's a block  ✓"}</div>
           </div>
         </div>
       </section>
@@ -233,7 +233,7 @@ export default function ProtocolPage() {
             Read the full technical specification or start deploying agents today.
           </p>
           <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Link href="/build" style={{ padding: '14px 32px', borderRadius: 10, background: '#009E82', color: '#fff', fontWeight: 600, fontSize: 14, textDecoration: 'none' }}>
+            <Link href="/build" style={{ padding: '14px 32px', borderRadius: 10, background: '#00C896', color: '#fff', fontWeight: 600, fontSize: 14, textDecoration: 'none' }}>
               Start Building →
             </Link>
             <Link href="#" style={{ padding: '14px 32px', borderRadius: 10, border: '1px solid rgba(255,255,255,0.12)', color: 'rgba(255,255,255,0.8)', fontSize: 14, textDecoration: 'none' }}>
