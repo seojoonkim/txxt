@@ -48,8 +48,8 @@ export default function Nav() {
           <Link href="/" style={{ textDecoration: 'none', flexShrink: 0 }} onClick={() => setOpen(false)}>
             <span style={{
               fontSize: 22, fontWeight: 900, letterSpacing: '-0.04em',
-              color: '#A78BFA', fontFamily: mono,
-              textShadow: '0 0 20px rgba(167,139,250,0.4)',
+              color: '#00F5C4', fontFamily: mono,
+              textShadow: '0 0 20px rgba(0,245,196,0.4)',
             }}>txxt</span>
           </Link>
 
@@ -108,7 +108,7 @@ export default function Nav() {
           overflowY: 'auto',
         }}>
           <div style={{ marginBottom: 40 }}>
-            <span style={{ fontSize: 28, fontWeight: 900, color: '#A78BFA', fontFamily: mono, letterSpacing: '-0.04em' }}>
+            <span style={{ fontSize: 28, fontWeight: 900, color: '#00F5C4', fontFamily: mono, letterSpacing: '-0.04em' }}>
               txxt
             </span>
           </div>
