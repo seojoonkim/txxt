@@ -115,6 +115,23 @@ export default function Home() {
           background: 'radial-gradient(ellipse 600px 500px at 70% 30%, rgba(124,58,237,0.05) 0%, transparent 70%)',
         }} />
 
+        {/* 미래지향 네트워크 SVG */}
+        <svg style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', opacity: 0.18, pointerEvents: 'none', overflow: 'visible' }} xmlns="http://www.w3.org/2000/svg">
+          <line x1="20%" y1="30%" x2="50%" y2="50%" stroke="#A78BFA" strokeWidth="0.6" strokeDasharray="6 10" style={{ animation: 'data-flow 4s linear infinite' }} />
+          <line x1="80%" y1="20%" x2="50%" y2="50%" stroke="#00F5C4" strokeWidth="0.6" strokeDasharray="6 10" style={{ animation: 'data-flow 5s linear infinite 1s' }} />
+          <line x1="15%" y1="70%" x2="50%" y2="50%" stroke="#FB923C" strokeWidth="0.6" strokeDasharray="6 10" style={{ animation: 'data-flow 6s linear infinite 2s' }} />
+          <line x1="85%" y1="75%" x2="50%" y2="50%" stroke="#A78BFA" strokeWidth="0.6" strokeDasharray="6 10" style={{ animation: 'data-flow 4.5s linear infinite 0.5s' }} />
+          <line x1="50%" y1="8%" x2="50%" y2="50%" stroke="#00F5C4" strokeWidth="0.6" strokeDasharray="6 10" style={{ animation: 'data-flow 5.5s linear infinite 1.5s' }} />
+          <circle cx="50%" cy="50%" r="5" fill="#00F5C4" style={{ animation: 'node-blink 2s ease-in-out infinite' }} />
+          <circle cx="20%" cy="30%" r="3.5" fill="#A78BFA" style={{ animation: 'node-blink 2.5s ease-in-out infinite 0.5s' }} />
+          <circle cx="80%" cy="20%" r="3.5" fill="#FB923C" style={{ animation: 'node-blink 3s ease-in-out infinite 1s' }} />
+          <circle cx="15%" cy="70%" r="3" fill="#A78BFA" style={{ animation: 'node-blink 2s ease-in-out infinite 1.5s' }} />
+          <circle cx="85%" cy="75%" r="3" fill="#00F5C4" style={{ animation: 'node-blink 2.8s ease-in-out infinite 2s' }} />
+          <circle cx="50%" cy="8%" r="2.5" fill="#FB923C" style={{ animation: 'node-blink 3.5s ease-in-out infinite 2.5s' }} />
+          <circle cx="50%" cy="50%" r="160" fill="none" stroke="#A78BFA" strokeWidth="0.6" style={{ animation: 'hero-pulse 6s ease-in-out infinite', transformOrigin: '50% 50%' }} />
+          <circle cx="50%" cy="50%" r="260" fill="none" stroke="#00F5C4" strokeWidth="0.3" style={{ animation: 'hero-pulse-2 9s ease-in-out infinite', transformOrigin: '50% 50%' }} />
+        </svg>
+
         <div style={{ position: 'relative', zIndex: 1, maxWidth: '100%', margin: '0 auto', padding: '90px 16px 60px', textAlign: 'center', boxSizing: 'border-box' }}>
           {/* Live Badge */}
           <div style={{
@@ -133,13 +150,13 @@ export default function Home() {
           {/* Logo */}
           <div style={{
             fontSize: 'clamp(56px, 15vw, 140px)',
-            fontWeight: 700,
+            fontWeight: 900,
             letterSpacing: '-0.04em',
             lineHeight: 1,
             color: '#00F5C4',
             fontFamily: mono,
             marginBottom: 24,
-            textShadow: '0 0 60px rgba(167,139,250,0.4), 0 0 120px rgba(167,139,250,0.15)',
+            textShadow: '0 0 60px rgba(0,245,196,0.35), 0 0 120px rgba(0,245,196,0.12)', WebkitTextStroke: '1px rgba(0,245,196,0.4)',
           }}>
             txxt
           </div>
@@ -264,7 +281,7 @@ export default function Home() {
 
       {/* ===== VISION — Timeline ===== */}
       <section style={{ padding: '128px 16px', background: '#13102A', position: 'relative', overflow: 'hidden' }}>
-        <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none', backgroundImage: 'url(/images/identity_passport.png)', backgroundSize: 'cover', backgroundPosition: 'center', opacity: 0.06 }} />
+        
         <div style={{ maxWidth: 740, margin: '0 auto', width: '100%', boxSizing: 'border-box' as const, textAlign: 'center', position: 'relative', zIndex: 1 }}>
           <div style={{ fontSize: 11, letterSpacing: '0.1em', color: '#00F5C4', fontFamily: mono, marginBottom: 24 }}>
             THE AGENT INTERNET
@@ -407,7 +424,7 @@ txxt.validate({
 
       {/* ===== IMAGINE — Use Cases ===== */}
       <section style={{ padding: '128px 16px', background: '#13102A', position: 'relative', overflow: 'hidden' }}>
-        <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none', backgroundImage: 'url(/images/hero_agent.png)', backgroundSize: 'cover', backgroundPosition: 'center', opacity: 0.05 }} />
+        
         <div style={{ maxWidth: 800, margin: '0 auto', position: 'relative', zIndex: 1 }}>
           <div style={{ textAlign: 'center', marginBottom: 72 }}>
             <div style={{ fontSize: 11, letterSpacing: '0.1em', color: '#FB923C', fontFamily: mono, marginBottom: 20 }}>
@@ -674,7 +691,7 @@ txxt.validate({
         position: 'relative',
         overflow: 'hidden',
       }}>
-        <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none', backgroundImage: 'url(/images/ecosystem_city.png)', backgroundSize: 'cover', backgroundPosition: 'center', opacity: 0.08 }} />
+        
         <div style={{
           position: 'absolute', inset: 0, pointerEvents: 'none',
           background: 'radial-gradient(ellipse 700px 500px at 50% 50%, rgba(167,139,250,0.06) 0%, transparent 70%)',

@@ -47,9 +47,9 @@ export default function Nav() {
           {/* 로고 */}
           <Link href="/" style={{ textDecoration: 'none', flexShrink: 0 }} onClick={() => setOpen(false)}>
             <span style={{
-              fontSize: 22, fontWeight: 900, letterSpacing: '-0.04em',
+              fontSize: 23, fontWeight: 900, letterSpacing: '-0.04em',
               color: '#00F5C4', fontFamily: mono,
-              textShadow: '0 0 20px rgba(0,245,196,0.4)',
+              textShadow: '0 0 20px rgba(0,245,196,0.4)', WebkitTextStroke: '0.3px #00F5C4',
             }}>txxt</span>
           </Link>
 
