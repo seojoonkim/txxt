@@ -426,7 +426,7 @@ export default function Home() {
       </section>
 
       {/* ===== THE SOLUTION — Why txxt ===== */}
-      <section style={{ background: '#F8F8F8', borderTop: '1px solid rgba(0,0,0,0.06)' }}>
+      <section style={{ background: '#FFFFFF', borderTop: '1px solid rgba(0,0,0,0.06)' }}>
         <div style={{ maxWidth: 1300, margin: '0 auto' }}>
         <div style={{ padding: 'clamp(80px, 12vh, 140px) 24px 0', textAlign: 'center' }}>
           <p style={{
