@@ -55,7 +55,19 @@ export default function Home() {
           }
         `}</style>
           <div style={{ maxWidth: 640, width: '100%', textAlign: 'center' as const }}>
-            {/* Small label */}
+            {/* Tagline — above logo */}
+            <p style={{
+              fontSize: 'clamp(13px, 2.5vw, 18px)',
+              fontWeight: 400,
+              letterSpacing: '-0.01em',
+              lineHeight: 1.4,
+              color: '#555555',
+              marginBottom: 16,
+            }}>
+              The internet runs on txt.<br />
+              The agent economy runs on txxt.
+            </p>
+
             {/* Giant txxt logo */}
             <div style={{
               fontSize: 'clamp(80px, 28vw, 200px)',
@@ -68,20 +80,6 @@ export default function Home() {
             }}>
               txxt
             </div>
-
-            {/* Tagline */}
-            <p style={{
-              fontSize: 'clamp(15px, 3.5vw, 22px)',
-              fontWeight: 400,
-              letterSpacing: '-0.01em',
-              lineHeight: 1.4,
-              color: '#555555',
-              marginBottom: 32,
-              maxWidth: 480,
-            }}>
-              Every blockchain.<br />
-              Every agent. One layer.
-            </p>
 
             {/* Sub */}
             <p style={{
