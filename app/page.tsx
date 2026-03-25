@@ -5,6 +5,17 @@ import Link from 'next/link';
 
 const mono = "var(--font-fira), 'Courier New', monospace";
 
+const CheckIcon = ({color='#00C896',size=16}:{color?:string,size?:number}) => (
+  <svg width={size} height={size} viewBox="0 0 16 16" fill="none" style={{display:'inline-block',verticalAlign:'middle'}}>
+    <path d="M2.5 8l4 4 7-7" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+  </svg>
+)
+const XIcon = ({color='#E53E3E',size=16}:{color?:string,size?:number}) => (
+  <svg width={size} height={size} viewBox="0 0 16 16" fill="none" style={{display:'inline-block',verticalAlign:'middle'}}>
+    <path d="M4 4l8 8M12 4l-8 8" stroke={color} strokeWidth="2" strokeLinecap="round"/>
+  </svg>
+)
+
 function TerminalCursor() {
   const [on, setOn] = useState(true);
   useEffect(() => {
@@ -20,23 +31,22 @@ export default function Home() {
 
       {/* ===== HERO — Split layout ===== */}
       <section style={{
-        minHeight: '100vh',
         background: '#FFFFFF',
         overflow: 'hidden',
       }}>
-        <div style={{ maxWidth: 1300, margin: '0 auto', display: 'flex', alignItems: 'stretch', minHeight: '100vh' }} className="hero-inner">
+        <div style={{ maxWidth: 1300, margin: '0 auto', display: 'flex', alignItems: 'stretch' }} className="hero-inner">
         {/* Left text block */}
         <div style={{
           flex: '0 0 50%',
           maxWidth: '50%',
-          padding: 'clamp(80px, 10vw, 120px) clamp(24px, 3vw, 48px) 80px clamp(24px, 5vw, 80px)',
+          padding: 'clamp(60px, 8vw, 100px) clamp(24px, 3vw, 48px) clamp(60px, 8vw, 100px) clamp(24px, 5vw, 80px)',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
         }} className="hero-left">
         <style>{`
           @media (max-width: 1023px) {
-            .hero-inner { flex-direction: column !important; min-height: unset !important; }
+            .hero-inner { flex-direction: column !important; }
             .hero-left { flex: 0 0 100% !important; max-width: 100% !important; padding-bottom: 0 !important; }
             .hero-right { flex: 0 0 100% !important; max-width: 100% !important; display: flex !important; border-bottom-left-radius: 0 !important; min-height: 320px; }
           }
@@ -235,6 +245,122 @@ export default function Home() {
               <strong style={{ color: '#E53E3E' }}>Without L1-native integration:</strong> every agent interaction requires stitching middleware across layers.{' '}
               <strong style={{ color: '#00C896' }}>With txxt:</strong> verify identity + complete payment in a single 10ms transaction.
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== CONCEPT — x402 + ERC-8004 ===== */}
+      <section style={{
+        background: '#0A0A0A',
+        borderTop: '1px solid rgba(255,255,255,0.06)',
+      }}>
+        <div style={{ maxWidth: 1300, margin: '0 auto', padding: 'clamp(80px, 12vh, 140px) 24px' }}>
+          <p style={{
+            fontSize: 13, letterSpacing: '0.12em', color: '#5B4FFF',
+            fontFamily: mono, marginBottom: 24, fontWeight: 700, textAlign: 'center',
+          }}>
+            THE AGENT ECONOMY NEEDS TWO THINGS
+          </p>
+          <h2 style={{
+            fontSize: 'clamp(28px, 5vw, 48px)',
+            fontWeight: 700,
+            letterSpacing: '-0.03em',
+            lineHeight: 1.15,
+            margin: '0 0 56px 0',
+            color: '#FFFFFF',
+            textAlign: 'center',
+          }}>
+            Pay. Trust. Repeat.
+          </h2>
+
+          <div style={{ maxWidth: 800, margin: '0 auto', display: 'flex', flexDirection: 'column' as const, gap: 0 }}>
+            {/* Row 1 */}
+            <div style={{
+              display: 'flex', gap: 32, alignItems: 'flex-start',
+              padding: '32px 0', borderBottom: '1px solid rgba(255,255,255,0.07)',
+            }}>
+              <div style={{ flex: '0 0 auto', paddingTop: 4 }}>
+                <span style={{ display: 'inline-block', width: 32, height: 32, borderRadius: 8, background: 'rgba(0,200,150,0.12)', border: '1px solid rgba(0,200,150,0.25)', textAlign: 'center', lineHeight: '32px', fontSize: 13, color: '#00C896', fontFamily: mono, fontWeight: 700 }}>1</span>
+              </div>
+              <div style={{ flex: 1 }}>
+                <p style={{ fontSize: 'clamp(16px, 2vw, 20px)', fontWeight: 600, color: '#FFFFFF', margin: '0 0 8px 0', lineHeight: 1.3 }}>
+                  Agents need to pay each other.
+                </p>
+                <p style={{ fontSize: 'clamp(13px, 1.6vw, 15px)', color: 'rgba(255,255,255,0.45)', lineHeight: 1.75, margin: 0 }}>
+                  Autonomous agents delegate tasks, hire specialists, and settle invoices — continuously, at machine speed. The x402 protocol defines exactly how this works: HTTP-native payments, any token, any amount. The spec is done. The need is real.
+                </p>
+              </div>
+              <div style={{ flex: '0 0 auto', textAlign: 'right' as const, paddingTop: 4 }}>
+                <span style={{ fontSize: 12, fontFamily: mono, color: '#00C896', fontWeight: 700, letterSpacing: '0.08em' }}>x402</span>
+                <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.25)', fontFamily: mono, marginTop: 2 }}>payment protocol</div>
+              </div>
+            </div>
+
+            {/* Row 2 */}
+            <div style={{
+              display: 'flex', gap: 32, alignItems: 'flex-start',
+              padding: '32px 0', borderBottom: '1px solid rgba(255,255,255,0.07)',
+            }}>
+              <div style={{ flex: '0 0 auto', paddingTop: 4 }}>
+                <span style={{ display: 'inline-block', width: 32, height: 32, borderRadius: 8, background: 'rgba(91,79,255,0.12)', border: '1px solid rgba(91,79,255,0.25)', textAlign: 'center', lineHeight: '32px', fontSize: 13, color: '#5B4FFF', fontFamily: mono, fontWeight: 700 }}>2</span>
+              </div>
+              <div style={{ flex: 1 }}>
+                <p style={{ fontSize: 'clamp(16px, 2vw, 20px)', fontWeight: 600, color: '#FFFFFF', margin: '0 0 8px 0', lineHeight: 1.3 }}>
+                  Agents need to trust each other.
+                </p>
+                <p style={{ fontSize: 'clamp(13px, 1.6vw, 15px)', color: 'rgba(255,255,255,0.45)', lineHeight: 1.75, margin: 0 }}>
+                  Before any agent pays another, it needs to know who it&apos;s dealing with — capabilities, reputation, history. ERC-8004 defines the standard for on-chain agent identity: verifiable, portable, permanent. The spec is done. The need is real.
+                </p>
+              </div>
+              <div style={{ flex: '0 0 auto', textAlign: 'right' as const, paddingTop: 4 }}>
+                <span style={{ fontSize: 12, fontFamily: mono, color: '#5B4FFF', fontWeight: 700, letterSpacing: '0.08em' }}>ERC-8004</span>
+                <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.25)', fontFamily: mono, marginTop: 2 }}>identity protocol</div>
+              </div>
+            </div>
+
+            {/* Row 3 — The problem */}
+            <div style={{
+              display: 'flex', gap: 32, alignItems: 'flex-start',
+              padding: '32px 0', borderBottom: '1px solid rgba(255,255,255,0.07)',
+            }}>
+              <div style={{ flex: '0 0 auto', paddingTop: 4 }}>
+                <span style={{ display: 'inline-block', width: 32, height: 32, borderRadius: 8, background: 'rgba(229,62,62,0.12)', border: '1px solid rgba(229,62,62,0.25)', textAlign: 'center', lineHeight: '32px', fontSize: 13, color: '#E53E3E', fontFamily: mono, fontWeight: 700 }}>!</span>
+              </div>
+              <div style={{ flex: 1 }}>
+                <p style={{ fontSize: 'clamp(16px, 2vw, 20px)', fontWeight: 600, color: '#FFFFFF', margin: '0 0 8px 0', lineHeight: 1.3 }}>
+                  But no chain supports both natively.
+                </p>
+                <p style={{ fontSize: 'clamp(13px, 1.6vw, 15px)', color: 'rgba(255,255,255,0.45)', lineHeight: 1.75, margin: 0 }}>
+                  Ethereum has neither at L1. Other chains pick one or none. The result: custom middleware, separate layers, impossible atomic transactions. You can&apos;t verify identity and settle payment in a single transaction if they live on different systems.
+                </p>
+              </div>
+              <div style={{ flex: '0 0 auto', textAlign: 'right' as const, paddingTop: 4 }}>
+                <span style={{ fontSize: 12, fontFamily: mono, color: '#E53E3E', fontWeight: 700, letterSpacing: '0.08em' }}>Others</span>
+                <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.25)', fontFamily: mono, marginTop: 2 }}>pick one or zero</div>
+              </div>
+            </div>
+
+            {/* Row 4 — The solution */}
+            <div style={{
+              display: 'flex', gap: 32, alignItems: 'flex-start',
+              padding: '32px 0',
+            }}>
+              <div style={{ flex: '0 0 auto', paddingTop: 4 }}>
+                <span style={{ display: 'inline-block', width: 32, height: 32, borderRadius: 8, background: 'rgba(0,200,150,0.15)', border: '1px solid rgba(0,200,150,0.35)', textAlign: 'center', lineHeight: '32px', fontSize: 13, color: '#00C896', fontFamily: mono, fontWeight: 700 }}>✓</span>
+              </div>
+              <div style={{ flex: 1 }}>
+                <p style={{ fontSize: 'clamp(16px, 2vw, 20px)', fontWeight: 600, color: '#00C896', margin: '0 0 8px 0', lineHeight: 1.3 }}>
+                  txxt was built with both from block zero.
+                </p>
+                <p style={{ fontSize: 'clamp(13px, 1.6vw, 15px)', color: 'rgba(255,255,255,0.45)', lineHeight: 1.75, margin: 0 }}>
+                  x402 payments and ERC-8004 identity are L1 primitives on txxt — not plugins, not add-ons. Which means: verify identity + settle payment in one atomic transaction, under 10ms, always $0.0003 in gas.
+                </p>
+              </div>
+              <div style={{ flex: '0 0 auto', textAlign: 'right' as const, paddingTop: 4 }}>
+                <span style={{ fontSize: 12, fontFamily: mono, color: '#00C896', fontWeight: 700, letterSpacing: '0.08em' }}>txxt</span>
+                <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.25)', fontFamily: mono, marginTop: 2 }}>both, natively</div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -599,10 +725,10 @@ export default function Home() {
               }}>
                 <div style={{ padding: '14px 20px', fontSize: 13, fontFamily: mono, color: '#0D0D0D', fontWeight: 600 }}>{row.label}</div>
                 <div style={{ padding: '14px 20px', fontSize: 13, color: '#888888', textAlign: 'center' }}>
-                  <span style={{ fontSize: 14, marginRight: 6 }}>✗</span>{row.them}
+                  <XIcon size={14} />{' '}{row.them}
                 </div>
                 <div style={{ padding: '14px 20px', fontSize: 13, color: '#00C896', fontWeight: 600, textAlign: 'center' }}>
-                  <span style={{ fontSize: 14, marginRight: 6 }}>✓</span>{row.us}
+                  <CheckIcon size={14} />{' '}{row.us}
                 </div>
               </div>
             ))}

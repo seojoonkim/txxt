@@ -2,6 +2,17 @@ import Link from 'next/link';
 
 const mono = "var(--font-fira), 'Courier New', monospace";
 
+const CheckIcon = ({color='#00C896',size=16}:{color?:string,size?:number}) => (
+  <svg width={size} height={size} viewBox="0 0 16 16" fill="none" style={{display:'inline-block',verticalAlign:'middle'}}>
+    <path d="M2.5 8l4 4 7-7" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+  </svg>
+)
+const XIcon = ({color='#E53E3E',size=16}:{color?:string,size?:number}) => (
+  <svg width={size} height={size} viewBox="0 0 16 16" fill="none" style={{display:'inline-block',verticalAlign:'middle'}}>
+    <path d="M4 4l8 8M12 4l-8 8" stroke={color} strokeWidth="2" strokeLinecap="round"/>
+  </svg>
+)
+
 const withoutWith = [
   {
     without: 'Anonymous wallet addresses',
@@ -175,10 +186,10 @@ export default function IdentityPage() {
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 0, borderRadius: 16, overflow: 'hidden', border: '1px solid rgba(0,0,0,0.08)' }}>
             {/* Headers */}
             <div style={{ padding: 'clamp(16px, 2vw, 24px)', background: 'rgba(255,79,79,0.06)', borderBottom: '1px solid rgba(0,0,0,0.08)', fontFamily: mono, fontSize: 13, letterSpacing: '0.1em', color: 'rgba(220,50,50,0.8)' }}>
-              ✗ WITHOUT TXXT IDENTITY
+              <XIcon color="rgba(220,50,50,0.8)" size={13} />{' '}WITHOUT TXXT IDENTITY
             </div>
             <div style={{ padding: 'clamp(16px, 2vw, 24px)', background: 'rgba(0,245,196,0.04)', borderBottom: '1px solid rgba(0,0,0,0.08)', fontFamily: mono, fontSize: 13, letterSpacing: '0.1em', color: 'rgba(0,180,140,0.9)' }}>
-              ✓ WITH TXXT IDENTITY
+              <CheckIcon color="rgba(0,180,140,0.9)" size={13} />{' '}WITH TXXT IDENTITY
             </div>
 
             {/* Rows */}

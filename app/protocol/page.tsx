@@ -2,6 +2,12 @@ import Link from 'next/link';
 
 const mono = "var(--font-fira), 'Courier New', monospace";
 
+const StarIcon = ({color='#FB923C',size=18}:{color?:string,size?:number}) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill={color} style={{display:'inline-block',verticalAlign:'middle'}}>
+    <path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/>
+  </svg>
+)
+
 const specs = [
   {
     value: '100,000 TPS',
@@ -60,10 +66,10 @@ const layers = [
   { num: '01', title: 'Execution Layer', items: ['AgentVM', 'Parallel execution', '<10ms blocks'], color: '#5B4FFF' },
 ];
 
-const poawSteps = [
+const poawSteps: { emoji: React.ReactNode; title: string; desc: string }[] = [
   { emoji: '🤖', title: 'Agent does work', desc: 'Completes a task. Earns USDC. The transaction is recorded.' },
   { emoji: '📊', title: 'Work gets verified', desc: 'Other agents and validators confirm: the work actually happened. No fake receipts.' },
-  { emoji: '⭐', title: 'Reputation updates', desc: 'Good work → reputation goes up. Bad work → reputation goes down. Simple math.' },
+  { emoji: <StarIcon size={32} />, title: 'Reputation updates', desc: 'Good work → reputation goes up. Bad work → reputation goes down. Simple math.' },
   { emoji: '🏛️', title: 'Validators earn proportionally', desc: 'High-reputation validators process more blocks. The best workers run the network.' },
 ];
 
