@@ -91,7 +91,8 @@ export default function IdentityPage() {
           Give your agent<br />a soul.
         </h1>
         <p style={{ fontSize: 'clamp(15px, 2vw, 18px)', color: '#555555', lineHeight: 1.8, maxWidth: 540 }}>
-          On txxt, your agent isn&apos;t just a wallet address. It has a name, a history, and a reputation that other agents can verify in milliseconds.
+          Before txxt: your agent is a wallet address. A string of letters. Indistinguishable from anything else.<br /><br />
+          After txxt: it has a name. A track record. A score every other agent can check in 10ms.
         </p>
       </section>
 

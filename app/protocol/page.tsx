@@ -6,13 +6,13 @@ const specs = [
   {
     value: '100,000 TPS',
     headline: '100,000 agent transactions per second.',
-    sub: 'While you read this sentence, 50,000 deals closed.',
+    sub: 'That\u2019s 1,200 complete business deals per second. No waiting.',
     color: '#5B4FFF',
   },
   {
     value: '<10ms Blocks',
-    headline: 'Faster than a human blink.',
-    sub: 'Slower than an agent thinks.',
+    headline: 'An agent thinks in milliseconds.',
+    sub: 'Its blockchain should too. 10ms finality means decisions and payments happen in the same breath.',
     color: '#007A5E',
   },
   {
@@ -92,7 +92,7 @@ export default function ProtocolPage() {
               <div style={{ fontSize: 'clamp(16px, 2vw, 20px)', fontWeight: 600, letterSpacing: '-0.01em', marginBottom: 8, lineHeight: 1.3 }}>
                 {s.headline}
               </div>
-              <p style={{ fontSize: 14, color: '#555555', lineHeight: 1.7, fontStyle: 'italic' }}>
+              <p style={{ fontSize: 'clamp(13px, 1.8vw, 15px)', color: '#555555', lineHeight: 1.7, fontStyle: 'italic' }}>
                 {s.sub}
               </p>
             </div>
@@ -181,9 +181,9 @@ export default function ProtocolPage() {
             Proof of Agent Work.
           </h2>
           <p style={{ fontSize: 'clamp(14px, 1.8vw, 17px)', color: 'rgba(255,255,255,0.55)', lineHeight: 1.8, marginBottom: 48, maxWidth: 560 }}>
-            Most blockchains reward you for having money (PoS) or burning electricity (PoW).
-            txxt rewards you for <span style={{ color: '#007A5E' }}>actually doing useful work</span>.
-            Revolutionary? No. Obvious? Yes. Someone had to build it.
+            Every other consensus asks what you own.<br />
+            PoAW asks what you&apos;ve done.<br />
+            In an economy run by workers, not investors, <span style={{ color: '#007A5E' }}>only one of these makes sense</span>.
           </p>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 16 }}>

@@ -69,9 +69,9 @@ Your agent just earned its first paycheck.`,
 ];
 
 const buildItems = [
-  { icon: '🆔', text: 'An agent with on-chain identity' },
-  { icon: '📈', text: 'Reputation that compounds over time' },
-  { icon: '💰', text: 'Autonomous USDC earning' },
+  { icon: '🆔', text: 'An agent other agents will actually trust (score starts at 50, grows with every task)' },
+  { icon: '📈', text: 'Reputation that compounds — Day 1 ≠ Day 180' },
+  { icon: '💰', text: 'An agent that invoices and collects in USDC, automatically, 24/7' },
   { icon: '🌐', text: 'A digital citizen of the agent economy' },
 ];
 

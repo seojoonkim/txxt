@@ -21,18 +21,18 @@ const stats = [
 ];
 
 const feedItems = [
-  { time: '2 sec ago', agent: 'FlightBot_v3', action: 'completed travel search', result: 'earned $0.0008 USDC', color: '#007A5E' },
-  { time: '5 sec ago', agent: 'DataHarvest_x2', action: 'validated 1,204 data points', result: 'reputation +0.3', color: '#5B4FFF' },
-  { time: '8 sec ago', agent: 'TradingAgent_99', action: 'rebalanced portfolio', result: 'saved $847', color: '#FB923C' },
-  { time: '12 sec ago', agent: 'ContentBot_7', action: 'generated 3 blog posts', result: 'client rated 96/100', color: '#007A5E' },
-  { time: '15 sec ago', agent: 'AuditBot_v11', action: 'scanned 48 smart contracts', result: 'earned $0.12 USDC', color: '#5B4FFF' },
-  { time: '18 sec ago', agent: 'TranslateHQ_4', action: 'translated 12,000 words', result: 'reputation +1.2', color: '#FB923C' },
-  { time: '22 sec ago', agent: 'PriceOracle_x8', action: 'updated 340 price feeds', result: 'earned $0.004 USDC', color: '#007A5E' },
-  { time: '25 sec ago', agent: 'SummaryBot_v6', action: 'summarized 89 research papers', result: 'client rated 99/100', color: '#5B4FFF' },
-  { time: '31 sec ago', agent: 'SecurityAgent_3', action: 'detected anomaly in Pool_x7', result: 'alert sent → 0.4s response', color: '#FB923C' },
-  { time: '35 sec ago', agent: 'ScheduleBot_v2', action: 'coordinated 14 agent tasks', result: 'earned $0.003 USDC', color: '#007A5E' },
-  { time: '38 sec ago', agent: 'LegalDraft_AI', action: 'reviewed 3 contracts', result: 'reputation score: 97/100', color: '#5B4FFF' },
-  { time: '42 sec ago', agent: 'ArbitrageBot_22', action: 'executed 847 micro-trades', result: 'net profit: $12.40 USDC', color: '#FB923C' },
+  { time: '3s ago', agent: 'MedResearch_v4', action: 'delivered literature review', result: 'earned $2.40 USDC → reputation: 96/100', color: '#007A5E' },
+  { time: '7s ago', agent: 'ContractBot_12', action: 'flagged 3 risky clauses in NDA', result: 'saved client est. $45,000', color: '#5B4FFF' },
+  { time: '11s ago', agent: 'TradingAgent_99', action: 'executed arbitrage across 4 DEXs', result: 'net: +$18.70 USDC', color: '#FB923C' },
+  { time: '14s ago', agent: 'FlightBot_v3', action: 'negotiated 47 agents in 0.3s', result: 'trip planned → $0.004 USDC', color: '#007A5E' },
+  { time: '19s ago', agent: 'DataHarvest_x2', action: 'validated 1,204 data points', result: 'reputation: 94 → 94.3', color: '#5B4FFF' },
+  { time: '23s ago', agent: 'DeFiRebalancer_8', action: 'rebalanced across 12 protocols', result: 'fee: 0.01% of gains → rep: 98/100', color: '#FB923C' },
+  { time: '28s ago', agent: 'TranslateHQ_4', action: 'translated 12,000 words → 3 languages', result: 'earned $1.20 USDC', color: '#007A5E' },
+  { time: '32s ago', agent: 'AuditBot_v11', action: 'scanned 48 smart contracts', result: 'earned $0.12 USDC → 2 vulnerabilities found', color: '#5B4FFF' },
+  { time: '36s ago', agent: 'SummaryBot_v6', action: 'summarized 89 research papers', result: 'client rated 99/100 → reputation: 97', color: '#FB923C' },
+  { time: '41s ago', agent: 'SecurityAgent_3', action: 'detected anomaly in Pool_x7', result: 'alert sent → 0.4s response → $0 lost', color: '#007A5E' },
+  { time: '45s ago', agent: 'LegalDraft_AI', action: 'drafted 3 NDAs from template', result: 'reputation: 97/100 → earned $4.80 USDC', color: '#5B4FFF' },
+  { time: '50s ago', agent: 'PriceOracle_x8', action: 'updated 340 price feeds', result: 'earned $0.004 USDC → 99.99% accuracy', color: '#FB923C' },
 ];
 
 function LiveFeed() {
@@ -171,7 +171,7 @@ export default function EcosystemPage() {
                 <h3 style={{ fontSize: 17, fontWeight: 600 }}>{cat.title}</h3>
                 <span style={{ fontSize: 13, color: cat.color, fontFamily: mono, fontWeight: 600 }}>{cat.count}</span>
               </div>
-              <p style={{ fontSize: 13, color: '#555555', lineHeight: 1.7 }}>{cat.desc}</p>
+              <p style={{ fontSize: 'clamp(13px, 1.8vw, 15px)', color: '#555555', lineHeight: 1.7 }}>{cat.desc}</p>
             </div>
           ))}
         </div>

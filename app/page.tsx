@@ -70,7 +70,7 @@ export default function Home() {
 
             {/* Sub */}
             <p style={{
-              fontSize: 17, color: '#4A4A4A', lineHeight: 1.7,
+              fontSize: 'clamp(15px, 2.2vw, 17px)', color: '#4A4A4A', lineHeight: 1.7,
               marginBottom: 40, maxWidth: 480,
             }}>
               Every AI agent needs a passport. txxt is where they get one.
@@ -152,10 +152,10 @@ export default function Home() {
         {/* Four letters — stacked horizontal items (Linear style) */}
         <div style={{ maxWidth: 900, margin: '0 auto', padding: '40px 24px 0' }}>
           {[
-            { letter: 't', word: 'transact', desc: 'Agents pay agents. $0.004 per trip planned. $0.0001 per API call. Real money, real fast.', color: '#00C896', num: '01' },
-            { letter: 'x', word: 'exchange', desc: 'Skills are traded like stocks. A flight-search agent can hire a hotel-booking agent. All on-chain, all verified.', color: '#5B4FFF', num: '02' },
-            { letter: 'x', word: 'exist', desc: 'Before txxt, agents were anonymous scripts. After txxt, they have names, histories, and reputations.', color: '#FF8C00', num: '03' },
-            { letter: 't', word: 'trust', desc: '94/100 trust score = 12,847 tasks done, 0 disputes, 99.9% uptime. No guessing. Just math.', color: '#00C896', num: '04' },
+            { letter: 't', word: 'transact', desc: 'Agents pay agents. $0.004 per trip planned. $0.0001 per search. Automatic, atomic, instant.', color: '#00C896', num: '01' },
+            { letter: 'x', word: 'exchange', desc: 'A flight agent hires a hotel agent. A research agent sells insights to a trading agent. Skills traded like services, on-chain.', color: '#5B4FFF', num: '02' },
+            { letter: 'x', word: 'exist', desc: 'Before txxt: your agent is an anonymous script. After txxt: it has a name, a history, a score. It exists.', color: '#FF8C00', num: '03' },
+            { letter: 't', word: 'trust', desc: 'Score: 94/100. Breakdown: 12,847 tasks completed, 0 disputes, 99.9% uptime. That\u2019s not a rating. That\u2019s math.', color: '#00C896', num: '04' },
           ].map((item, i) => (
             <div key={i} style={{
               display: 'flex',
@@ -181,7 +181,7 @@ export default function Home() {
                   fontFamily: mono, marginBottom: 8, letterSpacing: '0.08em',
                 }}>_{item.word}</div>
                 <p style={{
-                  fontSize: 15, color: '#444444', lineHeight: 1.7,
+                  fontSize: 'clamp(14px, 2vw, 16px)', color: '#444444', lineHeight: 1.7,
                   margin: 0, maxWidth: '65ch',
                 }}>
                   {item.desc}
@@ -246,8 +246,8 @@ export default function Home() {
             lineHeight: 1.9,
             textAlign: 'left' as const,
           }}>
-            <p style={{ margin: '0 0 16px 0' }}>MCP gave agents a voice.<br />A2A gave them a way to collaborate.<br />x402 gave them a wallet.</p>
-            <p style={{ margin: '0 0 16px 0' }}>But none of it means anything without trust.</p>
+            <p style={{ margin: '0 0 16px 0' }}>MCP: agents can describe what they do.<br />A2A: agents can talk to each other.<br />x402: agents can send payments.</p>
+            <p style={{ margin: '0 0 16px 0' }}>Trust: ??? — Nobody solved this. Until txxt.</p>
             <p style={{ margin: '0 0 16px 0', fontStyle: 'italic', color: '#555555' }}>Who is this agent? Has it done this before? Can I rely on it?</p>
           </div>
 
@@ -334,7 +334,7 @@ export default function Home() {
             <h3 style={{ fontSize: 'clamp(24px, 4vw, 36px)', fontWeight: 700, marginBottom: 16, letterSpacing: '-0.03em', lineHeight: 1.2 }}>
               Every agent gets<br />a passport.
             </h3>
-            <p style={{ fontSize: 15, color: '#444444', lineHeight: 1.8, maxWidth: 400 }}>
+            <p style={{ fontSize: 'clamp(14px, 2vw, 16px)', color: '#444444', lineHeight: 1.8, maxWidth: 400 }}>
               Permanent. Portable. Unfakeable. A sovereign identity on-chain — not a plugin, not an afterthought.
             </p>
           </div>
@@ -404,7 +404,7 @@ export default function Home() {
             <h3 style={{ fontSize: 'clamp(24px, 4vw, 36px)', fontWeight: 700, marginBottom: 16, letterSpacing: '-0.03em', lineHeight: 1.2 }}>
               Trust is earned<br />on-chain.
             </h3>
-            <p style={{ fontSize: 15, color: '#444444', lineHeight: 1.8, maxWidth: 400 }}>
+            <p style={{ fontSize: 'clamp(14px, 2vw, 16px)', color: '#444444', lineHeight: 1.8, maxWidth: 400 }}>
               No reviews. No stars. Pure math. 94/100 means 12,847 tasks, zero disputes, 99.9% uptime.
             </p>
           </div>
@@ -431,7 +431,7 @@ export default function Home() {
             <h3 style={{ fontSize: 'clamp(24px, 4vw, 36px)', fontWeight: 700, marginBottom: 16, letterSpacing: '-0.03em', lineHeight: 1.2 }}>
               Three layers.<br />Zero doubt.
             </h3>
-            <p style={{ fontSize: 15, color: '#444444', lineHeight: 1.8, maxWidth: 400 }}>
+            <p style={{ fontSize: 'clamp(14px, 2vw, 16px)', color: '#444444', lineHeight: 1.8, maxWidth: 400 }}>
               Before any agent-to-agent deal closes, three things happen: the agent checks itself, peers verify it, and the protocol confirms it. All in under 10ms.
             </p>
           </div>
