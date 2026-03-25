@@ -203,7 +203,7 @@ export default function Home() {
         <div style={{
           flex: '0 0 50%',
           maxWidth: '50%',
-          padding: 'clamp(60px, 8vw, 100px) clamp(24px, 3vw, 48px) clamp(60px, 8vw, 100px) clamp(24px, 5vw, 80px)',
+          padding: 'clamp(40px, 5vw, 60px) clamp(24px, 3vw, 48px) clamp(40px, 5vw, 60px) clamp(24px, 5vw, 80px)',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
