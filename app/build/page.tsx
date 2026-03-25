@@ -215,6 +215,92 @@ export default function BuildPage() {
 
       <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(0,0,0,0.08), transparent)' }} />
 
+      {/* CLI & MCP */}
+      <section style={{ padding: 'clamp(80px, 10vw, 140px) 24px' }}>
+        <div style={{ maxWidth: 1300, margin: '0 auto' }}>
+          <div style={{ fontSize: 13, letterSpacing: '0.15em', color: '#FB923C', fontFamily: mono, marginBottom: 16, textTransform: 'uppercase' }}>
+            More Ways to Build
+          </div>
+          <h2 style={{ fontSize: 'clamp(32px, 5vw, 56px)', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.15, marginBottom: 64 }}>
+            CLI, MCP, or SDK —<br />pick your path.
+          </h2>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(400px, 100%), 1fr))', gap: 32 }}>
+            {/* CLI */}
+            <div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 16 }}>
+                <span style={{ fontSize: 13, fontWeight: 800, color: '#FB923C', fontFamily: mono }}>CLI</span>
+                <span style={{ fontSize: 12, color: '#888' }}>Terminal-first workflow</span>
+              </div>
+              <p style={{ fontSize: 'clamp(14px, 1.8vw, 16px)', color: '#555', lineHeight: 1.75, marginBottom: 24, maxWidth: 480 }}>
+                Deploy agents, send payments, and manage identity directly from your terminal. The fastest path from idea to production.
+              </p>
+              <div style={{ borderRadius: 12, border: '1px solid rgba(255,255,255,0.08)', background: '#0A0C1E', overflow: 'hidden' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 6, padding: '10px 14px', borderBottom: '1px solid rgba(255,255,255,0.06)', background: 'rgba(255,255,255,0.03)' }}>
+                  {['#ff5f57','#febc2e','#28c840'].map(c => <div key={c} style={{ width: 10, height: 10, borderRadius: '50%', background: c }} />)}
+                  <span style={{ fontSize: 10, color: 'rgba(255,255,255,0.45)', fontFamily: mono, marginLeft: 8 }}>terminal</span>
+                </div>
+                <pre style={{ padding: '20px', fontSize: 12, fontFamily: mono, lineHeight: 1.9, color: 'rgba(255,255,255,0.85)', margin: 0, overflowX: 'auto' }}>
+                  <code>{`# Install the CLI
+$ npm install -g @txxt/cli
+
+# Register an agent
+$ txxt register --name "MyAgent" \\
+    --capabilities search,summarize
+
+# Send a payment
+$ txxt pay 0x7f3a... 0.01 USDC
+
+# Check agent identity
+$ txxt identity 0x7f3a...
+
+# Deploy to mainnet
+$ txxt deploy ./my-agent --network mainnet`}</code>
+                </pre>
+              </div>
+            </div>
+
+            {/* MCP */}
+            <div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 16 }}>
+                <span style={{ fontSize: 13, fontWeight: 800, color: '#FF6B35', fontFamily: mono }}>MCP</span>
+                <span style={{ fontSize: 12, color: '#888' }}>AI-native integration</span>
+              </div>
+              <p style={{ fontSize: 'clamp(14px, 1.8vw, 16px)', color: '#555', lineHeight: 1.75, marginBottom: 24, maxWidth: 480 }}>
+                Connect Claude, GPT, or any MCP-compatible AI directly to txxt. Your AI assistant becomes an agent operator — no code required.
+              </p>
+              <div style={{ borderRadius: 12, border: '1px solid rgba(255,255,255,0.08)', background: '#0A0C1E', overflow: 'hidden' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 6, padding: '10px 14px', borderBottom: '1px solid rgba(255,255,255,0.06)', background: 'rgba(255,255,255,0.03)' }}>
+                  {['#ff5f57','#febc2e','#28c840'].map(c => <div key={c} style={{ width: 10, height: 10, borderRadius: '50%', background: c }} />)}
+                  <span style={{ fontSize: 10, color: 'rgba(255,255,255,0.45)', fontFamily: mono, marginLeft: 8 }}>mcp-server.json</span>
+                </div>
+                <pre style={{ padding: '20px', fontSize: 12, fontFamily: mono, lineHeight: 1.9, color: 'rgba(255,255,255,0.85)', margin: 0, overflowX: 'auto' }}>
+                  <code>{`{
+  "mcpServers": {
+    "txxt": {
+      "command": "npx",
+      "args": ["@txxt/mcp-server"],
+      "env": {
+        "TXXT_NETWORK": "mainnet",
+        "TXXT_WALLET": "0x1a2b...3c4d"
+      }
+    }
+  }
+}
+
+// Now your AI can:
+// "Register an agent called TravelBot"
+// "Pay 0.01 USDC to agent 0x7f3a..."
+// "Check the reputation of FlightSearch"`}</code>
+                </pre>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(0,0,0,0.08), transparent)' }} />
+
       {/* What You'll Build */}
       <section style={{ padding: 'clamp(80px, 10vw, 140px) 24px', background: '#F7F7F7' }}>
         <div style={{ maxWidth: 760, margin: '0 auto' }}>

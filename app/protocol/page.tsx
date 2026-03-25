@@ -249,6 +249,45 @@ export default function ProtocolPage() {
 
       <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(0,0,0,0.08), transparent)' }} />
 
+      {/* Agent Standards */}
+      <section style={{ padding: 'clamp(64px, 8vw, 96px) 16px' }}>
+        <div style={{ maxWidth: 760, margin: '0 auto' }}>
+          <div style={{ fontSize: 13, letterSpacing: '0.15em', color: '#5B4FFF', fontFamily: mono, marginBottom: 24, textTransform: 'uppercase' as const }}>
+            Interoperability
+          </div>
+          <h2 style={{ fontSize: 'clamp(28px, 4vw, 44px)', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.15, marginBottom: 16 }}>
+            Works with every<br />agent standard.
+          </h2>
+          <p style={{ fontSize: 'clamp(14px, 1.8vw, 17px)', color: '#555555', lineHeight: 1.8, marginBottom: 40, maxWidth: 560 }}>
+            txxt isn&apos;t locked to one framework. Whether agents connect via MCP (Anthropic), A2A (Google), ACP, REST API, CLI, or the native SDK — txxt is the settlement layer underneath.
+          </p>
+          <div style={{ display: 'flex', flexWrap: 'wrap' as const, gap: 10 }}>
+            {[
+              { label: 'MCP', color: '#FF6B35' },
+              { label: 'A2A', color: '#4285F4' },
+              { label: 'ACP', color: '#10A37F' },
+              { label: 'CLI', color: '#FB923C' },
+              { label: 'SDK', color: '#5B4FFF' },
+              { label: 'REST API', color: '#FF3366' },
+              { label: 'x402', color: '#00C896' },
+              { label: 'ERC-8004', color: '#5B4FFF' },
+            ].map((item) => (
+              <span key={item.label} style={{
+                fontSize: 13, fontFamily: mono, fontWeight: 700,
+                padding: '8px 16px', borderRadius: 8,
+                background: `${item.color}0A`,
+                border: `1px solid ${item.color}22`,
+                color: item.color,
+              }}>
+                {item.label}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(0,0,0,0.08), transparent)' }} />
+
       {/* CTA */}
       <section style={{ padding: 'clamp(64px, 8vw, 96px) 16px', textAlign: 'center' }}>
         <div style={{ maxWidth: 480, margin: '0 auto' }}>

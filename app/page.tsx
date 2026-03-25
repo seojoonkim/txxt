@@ -610,6 +610,109 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ===== INTEGRATIONS ===== */}
+      <section style={{ background: '#FFFFFF', padding: 'clamp(80px, 10vw, 140px) 24px' }}>
+        <div style={{ maxWidth: 1300, margin: '0 auto' }}>
+          {/* Eyebrow */}
+          <p style={{ fontSize: 12, letterSpacing: '0.12em', fontWeight: 700, color: '#5B4FFF', fontFamily: mono, marginBottom: 16, textTransform: 'uppercase' }}>
+            INTEGRATIONS
+          </p>
+          <h2 style={{ fontSize: 'clamp(32px, 5vw, 56px)', fontWeight: 800, letterSpacing: '-0.03em', lineHeight: 1.1, marginBottom: 16 }}>
+            txxt speaks every<br />agent language.
+          </h2>
+          <p style={{ fontSize: 'clamp(15px, 1.8vw, 18px)', color: '#444', lineHeight: 1.75, maxWidth: 600, marginBottom: 64 }}>
+            Whether you&apos;re building with MCP, A2A, CLI, or raw SDK — txxt is the settlement layer underneath. One chain. Every protocol.
+          </p>
+
+          {/* 연동 다이어그램 — 중앙 txxt 허브 + 주변 프로토콜 */}
+          <div style={{ position: 'relative', maxWidth: 700, margin: '0 auto 64px', aspectRatio: '1', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            {/* 중앙 txxt 노드 */}
+            <div style={{
+              position: 'absolute', zIndex: 2,
+              width: 120, height: 120, borderRadius: '50%',
+              background: '#00C896', display: 'flex', alignItems: 'center', justifyContent: 'center',
+              boxShadow: '0 0 40px rgba(0,200,150,0.3)',
+            }}>
+              <span style={{ fontSize: 24, fontWeight: 900, color: '#fff', fontFamily: mono }}>txxt</span>
+            </div>
+
+            {/* 주변 프로토콜 노드 8개 */}
+            {[
+              { label: 'MCP', color: '#FF6B35', angle: 0, desc: 'Anthropic' },
+              { label: 'A2A', color: '#4285F4', angle: 45, desc: 'Google' },
+              { label: 'ACP', color: '#10A37F', angle: 90, desc: 'OpenAI' },
+              { label: 'x402', color: '#00C896', angle: 135, desc: 'Payments' },
+              { label: 'SDK', color: '#5B4FFF', angle: 180, desc: '@txxt/sdk' },
+              { label: 'CLI', color: '#FB923C', angle: 225, desc: 'Terminal' },
+              { label: 'REST', color: '#FF3366', angle: 270, desc: 'Universal' },
+              { label: 'ERC-8004', color: '#5B4FFF', angle: 315, desc: 'Identity' },
+            ].map(({ label, color, angle, desc }) => {
+              const rad = (angle * Math.PI) / 180;
+              const r = 260;
+              const x = 50 + (r / 7) * Math.cos(rad);
+              const y = 50 + (r / 7) * Math.sin(rad);
+              return (
+                <div key={label} style={{
+                  position: 'absolute',
+                  left: `${x}%`, top: `${y}%`,
+                  transform: 'translate(-50%, -50%)',
+                  textAlign: 'center',
+                }}>
+                  <div style={{
+                    width: 72, height: 72, borderRadius: '50%',
+                    background: '#fff', border: `2px solid ${color}`,
+                    display: 'flex', flexDirection: 'column' as const, alignItems: 'center', justifyContent: 'center',
+                    boxShadow: `0 4px 16px ${color}22`,
+                  }}>
+                    <span style={{ fontSize: 11, fontWeight: 700, color, fontFamily: mono }}>{label}</span>
+                    <span style={{ fontSize: 9, color: '#888', marginTop: 2 }}>{desc}</span>
+                  </div>
+                </div>
+              );
+            })}
+
+            {/* 연결선 SVG */}
+            <svg style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', zIndex: 1 }} viewBox="0 0 100 100">
+              {[0, 45, 90, 135, 180, 225, 270, 315].map((angle) => {
+                const rad = (angle * Math.PI) / 180;
+                const r = 37;
+                const x2 = 50 + r * Math.cos(rad);
+                const y2 = 50 + r * Math.sin(rad);
+                return (
+                  <line key={angle} x1="50" y1="50" x2={x2} y2={y2}
+                    stroke="rgba(0,200,150,0.2)" strokeWidth="0.5" strokeDasharray="2,2" />
+                );
+              })}
+            </svg>
+          </div>
+
+          {/* 프로토콜 설명 그리드 */}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 16 }}>
+            {[
+              { label: 'MCP', fullName: 'Model Context Protocol', by: 'Anthropic', desc: 'AI assistants like Claude connect directly to txxt as a tool. Register agents, send payments, verify identity — all from natural language.', color: '#FF6B35' },
+              { label: 'A2A', fullName: 'Agent-to-Agent Protocol', by: 'Google', desc: 'Agents discover and communicate with other agents on txxt. Native handshakes, capability negotiation, and task delegation.', color: '#4285F4' },
+              { label: 'CLI', fullName: 'Command Line Interface', by: 'txxt', desc: 'Deploy and manage agents from your terminal. txxt register, txxt pay, txxt identity — the fastest path from idea to deployed agent.', color: '#FB923C' },
+              { label: 'SDK', fullName: '@txxt/sdk', by: 'txxt', desc: 'TypeScript-first SDK with full x402 and ERC-8004 support. One package. Every protocol. Python SDK coming Q2.', color: '#5B4FFF' },
+              { label: 'REST', fullName: 'Universal REST API', by: 'txxt', desc: 'HTTP endpoints for any language or platform. If you can make an HTTP request, you can build on txxt.', color: '#FF3366' },
+              { label: 'x402 + ERC-8004', fullName: 'Native L1 Protocols', by: 'Built-in', desc: 'Not an add-on. Not a smart contract. Payment and identity live at the protocol layer — atomic, instant, permanent.', color: '#00C896' },
+            ].map((item) => (
+              <div key={item.label} style={{
+                padding: 28, borderRadius: 16,
+                background: '#F8F8F8',
+                border: '1px solid rgba(0,0,0,0.06)',
+              }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 12 }}>
+                  <span style={{ fontSize: 13, fontWeight: 800, color: item.color, fontFamily: mono }}>{item.label}</span>
+                  <span style={{ fontSize: 11, color: '#888', letterSpacing: '0.05em' }}>{item.by}</span>
+                </div>
+                <div style={{ fontSize: 13, fontWeight: 600, color: '#0D0D0D', marginBottom: 8 }}>{item.fullName}</div>
+                <p style={{ fontSize: 14, color: '#555', lineHeight: 1.7, margin: 0 }}>{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ===== AGENTSCRIPT — Code showcase ===== */}
       <section style={{ background: '#F8F8F8', borderTop: '1px solid rgba(0,0,0,0.06)' }}>
         <div style={{ maxWidth: 1300, margin: '0 auto', padding: 'clamp(100px, 12vh, 160px) 24px' }}>
