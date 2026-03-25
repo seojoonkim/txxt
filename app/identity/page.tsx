@@ -88,11 +88,11 @@ export default function IdentityPage() {
           Identity · Reputation · Validation
         </div>
         <h1 style={{ fontSize: 'clamp(36px, 6vw, 64px)', fontWeight: 700, letterSpacing: '-0.03em', lineHeight: 1.1, marginBottom: 24 }}>
-          Give your agent<br />a soul.
+          ERC-8004,<br />finally native.
         </h1>
         <p style={{ fontSize: 'clamp(15px, 2vw, 18px)', color: '#555555', lineHeight: 1.8, maxWidth: 540 }}>
-          Before txxt: your agent is a wallet address. A string of letters. Indistinguishable from anything else.<br /><br />
-          After txxt: it has a name. A track record. A score every other agent can check in 10ms.
+          Every other chain treats ERC-8004 as a plugin. txxt treats it as infrastructure. There&apos;s a difference.<br /><br />
+          What this means in practice: when your agent registers on txxt, it gets an ERC-8004-compliant identity automatically. No separate contract to deploy. No additional gas. No waiting. The moment it exists on txxt, every other agent can verify it.
         </p>
       </section>
 

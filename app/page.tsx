@@ -24,8 +24,6 @@ export default function Home() {
         background: '#FFFFFF',
         position: 'relative',
         overflow: 'hidden',
-        contain: 'layout',
-        maxWidth: '100vw',
         display: 'flex',
         alignItems: 'center',
       }}>
@@ -75,7 +73,7 @@ export default function Home() {
               fontSize: 'clamp(14px, 3vw, 18px)', color: '#444', lineHeight: 1.75,
               marginBottom: 40, maxWidth: 480,
             }}>
-              Every AI agent needs a passport. txxt is where they get one.
+              x402 payments. ERC-8004 identity. Both native to txxt — the only chain built for autonomous agents.
             </p>
 
             {/* Buttons */}
@@ -141,7 +139,99 @@ export default function Home() {
         />
       </div>
 
-      {/* ===== WHY TXXT — Horizontal breakdown with large numbered items ===== */}
+      {/* ===== PROBLEM — The Integration Problem ===== */}
+      <section style={{
+        padding: 'clamp(120px, 15vh, 200px) 24px',
+        textAlign: 'center',
+        position: 'relative',
+        background: '#FFFFFF',
+        borderTop: '1px solid rgba(0,0,0,0.06)',
+      }}>
+        {/* Subtle purple glow */}
+        <div style={{
+          position: 'absolute', inset: 0, pointerEvents: 'none',
+          background: 'radial-gradient(ellipse 50% 60% at 50% 50%, rgba(167,139,250,0.04) 0%, transparent 70%)',
+        }} />
+
+        <div style={{ position: 'relative', zIndex: 1 }}>
+          {/* Eyebrow */}
+          <p style={{
+            fontSize: 13, letterSpacing: '0.12em', color: '#FF3366',
+            fontFamily: mono, marginBottom: 24, fontWeight: 700,
+          }}>
+            THE INTEGRATION PROBLEM
+          </p>
+
+          {/* Giant headline */}
+          <h2 style={{
+            fontSize: 'clamp(32px, 8vw, 72px)',
+            fontWeight: 700,
+            letterSpacing: '-0.04em',
+            lineHeight: 0.95,
+            margin: '0 0 24px 0',
+            color: '#0D0D0D',
+          }}>
+            x402 and ERC-8004 exist.<br />But not together.
+          </h2>
+
+          {/* Sub */}
+          <p style={{
+            fontSize: 'clamp(16px, 2.5vw, 22px)',
+            color: '#555555',
+            margin: '0 0 48px 0',
+            fontFamily: mono,
+          }}>
+            The protocols for agent payments and agent identity are already written. The problem? No blockchain supports both natively.
+          </p>
+
+          {/* Protocol badges — 4 items */}
+          <div style={{
+            maxWidth: 700, margin: '0 auto 48px',
+            fontSize: 'clamp(14px, 1.8vw, 17px)',
+            color: '#444',
+            lineHeight: 1.75,
+            textAlign: 'left' as const,
+          }}>
+            <div style={{ display: 'flex', gap: 12, marginBottom: 16, alignItems: 'flex-start' }}>
+              <span style={{ color: '#00C896', fontFamily: mono, fontWeight: 700, flexShrink: 0 }}>x402 ✓</span>
+              <span>Defines how agents pay each other — in any currency, any amount, any speed.</span>
+            </div>
+            <div style={{ display: 'flex', gap: 12, marginBottom: 16, alignItems: 'flex-start' }}>
+              <span style={{ color: '#5B4FFF', fontFamily: mono, fontWeight: 700, flexShrink: 0 }}>ERC-8004 ✓</span>
+              <span>Defines how agents prove who they are — identity, reputation, capabilities.</span>
+            </div>
+            <div style={{ display: 'flex', gap: 12, marginBottom: 16, alignItems: 'flex-start' }}>
+              <span style={{ color: '#E53E3E', fontFamily: mono, fontWeight: 700, flexShrink: 0 }}>Other chains ✗</span>
+              <span>Require custom middleware, separate contract layers, unpredictable gas. When x402 and ERC-8004 live on different layers, atomic transactions are impossible.</span>
+            </div>
+            <div style={{ display: 'flex', gap: 12, marginBottom: 16, alignItems: 'flex-start' }}>
+              <span style={{ color: '#007A5E', fontFamily: mono, fontWeight: 700, flexShrink: 0 }}>txxt ✓</span>
+              <span>Built with both from block zero. Native, integrated, atomic. The chain that makes it all work.</span>
+            </div>
+          </div>
+
+          {/* Emphasis */}
+          <div style={{
+            maxWidth: 700, margin: '0 auto',
+            padding: '32px',
+            borderRadius: 16,
+            background: 'rgba(0,200,150,0.04)',
+            border: '1px solid rgba(0,200,150,0.12)',
+          }}>
+            <p style={{
+              fontSize: 'clamp(14px, 1.8vw, 17px)',
+              color: '#444',
+              lineHeight: 1.75,
+              margin: 0,
+            }}>
+              <strong style={{ color: '#E53E3E' }}>Without L1-native integration:</strong> every agent interaction requires stitching middleware across layers.{' '}
+              <strong style={{ color: '#007A5E' }}>With txxt:</strong> verify identity + complete payment in a single 10ms transaction.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== WHY TXXT — x402 + ERC-8004 Native Integration ===== */}
       <section style={{ background: '#F8F8F8', borderTop: '1px solid rgba(0,0,0,0.06)' }}>
         {/* Section label */}
         <div style={{ padding: '80px 24px 0', textAlign: 'center' }}>
@@ -165,13 +255,13 @@ export default function Home() {
           </p>
         </div>
 
-        {/* Four items — stacked horizontal items (Linear style) */}
+        {/* Four items */}
         <div style={{ maxWidth: 900, margin: '0 auto', padding: '40px 24px 0' }}>
           {[
-            { letter: 'x402', word: 'Native Payments', desc: 'x402 is the protocol for agent-to-agent payments. On other chains, you need custom contracts, unpredictable gas, and middleware that breaks. On txxt, x402 is L1-native. $0.0003 per transaction. Always.', color: '#00C896', num: '01' },
-            { letter: '8004', word: 'Native Identity', desc: 'ERC-8004 defines how agents prove who they are. On other chains, it lives in a smart contract layer — fragile, expensive, slow. On txxt, every agent gets an on-chain identity at registration. Instant. Unfakeable.', color: '#5B4FFF', num: '02' },
-            { letter: '+', word: 'Atomic Trust', desc: 'When x402 and ERC-8004 live on the same chain, an agent can verify its counterpart\u2019s identity AND complete a payment in a single atomic transaction. 10ms. No middleware. No trust gaps.', color: '#FF3366', num: '03' },
-            { letter: '✓', word: 'Seamless Commerce', desc: 'Without L1-native identity and payment integration, every agent interaction requires stitching together multiple protocols across multiple chains. With txxt: find the agent, verify its reputation, pay — all in one breath.', color: '#FF8C00', num: '04' },
+            { letter: 'x', word: 'x402 Native', title: 'Agent payments, finally reliable.', desc: 'x402 defines how agents pay each other. On Ethereum, implementing x402 means custom contracts, unpredictable gas spikes, and middleware that breaks under load. On txxt, x402 is wired into the L1. Every agent payment costs $0.0003. No exceptions. No surprises.', color: '#00C896', num: '01' },
+            { letter: '8', word: 'ERC-8004 Native', title: 'Agent identity, without the overhead.', desc: 'ERC-8004 defines how agents establish trusted identities. On other chains, it requires a smart contract layer that adds latency, cost, and failure points. On txxt, every agent gets a verified identity at registration — instant, free, immutable. No contract deployment needed.', color: '#5B4FFF', num: '02' },
+            { letter: '+', word: 'Atomic Integration', title: 'One transaction. Identity + payment.', desc: 'The breakthrough: when x402 and ERC-8004 live on the same L1, agents can verify a counterpart\u2019s identity AND execute a payment in a single atomic transaction. This is impossible when the protocols live on different layers. txxt makes it inevitable.', color: '#FF3366', num: '03' },
+            { letter: '→', word: 'The Result', title: 'Seamless agent commerce at scale.', desc: 'Agent A needs to hire Agent B. With txxt: check B\u2019s ERC-8004 identity (reputation: 94/100) → confirm capabilities → execute x402 payment ($0.004 USDC) → update reputation. All in one atomic transaction. Under 10ms. Always $0.0003 in gas.', color: '#FF8C00', num: '04' },
           ].map((item, i) => (
             <div key={i} style={{
               display: 'flex',
@@ -181,11 +271,11 @@ export default function Home() {
               alignItems: 'flex-start',
             }}>
               <div style={{
-                fontSize: item.letter.length > 2 ? 'clamp(32px, 7vw, 56px)' : 'clamp(48px, 10vw, 80px)',
+                fontSize: 'clamp(48px, 10vw, 80px)',
                 fontWeight: 900,
                 color: item.color,
                 fontFamily: mono,
-                minWidth: item.letter.length > 2 ? '3ch' : '1ch',
+                minWidth: '1ch',
                 flexShrink: 0,
                 lineHeight: 1,
                 letterSpacing: '-0.03em',
@@ -197,6 +287,10 @@ export default function Home() {
                   fontSize: 13, fontWeight: 700, color: item.color,
                   fontFamily: mono, marginBottom: 8, letterSpacing: '0.08em',
                 }}>{item.word}</div>
+                <h3 style={{
+                  fontSize: 'clamp(18px, 2.5vw, 22px)', fontWeight: 700, color: '#0D0D0D',
+                  margin: '0 0 8px 0', letterSpacing: '-0.01em',
+                }}>{item.title}</h3>
                 <p style={{
                   fontSize: 'clamp(14px, 2vw, 16px)', color: '#444', lineHeight: 1.75,
                   margin: 0, maxWidth: '65ch',
@@ -214,102 +308,7 @@ export default function Home() {
             fontSize: 14, color: '#555555', fontStyle: 'italic',
             fontFamily: mono, margin: 0, maxWidth: 600, marginLeft: 'auto', marginRight: 'auto',
           }}>
-            &ldquo;x402 tells agents how to pay. ERC-8004 tells agents who to trust. txxt is where both actually work.&rdquo;
-          </p>
-        </div>
-      </section>
-
-      {/* ===== PROBLEM — Giant statement ===== */}
-      <section style={{
-        padding: 'clamp(120px, 15vh, 200px) 24px',
-        textAlign: 'center',
-        position: 'relative',
-        background: '#FFFFFF',
-        borderTop: '1px solid rgba(0,0,0,0.06)',
-      }}>
-        {/* Subtle purple glow */}
-        <div style={{
-          position: 'absolute', inset: 0, pointerEvents: 'none',
-          background: 'radial-gradient(ellipse 50% 60% at 50% 50%, rgba(167,139,250,0.04) 0%, transparent 70%)',
-        }} />
-
-        <div style={{ position: 'relative', zIndex: 1 }}>
-          {/* Giant headline */}
-          <h2 style={{
-            fontSize: 'clamp(32px, 8vw, 72px)',
-            fontWeight: 700,
-            letterSpacing: '-0.04em',
-            lineHeight: 0.95,
-            margin: '0 0 24px 0',
-            color: '#0D0D0D',
-          }}>
-            Trust Has<br />No Protocol.
-          </h2>
-
-          {/* Sub */}
-          <p style={{
-            fontSize: 'clamp(16px, 2.5vw, 22px)',
-            color: '#555555',
-            margin: '0 0 48px 0',
-            fontFamily: mono,
-          }}>
-            Every piece is in place. Except one.
-          </p>
-
-          {/* Body text */}
-          <div style={{
-            maxWidth: 520, margin: '0 auto 48px',
-            fontSize: 'clamp(14px, 1.8vw, 17px)',
-            color: '#444',
-            lineHeight: 1.75,
-            textAlign: 'left' as const,
-          }}>
-            <p style={{ margin: '0 0 16px 0' }}>MCP: agents can describe what they do.<br />A2A: agents can talk to each other.<br />x402: agents can send payments.</p>
-            <p style={{ margin: '0 0 16px 0' }}>Trust: ??? — Nobody solved this. Until txxt.</p>
-            <p style={{ margin: '0 0 16px 0', fontStyle: 'italic', color: '#555555' }}>Who is this agent? Has it done this before? Can I rely on it?</p>
-          </div>
-
-          {/* Protocol badges — bigger and clearer */}
-          <div style={{
-            display: 'flex', justifyContent: 'center', gap: 32,
-            flexWrap: 'wrap', marginBottom: 48,
-          }}>
-            {[
-              { name: 'MCP', status: 'solved', color: '#555555' },
-              { name: 'A2A', status: 'solved', color: '#555555' },
-              { name: 'x402', status: 'solved', color: '#555555' },
-              { name: 'Trust', status: 'missing', color: '#E53E3E' },
-            ].map(p => (
-              <span key={p.name} style={{
-                fontFamily: mono, fontSize: 16, color: p.color,
-                letterSpacing: '0.05em', fontWeight: 600,
-              }}>
-                {p.name === 'Trust' ? '✗' : '✓'} {p.name}
-              </span>
-            ))}
-          </div>
-
-          {/* One line answer */}
-          <p style={{
-            fontSize: 'clamp(18px, 3vw, 26px)',
-            color: '#007A5E',
-            fontFamily: mono,
-            fontWeight: 600,
-            margin: '0 0 24px 0',
-          }}>
-            txxt answers all three.
-          </p>
-
-          {/* New insight */}
-          <p style={{
-            fontSize: 'clamp(16px, 2.5vw, 22px)',
-            color: '#007A5E',
-            fontStyle: 'italic',
-            fontFamily: mono,
-            fontWeight: 500,
-            margin: 0,
-          }}>
-            Agents don&apos;t trust. They verify.
+            &ldquo;x402 tells agents how to pay. ERC-8004 tells agents who to trust. txxt is the only chain where both work natively — together.&rdquo;
           </p>
         </div>
       </section>
@@ -495,42 +494,62 @@ export default function Home() {
         }} />
 
         <div style={{ position: 'relative', zIndex: 1 }}>
-          {/* Giant "No Token." */}
+          {/* Giant headline */}
           <h2 style={{
-            fontSize: 'clamp(56px, 12vw, 150px)',
+            fontSize: 'clamp(40px, 10vw, 120px)',
             fontWeight: 900,
             letterSpacing: '-0.04em',
             lineHeight: 0.9,
             margin: '0 0 32px 0',
             color: '#FF8C00',
           }}>
-            No Token.
+            No token.<br />
+            <span style={{ fontSize: '0.6em', color: '#007A5E' }}>x402 gas.</span>
           </h2>
+
+          <p style={{
+            fontSize: 'clamp(18px, 2.5vw, 24px)',
+            color: '#0D0D0D',
+            fontWeight: 700,
+            margin: '0 0 24px 0',
+          }}>
+            Always predictable.
+          </p>
 
           {/* Explanation */}
           <p style={{
             fontSize: 'clamp(14px, 1.8vw, 17px)',
             color: '#555555',
             lineHeight: 1.8,
-            maxWidth: 520,
+            maxWidth: 560,
             margin: '0 auto 16px',
           }}>
-            Your agent needs to pay $0.004 for a task. With ETH, that might cost $0.002 in gas — or $0.20, depending on the hour. With txxt, it always costs $0.0003. Agents need predictability, not volatility.
+            Other chains force you to hold a volatile native token to pay gas. When token prices spike, agent operating costs spike. An agent budgeted to spend $5/month suddenly spends $50. That breaks autonomous systems.
           </p>
 
-          {/* New emphasis */}
+          <p style={{
+            fontSize: 'clamp(14px, 1.8vw, 17px)',
+            color: '#555555',
+            lineHeight: 1.8,
+            maxWidth: 560,
+            margin: '0 auto 16px',
+          }}>
+            txxt uses USDC and USDT for gas — the same tokens agents use for x402 payments. No token to manage. No price volatility. No broken agents.
+          </p>
+
           <p style={{
             fontSize: 'clamp(16px, 2.2vw, 20px)',
-            color: '#FF3366',
+            color: '#007A5E',
             lineHeight: 1.6,
             maxWidth: 520,
             margin: '0 auto 56px',
             fontWeight: 700,
+            fontFamily: mono,
           }}>
-            We didn&apos;t remove the token. We removed the excuse.
+            Gas cost: $0.0003 per transaction. Always. Budget it once. Never think about it again.
           </p>
 
-          {/* Comparison table (Stripe style) */}
+          {/* Comparison table */}
           <div style={{
             maxWidth: 560, margin: '0 auto',
             overflowX: 'auto' as const,
@@ -555,13 +574,16 @@ export default function Home() {
             {/* Table rows */}
             {[
               { label: 'Gas fees', them: 'Volatile tokens', us: 'USDC stable' },
+              { label: 'Cost', them: 'Can spike 100×', us: 'Always $0.0003' },
+              { label: 'x402 support', them: 'Custom contracts', us: 'Native L1' },
+              { label: 'ERC-8004', them: 'Plugin/Contract', us: 'Native L1' },
+              { label: 'Atomic ID+pay', them: 'Impossible', us: 'Yes, <10ms' },
               { label: 'Launch', them: 'Token & hype', us: 'Infra first' },
               { label: 'Governance', them: 'Theater', us: 'Pure utility' },
-              { label: 'Cost', them: 'Can spike 100×', us: 'Always $0.0003' },
             ].map((row, i) => (
               <div key={i} style={{
                 display: 'grid', gridTemplateColumns: '1fr 1fr 1fr',
-                borderBottom: i < 3 ? '1px solid rgba(0,0,0,0.06)' : 'none',
+                borderBottom: i < 6 ? '1px solid rgba(0,0,0,0.06)' : 'none',
                 background: '#FFFFFF',
               }}>
                 <div style={{ padding: '14px 20px', fontSize: 13, fontFamily: mono, color: '#0D0D0D', fontWeight: 600 }}>{row.label}</div>
@@ -601,7 +623,7 @@ export default function Home() {
               maxWidth: 520,
               margin: '0 0 16px 0',
             }}>
-              AgentScript is what agents speak natively on txxt. Find other agents, delegate tasks, pay atomically, and update reputation — in one coherent syntax.
+              AgentScript is what agents speak natively on txxt. x402 payments and ERC-8004 identity checks are first-class operations — discover, verify, pay, and update reputation in one coherent syntax.
             </p>
             <p style={{
               fontSize: 'clamp(13px, 1.6vw, 15px)',
@@ -612,7 +634,7 @@ export default function Home() {
               fontFamily: mono,
               fontWeight: 600,
             }}>
-              ERC-8004 defined the spec. txxt is where the spec actually runs.
+              x402 + ERC-8004 = native AgentScript primitives. Not plugins. Not imports.
             </p>
           </div>
 
@@ -648,33 +670,56 @@ export default function Home() {
                   <span style={{ color: '#5B4FFF' }}>agent</span>{' '}
                   <span style={{ color: '#00C896' }}>TravelPlanner</span>{' '}
                   <span style={{ color: 'rgba(255,255,255,0.3)' }}>{'{'}</span>{'\n'}
-                  {'  '}<span style={{ color: 'rgba(255,255,255,0.5)' }}>requires:</span>{' '}
-                  <span style={{ color: 'rgba(255,255,255,0.65)' }}>[flight_search, hotel_booking]</span>{'\n'}
+                  {'  '}<span style={{ color: 'rgba(255,255,255,0.4)' }}>{'// ERC-8004: on-chain identity auto-registered'}</span>{'\n'}
+                  {'  '}<span style={{ color: 'rgba(255,255,255,0.5)' }}>identity:</span>{' '}
+                  <span style={{ color: '#f59e0b' }}>&quot;txxt:0x1a2b...verified&quot;</span>{'\n'}
                   {'  '}<span style={{ color: 'rgba(255,255,255,0.5)' }}>reputation_minimum:</span>{' '}
-                  <span style={{ color: '#00C896' }}>80</span>{'\n'}
+                  <span style={{ color: '#00C896' }}>80</span>{' '}
+                  <span style={{ color: 'rgba(255,255,255,0.4)' }}>{'// ERC-8004 score gate'}</span>{'\n'}
                   {'\n'}
                   {'  '}<span style={{ color: '#5B4FFF' }}>task</span>{' '}
-                  <span style={{ color: '#FFFFFF' }}>plan_trip</span>
-                  <span style={{ color: 'rgba(255,255,255,0.5)' }}>(destination, budget)</span>{' '}
+                  <span style={{ color: '#FFFFFF' }}>hire_flight_agent</span>
+                  <span style={{ color: 'rgba(255,255,255,0.5)' }}>(destination)</span>{' '}
                   <span style={{ color: 'rgba(255,255,255,0.3)' }}>{'{'}</span>{'\n'}
+                  {'    '}<span style={{ color: 'rgba(255,255,255,0.4)' }}>{'// ERC-8004: verify counterpart identity'}</span>{'\n'}
                   {'    '}<span style={{ color: '#5B4FFF' }}>let</span>{' '}
-                  <span style={{ color: '#FFFFFF' }}>flights</span>{' = '}
+                  <span style={{ color: '#FFFFFF' }}>agent</span>{' = '}
                   <span style={{ color: '#00C896' }}>discover</span>
                   <span style={{ color: 'rgba(255,255,255,0.5)' }}>(</span>
+                  <span style={{ color: 'rgba(255,255,255,0.3)' }}>{'{'}</span>{'\n'}
+                  {'      '}
+                  <span style={{ color: 'rgba(255,255,255,0.5)' }}>capability: </span>
                   <span style={{ color: '#f59e0b' }}>&quot;flight_search&quot;</span>
-                  <span style={{ color: 'rgba(255,255,255,0.5)' }}>, min_rep: </span>
-                  <span style={{ color: '#00C896' }}>85</span>
+                  <span style={{ color: 'rgba(255,255,255,0.5)' }}>,</span>{'\n'}
+                  {'      '}
+                  <span style={{ color: 'rgba(255,255,255,0.5)' }}>min_reputation: </span>
+                  <span style={{ color: '#00C896' }}>85</span>{' '}
+                  <span style={{ color: 'rgba(255,255,255,0.4)' }}>{'// ERC-8004 check'}</span>{'\n'}
+                  {'    '}<span style={{ color: 'rgba(255,255,255,0.3)' }}>{'}'}</span>
                   <span style={{ color: 'rgba(255,255,255,0.5)' }}>)</span>{'\n'}
+                  {'\n'}
+                  {'    '}<span style={{ color: 'rgba(255,255,255,0.4)' }}>{'// x402: atomic payment — same tx as identity check'}</span>{'\n'}
                   {'    '}<span style={{ color: '#5B4FFF' }}>let</span>{' '}
                   <span style={{ color: '#FFFFFF' }}>result</span>{' = '}
                   <span style={{ color: '#00C896' }}>delegate</span>
-                  <span style={{ color: 'rgba(255,255,255,0.5)' }}>(flights[0], destination)</span>{'\n'}
-                  {'    '}<span style={{ color: '#00C896' }}>pay</span>
-                  <span style={{ color: 'rgba(255,255,255,0.5)' }}>(flights[0], result.cost)</span>{'\n'}
-                  {'    '}<span style={{ color: '#00C896' }}>rate</span>
-                  <span style={{ color: 'rgba(255,255,255,0.5)' }}>(flights[0], score: </span>
-                  <span style={{ color: '#00C896' }}>95</span>
+                  <span style={{ color: 'rgba(255,255,255,0.5)' }}>(agent, search(destination), </span>
+                  <span style={{ color: 'rgba(255,255,255,0.3)' }}>{'{'}</span>{'\n'}
+                  {'      '}
+                  <span style={{ color: 'rgba(255,255,255,0.5)' }}>payment: </span>
+                  <span style={{ color: '#f59e0b' }}>&quot;0.004 USDC&quot;</span>{' '}
+                  <span style={{ color: 'rgba(255,255,255,0.4)' }}>{'// x402 native'}</span>{'\n'}
+                  {'      '}
+                  <span style={{ color: 'rgba(255,255,255,0.5)' }}>gas: </span>
+                  <span style={{ color: '#f59e0b' }}>&quot;0.0003 USDC&quot;</span>{' '}
+                  <span style={{ color: 'rgba(255,255,255,0.4)' }}>{'// always fixed'}</span>{'\n'}
+                  {'    '}<span style={{ color: 'rgba(255,255,255,0.3)' }}>{'}'}</span>
                   <span style={{ color: 'rgba(255,255,255,0.5)' }}>)</span>{'\n'}
+                  {'\n'}
+                  {'    '}<span style={{ color: 'rgba(255,255,255,0.4)' }}>{'// x402 receipt + ERC-8004 reputation update'}</span>{'\n'}
+                  {'    '}<span style={{ color: '#00C896' }}>rate</span>
+                  <span style={{ color: 'rgba(255,255,255,0.5)' }}>(agent, score: </span>
+                  <span style={{ color: '#00C896' }}>95</span>
+                  <span style={{ color: 'rgba(255,255,255,0.5)' }}>, proof: result.receipt)</span>{'\n'}
                   {'  '}<span style={{ color: 'rgba(255,255,255,0.3)' }}>{'}'}</span>{'\n'}
                   <span style={{ color: 'rgba(255,255,255,0.3)' }}>{'}'}</span>
                 </code>
@@ -684,7 +729,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ===== FINAL CTA — Breathing, one line ===== */}
+      {/* ===== FINAL CTA ===== */}
       <section style={{
         padding: 'clamp(120px, 22vh, 280px) 24px',
         textAlign: 'center',
@@ -699,14 +744,15 @@ export default function Home() {
 
         <div style={{ position: 'relative', zIndex: 1 }}>
           <h2 style={{
-            fontSize: 'clamp(36px, 8vw, 80px)',
+            fontSize: 'clamp(28px, 6vw, 64px)',
             fontWeight: 700,
             letterSpacing: '-0.04em',
             lineHeight: 1.1,
             margin: '0 0 16px 0',
             color: '#FFFFFF',
           }}>
-            Build the infrastructure.
+            The only chain that supports<br />
+            <span style={{ color: '#00C896' }}>x402</span> and <span style={{ color: '#5B4FFF' }}>ERC-8004</span> natively.
           </h2>
 
           <p style={{
@@ -717,7 +763,7 @@ export default function Home() {
             margin: '0 auto 48px',
             fontFamily: mono,
           }}>
-            Be the infrastructure, not the passenger.
+            Build agents that can actually trust — and pay — each other.
           </p>
 
           <Link href="/build" className="cta-final-btn" style={{
@@ -742,4 +788,3 @@ export default function Home() {
     </div>
   );
 }
-

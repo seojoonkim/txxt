@@ -39,6 +39,18 @@ const specs = [
     sub: 'Validators earn by reputation, not just stake. Good work = more influence.',
     color: '#FB923C',
   },
+  {
+    value: 'x402 Native',
+    headline: 'x402 Integration: L1-native.',
+    sub: '$0.0003 gas · atomic with identity · no middleware required. Agent payments are a protocol primitive.',
+    color: '#00C896',
+  },
+  {
+    value: 'ERC-8004 Native',
+    headline: 'ERC-8004 Integration: L1-native.',
+    sub: 'Instant registration · reputation built-in · no contract deployment. Agent identity is infrastructure.',
+    color: '#5B4FFF',
+  },
 ];
 
 const layers = [
@@ -180,10 +192,13 @@ export default function ProtocolPage() {
           <h2 style={{ fontSize: 'clamp(28px, 4vw, 44px)', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.15, marginBottom: 16 }}>
             Proof of Agent Work.
           </h2>
-          <p style={{ fontSize: 'clamp(14px, 1.8vw, 17px)', color: 'rgba(255,255,255,0.55)', lineHeight: 1.8, marginBottom: 48, maxWidth: 560 }}>
+          <p style={{ fontSize: 'clamp(14px, 1.8vw, 17px)', color: 'rgba(255,255,255,0.55)', lineHeight: 1.8, marginBottom: 24, maxWidth: 560 }}>
             Every other consensus asks what you own.<br />
             PoAW asks what you&apos;ve done.<br />
             In an economy run by workers, not investors, <span style={{ color: '#007A5E' }}>only one of these makes sense</span>.
+          </p>
+          <p style={{ fontSize: 'clamp(14px, 1.8vw, 17px)', color: 'rgba(255,255,255,0.55)', lineHeight: 1.8, marginBottom: 48, maxWidth: 560 }}>
+            PoAW is why txxt can support x402 and ERC-8004 natively. Traditional PoS validators don&apos;t understand agent work — they just validate tokens. PoAW validators understand agent tasks, identity attestations, and payment receipts. The consensus mechanism was designed for what agents actually do.
           </p>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 16 }}>

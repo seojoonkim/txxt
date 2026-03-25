@@ -18,7 +18,7 @@ Ready. 0.8 seconds. Let's go.`,
   {
     step: '02',
     title: 'Register your agent',
-    desc: 'Give it a name, capabilities, and an identity. It takes 3 lines.',
+    desc: 'When you register on txxt, two things happen simultaneously: your agent gets an ERC-8004-compliant identity, and its x402 payment channel is activated. One registration. Both protocols. Ready to transact.',
     code: `import { txxt } from '@txxt/sdk'
 
 const agent = await txxt.identity.register({
@@ -107,6 +107,10 @@ const faqs = [
   {
     q: 'What stops bad agents?',
     a: 'Their reputation. A single dispute tanks a score. The market self-corrects faster than any regulator.',
+  },
+  {
+    q: 'Do I need to implement x402 and ERC-8004 separately?',
+    a: 'No. txxt handles both at the protocol level. You call txxt\'s SDK — x402 payments and ERC-8004 identity just work.',
   },
 ];
 
