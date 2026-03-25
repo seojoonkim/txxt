@@ -16,17 +16,15 @@ function TerminalCursor() {
 
 export default function Home() {
   return (
-    <div style={{ background: '#FFFFFF', color: '#0D0D0D', fontFamily: 'Inter, system-ui, sans-serif', overflowX: 'hidden', maxWidth: 1300, margin: '0 auto' }}>
+    <div style={{ background: '#FFFFFF', color: '#0D0D0D', fontFamily: 'Inter, system-ui, sans-serif', overflowX: 'hidden' }}>
 
       {/* ===== HERO — Split layout ===== */}
       <section style={{
         minHeight: '100vh',
         background: '#FFFFFF',
-        display: 'flex',
-        alignItems: 'stretch',
         overflow: 'hidden',
-        maxWidth: '100%',
       }}>
+        <div style={{ maxWidth: 1300, margin: '0 auto', display: 'flex', alignItems: 'stretch', minHeight: '100vh' }}>
         {/* Left text block */}
         <div style={{
           flex: '0 0 50%',
@@ -34,6 +32,7 @@ export default function Home() {
           padding: 'clamp(80px, 10vw, 120px) clamp(24px, 3vw, 48px) 80px clamp(24px, 5vw, 80px)',
           display: 'flex',
           alignItems: 'center',
+          justifyContent: 'center',
         }} className="hero-left">
         <style>{`
           @media (max-width: 1023px) {
@@ -126,7 +125,7 @@ export default function Home() {
             muted
             playsInline
             style={{
-              width: '100%',
+              maxWidth: '85%',
               height: 'auto',
               objectFit: 'contain',
               display: 'block',
@@ -134,13 +133,13 @@ export default function Home() {
           />
         </div>
 
+        </div>
       </section>
 
 
 
       {/* ===== PROBLEM — The Integration Problem ===== */}
       <section style={{
-        padding: 'clamp(120px, 15vh, 200px) 24px',
         textAlign: 'center',
         position: 'relative',
         background: '#FFFFFF',
@@ -152,7 +151,7 @@ export default function Home() {
           background: 'radial-gradient(ellipse 50% 60% at 50% 50%, rgba(167,139,250,0.04) 0%, transparent 70%)',
         }} />
 
-        <div style={{ position: 'relative', zIndex: 1 }}>
+        <div style={{ maxWidth: 1300, margin: '0 auto', padding: 'clamp(120px, 15vh, 200px) 24px', position: 'relative', zIndex: 1 }}>
           {/* Eyebrow */}
           <p style={{
             fontSize: 13, letterSpacing: '0.12em', color: '#FF3366',
@@ -232,6 +231,7 @@ export default function Home() {
 
       {/* ===== WHY TXXT — x402 + ERC-8004 Native Integration ===== */}
       <section style={{ background: '#F8F8F8', borderTop: '1px solid rgba(0,0,0,0.06)' }}>
+        <div style={{ maxWidth: 1300, margin: '0 auto' }}>
         {/* Section label */}
         <div style={{ padding: '80px 24px 0', textAlign: 'center' }}>
           <p style={{
