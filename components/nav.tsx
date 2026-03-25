@@ -57,7 +57,7 @@ export default function Nav() {
       {/* Floating nav wrapper */}
       <div style={{
         position: 'fixed', top: 0, left: 0, right: 0, zIndex: 100,
-        padding: '8px 16px 0',
+        padding: '4px 16px 0',
       }}>
         <nav style={{
           maxWidth: 1300, margin: '0 auto',
