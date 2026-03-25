@@ -297,19 +297,19 @@ export default function Home() {
             </div>
 
             <div style={{
-              display: 'flex', gap: 32, justifyContent: 'center', flexWrap: 'wrap',
+              display: 'flex', gap: 'clamp(12px, 4vw, 32px)', justifyContent: 'center', flexWrap: 'nowrap',
               marginTop: 40, paddingTop: 32,
               borderTop: '1px solid rgba(0,0,0,0.06)',
             }}>
               {[
                 { value: '<10ms', label: 'Latency' },
-                { value: '$0.0003', label: 'Per Transaction' },
-                { value: '5+', label: 'Chains Supported' },
+                { value: '$0.0003', label: 'Per tx' },
+                { value: '5+', label: 'Chains' },
                 { value: '100%', label: 'USDC Gas' },
               ].map(({ value, label }) => (
-                <div key={label} style={{ textAlign: 'center' }}>
-                  <div style={{ fontSize: 'clamp(20px, 4vw, 28px)', fontWeight: 800, color: '#00C896', fontFamily: mono }}>{value}</div>
-                  <div style={{ fontSize: 12, color: '#888', letterSpacing: '0.08em', marginTop: 4 }}>{label}</div>
+                <div key={label} style={{ textAlign: 'center', flex: '1 1 0', minWidth: 0 }}>
+                  <div style={{ fontSize: 'clamp(14px, 3.5vw, 26px)', fontWeight: 800, color: '#00C896', fontFamily: mono, whiteSpace: 'nowrap' }}>{value}</div>
+                  <div style={{ fontSize: 'clamp(9px, 2vw, 12px)', color: '#888', letterSpacing: '0.06em', marginTop: 4, whiteSpace: 'nowrap' }}>{label}</div>
                 </div>
               ))}
             </div>
