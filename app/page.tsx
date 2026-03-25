@@ -119,7 +119,7 @@ export default function Home() {
           {/* Live Badge */}
           <div style={{
             display: 'inline-flex', alignItems: 'center', gap: 10,
-            padding: '8px 20px', borderRadius: 999,
+            padding: '8px 16px', borderRadius: 999,
             border: '1px solid rgba(0,245,196,0.15)',
             background: 'rgba(0,245,196,0.04)',
             marginBottom: 40,
@@ -199,7 +199,7 @@ export default function Home() {
       </section>
 
       {/* ===== PROBLEM — "Trust Has No Protocol" ===== */}
-      <section style={{ padding: '96px 16px', textAlign: 'center', maxWidth: 740, margin: '0 auto', overflowX: 'hidden' }}>
+      <section style={{ padding: '96px 16px', textAlign: 'center', maxWidth: 740, margin: '0 auto', width: '100%', boxSizing: 'border-box' as const, overflowX: 'hidden' }}>
         <div style={{ fontSize: 11, letterSpacing: '0.1em', color: '#A78BFA', fontFamily: mono, marginBottom: 24 }}>
           THE TRUST GAP
         </div>
@@ -226,7 +226,7 @@ export default function Home() {
           ].map(item => (
             <div key={item.name} style={{
               display: 'flex', flexDirection: 'column' as const, alignItems: 'center', gap: 6,
-              padding: '14px 20px', borderRadius: 12,
+              padding: '14px 16px', borderRadius: 12,
               border: `1px solid ${item.ok ? 'rgba(255,255,255,0.07)' : 'rgba(239,68,68,0.3)'}`,
               background: item.ok ? 'rgba(255,255,255,0.02)' : 'rgba(239,68,68,0.06)',
               minWidth: 100,
@@ -265,7 +265,7 @@ export default function Home() {
       {/* ===== VISION — Timeline ===== */}
       <section style={{ padding: '128px 16px', background: '#13102A', position: 'relative', overflow: 'hidden' }}>
         <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none', backgroundImage: 'url(/images/identity_passport.png)', backgroundSize: 'cover', backgroundPosition: 'center', opacity: 0.06 }} />
-        <div style={{ maxWidth: 740, margin: '0 auto', textAlign: 'center', position: 'relative', zIndex: 1 }}>
+        <div style={{ maxWidth: 740, margin: '0 auto', width: '100%', boxSizing: 'border-box' as const, textAlign: 'center', position: 'relative', zIndex: 1 }}>
           <div style={{ fontSize: 11, letterSpacing: '0.1em', color: '#00F5C4', fontFamily: mono, marginBottom: 24 }}>
             THE AGENT INTERNET
           </div>
@@ -652,7 +652,7 @@ txxt.validate({
 
       {/* ===== STATS BAR ===== */}
       <div style={{ borderTop: '1px solid rgba(255,255,255,0.06)', borderBottom: '1px solid rgba(255,255,255,0.06)', background: 'rgba(255,255,255,0.015)' }}>
-        <div style={{ maxWidth: 900, margin: '0 auto', padding: '36px 16px', display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 24 }}>
+        <div style={{ maxWidth: 900, margin: '0 auto', padding: '36px 16px', display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 16 }}>
           {[
             { label: 'AGENTS REGISTERED', value: '12,847+' },
             { label: 'TXS TODAY', value: '2.3M+' },
@@ -660,7 +660,7 @@ txxt.validate({
             { label: 'UPTIME', value: '99.97%' },
           ].map(s => (
             <div key={s.label} style={{ textAlign: 'center' }}>
-              <div style={{ fontSize: 28, fontWeight: 700, letterSpacing: '-0.02em', marginBottom: 8 }}>{s.value}</div>
+              <div style={{ fontSize: 'clamp(20px, 5vw, 28px)', fontWeight: 700, letterSpacing: '-0.02em', marginBottom: 6 }}>{s.value}</div>
               <div style={{ fontSize: 10, letterSpacing: '0.08em', color: 'rgba(255,255,255,0.25)', fontFamily: mono }}>{s.label}</div>
             </div>
           ))}
