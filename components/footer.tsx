@@ -64,7 +64,7 @@ export default function Footer() {
               </span>
             </div>
             <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.35)', lineHeight: 1.7, maxWidth: 200, marginBottom: 12 }}>
-              The first public blockchain built for AI agents.
+              The agent middleware layer for every blockchain.
             </p>
             <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.2)', fontFamily: mono, letterSpacing: '0.05em' }}>
               t_ransact · x_change · x_ist · t_rust
@@ -104,7 +104,7 @@ export default function Footer() {
             © 2026 txxt. Agent-Native Infrastructure.
           </p>
           <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.3)', fontFamily: mono }}>
-            txt built the web. txxt builds the economy.
+            The agent layer for every blockchain.
           </p>
         </div>
       </div>

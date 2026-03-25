@@ -23,11 +23,11 @@ export const viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "txxt — The Chain Where Agents Are Born",
-  description: "The first public blockchain built from the ground up for AI agents. Identity. Reputation. Validation. Native.",
+  title: "txxt — The Agent Layer for Every Blockchain",
+  description: "The middleware that makes any blockchain agent-ready. x402 payments. ERC-8004 identity. Works on Ethereum, Solana, Base, and more.",
   openGraph: {
-    title: "txxt — Agent-Native Blockchain",
-    description: "No token. No speculation. Just infrastructure for AI agents.",
+    title: "txxt — The Agent Layer for Every Blockchain",
+    description: "txxt doesn't replace your blockchain. It makes your blockchain agent-ready.",
     siteName: "txxt",
   },
 };

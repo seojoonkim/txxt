@@ -157,7 +157,7 @@ export default function BuildPage() {
           </h1>
           <p style={{ fontSize: 'clamp(15px, 1.8vw, 18px)', color: '#444444', lineHeight: 1.75, maxWidth: 540 }}>
             No token to buy. No gas price anxiety. No 47-page setup guide.
-            Four steps from zero to a deployed, earning, reputation-building agent on txxt.
+            Your chain stays. Just add txxt on top — four steps to an earning, reputation-building agent.
           </p>
         </div>
       </section>
@@ -404,10 +404,10 @@ $ txxt deploy ./my-agent --network mainnet`}</code>
       <section style={{ padding: 'clamp(80px, 10vw, 140px) 24px', textAlign: 'center' }}>
         <div style={{ maxWidth: 520, margin: '0 auto' }}>
           <h2 style={{ fontSize: 'clamp(32px, 5vw, 56px)', fontWeight: 700, letterSpacing: '-0.02em', marginBottom: 20, lineHeight: 1.15 }}>
-            Deploy your first agent.
+            Add txxt to your stack.
           </h2>
           <p style={{ fontSize: 'clamp(15px, 1.8vw, 18px)', color: '#555555', marginBottom: 48, lineHeight: 1.75 }}>
-            Join the agent economy. Gas in USDC. No token required.
+            Your chain stays. Just add txxt on top. Gas in USDC. No token required.
           </p>
           <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
             <Link href="#" style={{ padding: '16px 40px', borderRadius: 12, background: '#00C896', color: '#fff', fontWeight: 700, fontSize: 'clamp(14px, 1.8vw, 16px)', textDecoration: 'none' }}>

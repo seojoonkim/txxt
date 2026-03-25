@@ -284,10 +284,10 @@ export default function Home() {
         {/* Four differentiators */}
         <div style={{ maxWidth: 900, margin: '0 auto', padding: '40px 24px 0' }}>
           {[
-            { letter: 'x', word: 'x402 Native', title: 'Payments as infrastructure.', desc: 'On Ethereum, implementing x402 means custom contracts and unpredictable gas. On txxt, every agent payment is an L1 operation — $0.0003, no exceptions.', color: '#00C896', num: '01' },
-            { letter: '8', word: 'ERC-8004 Native', title: 'Identity without overhead.', desc: 'On other chains, ERC-8004 requires a smart contract layer that adds latency and cost. On txxt, every agent gets a verified identity at registration — instant and free.', color: '#5B4FFF', num: '02' },
-            { letter: '+', word: 'Atomic Integration', title: 'One transaction does both.', desc: 'Verify identity AND execute payment in a single atomic transaction. This is impossible when the protocols live on different layers. txxt makes it inevitable.', color: '#FF3366', num: '03' },
-            { letter: '→', word: 'The Result', title: 'Agent commerce at machine speed.', desc: 'Check identity → confirm capabilities → settle payment → update reputation. One atomic transaction. Under 10ms. Always $0.0003 in gas.', color: '#FB923C', num: '04' },
+            { letter: 'x', word: 'x402 Native', title: 'Payments as infrastructure.', desc: 'On Ethereum, implementing x402 means custom contracts and unpredictable gas. Through txxt, every agent payment is a middleware operation — $0.0003, on any chain, no exceptions.', color: '#00C896', num: '01' },
+            { letter: '8', word: 'ERC-8004 Native', title: 'Identity without overhead.', desc: 'On other chains, ERC-8004 requires a smart contract layer that adds latency and cost. Through txxt, every agent gets a verified identity at registration — instant, free, and chain-agnostic.', color: '#5B4FFF', num: '02' },
+            { letter: '+', word: 'Atomic Integration', title: 'One transaction does both.', desc: 'Verify identity AND execute payment in a single atomic transaction. This is impossible when the protocols live on different layers. txxt\'s middleware makes it inevitable — on every chain.', color: '#FF3366', num: '03' },
+            { letter: '→', word: 'The Result', title: 'Agent commerce at machine speed.', desc: 'Check identity → confirm capabilities → settle payment → update reputation. One atomic transaction. Under 10ms. Always $0.0003 in gas — regardless of the underlying chain.', color: '#FB923C', num: '04' },
           ].map((item, i) => (
             <div key={i} style={{
               display: 'flex',
@@ -334,7 +334,7 @@ export default function Home() {
             fontSize: 14, color: '#666666', fontStyle: 'italic',
             fontFamily: mono, margin: 0, maxWidth: 600, marginLeft: 'auto', marginRight: 'auto',
           }}>
-            &ldquo;x402 tells agents how to pay. ERC-8004 tells agents who to trust. txxt is the only chain where both work natively — together.&rdquo;
+            &ldquo;x402 tells agents how to pay. ERC-8004 tells agents who to trust. txxt is the middleware layer where both work natively — on every blockchain.&rdquo;
           </p>
         </div>
         </div>
@@ -586,8 +586,8 @@ export default function Home() {
             {[
               { label: 'Gas fees', them: 'Volatile tokens', us: 'USDC stable' },
               { label: 'Cost', them: 'Can spike 100×', us: 'Always $0.0003' },
-              { label: 'x402', them: 'Custom contracts', us: 'Native L1' },
-              { label: 'ERC-8004', them: 'Plugin/Contract', us: 'Native L1' },
+              { label: 'x402', them: 'Custom contracts', us: 'Native middleware' },
+              { label: 'ERC-8004', them: 'Plugin/Contract', us: 'Native middleware' },
               { label: 'Atomic ID+pay', them: 'Impossible', us: 'Yes, <10ms' },
               { label: 'Governance', them: 'Token theater', us: 'Pure utility' },
             ].map((row, i) => (
@@ -621,7 +621,7 @@ export default function Home() {
             txxt speaks every<br />agent language.
           </h2>
           <p style={{ fontSize: 'clamp(15px, 1.8vw, 18px)', color: '#444', lineHeight: 1.75, maxWidth: 600, marginBottom: 64 }}>
-            Whether you&apos;re building with MCP, A2A, CLI, or raw SDK — txxt is the settlement layer underneath. One chain. Every protocol.
+            Whether you&apos;re building with MCP, A2A, CLI, or raw SDK — txxt is the agent layer underneath. One middleware. Every protocol. Every chain.
           </p>
 
           {/* 연동 다이어그램 — 중앙 txxt 허브 + 주변 프로토콜 */}
@@ -686,6 +686,32 @@ export default function Home() {
             </svg>
           </div>
 
+          {/* Supported Chains */}
+          <div style={{ textAlign: 'center', marginBottom: 64 }}>
+            <p style={{ fontSize: 13, letterSpacing: '0.12em', fontWeight: 700, color: '#888', fontFamily: mono, marginBottom: 24, textTransform: 'uppercase' }}>
+              WORKS ON TOP OF
+            </p>
+            <div style={{ display: 'flex', gap: 24, justifyContent: 'center', flexWrap: 'wrap' as const }}>
+              {[
+                { name: 'Ethereum', color: '#627EEA' },
+                { name: 'Solana', color: '#9945FF' },
+                { name: 'Base', color: '#0052FF' },
+                { name: 'Polygon', color: '#8247E5' },
+                { name: 'Arbitrum', color: '#28A0F0' },
+                { name: 'More →', color: '#888' },
+              ].map(chain => (
+                <div key={chain.name} style={{
+                  padding: '10px 20px', borderRadius: 10,
+                  border: `1px solid ${chain.color}33`,
+                  background: `${chain.color}08`,
+                  fontSize: 14, fontWeight: 600, color: chain.color, fontFamily: mono,
+                }}>
+                  {chain.name}
+                </div>
+              ))}
+            </div>
+          </div>
+
           {/* 프로토콜 설명 그리드 */}
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 16 }}>
             {[
@@ -694,7 +720,7 @@ export default function Home() {
               { label: 'CLI', fullName: 'Command Line Interface', by: 'txxt', desc: 'Deploy and manage agents from your terminal. txxt register, txxt pay, txxt identity — the fastest path from idea to deployed agent.', color: '#FB923C' },
               { label: 'SDK', fullName: '@txxt/sdk', by: 'txxt', desc: 'TypeScript-first SDK with full x402 and ERC-8004 support. One package. Every protocol. Python SDK coming Q2.', color: '#5B4FFF' },
               { label: 'REST', fullName: 'Universal REST API', by: 'txxt', desc: 'HTTP endpoints for any language or platform. If you can make an HTTP request, you can build on txxt.', color: '#FF3366' },
-              { label: 'x402 + ERC-8004', fullName: 'Native L1 Protocols', by: 'Built-in', desc: 'Not an add-on. Not a smart contract. Payment and identity live at the protocol layer — atomic, instant, permanent.', color: '#00C896' },
+              { label: 'x402 + ERC-8004', fullName: 'Native Middleware Protocols', by: 'Built-in', desc: 'Not an add-on. Not a smart contract. Payment and identity live at the middleware layer — atomic, instant, chain-agnostic.', color: '#00C896' },
             ].map((item) => (
               <div key={item.label} style={{
                 padding: 28, borderRadius: 16,
@@ -864,8 +890,8 @@ export default function Home() {
             margin: '0 0 16px 0',
             color: '#0D0D0D',
           }}>
-            The only chain that supports<br />
-            <span style={{ color: '#00C896' }}>x402</span> and <span style={{ color: '#5B4FFF' }}>ERC-8004</span> natively.
+            The agent layer for<br />
+            <span style={{ color: '#00C896' }}>every</span> blockchain.
           </h2>
 
           <p style={{
@@ -876,7 +902,7 @@ export default function Home() {
             margin: '0 auto 48px',
             fontFamily: mono,
           }}>
-            Build agents that can actually trust — and pay — each other.
+            txxt doesn&apos;t replace your blockchain. It makes your blockchain agent-ready.
           </p>
 
           <Link href="/build" className="cta-final-btn" style={{

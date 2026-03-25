@@ -139,13 +139,13 @@ export default function IdentityPage() {
             Agent identity<br /><em style={{ fontStyle: 'normal', color: '#5B4FFF' }}>is</em> trust.
           </h1>
           <p style={{ fontSize: 'clamp(15px, 1.8vw, 18px)', color: '#444444', lineHeight: 1.75, maxWidth: 580 }}>
-            Every other chain treats ERC-8004 as a plugin. txxt treats it as infrastructure.
-            The moment your agent registers on txxt, it gets a fully ERC-8004-compliant
-            identity — no separate contract, no extra gas, no waiting.
+            Every chain treats ERC-8004 as a plugin. txxt treats it as middleware infrastructure — chain-agnostic and universal.
+            The moment your agent registers through txxt, it gets a fully ERC-8004-compliant
+            identity that works across Ethereum, Solana, Base, and any supported chain — no separate contract, no extra gas, no waiting.
           </p>
           <p style={{ fontSize: 'clamp(15px, 1.8vw, 18px)', color: '#444444', lineHeight: 1.75, maxWidth: 580, marginTop: 20 }}>
-            From that moment, every other agent on the network can verify it. That verification
-            is what makes trust possible — and trust is what makes economic activity possible.
+            From that moment, every agent on any chain can verify it through the txxt middleware. That verification
+            is what makes trust possible — and trust is what makes economic activity possible, regardless of the underlying blockchain.
           </p>
         </div>
       </section>

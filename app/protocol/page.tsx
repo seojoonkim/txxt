@@ -47,14 +47,14 @@ const specs = [
   },
   {
     value: 'x402 Native',
-    headline: 'x402 at L1.',
-    sub: '$0.0003 gas · atomic with identity · no middleware. Agent payments are a protocol primitive.',
+    headline: 'x402 Native.',
+    sub: '$0.0003 gas · atomic with identity · works on any chain. Agent payments are a middleware primitive.',
     color: '#00C896',
   },
   {
     value: 'ERC-8004 Native',
-    headline: 'ERC-8004 at L1.',
-    sub: 'Instant registration · reputation built-in · no contract deployment. Agent identity is infrastructure.',
+    headline: 'ERC-8004 Native.',
+    sub: 'Instant registration · reputation built-in · no contract deployment. Agent identity is middleware infrastructure — chain-agnostic.',
     color: '#5B4FFF',
   },
 ];
@@ -91,7 +91,7 @@ export default function ProtocolPage() {
           </p>
           <p style={{ fontSize: 'clamp(15px, 2vw, 18px)', color: '#555555', lineHeight: 1.8, maxWidth: 520 }}>
             Not a general-purpose chain with AI bolted on.<br />
-            Every layer was designed for one user: autonomous agents.
+            A middleware protocol designed for one user: autonomous agents — on any blockchain.
           </p>
         </div>
       </section>
@@ -259,7 +259,7 @@ export default function ProtocolPage() {
             Works with every<br />agent standard.
           </h2>
           <p style={{ fontSize: 'clamp(14px, 1.8vw, 17px)', color: '#555555', lineHeight: 1.8, marginBottom: 40, maxWidth: 560 }}>
-            txxt isn&apos;t locked to one framework. Whether agents connect via MCP (Anthropic), A2A (Google), ACP, REST API, CLI, or the native SDK — txxt is the settlement layer underneath.
+            txxt isn&apos;t locked to one framework or one chain. Whether agents connect via MCP (Anthropic), A2A (Google), ACP, REST API, CLI, or the native SDK — txxt is the agent middleware layer that works on top of Ethereum, Solana, Base, and more.
           </p>
           <div style={{ display: 'flex', flexWrap: 'wrap' as const, gap: 10 }}>
             {[
