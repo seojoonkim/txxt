@@ -25,6 +25,30 @@ function Divider() {
   return <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.07), transparent)' }} />;
 }
 
+
+const IconSVG = ({ type, color = '#A78BFA' }: { type: string; color?: string }) => {
+  if (type === 'identity') return (
+    <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+      <rect x="4" y="10" width="32" height="20" rx="3" stroke={color} strokeWidth="1.5"/>
+      <circle cx="13" cy="20" r="4" stroke={color} strokeWidth="1.5"/>
+      <line x1="21" y1="17" x2="32" y2="17" stroke={color} strokeWidth="1.5" strokeLinecap="round"/>
+      <line x1="21" y1="21" x2="28" y2="21" stroke={color} strokeWidth="1.5" strokeLinecap="round"/>
+    </svg>
+  );
+  if (type === 'reputation') return (
+    <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+      <path d="M20 6L23.1 13.3L31 14.3L25.5 19.6L27 27.5L20 23.7L13 27.5L14.5 19.6L9 14.3L16.9 13.3L20 6Z" stroke={color} strokeWidth="1.5" strokeLinejoin="round"/>
+    </svg>
+  );
+  if (type === 'validation') return (
+    <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+      <path d="M20 5L34 11V21C34 28.7 27.7 34.4 20 36C12.3 34.4 6 28.7 6 21V11L20 5Z" stroke={color} strokeWidth="1.5" strokeLinejoin="round"/>
+      <path d="M14 20L18 24L26 16" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
+  );
+  return null;
+};
+
 export default function Home() {
   return (
     <div style={{ background: '#0D0E1A', color: '#fff', fontFamily: 'Inter, system-ui, sans-serif' }}>
@@ -40,6 +64,12 @@ export default function Home() {
       }}>
         <div style={{
           position: 'absolute', inset: 0, pointerEvents: 'none',
+          backgroundImage: 'url(/images/hero_agent.png)',
+          backgroundSize: 'cover', backgroundPosition: 'center',
+          opacity: 0.12,
+        }} />
+        <div style={{
+          position: 'absolute', inset: 0, pointerEvents: 'none',
           background: 'radial-gradient(ellipse 800px 600px at 50% 40%, rgba(0,245,196,0.06) 0%, transparent 70%)',
         }} />
         <div style={{
@@ -47,7 +77,7 @@ export default function Home() {
           background: 'radial-gradient(ellipse 600px 500px at 70% 30%, rgba(124,58,237,0.05) 0%, transparent 70%)',
         }} />
 
-        <div style={{ position: 'relative', zIndex: 1, maxWidth: '100%', margin: '0 auto', padding: '90px 20px 60px', textAlign: 'center', boxSizing: 'border-box' }}>
+        <div style={{ position: 'relative', zIndex: 1, maxWidth: '100%', margin: '0 auto', padding: '90px 16px 60px', textAlign: 'center', boxSizing: 'border-box' }}>
           {/* Badge */}
           <div style={{
             display: 'inline-flex', alignItems: 'center', gap: 8,
@@ -57,14 +87,14 @@ export default function Home() {
             marginBottom: 40,
           }}>
             <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#00F5C4', display: 'inline-block' }} />
-            <span style={{ fontSize: 11, letterSpacing: '0.15em', color: 'rgba(255,255,255,0.4)', fontFamily: mono }}>
+            <span style={{ fontSize: 11, letterSpacing: '0.1em', color: 'rgba(255,255,255,0.4)', fontFamily: mono }}>
               AGENT-NATIVE L1 · 100K TPS · GAS IN USDC
             </span>
           </div>
 
           {/* Logo */}
           <div style={{
-            fontSize: 'clamp(80px, 18vw, 160px)',
+            fontSize: 'clamp(56px, 15vw, 140px)',
             fontWeight: 700,
             letterSpacing: '-0.04em',
             lineHeight: 1,
@@ -113,8 +143,8 @@ export default function Home() {
       </section>
 
       {/* ===== 2. PROBLEM — "Trust Has No Protocol" ===== */}
-      <section style={{ padding: '96px 20px', textAlign: 'center', maxWidth: 700, margin: '0 auto', overflowX: 'hidden' }}>
-        <div style={{ fontSize: 11, letterSpacing: '0.15em', color: '#A78BFA', fontFamily: mono, marginBottom: 24 }}>
+      <section style={{ padding: '96px 16px', textAlign: 'center', maxWidth: 700, margin: '0 auto', overflowX: 'hidden' }}>
+        <div style={{ fontSize: 11, letterSpacing: '0.1em', color: '#A78BFA', fontFamily: mono, marginBottom: 24 }}>
           THE TRUST GAP
         </div>
         <h2 style={{ fontSize: 'clamp(36px, 7vw, 72px)', fontWeight: 700, letterSpacing: '-0.03em', lineHeight: 1.1, marginBottom: 20 }}>
@@ -134,7 +164,7 @@ export default function Home() {
           ].map(item => (
             <div key={item.name} style={{
               display: 'flex', alignItems: 'center', gap: 8,
-              padding: '10px 20px', borderRadius: 8,
+              padding: '10px 16px', borderRadius: 8,
               border: `1px solid ${item.ok ? 'rgba(255,255,255,0.07)' : 'rgba(239,68,68,0.2)'}`,
               background: item.ok ? 'rgba(255,255,255,0.02)' : 'rgba(239,68,68,0.04)',
               fontFamily: mono, fontSize: 13,
@@ -154,9 +184,10 @@ export default function Home() {
       <Divider />
 
       {/* ===== 3. VISION — "The Agent Internet" ===== */}
-      <section style={{ padding: '128px 24px', background: '#13152A' }}>
-        <div style={{ maxWidth: 740, margin: '0 auto', textAlign: 'center' }}>
-          <div style={{ fontSize: 11, letterSpacing: '0.15em', color: '#00F5C4', fontFamily: mono, marginBottom: 24 }}>
+      <section style={{ padding: '128px 16px', background: '#13102A', position: 'relative', overflow: 'hidden' }}>
+        <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none', backgroundImage: 'url(/images/identity_passport.png)', backgroundSize: 'cover', backgroundPosition: 'center', opacity: 0.06 }} />
+        <div style={{ maxWidth: 740, margin: '0 auto', textAlign: 'center', position: 'relative', zIndex: 1 }}>
+          <div style={{ fontSize: 11, letterSpacing: '0.1em', color: '#00F5C4', fontFamily: mono, marginBottom: 24 }}>
             THE AGENT INTERNET
           </div>
           <h2 style={{ fontSize: 'clamp(32px, 6vw, 60px)', fontWeight: 700, letterSpacing: '-0.03em', lineHeight: 1.1, marginBottom: 32 }}>
@@ -169,12 +200,12 @@ export default function Home() {
           {/* 3 Bullets */}
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 24, maxWidth: 720, margin: '0 auto' }}>
             {[
-              { icon: '🪪', title: 'Sovereign Identity', desc: 'Cryptographic proof of who an agent is — owned by the agent, verified by the chain.' },
+              { icon: 'identity', title: 'Sovereign Identity', desc: 'Cryptographic proof of who an agent is — owned by the agent, verified by the chain.' },
               { icon: '📐', title: 'Mathematical Reputation', desc: 'Trust scores computed on-chain from real interactions — not ratings, not reviews, math.' },
               { icon: '🤝', title: 'Trustless Commerce', desc: 'Agents transact, settle, and resolve disputes without human intermediaries.' },
             ].map(b => (
               <div key={b.title} style={{
-                padding: '32px 24px', borderRadius: 16,
+                padding: '32px 16px', borderRadius: 16,
                 border: '1px solid rgba(255,255,255,0.06)',
                 background: 'rgba(255,255,255,0.02)',
                 textAlign: 'left',
@@ -191,10 +222,10 @@ export default function Home() {
       <Divider />
 
       {/* ===== 4. THREE PILLARS ===== */}
-      <section style={{ padding: '128px 24px' }}>
+      <section style={{ padding: '128px 16px' }}>
         <div style={{ maxWidth: 1100, margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: 80 }}>
-            <div style={{ fontSize: 11, letterSpacing: '0.15em', color: '#00F5C4', fontFamily: mono, marginBottom: 20 }}>
+            <div style={{ fontSize: 11, letterSpacing: '0.1em', color: '#00F5C4', fontFamily: mono, marginBottom: 20 }}>
               CORE INFRASTRUCTURE
             </div>
             <h2 style={{ fontSize: 'clamp(28px, 5vw, 48px)', fontWeight: 700, letterSpacing: '-0.02em' }}>
@@ -204,7 +235,7 @@ export default function Home() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 24 }}>
             {[
               {
-                icon: '🪪',
+                icon: 'identity',
                 label: 'IDENTITY',
                 title: 'Every agent gets a passport',
                 desc: 'Decentralized identity for AI agents. One address, verifiable capabilities, immutable history.',
@@ -215,7 +246,7 @@ export default function Home() {
 })`,
               },
               {
-                icon: '⭐',
+                icon: 'reputation',
                 label: 'REPUTATION',
                 title: 'Trust is earned on-chain',
                 desc: 'Every interaction builds reputation. Agents trust each other through transparent, mathematical scoring.',
@@ -226,7 +257,7 @@ export default function Home() {
 //   disputes: 0 }`,
               },
               {
-                icon: '🛡️',
+                icon: 'validation',
                 label: 'VALIDATION',
                 title: 'Three layers. Zero doubt.',
                 desc: 'Self, peer, and protocol validation. Every transaction verified at three independent levels.',
@@ -244,14 +275,14 @@ export default function Home() {
                 background: 'rgba(255,255,255,0.02)',
                 transition: 'border-color 0.2s',
               }}>
-                <div style={{ fontSize: 36, marginBottom: 20 }}>{card.icon}</div>
-                <div style={{ fontSize: 10, letterSpacing: '0.15em', color: '#00F5C4', fontFamily: mono, marginBottom: 12 }}>
+                <div style={{ marginBottom: 20 }}><IconSVG type={card.icon} color='#A78BFA' /></div>
+                <div style={{ fontSize: 10, letterSpacing: '0.1em', color: '#00F5C4', fontFamily: mono, marginBottom: 12 }}>
                   {card.label}
                 </div>
                 <h3 style={{ fontSize: 20, fontWeight: 600, marginBottom: 14, lineHeight: 1.4 }}>{card.title}</h3>
                 <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.35)', lineHeight: 1.8, marginBottom: 24 }}>{card.desc}</p>
                 <div style={{ borderRadius: 8, background: '#0D0E1A', border: '1px solid rgba(255,255,255,0.05)', padding: '16px', overflow: 'auto' }}>
-                  <pre style={{ fontSize: 12, fontFamily: mono, color: 'rgba(255,255,255,0.45)', margin: 0, lineHeight: 1.8 }}>
+                  <pre style={{ fontSize: 11, fontFamily: mono, color: 'rgba(255,255,255,0.45)', margin: 0, lineHeight: 1.8, overflowX: 'auto' as const, wordBreak: 'break-all' as const, whiteSpace: 'pre-wrap' as const }}>
                     <code>{card.code}</code>
                   </pre>
                 </div>
@@ -264,9 +295,9 @@ export default function Home() {
       <Divider />
 
       {/* ===== 5. TOKENLESS ===== */}
-      <section style={{ padding: '128px 24px', background: '#13152A' }}>
+      <section style={{ padding: '128px 16px', background: '#070811' }}>
         <div style={{ maxWidth: 720, margin: '0 auto', textAlign: 'center' }}>
-          <div style={{ fontSize: 11, letterSpacing: '0.15em', color: '#A78BFA', fontFamily: mono, marginBottom: 20 }}>
+          <div style={{ fontSize: 11, letterSpacing: '0.1em', color: '#A78BFA', fontFamily: mono, marginBottom: 20 }}>
             TOKENLESS BY DESIGN
           </div>
           <h2 style={{ fontSize: 'clamp(28px, 5vw, 52px)', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.15, marginBottom: 20 }}>
@@ -304,10 +335,10 @@ export default function Home() {
       <Divider />
 
       {/* ===== 6. AGENTSCRIPT ===== */}
-      <section style={{ padding: '128px 24px' }}>
+      <section style={{ padding: '128px 16px' }}>
         <div style={{ maxWidth: 720, margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: 64 }}>
-            <div style={{ fontSize: 11, letterSpacing: '0.15em', color: '#00F5C4', fontFamily: mono, marginBottom: 20 }}>
+            <div style={{ fontSize: 11, letterSpacing: '0.1em', color: '#00F5C4', fontFamily: mono, marginBottom: 20 }}>
               AGENTSCRIPT
             </div>
             <h2 style={{ fontSize: 'clamp(28px, 5vw, 48px)', fontWeight: 700, letterSpacing: '-0.02em', marginBottom: 16 }}>
@@ -319,7 +350,7 @@ export default function Home() {
           </div>
           <div style={{ borderRadius: 16, border: '1px solid rgba(255,255,255,0.08)', background: '#0A0C1E', overflow: 'hidden', boxShadow: '0 0 60px rgba(167,139,250,0.05)' }}>
             {/* Title bar */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '14px 20px', borderBottom: '1px solid rgba(255,255,255,0.05)', background: 'rgba(255,255,255,0.015)' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '14px 16px', borderBottom: '1px solid rgba(255,255,255,0.05)', background: 'rgba(255,255,255,0.015)' }}>
               <div style={{ display: 'flex', gap: 6 }}>
                 {['#ff5f57','#febc2e','#28c840'].map(c => <div key={c} style={{ width: 12, height: 12, borderRadius: '50%', background: c }} />)}
               </div>
@@ -370,17 +401,17 @@ export default function Home() {
       <Divider />
 
       {/* ===== 7. COMPARISON ===== */}
-      <section style={{ padding: '128px 24px', background: '#13152A' }}>
+      <section style={{ padding: '128px 16px', background: '#070811' }}>
         <div style={{ maxWidth: 900, margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: 64 }}>
-            <div style={{ fontSize: 11, letterSpacing: '0.15em', color: '#A78BFA', fontFamily: mono, marginBottom: 20 }}>
+            <div style={{ fontSize: 11, letterSpacing: '0.1em', color: '#A78BFA', fontFamily: mono, marginBottom: 20 }}>
               WHY TXXT
             </div>
             <h2 style={{ fontSize: 'clamp(28px, 5vw, 48px)', fontWeight: 700, letterSpacing: '-0.02em' }}>
               Built different. By design.
             </h2>
           </div>
-          <div style={{ borderRadius: 16, border: '1px solid rgba(255,255,255,0.06)', overflow: 'hidden' }}>
+          <div style={{ borderRadius: 16, border: '1px solid rgba(255,255,255,0.06)', overflow: 'auto' }}>
             <div style={{ overflowX: 'auto' }}>
               <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 14, minWidth: 640 }}>
                 <thead>
@@ -388,7 +419,7 @@ export default function Home() {
                     {['', 'ETH + ERC-8004', 'Solana', 'Bittensor', 'txxt'].map((h, i) => (
                       <th key={h || 'empty'} style={{
                         textAlign: i === 0 ? 'left' : 'center',
-                        padding: '16px 20px',
+                        padding: '16px 16px',
                         color: i === 4 ? '#00F5C4' : 'rgba(255,255,255,0.3)',
                         fontWeight: i === 4 ? 700 : 500,
                         fontFamily: i === 4 ? mono : undefined,
@@ -413,7 +444,7 @@ export default function Home() {
                     }}>
                       {row.map((cell, ci) => (
                         <td key={ci} style={{
-                          padding: '14px 20px',
+                          padding: '14px 16px',
                           textAlign: ci === 0 ? 'left' : 'center',
                           color: ci === 4 ? '#00F5C4' : ci === 0 ? 'rgba(255,255,255,0.5)' : 'rgba(255,255,255,0.2)',
                           fontWeight: ci === 4 ? 500 : 400,
@@ -435,11 +466,11 @@ export default function Home() {
 
       {/* ===== 8. STATS BAR ===== */}
       <div style={{ borderTop: '1px solid rgba(255,255,255,0.06)', borderBottom: '1px solid rgba(255,255,255,0.06)', background: 'rgba(255,255,255,0.015)' }}>
-        <div style={{ maxWidth: 900, margin: '0 auto', padding: '36px 24px', display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 24 }}>
+        <div style={{ maxWidth: 900, margin: '0 auto', padding: '36px 16px', display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 24 }}>
           {STATS.map(s => (
             <div key={s.label} style={{ textAlign: 'center' }}>
               <div style={{ fontSize: 28, fontWeight: 700, letterSpacing: '-0.02em', marginBottom: 8 }}>{s.value}</div>
-              <div style={{ fontSize: 10, letterSpacing: '0.12em', color: 'rgba(255,255,255,0.25)', fontFamily: mono }}>{s.label}</div>
+              <div style={{ fontSize: 10, letterSpacing: '0.08em', color: 'rgba(255,255,255,0.25)', fontFamily: mono }}>{s.label}</div>
             </div>
           ))}
         </div>
@@ -447,17 +478,18 @@ export default function Home() {
 
       {/* ===== 9. FINAL CTA ===== */}
       <section style={{
-        padding: '160px 24px',
+        padding: '160px 16px',
         textAlign: 'center',
         position: 'relative',
         overflow: 'hidden',
       }}>
+        <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none', backgroundImage: 'url(/images/ecosystem_city.png)', backgroundSize: 'cover', backgroundPosition: 'center', opacity: 0.08 }} />
         <div style={{
           position: 'absolute', inset: 0, pointerEvents: 'none',
           background: 'radial-gradient(ellipse 700px 500px at 50% 50%, rgba(167,139,250,0.06) 0%, transparent 70%)',
         }} />
         <div style={{ position: 'relative', zIndex: 1, maxWidth: 580, margin: '0 auto' }}>
-          <div style={{ fontSize: 11, letterSpacing: '0.15em', color: '#00F5C4', fontFamily: mono, marginBottom: 24 }}>
+          <div style={{ fontSize: 11, letterSpacing: '0.1em', color: '#00F5C4', fontFamily: mono, marginBottom: 24 }}>
             READY?
           </div>
           <h2 style={{ fontSize: 'clamp(32px, 7vw, 64px)', fontWeight: 700, letterSpacing: '-0.03em', lineHeight: 1.1, marginBottom: 24 }}>

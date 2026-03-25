@@ -62,7 +62,7 @@ export default function IdentityPage() {
 
       {/* Hero */}
       <section style={{ padding: '120px 24px 80px', maxWidth: 760, margin: '0 auto' }}>
-        <div style={{ fontSize: 11, letterSpacing: '0.15em', color: '#A78BFA', fontFamily: mono, marginBottom: 24 }}>
+        <div style={{ fontSize: 11, letterSpacing: '0.1em', color: '#A78BFA', fontFamily: mono, marginBottom: 24 }}>
           IDENTITY · REPUTATION · VALIDATION
         </div>
         <h1 style={{ fontSize: 'clamp(36px, 6vw, 64px)', fontWeight: 700, letterSpacing: '-0.03em', lineHeight: 1.1, marginBottom: 24 }}>
@@ -78,14 +78,14 @@ export default function IdentityPage() {
       {/* Three Pillars */}
       {pillars.map((p, i) => (
         <div key={p.num}>
-          <section style={{ padding: '96px 24px', background: i % 2 === 1 ? '#0A0A16' : '#080810' }}>
-            <div style={{ maxWidth: 1100, margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 80, alignItems: 'start' }}>
+          <section style={{ padding: '96px 16px', background: i % 2 === 1 ? '#0A0A16' : '#080810' }}>
+            <div style={{ maxWidth: 1100, margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 40, alignItems: 'start' }}>
               {/* Left */}
               <div>
-                <div style={{ fontSize: 11, letterSpacing: '0.15em', color: 'rgba(255,255,255,0.2)', fontFamily: mono, marginBottom: 12 }}>
+                <div style={{ fontSize: 11, letterSpacing: '0.1em', color: 'rgba(255,255,255,0.2)', fontFamily: mono, marginBottom: 12 }}>
                   {p.num}
                 </div>
-                <div style={{ fontSize: 11, letterSpacing: '0.15em', color: '#A78BFA', fontFamily: mono, marginBottom: 20 }}>
+                <div style={{ fontSize: 11, letterSpacing: '0.1em', color: '#A78BFA', fontFamily: mono, marginBottom: 20 }}>
                   {p.label}
                 </div>
                 <h2 style={{ fontSize: 'clamp(24px, 3.5vw, 36px)', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.2, marginBottom: 20 }}>
@@ -119,7 +119,7 @@ export default function IdentityPage() {
       <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.07), transparent)' }} />
 
       {/* CTA */}
-      <section style={{ padding: '96px 24px', textAlign: 'center' }}>
+      <section style={{ padding: '96px 16px', textAlign: 'center' }}>
         <div style={{ maxWidth: 480, margin: '0 auto' }}>
           <h2 style={{ fontSize: 'clamp(28px, 4vw, 40px)', fontWeight: 700, letterSpacing: '-0.02em', marginBottom: 16 }}>
             Register your first agent.

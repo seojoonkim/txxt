@@ -63,7 +63,7 @@ export default function BuildPage() {
 
       {/* Hero */}
       <section style={{ padding: '120px 24px 80px', maxWidth: 760, margin: '0 auto' }}>
-        <div style={{ fontSize: 11, letterSpacing: '0.15em', color: '#A78BFA', fontFamily: mono, marginBottom: 24 }}>
+        <div style={{ fontSize: 11, letterSpacing: '0.1em', color: '#A78BFA', fontFamily: mono, marginBottom: 24 }}>
           BUILD
         </div>
         <h1 style={{ fontSize: 'clamp(36px, 6vw, 64px)', fontWeight: 700, letterSpacing: '-0.03em', lineHeight: 1.1, marginBottom: 24 }}>
@@ -77,13 +77,13 @@ export default function BuildPage() {
       <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.07), transparent)' }} />
 
       {/* Steps */}
-      <section style={{ padding: '96px 24px', maxWidth: 1100, margin: '0 auto' }}>
-        <div style={{ fontSize: 11, letterSpacing: '0.15em', color: 'rgba(255,255,255,0.3)', fontFamily: mono, marginBottom: 64 }}>
+      <section style={{ padding: '96px 16px', maxWidth: 1100, margin: '0 auto' }}>
+        <div style={{ fontSize: 11, letterSpacing: '0.1em', color: 'rgba(255,255,255,0.3)', fontFamily: mono, marginBottom: 64 }}>
           GETTING STARTED
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 48 }}>
           {steps.map((s, i) => (
-            <div key={s.step} style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 64, alignItems: 'start', paddingBottom: 48, borderBottom: i < steps.length - 1 ? '1px solid rgba(255,255,255,0.05)' : 'none' }}>
+            <div key={s.step} style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 32, alignItems: 'start', paddingBottom: 48, borderBottom: i < steps.length - 1 ? '1px solid rgba(255,255,255,0.05)' : 'none' }}>
               <div>
                 <div style={{ fontSize: 11, color: '#A78BFA', fontFamily: mono, marginBottom: 16, letterSpacing: '0.1em' }}>{s.step}</div>
                 <h3 style={{ fontSize: 22, fontWeight: 600, letterSpacing: '-0.01em', marginBottom: 16 }}>{s.title}</h3>
@@ -105,9 +105,9 @@ export default function BuildPage() {
       <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.07), transparent)' }} />
 
       {/* Resources */}
-      <section style={{ padding: '96px 24px', background: '#13152A' }}>
+      <section style={{ padding: '96px 16px', background: '#13152A' }}>
         <div style={{ maxWidth: 1100, margin: '0 auto' }}>
-          <div style={{ fontSize: 11, letterSpacing: '0.15em', color: 'rgba(255,255,255,0.3)', fontFamily: mono, marginBottom: 48 }}>
+          <div style={{ fontSize: 11, letterSpacing: '0.1em', color: 'rgba(255,255,255,0.3)', fontFamily: mono, marginBottom: 48 }}>
             RESOURCES
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 16 }}>
@@ -119,7 +119,7 @@ export default function BuildPage() {
                 textDecoration: 'none', color: 'inherit',
                 transition: 'border-color 0.2s',
               }}>
-                <div style={{ fontSize: 10, letterSpacing: '0.15em', color: '#7C3AED', fontFamily: mono, marginBottom: 12 }}>{r.tag}</div>
+                <div style={{ fontSize: 10, letterSpacing: '0.1em', color: '#7C3AED', fontFamily: mono, marginBottom: 12 }}>{r.tag}</div>
                 <div style={{ fontSize: 16, fontWeight: 600, marginBottom: 8 }}>{r.title}</div>
                 <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.35)', lineHeight: 1.6 }}>{r.desc}</p>
               </Link>
@@ -131,7 +131,7 @@ export default function BuildPage() {
       <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.07), transparent)' }} />
 
       {/* CTA */}
-      <section style={{ padding: '96px 24px', textAlign: 'center' }}>
+      <section style={{ padding: '96px 16px', textAlign: 'center' }}>
         <div style={{ maxWidth: 480, margin: '0 auto' }}>
           <h2 style={{ fontSize: 'clamp(28px, 4vw, 40px)', fontWeight: 700, letterSpacing: '-0.02em', marginBottom: 16 }}>
             Deploy your first agent.
