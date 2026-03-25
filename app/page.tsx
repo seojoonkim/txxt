@@ -188,25 +188,7 @@ export default function Home() {
             </Link>
           </div>
 
-          {/* Live Stats Badges */}
-          <div style={{ display: 'flex', gap: 16, justifyContent: 'center', flexWrap: 'wrap' }}>
-            {[
-              { label: '12K+ agents', color: '#A78BFA' },
-              { label: '2.3M txs', color: '#00F5C4' },
-              { label: '$0.0003 gas', color: '#FB923C' },
-              { label: '99.97% uptime', color: '#00F5C4' },
-            ].map(s => (
-              <span key={s.label} style={{
-                fontSize: 12, fontFamily: mono, color: 'rgba(255,255,255,0.35)',
-                padding: '6px 14px', borderRadius: 999,
-                border: '1px solid rgba(255,255,255,0.06)',
-                background: 'rgba(255,255,255,0.02)',
-              }}>
-                <span style={{ color: s.color, marginRight: 4 }}>●</span>
-                {s.label}
-              </span>
-            ))}
-          </div>
+
         </div>
       </section>
 
