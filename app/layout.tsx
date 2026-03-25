@@ -39,7 +39,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`dark ${inter.variable} ${firaCode.variable}`}>
-      <body className="min-h-screen bg-[#080810] text-white antialiased" style={{ overflowX: "hidden", maxWidth: "100vw" }} style={{
+      <body className="min-h-screen bg-[#080810] text-white antialiased" style={{
+        overflowX: "hidden",
+        maxWidth: "100vw",
         fontFamily: "var(--font-inter), system-ui, sans-serif",
         WebkitFontSmoothing: "antialiased",
         MozOsxFontSmoothing: "grayscale",
