@@ -27,7 +27,7 @@ function Divider() {
 
 export default function Home() {
   return (
-    <div style={{ background: '#080810', color: '#fff', fontFamily: 'Inter, system-ui, sans-serif' }}>
+    <div style={{ background: '#0D0E1A', color: '#fff', fontFamily: 'Inter, system-ui, sans-serif' }}>
 
       {/* ===== 1. HERO ===== */}
       <section style={{
@@ -71,7 +71,7 @@ export default function Home() {
             color: '#00F5C4',
             fontFamily: mono,
             marginBottom: 20,
-            textShadow: '0 0 60px rgba(0,245,196,0.3), 0 0 120px rgba(0,245,196,0.1)',
+            textShadow: '0 0 60px rgba(167,139,250,0.4), 0 0 120px rgba(167,139,250,0.15)',
           }}>
             txxt
           </div>
@@ -95,7 +95,7 @@ export default function Home() {
           <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
             <Link href="/build" style={{
               padding: '12px 28px', borderRadius: 10,
-              background: '#00F5C4', color: '#080810',
+              background: '#A78BFA', color: '#0D0E1A',
               fontWeight: 600, fontSize: 14, textDecoration: 'none',
               transition: 'opacity 0.2s',
             }}>
@@ -114,7 +114,7 @@ export default function Home() {
 
       {/* ===== 2. PROBLEM — "Trust Has No Protocol" ===== */}
       <section style={{ padding: '96px 20px', textAlign: 'center', maxWidth: 700, margin: '0 auto', overflowX: 'hidden' }}>
-        <div style={{ fontSize: 11, letterSpacing: '0.15em', color: '#7C3AED', fontFamily: mono, marginBottom: 24 }}>
+        <div style={{ fontSize: 11, letterSpacing: '0.15em', color: '#A78BFA', fontFamily: mono, marginBottom: 24 }}>
           THE TRUST GAP
         </div>
         <h2 style={{ fontSize: 'clamp(36px, 7vw, 72px)', fontWeight: 700, letterSpacing: '-0.03em', lineHeight: 1.1, marginBottom: 20 }}>
@@ -154,7 +154,7 @@ export default function Home() {
       <Divider />
 
       {/* ===== 3. VISION — "The Agent Internet" ===== */}
-      <section style={{ padding: '128px 24px', background: '#0A0A16' }}>
+      <section style={{ padding: '128px 24px', background: '#13152A' }}>
         <div style={{ maxWidth: 740, margin: '0 auto', textAlign: 'center' }}>
           <div style={{ fontSize: 11, letterSpacing: '0.15em', color: '#00F5C4', fontFamily: mono, marginBottom: 24 }}>
             THE AGENT INTERNET
@@ -250,7 +250,7 @@ export default function Home() {
                 </div>
                 <h3 style={{ fontSize: 20, fontWeight: 600, marginBottom: 14, lineHeight: 1.4 }}>{card.title}</h3>
                 <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.35)', lineHeight: 1.8, marginBottom: 24 }}>{card.desc}</p>
-                <div style={{ borderRadius: 8, background: '#080810', border: '1px solid rgba(255,255,255,0.05)', padding: '16px', overflow: 'auto' }}>
+                <div style={{ borderRadius: 8, background: '#0D0E1A', border: '1px solid rgba(255,255,255,0.05)', padding: '16px', overflow: 'auto' }}>
                   <pre style={{ fontSize: 12, fontFamily: mono, color: 'rgba(255,255,255,0.45)', margin: 0, lineHeight: 1.8 }}>
                     <code>{card.code}</code>
                   </pre>
@@ -264,9 +264,9 @@ export default function Home() {
       <Divider />
 
       {/* ===== 5. TOKENLESS ===== */}
-      <section style={{ padding: '128px 24px', background: '#0A0A16' }}>
+      <section style={{ padding: '128px 24px', background: '#13152A' }}>
         <div style={{ maxWidth: 720, margin: '0 auto', textAlign: 'center' }}>
-          <div style={{ fontSize: 11, letterSpacing: '0.15em', color: '#7C3AED', fontFamily: mono, marginBottom: 20 }}>
+          <div style={{ fontSize: 11, letterSpacing: '0.15em', color: '#A78BFA', fontFamily: mono, marginBottom: 20 }}>
             TOKENLESS BY DESIGN
           </div>
           <h2 style={{ fontSize: 'clamp(28px, 5vw, 52px)', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.15, marginBottom: 20 }}>
@@ -317,7 +317,7 @@ export default function Home() {
               A domain-specific language designed for AI agent interactions on txxt.
             </p>
           </div>
-          <div style={{ borderRadius: 16, border: '1px solid rgba(255,255,255,0.08)', background: '#060610', overflow: 'hidden', boxShadow: '0 0 60px rgba(0,245,196,0.04)' }}>
+          <div style={{ borderRadius: 16, border: '1px solid rgba(255,255,255,0.08)', background: '#0A0C1E', overflow: 'hidden', boxShadow: '0 0 60px rgba(167,139,250,0.05)' }}>
             {/* Title bar */}
             <div style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '14px 20px', borderBottom: '1px solid rgba(255,255,255,0.05)', background: 'rgba(255,255,255,0.015)' }}>
               <div style={{ display: 'flex', gap: 6 }}>
@@ -332,7 +332,7 @@ export default function Home() {
             <div style={{ padding: '32px' }}>
               <pre style={{ fontSize: 13, fontFamily: mono, lineHeight: 2, margin: 0, overflowX: 'auto' }}>
                 <code>
-                  <span style={{ color: '#7C3AED' }}>agent</span>{' '}
+                  <span style={{ color: '#A78BFA' }}>agent</span>{' '}
                   <span style={{ color: '#00F5C4' }}>TravelPlanner</span>{' '}
                   <span style={{ color: 'rgba(255,255,255,0.2)' }}>{'{'}</span>{'\n'}
                   {'  '}<span style={{ color: 'rgba(255,255,255,0.35)' }}>requires:</span>{' '}
@@ -340,11 +340,11 @@ export default function Home() {
                   {'  '}<span style={{ color: 'rgba(255,255,255,0.35)' }}>reputation_minimum:</span>{' '}
                   <span style={{ color: '#00F5C4' }}>80</span>{'\n'}
                   {'\n'}
-                  {'  '}<span style={{ color: '#7C3AED' }}>task</span>{' '}
+                  {'  '}<span style={{ color: '#A78BFA' }}>task</span>{' '}
                   <span style={{ color: '#fff' }}>plan_trip</span>
                   <span style={{ color: 'rgba(255,255,255,0.35)' }}>(destination, budget) </span>
                   <span style={{ color: 'rgba(255,255,255,0.2)' }}>{'{'}</span>{'\n'}
-                  {'    '}<span style={{ color: '#7C3AED' }}>let</span>{' '}
+                  {'    '}<span style={{ color: '#A78BFA' }}>let</span>{' '}
                   <span style={{ color: '#fff' }}>flights</span>{' = '}
                   <span style={{ color: '#00F5C4' }}>discover</span>
                   <span style={{ color: 'rgba(255,255,255,0.35)' }}>(capability: </span>
@@ -370,10 +370,10 @@ export default function Home() {
       <Divider />
 
       {/* ===== 7. COMPARISON ===== */}
-      <section style={{ padding: '128px 24px', background: '#0A0A16' }}>
+      <section style={{ padding: '128px 24px', background: '#13152A' }}>
         <div style={{ maxWidth: 900, margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: 64 }}>
-            <div style={{ fontSize: 11, letterSpacing: '0.15em', color: '#7C3AED', fontFamily: mono, marginBottom: 20 }}>
+            <div style={{ fontSize: 11, letterSpacing: '0.15em', color: '#A78BFA', fontFamily: mono, marginBottom: 20 }}>
               WHY TXXT
             </div>
             <h2 style={{ fontSize: 'clamp(28px, 5vw, 48px)', fontWeight: 700, letterSpacing: '-0.02em' }}>
@@ -454,7 +454,7 @@ export default function Home() {
       }}>
         <div style={{
           position: 'absolute', inset: 0, pointerEvents: 'none',
-          background: 'radial-gradient(ellipse 700px 500px at 50% 50%, rgba(0,245,196,0.05) 0%, transparent 70%)',
+          background: 'radial-gradient(ellipse 700px 500px at 50% 50%, rgba(167,139,250,0.06) 0%, transparent 70%)',
         }} />
         <div style={{ position: 'relative', zIndex: 1, maxWidth: 580, margin: '0 auto' }}>
           <div style={{ fontSize: 11, letterSpacing: '0.15em', color: '#00F5C4', fontFamily: mono, marginBottom: 24 }}>
@@ -469,7 +469,7 @@ export default function Home() {
           <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
             <Link href="/build" style={{
               padding: '14px 32px', borderRadius: 10,
-              background: '#00F5C4', color: '#080810',
+              background: '#A78BFA', color: '#0D0E1A',
               fontWeight: 600, fontSize: 14, textDecoration: 'none',
             }}>
               Start Building →

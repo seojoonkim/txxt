@@ -58,11 +58,11 @@ const pillars = [
 
 export default function IdentityPage() {
   return (
-    <div style={{ background: '#080810', color: '#fff', fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
+    <div style={{ background: '#0D0E1A', color: '#fff', fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
 
       {/* Hero */}
       <section style={{ padding: '120px 24px 80px', maxWidth: 760, margin: '0 auto' }}>
-        <div style={{ fontSize: 11, letterSpacing: '0.15em', color: '#00F5C4', fontFamily: mono, marginBottom: 24 }}>
+        <div style={{ fontSize: 11, letterSpacing: '0.15em', color: '#A78BFA', fontFamily: mono, marginBottom: 24 }}>
           IDENTITY · REPUTATION · VALIDATION
         </div>
         <h1 style={{ fontSize: 'clamp(36px, 6vw, 64px)', fontWeight: 700, letterSpacing: '-0.03em', lineHeight: 1.1, marginBottom: 24 }}>
@@ -85,7 +85,7 @@ export default function IdentityPage() {
                 <div style={{ fontSize: 11, letterSpacing: '0.15em', color: 'rgba(255,255,255,0.2)', fontFamily: mono, marginBottom: 12 }}>
                   {p.num}
                 </div>
-                <div style={{ fontSize: 11, letterSpacing: '0.15em', color: '#00F5C4', fontFamily: mono, marginBottom: 20 }}>
+                <div style={{ fontSize: 11, letterSpacing: '0.15em', color: '#A78BFA', fontFamily: mono, marginBottom: 20 }}>
                   {p.label}
                 </div>
                 <h2 style={{ fontSize: 'clamp(24px, 3.5vw, 36px)', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.2, marginBottom: 20 }}>
@@ -95,14 +95,14 @@ export default function IdentityPage() {
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
                   {p.points.map(pt => (
                     <div key={pt} style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-                      <span style={{ color: '#00F5C4', fontSize: 12 }}>→</span>
+                      <span style={{ color: '#A78BFA', fontSize: 12 }}>→</span>
                       <span style={{ fontSize: 14, color: 'rgba(255,255,255,0.5)' }}>{pt}</span>
                     </div>
                   ))}
                 </div>
               </div>
               {/* Right: Code */}
-              <div style={{ borderRadius: 12, border: '1px solid rgba(255,255,255,0.07)', background: '#060610', overflow: 'hidden' }}>
+              <div style={{ borderRadius: 12, border: '1px solid rgba(255,255,255,0.07)', background: '#0A0C1E', overflow: 'hidden' }}>
                 <div style={{ display: 'flex', gap: 6, padding: '12px 16px', borderBottom: '1px solid rgba(255,255,255,0.05)', background: 'rgba(255,255,255,0.015)' }}>
                   {['#ff5f57','#febc2e','#28c840'].map(c => <div key={c} style={{ width: 10, height: 10, borderRadius: '50%', background: c }} />)}
                 </div>
@@ -127,7 +127,7 @@ export default function IdentityPage() {
           <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.35)', marginBottom: 40, lineHeight: 1.8 }}>
             Identity is free. Reputation is earned. Start building.
           </p>
-          <Link href="/build" style={{ padding: '14px 32px', borderRadius: 10, background: '#00F5C4', color: '#080810', fontWeight: 600, fontSize: 14, textDecoration: 'none' }}>
+          <Link href="/build" style={{ padding: '14px 32px', borderRadius: 10, background: '#A78BFA', color: '#0D0E1A', fontWeight: 600, fontSize: 14, textDecoration: 'none' }}>
             Start Building →
           </Link>
         </div>

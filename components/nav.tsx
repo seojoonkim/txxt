@@ -18,8 +18,8 @@ export default function Nav() {
     <nav className="fixed top-0 left-0 right-0 z-50 overflow-hidden border-b border-[rgba(255,255,255,0.06)] bg-[rgba(8,8,16,0.8)] backdrop-blur-xl">
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
-          <span className="text-xl font-bold tracking-tight" style={{ fontFamily: "var(--font-fira), 'Courier New', monospace" }}>
-            <span className="text-[#00F5C4]">txxt</span>
+          <span className="text-xl tracking-tight" style={{ fontWeight: 900 }} style={{ fontFamily: "var(--font-fira), 'Courier New', monospace" }}>
+            <span style={{ color: "#A78BFA" }}>txxt</span>
           </span>
         </Link>
 
@@ -39,7 +39,7 @@ export default function Nav() {
         <div className="hidden md:flex items-center gap-4">
           <Link
             href="/build"
-            className="text-sm px-4 py-2 rounded-lg bg-[#00F5C4] text-[#080810] font-medium hover:bg-[#00d4a8] transition-colors"
+            className="text-sm px-4 py-2 rounded-lg bg-[#A78BFA] text-[#0D0E1A] font-medium hover:bg-[#9061f9] transition-colors"
           >
             Start Building →
           </Link>
@@ -77,7 +77,7 @@ export default function Nav() {
             ))}
             <Link
               href="/build"
-              className="text-sm px-4 py-2 rounded-lg bg-[#00F5C4] text-[#080810] font-medium text-center"
+              className="text-sm px-4 py-2 rounded-lg bg-[#A78BFA] text-[#0D0E1A] font-medium text-center"
               onClick={() => setOpen(false)}
             >
               Start Building →

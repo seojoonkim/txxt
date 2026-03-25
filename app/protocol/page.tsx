@@ -20,11 +20,11 @@ const layers = [
 
 export default function ProtocolPage() {
   return (
-    <div style={{ background: '#080810', color: '#fff', fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
+    <div style={{ background: '#0D0E1A', color: '#fff', fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
 
       {/* Hero */}
       <section style={{ padding: '120px 24px 80px', maxWidth: 760, margin: '0 auto' }}>
-        <div style={{ fontSize: 11, letterSpacing: '0.15em', color: '#00F5C4', fontFamily: mono, marginBottom: 24 }}>
+        <div style={{ fontSize: 11, letterSpacing: '0.15em', color: '#A78BFA', fontFamily: mono, marginBottom: 24 }}>
           PROTOCOL
         </div>
         <h1 style={{ fontSize: 'clamp(36px, 6vw, 64px)', fontWeight: 700, letterSpacing: '-0.03em', lineHeight: 1.1, marginBottom: 24 }}>
@@ -44,11 +44,11 @@ export default function ProtocolPage() {
         </div>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 1, background: 'rgba(255,255,255,0.06)', borderRadius: 16, overflow: 'hidden', border: '1px solid rgba(255,255,255,0.06)' }}>
           {specs.map((s, i) => (
-            <div key={s.label} style={{ padding: '36px 32px', background: '#080810' }}>
+            <div key={s.label} style={{ padding: '36px 32px', background: '#0D0E1A' }}>
               <div style={{ fontSize: 11, letterSpacing: '0.12em', color: 'rgba(255,255,255,0.25)', fontFamily: mono, marginBottom: 12 }}>
                 {s.label}
               </div>
-              <div style={{ fontSize: 22, fontWeight: 700, letterSpacing: '-0.02em', color: '#00F5C4', fontFamily: mono, marginBottom: 12 }}>
+              <div style={{ fontSize: 22, fontWeight: 700, letterSpacing: '-0.02em', color: '#A78BFA', fontFamily: mono, marginBottom: 12 }}>
                 {s.value}
               </div>
               <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.35)', lineHeight: 1.7 }}>{s.desc}</p>
@@ -60,7 +60,7 @@ export default function ProtocolPage() {
       <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.07), transparent)' }} />
 
       {/* Architecture Layers */}
-      <section style={{ padding: '96px 24px', background: '#0A0A16' }}>
+      <section style={{ padding: '96px 24px', background: '#13152A' }}>
         <div style={{ maxWidth: 760, margin: '0 auto' }}>
           <div style={{ fontSize: 11, letterSpacing: '0.15em', color: 'rgba(255,255,255,0.3)', fontFamily: mono, marginBottom: 48 }}>
             ARCHITECTURE
@@ -72,7 +72,7 @@ export default function ProtocolPage() {
                 borderBottom: i < layers.length - 1 ? '1px solid rgba(255,255,255,0.05)' : 'none',
                 alignItems: 'flex-start',
               }}>
-                <div style={{ fontSize: 13, color: '#00F5C4', fontFamily: mono, minWidth: 32, paddingTop: 3 }}>{l.num}</div>
+                <div style={{ fontSize: 13, color: '#A78BFA', fontFamily: mono, minWidth: 32, paddingTop: 3 }}>{l.num}</div>
                 <div>
                   <div style={{ fontSize: 18, fontWeight: 600, marginBottom: 8 }}>{l.title}</div>
                   <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.4)', lineHeight: 1.7 }}>{l.desc}</p>
@@ -95,7 +95,7 @@ export default function ProtocolPage() {
             Read the full technical specification or start deploying agents today.
           </p>
           <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Link href="/build" style={{ padding: '12px 28px', borderRadius: 10, background: '#00F5C4', color: '#080810', fontWeight: 600, fontSize: 14, textDecoration: 'none' }}>
+            <Link href="/build" style={{ padding: '12px 28px', borderRadius: 10, background: '#A78BFA', color: '#0D0E1A', fontWeight: 600, fontSize: 14, textDecoration: 'none' }}>
               Start Building →
             </Link>
             <Link href="#" style={{ padding: '12px 28px', borderRadius: 10, border: '1px solid rgba(255,255,255,0.12)', color: 'rgba(255,255,255,0.8)', fontSize: 14, textDecoration: 'none' }}>

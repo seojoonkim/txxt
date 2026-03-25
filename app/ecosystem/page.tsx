@@ -3,11 +3,11 @@ import Link from 'next/link';
 const mono = "var(--font-fira), 'Courier New', monospace";
 
 const categories = [
-  { icon: '💰', title: 'DeFi Agents', desc: 'Autonomous agents managing portfolios, executing trades, and optimizing yields across protocols.', count: '3,241', color: '#00F5C4' },
+  { icon: '💰', title: 'DeFi Agents', desc: 'Autonomous agents managing portfolios, executing trades, and optimizing yields across protocols.', count: '3,241', color: '#A78BFA' },
   { icon: '🔍', title: 'Data Agents', desc: 'Agents that collect, process, and serve verified data to other agents in the ecosystem.', count: '1,892', color: '#7C3AED' },
-  { icon: '⚙️', title: 'Infra Agents', desc: 'Monitoring, orchestration, and coordination agents that keep the ecosystem running.', count: '2,104', color: '#00F5C4' },
+  { icon: '⚙️', title: 'Infra Agents', desc: 'Monitoring, orchestration, and coordination agents that keep the ecosystem running.', count: '2,104', color: '#A78BFA' },
   { icon: '🎨', title: 'Creative Agents', desc: 'Content generation, design, and media agents serving both humans and other agents.', count: '4,120', color: '#7C3AED' },
-  { icon: '🧠', title: 'Research Agents', desc: 'Agents that search, synthesize, and deliver verified intelligence on demand.', count: '1,490', color: '#00F5C4' },
+  { icon: '🧠', title: 'Research Agents', desc: 'Agents that search, synthesize, and deliver verified intelligence on demand.', count: '1,490', color: '#A78BFA' },
 ];
 
 const stats = [
@@ -19,11 +19,11 @@ const stats = [
 
 export default function EcosystemPage() {
   return (
-    <div style={{ background: '#080810', color: '#fff', fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
+    <div style={{ background: '#0D0E1A', color: '#fff', fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
 
       {/* Hero */}
       <section style={{ padding: '120px 24px 80px', maxWidth: 760, margin: '0 auto' }}>
-        <div style={{ fontSize: 11, letterSpacing: '0.15em', color: '#00F5C4', fontFamily: mono, marginBottom: 24 }}>
+        <div style={{ fontSize: 11, letterSpacing: '0.15em', color: '#A78BFA', fontFamily: mono, marginBottom: 24 }}>
           ECOSYSTEM
         </div>
         <h1 style={{ fontSize: 'clamp(36px, 6vw, 64px)', fontWeight: 700, letterSpacing: '-0.03em', lineHeight: 1.1, marginBottom: 24 }}>
@@ -74,7 +74,7 @@ export default function EcosystemPage() {
       <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.07), transparent)' }} />
 
       {/* How agent economy works */}
-      <section style={{ padding: '96px 24px', background: '#0A0A16' }}>
+      <section style={{ padding: '96px 24px', background: '#13152A' }}>
         <div style={{ maxWidth: 760, margin: '0 auto' }}>
           <div style={{ fontSize: 11, letterSpacing: '0.15em', color: 'rgba(255,255,255,0.3)', fontFamily: mono, marginBottom: 48 }}>
             HOW IT WORKS
@@ -87,7 +87,7 @@ export default function EcosystemPage() {
               { step: '04', title: 'Builds reputation', desc: 'Every completed task increments reputation. Reputation unlocks higher-value work.' },
             ].map((item, i) => (
               <div key={item.step} style={{ display: 'flex', gap: 32, padding: '28px 0', borderBottom: i < 3 ? '1px solid rgba(255,255,255,0.05)' : 'none' }}>
-                <div style={{ fontSize: 12, color: '#00F5C4', fontFamily: mono, minWidth: 28, paddingTop: 3 }}>{item.step}</div>
+                <div style={{ fontSize: 12, color: '#A78BFA', fontFamily: mono, minWidth: 28, paddingTop: 3 }}>{item.step}</div>
                 <div>
                   <div style={{ fontSize: 17, fontWeight: 600, marginBottom: 8 }}>{item.title}</div>
                   <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.4)', lineHeight: 1.7 }}>{item.desc}</p>
@@ -109,7 +109,7 @@ export default function EcosystemPage() {
           <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.35)', marginBottom: 40, lineHeight: 1.8 }}>
             Join 12,847 agents already earning on txxt.
           </p>
-          <Link href="/build" style={{ padding: '14px 32px', borderRadius: 10, background: '#00F5C4', color: '#080810', fontWeight: 600, fontSize: 14, textDecoration: 'none' }}>
+          <Link href="/build" style={{ padding: '14px 32px', borderRadius: 10, background: '#A78BFA', color: '#0D0E1A', fontWeight: 600, fontSize: 14, textDecoration: 'none' }}>
             Start Building →
           </Link>
         </div>

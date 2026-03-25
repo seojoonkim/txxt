@@ -59,11 +59,11 @@ const resources = [
 
 export default function BuildPage() {
   return (
-    <div style={{ background: '#080810', color: '#fff', fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
+    <div style={{ background: '#0D0E1A', color: '#fff', fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
 
       {/* Hero */}
       <section style={{ padding: '120px 24px 80px', maxWidth: 760, margin: '0 auto' }}>
-        <div style={{ fontSize: 11, letterSpacing: '0.15em', color: '#00F5C4', fontFamily: mono, marginBottom: 24 }}>
+        <div style={{ fontSize: 11, letterSpacing: '0.15em', color: '#A78BFA', fontFamily: mono, marginBottom: 24 }}>
           BUILD
         </div>
         <h1 style={{ fontSize: 'clamp(36px, 6vw, 64px)', fontWeight: 700, letterSpacing: '-0.03em', lineHeight: 1.1, marginBottom: 24 }}>
@@ -85,11 +85,11 @@ export default function BuildPage() {
           {steps.map((s, i) => (
             <div key={s.step} style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 64, alignItems: 'start', paddingBottom: 48, borderBottom: i < steps.length - 1 ? '1px solid rgba(255,255,255,0.05)' : 'none' }}>
               <div>
-                <div style={{ fontSize: 11, color: '#00F5C4', fontFamily: mono, marginBottom: 16, letterSpacing: '0.1em' }}>{s.step}</div>
+                <div style={{ fontSize: 11, color: '#A78BFA', fontFamily: mono, marginBottom: 16, letterSpacing: '0.1em' }}>{s.step}</div>
                 <h3 style={{ fontSize: 22, fontWeight: 600, letterSpacing: '-0.01em', marginBottom: 16 }}>{s.title}</h3>
                 <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.4)', lineHeight: 1.8 }}>{s.desc}</p>
               </div>
-              <div style={{ borderRadius: 12, border: '1px solid rgba(255,255,255,0.07)', background: '#060610', overflow: 'hidden' }}>
+              <div style={{ borderRadius: 12, border: '1px solid rgba(255,255,255,0.07)', background: '#0A0C1E', overflow: 'hidden' }}>
                 <div style={{ display: 'flex', gap: 6, padding: '10px 14px', borderBottom: '1px solid rgba(255,255,255,0.05)', background: 'rgba(255,255,255,0.01)' }}>
                   {['#ff5f57','#febc2e','#28c840'].map(c => <div key={c} style={{ width: 10, height: 10, borderRadius: '50%', background: c }} />)}
                 </div>
@@ -105,7 +105,7 @@ export default function BuildPage() {
       <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.07), transparent)' }} />
 
       {/* Resources */}
-      <section style={{ padding: '96px 24px', background: '#0A0A16' }}>
+      <section style={{ padding: '96px 24px', background: '#13152A' }}>
         <div style={{ maxWidth: 1100, margin: '0 auto' }}>
           <div style={{ fontSize: 11, letterSpacing: '0.15em', color: 'rgba(255,255,255,0.3)', fontFamily: mono, marginBottom: 48 }}>
             RESOURCES
@@ -140,7 +140,7 @@ export default function BuildPage() {
             Join the agent economy. Gas in USDC. No token required.
           </p>
           <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Link href="#" style={{ padding: '14px 32px', borderRadius: 10, background: '#00F5C4', color: '#080810', fontWeight: 600, fontSize: 14, textDecoration: 'none' }}>
+            <Link href="#" style={{ padding: '14px 32px', borderRadius: 10, background: '#A78BFA', color: '#0D0E1A', fontWeight: 600, fontSize: 14, textDecoration: 'none' }}>
               Get Started Free
             </Link>
             <Link href="/protocol" style={{ padding: '14px 32px', borderRadius: 10, border: '1px solid rgba(255,255,255,0.12)', color: 'rgba(255,255,255,0.8)', fontSize: 14, textDecoration: 'none' }}>

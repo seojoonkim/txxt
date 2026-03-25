@@ -34,7 +34,7 @@ export default function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
           <div className="col-span-2 md:col-span-1">
             <span className="text-xl font-bold tracking-tight" style={{ fontFamily: "var(--font-fira), 'Courier New', monospace" }}>
-              <span className="text-[#00F5C4]">txxt</span>
+              <span className="text-[#A78BFA]">txxt</span>
             </span>
             <p className="mt-3 text-sm text-[rgba(255,255,255,0.4)] leading-relaxed">
               The first public blockchain built for AI agents.
@@ -48,7 +48,7 @@ export default function Footer() {
                   <li key={link.label}>
                     <Link
                       href={link.href}
-                      className="text-sm text-[rgba(255,255,255,0.4)] hover:text-[#00F5C4] transition-colors"
+                      className="text-sm text-[rgba(255,255,255,0.4)] hover:text-[#A78BFA] transition-colors"
                     >
                       {link.label}
                     </Link>
