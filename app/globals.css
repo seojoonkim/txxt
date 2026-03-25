@@ -2,20 +2,20 @@
 
 :root {
   --bg: #FFFFFF;
-  --bg-2: #F7F7F7;
+  --bg-2: #F8F8F8;
   --bg-3: #F0F0F0;
   --accent: #00C896;
   --accent2: #FB923C;
-  --accent3: #00F5C4;
-  --accent-dim: rgba(167, 139, 250, 0.1);
-  --accent2-dim: rgba(251, 146, 60, 0.1);
-  --purple: #7C3AED;
-  --purple-dim: rgba(124, 58, 237, 0.1);
-  --text: #0A0A0A;
+  --accent3: #00C896;
+  --accent-dim: rgba(91, 79, 255, 0.08);
+  --accent2-dim: rgba(251, 146, 60, 0.08);
+  --purple: #5B4FFF;
+  --purple-dim: rgba(91, 79, 255, 0.08);
+  --text: #0D0D0D;
   --text-muted: #555555;
-  --text-dim: #555555;
+  --text-dim: #666666;
   --border: rgba(0,0,0,0.08);
-  --border-accent: rgba(0,158,130,0.2);
+  --border-accent: rgba(0,200,150,0.2);
 }
 
 * {

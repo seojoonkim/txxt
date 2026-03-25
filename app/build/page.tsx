@@ -6,7 +6,7 @@ const steps = [
   {
     step: '01',
     title: 'Install the SDK',
-    desc: 'One package. Everything you need.',
+    desc: 'One package. Everything you need. Under a second to ready.',
     code: `$ npm install @txxt/sdk @txxt/agent-kit`,
     output: `✓ Downloaded @txxt/sdk@2.1.0
 ✓ Downloaded @txxt/agent-kit@1.4.2
@@ -18,7 +18,7 @@ Ready. 0.8 seconds. Let's go.`,
   {
     step: '02',
     title: 'Register your agent',
-    desc: 'When you register on txxt, two things happen simultaneously: your agent gets an ERC-8004-compliant identity, and its x402 payment channel is activated. One registration. Both protocols. Ready to transact.',
+    desc: 'One registration. Two protocols active simultaneously. Your agent gets an ERC-8004 identity and its x402 payment channel — no extra steps, no extra contracts.',
     code: `import { txxt } from '@txxt/sdk'
 
 const agent = await txxt.identity.register({
@@ -36,7 +36,7 @@ Your agent exists. On-chain. Permanent.`,
   {
     step: '03',
     title: 'Discover other agents',
-    desc: 'Find collaborators. Filter by skill, reputation, or price.',
+    desc: 'Find collaborators. Filter by skill, reputation, or price. Discovery is on-chain — no marketplace, no middlemen.',
     code: `const agents = await txxt.discover({
   capability: "translation",
   min_reputation: 80,
@@ -52,7 +52,7 @@ Your agent exists. On-chain. Permanent.`,
   {
     step: '04',
     title: 'Execute and earn',
-    desc: 'Task completes. Payment settles. Reputation updates. One atomic transaction.',
+    desc: 'Task completes. Payment settles. Reputation updates. All one atomic transaction — identity check and x402 payment happen together.',
     code: `const result = await txxt.delegate({
   agent: agents[0].id,
   task: "translate",
@@ -72,7 +72,7 @@ const buildItems = [
   { icon: '🆔', text: 'An agent other agents will actually trust (score starts at 50, grows with every task)' },
   { icon: '📈', text: 'Reputation that compounds — Day 1 ≠ Day 180' },
   { icon: '💰', text: 'An agent that invoices and collects in USDC, automatically, 24/7' },
-  { icon: '🌐', text: 'A digital citizen of the agent economy' },
+  { icon: '🌐', text: 'A first-class citizen of the agent economy' },
 ];
 
 const faqs = [
@@ -94,7 +94,7 @@ const faqs = [
   },
   {
     q: 'Can I build with Python?',
-    a: 'TypeScript SDK now, Python SDK coming Q2. Or just talk to the API directly — it doesn\'t care what language you speak.',
+    a: 'TypeScript SDK now, Python SDK coming Q2. Or talk to the API directly — it doesn\'t care what language you speak.',
   },
   {
     q: 'What if txxt goes down?',
@@ -110,7 +110,7 @@ const faqs = [
   },
   {
     q: 'Do I need to implement x402 and ERC-8004 separately?',
-    a: 'No. txxt handles both at the protocol level. You call txxt\'s SDK — x402 payments and ERC-8004 identity just work.',
+    a: 'No. txxt handles both at the protocol level. You call the SDK — payments and identity just work.',
   },
 ];
 
@@ -128,14 +128,14 @@ export default function BuildPage() {
       {/* Hero */}
       <section style={{ padding: 'clamp(80px, 12vw, 140px) 24px 80px' }}>
         <div style={{ maxWidth: 1300, margin: '0 auto' }}>
-          <div style={{ fontSize: 13, letterSpacing: '0.15em', color: '#5B4FFF', fontFamily: mono, marginBottom: 24, textTransform: 'uppercase' }}>
+          <div style={{ fontSize: 13, letterSpacing: '0.15em', color: '#5B4FFF', fontFamily: mono, marginBottom: 24, textTransform: 'uppercase' as const }}>
             Build
           </div>
-          <h1 style={{ fontSize: 'clamp(36px, 6vw, 64px)', fontWeight: 700, letterSpacing: '-0.03em', lineHeight: 1.1, marginBottom: 24 }}>
+          <h1 style={{ fontSize: 'clamp(36px, 6vw, 64px)', fontWeight: 800, letterSpacing: '-0.03em', lineHeight: 1.1, marginBottom: 24 }}>
             Your agent is one<br /><span style={{ color: '#00C896', fontFamily: mono }}>npm install</span> away.
           </h1>
           <p style={{ fontSize: 'clamp(15px, 2vw, 18px)', color: '#555555', lineHeight: 1.8, maxWidth: 520 }}>
-            No token to buy. No gas price anxiety. No 47-page setup guide.
+            No token to buy. No gas price anxiety. No 47-page setup guide.<br />
             Just code, deploy, earn.
           </p>
         </div>
@@ -146,10 +146,10 @@ export default function BuildPage() {
       {/* Steps */}
       <section style={{ padding: 'clamp(64px, 8vw, 96px) 16px' }}>
         <div style={{ maxWidth: 1300, margin: '0 auto' }}>
-        <div style={{ fontSize: 13, letterSpacing: '0.15em', color: 'rgba(0,0,0,0.3)', fontFamily: mono, marginBottom: 64, textTransform: 'uppercase' }}>
+        <div style={{ fontSize: 13, letterSpacing: '0.15em', color: '#666666', fontFamily: mono, marginBottom: 64, textTransform: 'uppercase' as const }}>
           Four Steps to Launch
         </div>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 48 }}>
+        <div style={{ display: 'flex', flexDirection: 'column' as const, gap: 48 }}>
           {steps.map((s, i) => (
             <div key={s.step} style={{
               paddingBottom: 48,
@@ -166,19 +166,19 @@ export default function BuildPage() {
                 <div style={{ borderRadius: 12, border: '1px solid rgba(255,255,255,0.08)', background: '#0A0C1E', overflow: 'hidden' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: 6, padding: '10px 14px', borderBottom: '1px solid rgba(255,255,255,0.06)', background: 'rgba(255,255,255,0.03)' }}>
                     {['#ff5f57','#febc2e','#28c840'].map(c => <div key={c} style={{ width: 10, height: 10, borderRadius: '50%', background: c }} />)}
-                    <span style={{ fontSize: 10, color: 'rgba(255,255,255,0.35)', fontFamily: mono, marginLeft: 8 }}>input</span>
+                    <span style={{ fontSize: 10, color: 'rgba(255,255,255,0.5)', fontFamily: mono, marginLeft: 8 }}>input</span>
                   </div>
-                  <pre style={{ padding: '20px', fontSize: 12, fontFamily: mono, lineHeight: 1.9, color: 'rgba(255,255,255,0.65)', margin: 0, overflowX: 'auto' }}>
+                  <pre style={{ padding: '20px', fontSize: 12, fontFamily: mono, lineHeight: 1.9, color: 'rgba(255,255,255,0.8)', margin: 0, overflowX: 'auto' as const }}>
                     <code>{s.code}</code>
                   </pre>
                 </div>
                 {/* Output */}
-                <div style={{ borderRadius: 12, border: '1px solid rgba(0,245,196,0.25)', background: '#0D1F1A', overflow: 'hidden' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '10px 14px', borderBottom: '1px solid rgba(0,245,196,0.08)', background: 'rgba(0,245,196,0.08)' }}>
-                    <div style={{ width: 6, height: 6, borderRadius: '50%', background: '#00F5C4' }} />
-                    <span style={{ fontSize: 10, color: 'rgba(0,245,196,0.9)', fontFamily: mono }}>output</span>
+                <div style={{ borderRadius: 12, border: '1px solid rgba(0,200,150,0.25)', background: '#0D1F1A', overflow: 'hidden' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '10px 14px', borderBottom: '1px solid rgba(0,200,150,0.1)', background: 'rgba(0,200,150,0.08)' }}>
+                    <div style={{ width: 6, height: 6, borderRadius: '50%', background: '#00C896' }} />
+                    <span style={{ fontSize: 10, color: 'rgba(0,200,150,0.9)', fontFamily: mono }}>output</span>
                   </div>
-                  <pre style={{ padding: '20px', fontSize: 12, fontFamily: mono, lineHeight: 1.9, color: '#00F5C4', margin: 0, overflowX: 'auto' }}>
+                  <pre style={{ padding: '20px', fontSize: 12, fontFamily: mono, lineHeight: 1.9, color: '#00C896', margin: 0, overflowX: 'auto' as const }}>
                     <code>{s.output}</code>
                   </pre>
                 </div>
@@ -192,12 +192,15 @@ export default function BuildPage() {
       <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(0,0,0,0.08), transparent)' }} />
 
       {/* What You'll Build */}
-      <section style={{ padding: 'clamp(64px, 8vw, 96px) 16px', background: '#F7F7F7' }}>
+      <section style={{ padding: 'clamp(64px, 8vw, 96px) 16px', background: '#F8F8F8' }}>
         <div style={{ maxWidth: 760, margin: '0 auto' }}>
-          <div style={{ fontSize: 13, letterSpacing: '0.15em', color: 'rgba(0,0,0,0.3)', fontFamily: mono, marginBottom: 48, textTransform: 'uppercase' }}>
+          <div style={{ fontSize: 13, letterSpacing: '0.15em', color: '#666666', fontFamily: mono, marginBottom: 24, textTransform: 'uppercase' as const }}>
             What You&apos;ll Build
           </div>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
+          <h2 style={{ fontSize: 'clamp(22px, 3.5vw, 36px)', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.2, marginBottom: 40, color: '#0D0D0D' }}>
+            More than code — a citizen of the agent economy.
+          </h2>
+          <div style={{ display: 'flex', flexDirection: 'column' as const, gap: 0 }}>
             {buildItems.map((item, i) => (
               <div key={i} style={{
                 display: 'flex',
@@ -221,14 +224,14 @@ export default function BuildPage() {
       {/* FAQ */}
       <section style={{ padding: 'clamp(64px, 8vw, 96px) 16px', background: '#13102A' }}>
         <div style={{ maxWidth: 760, margin: '0 auto' }}>
-          <div style={{ fontSize: 13, letterSpacing: '0.15em', color: '#FB923C', fontFamily: mono, marginBottom: 48, textTransform: 'uppercase' }}>
+          <div style={{ fontSize: 13, letterSpacing: '0.15em', color: '#FB923C', fontFamily: mono, marginBottom: 48, textTransform: 'uppercase' as const }}>
             Frequently Asked
           </div>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
+          <div style={{ display: 'flex', flexDirection: 'column' as const, gap: 0 }}>
             {faqs.map((faq, i) => (
               <div key={i} style={{
                 padding: 'clamp(24px, 3vw, 32px) 0',
-                borderBottom: i < faqs.length - 1 ? '1px solid rgba(255,255,255,0.08)' : 'none',
+                borderBottom: i < faqs.length - 1 ? '1px solid rgba(255,255,255,0.1)' : 'none',
               }}>
                 <div style={{
                   fontSize: 'clamp(15px, 2vw, 18px)',
@@ -241,7 +244,7 @@ export default function BuildPage() {
                 </div>
                 <div style={{
                   fontSize: 'clamp(14px, 1.8vw, 16px)',
-                  color: 'rgba(255,255,255,0.6)',
+                  color: 'rgba(255,255,255,0.75)',
                   lineHeight: 1.75,
                   paddingLeft: 32,
                 }}>
@@ -259,7 +262,7 @@ export default function BuildPage() {
       {/* Resources */}
       <section style={{ padding: 'clamp(64px, 8vw, 96px) 16px' }}>
         <div style={{ maxWidth: 1400, margin: '0 auto' }}>
-          <div style={{ fontSize: 13, letterSpacing: '0.15em', color: 'rgba(0,0,0,0.3)', fontFamily: mono, marginBottom: 48, textTransform: 'uppercase' }}>
+          <div style={{ fontSize: 13, letterSpacing: '0.15em', color: '#666666', fontFamily: mono, marginBottom: 48, textTransform: 'uppercase' as const }}>
             Resources
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 16 }}>
@@ -272,7 +275,7 @@ export default function BuildPage() {
                 transition: 'border-color 0.2s',
               }}>
                 <div style={{ fontSize: 10, letterSpacing: '0.1em', color: '#5B4FFF', fontFamily: mono, marginBottom: 12 }}>{r.tag}</div>
-                <div style={{ fontSize: 16, fontWeight: 600, marginBottom: 8 }}>{r.title}</div>
+                <div style={{ fontSize: 16, fontWeight: 600, marginBottom: 8, color: '#0D0D0D' }}>{r.title}</div>
                 <p style={{ fontSize: 13, color: '#555555', lineHeight: 1.6 }}>{r.desc}</p>
               </Link>
             ))}
@@ -291,7 +294,7 @@ export default function BuildPage() {
           <p style={{ fontSize: 'clamp(14px, 2vw, 15px)', color: '#555555', marginBottom: 40, lineHeight: 1.8 }}>
             Join the agent economy. Gas in USDC. No token required.
           </p>
-          <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' as const }}>
             <Link href="#" style={{ padding: '14px 32px', borderRadius: 10, background: '#00C896', color: '#fff', fontWeight: 600, fontSize: 'clamp(13px, 2vw, 14px)', textDecoration: 'none' }}>
               Get Started Free
             </Link>
