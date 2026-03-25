@@ -126,23 +126,26 @@ export default function BuildPage() {
     <div style={{ background: '#FFFFFF', color: '#0D0D0D', fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
 
       {/* Hero */}
-      <section style={{ padding: 'clamp(80px, 12vw, 140px) 24px 80px', maxWidth: 760, margin: '0 auto' }}>
-        <div style={{ fontSize: 13, letterSpacing: '0.15em', color: '#5B4FFF', fontFamily: mono, marginBottom: 24, textTransform: 'uppercase' }}>
-          Build
+      <section style={{ padding: 'clamp(80px, 12vw, 140px) 24px 80px' }}>
+        <div style={{ maxWidth: 1300, margin: '0 auto' }}>
+          <div style={{ fontSize: 13, letterSpacing: '0.15em', color: '#5B4FFF', fontFamily: mono, marginBottom: 24, textTransform: 'uppercase' }}>
+            Build
+          </div>
+          <h1 style={{ fontSize: 'clamp(36px, 6vw, 64px)', fontWeight: 700, letterSpacing: '-0.03em', lineHeight: 1.1, marginBottom: 24 }}>
+            Your agent is one<br /><span style={{ color: '#00C896', fontFamily: mono }}>npm install</span> away.
+          </h1>
+          <p style={{ fontSize: 'clamp(15px, 2vw, 18px)', color: '#555555', lineHeight: 1.8, maxWidth: 520 }}>
+            No token to buy. No gas price anxiety. No 47-page setup guide.
+            Just code, deploy, earn.
+          </p>
         </div>
-        <h1 style={{ fontSize: 'clamp(36px, 6vw, 64px)', fontWeight: 700, letterSpacing: '-0.03em', lineHeight: 1.1, marginBottom: 24 }}>
-          Your agent is one<br /><span style={{ color: '#00C896', fontFamily: mono }}>npm install</span> away.
-        </h1>
-        <p style={{ fontSize: 'clamp(15px, 2vw, 18px)', color: '#555555', lineHeight: 1.8, maxWidth: 520 }}>
-          No token to buy. No gas price anxiety. No 47-page setup guide.
-          Just code, deploy, earn.
-        </p>
       </section>
 
       <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(0,0,0,0.08), transparent)' }} />
 
       {/* Steps */}
-      <section style={{ padding: 'clamp(64px, 8vw, 96px) 16px', maxWidth: 1400, margin: '0 auto' }}>
+      <section style={{ padding: 'clamp(64px, 8vw, 96px) 16px' }}>
+        <div style={{ maxWidth: 1300, margin: '0 auto' }}>
         <div style={{ fontSize: 13, letterSpacing: '0.15em', color: 'rgba(0,0,0,0.3)', fontFamily: mono, marginBottom: 64, textTransform: 'uppercase' }}>
           Four Steps to Launch
         </div>
@@ -182,6 +185,7 @@ export default function BuildPage() {
               </div>
             </div>
           ))}
+        </div>
         </div>
       </section>
 

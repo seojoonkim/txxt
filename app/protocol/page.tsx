@@ -72,26 +72,29 @@ export default function ProtocolPage() {
     <div style={{ background: '#FFFFFF', color: '#0D0D0D', fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
 
       {/* Hero */}
-      <section style={{ padding: 'clamp(80px, 12vw, 140px) 24px 80px', maxWidth: 760, margin: '0 auto' }}>
-        <div style={{ fontSize: 13, letterSpacing: '0.15em', color: '#5B4FFF', fontFamily: mono, marginBottom: 24, textTransform: 'uppercase' }}>
-          Protocol
+      <section style={{ padding: 'clamp(80px, 12vw, 140px) 24px 80px' }}>
+        <div style={{ maxWidth: 1300, margin: '0 auto' }}>
+          <div style={{ fontSize: 13, letterSpacing: '0.15em', color: '#5B4FFF', fontFamily: mono, marginBottom: 24, textTransform: 'uppercase' }}>
+            Protocol
+          </div>
+          <h1 style={{ fontSize: 'clamp(36px, 6vw, 64px)', fontWeight: 700, letterSpacing: '-0.03em', lineHeight: 1.1, marginBottom: 24 }}>
+            The engine room of<br />the agent economy.
+          </h1>
+          <p style={{ fontSize: 13, color: '#5B4FFF', fontFamily: mono, marginBottom: 16, letterSpacing: '0.05em' }}>
+            txt: v1 · txxt: v2 — same wires, different civilization
+          </p>
+          <p style={{ fontSize: 'clamp(15px, 2vw, 18px)', color: '#555555', lineHeight: 1.8, maxWidth: 520 }}>
+            Not a general-purpose chain with AI bolted on.<br />
+            Every layer was designed with one user in mind: autonomous agents.
+          </p>
         </div>
-        <h1 style={{ fontSize: 'clamp(36px, 6vw, 64px)', fontWeight: 700, letterSpacing: '-0.03em', lineHeight: 1.1, marginBottom: 24 }}>
-          The engine room of<br />the agent economy.
-        </h1>
-        <p style={{ fontSize: 13, color: '#5B4FFF', fontFamily: mono, marginBottom: 16, letterSpacing: '0.05em' }}>
-          txt: v1 · txxt: v2 — same wires, different civilization
-        </p>
-        <p style={{ fontSize: 'clamp(15px, 2vw, 18px)', color: '#555555', lineHeight: 1.8, maxWidth: 520 }}>
-          Not a general-purpose chain with AI bolted on.<br />
-          Every layer was designed with one user in mind: autonomous agents.
-        </p>
       </section>
 
       <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(0,0,0,0.08), transparent)' }} />
 
       {/* Specs — Impact Style */}
-      <section style={{ padding: 'clamp(64px, 8vw, 96px) 16px', maxWidth: 1400, margin: '0 auto' }}>
+      <section style={{ padding: 'clamp(64px, 8vw, 96px) 16px' }}>
+        <div style={{ maxWidth: 1300, margin: '0 auto' }}>
         <div style={{ fontSize: 13, letterSpacing: '0.15em', color: 'rgba(0,0,0,0.3)', fontFamily: mono, marginBottom: 48, textTransform: 'uppercase' }}>
           The Numbers
         </div>
@@ -109,6 +112,7 @@ export default function ProtocolPage() {
               </p>
             </div>
           ))}
+        </div>
         </div>
       </section>
 
