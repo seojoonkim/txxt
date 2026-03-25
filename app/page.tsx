@@ -86,8 +86,8 @@ export default function Home() {
               marginBottom: 32,
               maxWidth: 480,
             }}>
-              Every blockchain.<br />
-              Every agent. One layer.
+              The internet runs on txt.<br />
+              The agent economy runs on txxt.
             </p>
 
             {/* Sub */}

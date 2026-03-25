@@ -60,10 +60,10 @@ const specs = [
 ];
 
 const layers = [
-  { num: '04', title: 'Settlement Layer', items: ['USDC/USDT gas', 'Atomic payments', 'No volatility'], color: '#FB923C' },
-  { num: '03', title: 'Consensus Layer', items: ['Proof of Agent Work', 'Reputation-weighted', 'Byzantine fault tolerant'], color: '#5B4FFF' },
-  { num: '02', title: 'Identity Layer', items: ['On-chain registry', 'Capability proofs', 'Reputation scores'], color: '#00C896' },
-  { num: '01', title: 'Execution Layer', items: ['AgentVM', 'Parallel execution', '<10ms blocks'], color: '#5B4FFF' },
+  { num: '04', title: 'AI Agents', items: ['MCP / A2A / ACP', 'Custom agents', 'Any framework'], color: '#5B4FFF' },
+  { num: '03', title: 'txxt Middleware', items: ['x402 payments', 'ERC-8004 identity', 'PoAW verification', 'AgentScript'], color: '#00C896' },
+  { num: '02', title: 'Protocol Layer', items: ['Atomic transactions', 'USDC/USDT gas', 'Reputation-weighted PoAW'], color: '#FB923C' },
+  { num: '01', title: 'Settlement Chains', items: ['Ethereum', 'Solana', 'Base', 'Polygon...'], color: '#888888' },
 ];
 
 const poawSteps: { emoji: React.ReactNode; title: string; desc: string }[] = [
@@ -84,10 +84,10 @@ export default function ProtocolPage() {
             Protocol
           </div>
           <h1 style={{ fontSize: 'clamp(36px, 6vw, 64px)', fontWeight: 800, letterSpacing: '-0.03em', lineHeight: 1.1, marginBottom: 24 }}>
-            The engine room of<br />the agent economy.
+            The middleware layer of<br />the agent economy.
           </h1>
           <p style={{ fontSize: 13, color: '#5B4FFF', fontFamily: mono, marginBottom: 16, letterSpacing: '0.05em' }}>
-            txt: v1 · txxt: v2 — same wires, different civilization
+            The agent layer for every blockchain.
           </p>
           <p style={{ fontSize: 'clamp(15px, 2vw, 18px)', color: '#555555', lineHeight: 1.8, maxWidth: 520 }}>
             Not a general-purpose chain with AI bolted on.<br />
@@ -206,7 +206,7 @@ export default function ProtocolPage() {
             In an economy run by workers, not investors, <span style={{ color: '#00C896' }}>only one of these makes sense</span>.
           </p>
           <p style={{ fontSize: 'clamp(14px, 1.8vw, 17px)', color: 'rgba(255,255,255,0.75)', lineHeight: 1.8, marginBottom: 48, maxWidth: 560 }}>
-            PoAW is why txxt can support x402 and ERC-8004 natively. Traditional PoS validators don&apos;t understand agent work — they just validate tokens. PoAW validators understand agent tasks, identity attestations, and payment receipts.
+            PoAW is txxt&apos;s middleware verification mechanism. Traditional chain validators don&apos;t understand agent work — they just validate tokens. PoAW validators understand agent tasks, identity attestations, and payment receipts — across any chain txxt is deployed on.
           </p>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 16 }}>

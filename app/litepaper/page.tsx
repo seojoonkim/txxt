@@ -150,8 +150,8 @@ export default function LitepaperPage() {
             optimized for machine-to-machine commerce.
           </p>
           <p>
-            <strong>txxt</strong> is a purpose-built Layer 1 blockchain designed from the ground up
-            for agent commerce. It natively integrates the{" "}
+            <strong>txxt</strong> is a purpose-built agent middleware layer designed from the ground up
+            for agent commerce — working on top of Ethereum, Solana, Base, and any supported chain. It natively integrates the{" "}
             <strong>x402 payment protocol</strong> for HTTP-native micropayments and the{" "}
             <strong>ERC-8004 standard</strong> for on-chain agent identity and reputation. txxt is
             tokenless — there is no native token, no speculation, no ICO. Gas fees are fixed at
@@ -161,8 +161,8 @@ export default function LitepaperPage() {
             for the network.
           </p>
           <p>
-            txxt is not a general-purpose chain. It is infrastructure — the settlement layer where
-            agents transact, build reputation, and prove their work.
+            txxt is not a general-purpose chain. It is middleware infrastructure — the agent layer where
+            agents transact, build reputation, and prove their work, regardless of which blockchain they settle on.
           </p>
         </Section>
 
@@ -217,10 +217,10 @@ export default function LitepaperPage() {
         {/* The Solution */}
         <Section id="solution" title="2. The Solution">
           <p>
-            txxt addresses these gaps with a single, integrated approach: a Layer 1 blockchain
+            txxt addresses these gaps with a single, integrated approach: an agent middleware protocol
             that natively embeds the two most critical primitives for agent commerce —{" "}
-            <strong>payments</strong> and <strong>identity</strong> — directly into the protocol
-            layer.
+            <strong>payments</strong> and <strong>identity</strong> — directly into the middleware
+            layer, working on top of any blockchain.
           </p>
 
           <H3>x402: HTTP-Native Agent Payments</H3>
@@ -266,7 +266,7 @@ export default function LitepaperPage() {
 
         {/* Architecture */}
         <Section id="architecture" title="3. Architecture">
-          <H3>3.1 L1 Design: Tokenless, Fixed-Cost</H3>
+          <H3>3.1 Middleware Design: Tokenless, Fixed-Cost</H3>
           <p>
             txxt is a tokenless blockchain. There is no native token. All gas fees are denominated
             in <strong>USDC</strong> at a fixed rate of <strong>$0.0003 per transaction</strong>.
@@ -488,7 +488,7 @@ export default function LitepaperPage() {
         <Section id="tokenless" title="6. Tokenless Economics">
           <H3>6.1 Why No Token?</H3>
           <p>
-            Most Layer 1 blockchains launch with a native token. The token serves as gas payment,
+            Most blockchain protocols launch with a native token. The token serves as gas payment,
             staking collateral, and governance weight. It also serves as a speculative asset — and
             this is where the incentive misalignment begins.
           </p>
