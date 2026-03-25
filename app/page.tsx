@@ -16,7 +16,7 @@ function TerminalCursor() {
 
 export default function Home() {
   return (
-    <div style={{ background: '#FFFFFF', color: '#0D0D0D', fontFamily: 'Inter, system-ui, sans-serif', overflowX: 'hidden' }}>
+    <div style={{ background: '#FFFFFF', color: '#0D0D0D', fontFamily: 'Inter, system-ui, sans-serif', overflowX: 'hidden', maxWidth: 1400, margin: '0 auto' }}>
 
       {/* ===== HERO — Split layout ===== */}
       <section style={{
@@ -25,7 +25,7 @@ export default function Home() {
         display: 'flex',
         alignItems: 'stretch',
         overflow: 'hidden',
-        maxWidth: '100vw',
+        maxWidth: '100%',
       }}>
         {/* Left text block */}
         <div style={{

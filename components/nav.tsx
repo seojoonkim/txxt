@@ -37,7 +37,7 @@ export default function Nav() {
         padding: '16px 16px 0',
       }}>
         <nav style={{
-          maxWidth: 1200, margin: '0 auto',
+          maxWidth: 1400, margin: '0 auto',
           background: 'rgba(255,255,255,0.97)',
           backdropFilter: 'blur(20px)',
           WebkitBackdropFilter: 'blur(20px)',

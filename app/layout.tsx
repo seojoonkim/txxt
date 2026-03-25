@@ -48,7 +48,7 @@ export default function RootLayout({
         textRendering: "optimizeLegibility",
       }}>
         <Nav />
-        <main>{children}</main>
+        <main style={{ maxWidth: 1400, margin: "0 auto", width: "100%", overflowX: "hidden" }}>{children}</main>
         <Footer />
       </body>
     </html>

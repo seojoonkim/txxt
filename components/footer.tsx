@@ -36,7 +36,7 @@ export default function Footer() {
       background: '#0A0A0A',
     }}>
       <div style={{
-        maxWidth: 1100,
+        maxWidth: 1400,
         margin: '0 auto',
         padding: '64px 24px 48px',
         boxSizing: 'border-box' as const,

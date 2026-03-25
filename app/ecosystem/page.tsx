@@ -153,7 +153,7 @@ export default function EcosystemPage() {
       <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(0,0,0,0.08), transparent)' }} />
 
       {/* Agent Categories */}
-      <section style={{ padding: 'clamp(64px, 8vw, 96px) 16px', maxWidth: 1100, margin: '0 auto' }}>
+      <section style={{ padding: 'clamp(64px, 8vw, 96px) 16px', maxWidth: 1400, margin: '0 auto' }}>
         <div style={{ fontSize: 13, letterSpacing: '0.15em', color: 'rgba(0,0,0,0.3)', fontFamily: mono, marginBottom: 48, textTransform: 'uppercase' }}>
           Agent Categories
         </div>

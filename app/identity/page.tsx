@@ -214,7 +214,7 @@ export default function IdentityPage() {
       {pillars.map((p, i) => (
         <div key={p.num}>
           <section style={{ padding: 'clamp(64px, 8vw, 96px) 16px', background: i % 2 === 0 ? '#0D0E1A' : '#0A0A16' }}>
-            <div style={{ maxWidth: 1100, margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(280px, 100%), 1fr))', gap: 40, alignItems: 'start' }}>
+            <div style={{ maxWidth: 1400, margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(280px, 100%), 1fr))', gap: 40, alignItems: 'start' }}>
               {/* Left */}
               <div>
                 <div style={{ fontSize: 13, letterSpacing: '0.1em', color: 'rgba(255,255,255,0.25)', fontFamily: mono, marginBottom: 12 }}>
