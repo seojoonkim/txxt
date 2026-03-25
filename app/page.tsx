@@ -29,9 +29,9 @@ export default function Home() {
       }}>
         {/* Left text block */}
         <div style={{
-          flex: '0 0 55%',
-          maxWidth: '55%',
-          padding: 'clamp(80px, 10vw, 120px) clamp(24px, 4vw, 64px) 80px',
+          flex: '0 0 50%',
+          maxWidth: '50%',
+          padding: 'clamp(80px, 10vw, 120px) clamp(24px, 3vw, 48px) 80px clamp(24px, 5vw, 80px)',
           display: 'flex',
           alignItems: 'center',
         }} className="hero-left">
@@ -41,7 +41,7 @@ export default function Home() {
             .hero-right { display: none !important; }
           }
         `}</style>
-          <div style={{ maxWidth: 560, width: '100%' }}>
+          <div style={{ maxWidth: 640, width: '100%' }}>
             {/* Small label */}
             <p style={{
               fontSize: 13, letterSpacing: '0.12em', color: '#555555',
@@ -111,8 +111,8 @@ export default function Home() {
 
         {/* Right video panel */}
         <div className="hero-right" style={{
-          flex: '0 0 45%',
-          maxWidth: '45%',
+          flex: '0 0 50%',
+          maxWidth: '50%',
           overflow: 'hidden',
           display: 'flex',
           alignItems: 'center',
