@@ -138,7 +138,7 @@ export default function Home() {
           }}>
             <LiveBadge />
             <span style={{ fontSize: 11, letterSpacing: '0.08em', color: 'rgba(255,255,255,0.5)', fontFamily: mono }}>
-              The internet runs on txt. The agent economy runs on txxt.
+              LIVE · MAINNET · 100K TPS
             </span>
           </div>
 
@@ -154,6 +154,16 @@ export default function Home() {
             textShadow: '0 0 60px rgba(0,245,196,0.35), 0 0 120px rgba(0,245,196,0.12)', WebkitTextStroke: '2.5px #00F5C4',
           }}>
             txxt
+          </div>
+
+          {/* txt→txxt 메인 메시지 */}
+          <div style={{ marginBottom: 40 }}>
+            <p style={{ fontSize: 'clamp(16px, 3.5vw, 24px)', fontWeight: 500, color: 'rgba(255,255,255,0.55)', lineHeight: 1.5, letterSpacing: '-0.01em', margin: '0 0 8px 0' }}>
+              The internet runs on <span style={{ color: 'rgba(255,255,255,0.3)', textDecoration: 'line-through' }}>txt</span>.
+            </p>
+            <p style={{ fontSize: 'clamp(16px, 3.5vw, 24px)', fontWeight: 600, color: '#fff', lineHeight: 1.5, letterSpacing: '-0.01em', margin: 0 }}>
+              The agent economy runs on <span style={{ color: '#00F5C4', fontWeight: 800 }}>txxt</span>.
+            </p>
           </div>
 
           {/* Rotating Tagline */}
