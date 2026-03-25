@@ -305,7 +305,7 @@ export default function Home() {
       <section style={{
         textAlign: 'center',
         position: 'relative',
-        background: '#FFFFFF',
+        background: '#F8F8F8',
         borderTop: '1px solid rgba(0,0,0,0.06)',
       }}>
         <div style={{
@@ -401,7 +401,7 @@ export default function Home() {
       </section>
 
       {/* ===== HOW IT WORKS — Layered Architecture ===== */}
-      <section style={{ background: '#F8F8F8', padding: 'clamp(80px, 10vw, 140px) 24px', borderTop: '1px solid rgba(0,0,0,0.06)' }}>
+      <section style={{ background: '#FFFFFF', padding: 'clamp(80px, 10vw, 140px) 24px', borderTop: '1px solid rgba(0,0,0,0.06)' }}>
         <div style={{ maxWidth: 1300, margin: '0 auto' }}>
           <p style={{
             fontSize: 12, letterSpacing: '0.12em', fontWeight: 700, color: '#00C896',
@@ -426,7 +426,7 @@ export default function Home() {
       </section>
 
       {/* ===== THE SOLUTION — Why txxt ===== */}
-      <section style={{ background: '#FFFFFF', borderTop: '1px solid rgba(0,0,0,0.06)' }}>
+      <section style={{ background: '#F8F8F8', borderTop: '1px solid rgba(0,0,0,0.06)' }}>
         <div style={{ maxWidth: 1300, margin: '0 auto' }}>
         <div style={{ padding: 'clamp(80px, 12vh, 140px) 24px 0', textAlign: 'center' }}>
           <p style={{
