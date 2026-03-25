@@ -100,12 +100,7 @@ export default function Home() {
         position: 'relative',
         overflow: 'hidden',
       }}>
-        <div style={{
-          position: 'absolute', inset: 0, pointerEvents: 'none',
-          backgroundImage: 'url(/images/hero_agent.png)',
-          backgroundSize: 'cover', backgroundPosition: 'center',
-          opacity: 0.12,
-        }} />
+
         <div style={{
           position: 'absolute', inset: 0, pointerEvents: 'none',
           background: 'radial-gradient(ellipse 800px 600px at 50% 40%, rgba(0,245,196,0.06) 0%, transparent 70%)',
