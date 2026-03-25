@@ -106,7 +106,8 @@ export default function Home() {
           width: '50%', height: '100%',
           overflow: 'hidden',
           borderBottomLeftRadius: 40,
-        }} style={{ display: 'none' }} id="hero-video-desktop">
+          display: 'none',
+        }} id="hero-video-desktop">
           <video
             src="/hero-video.mp4"
             autoPlay
