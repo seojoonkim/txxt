@@ -107,25 +107,19 @@ export default function Nav() {
           padding: '80px 32px 48px',
           overflowY: 'auto',
         }}>
-          <div style={{ marginBottom: 40 }}>
-            <span style={{ fontSize: 28, fontWeight: 900, color: '#00F5C4', fontFamily: mono, letterSpacing: '-0.04em' }}>
-              txxt
-            </span>
-          </div>
-
-          <div style={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
+<div style={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
             {links.map((l, i) => (
               <Link
                 key={l.label}
                 href={l.href}
                 onClick={() => setOpen(false)}
                 style={{
-                  fontSize: 32, fontWeight: 700,
+                  fontSize: 20, fontWeight: 600,
                   color: 'rgba(255,255,255,0.8)',
                   textDecoration: 'none',
-                  padding: '18px 0',
-                  borderBottom: i < links.length - 1 ? '1px solid rgba(255,255,255,0.07)' : 'none',
-                  letterSpacing: '-0.02em',
+                  padding: '14px 0',
+                  borderBottom: i < links.length - 1 ? '1px solid rgba(255,255,255,0.06)' : 'none',
+                  letterSpacing: '-0.01em',
                 }}
               >
                 {l.label}
