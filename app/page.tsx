@@ -542,6 +542,151 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ===== WHY TXXT — DIY vs txxt comparison + code ===== */}
+      <section style={{ background: '#FFFFFF', borderTop: '1px solid rgba(0,0,0,0.06)' }}>
+        <div style={{ maxWidth: 1300, margin: '0 auto', padding: 'clamp(80px, 10vw, 140px) 24px' }}>
+          <p style={{ fontSize: 13, letterSpacing: '0.15em', color: '#FF3366', fontFamily: mono, marginBottom: 24, textTransform: 'uppercase' as const, fontWeight: 700 }}>
+            WHY TXXT
+          </p>
+          <h2 style={{ fontSize: 'clamp(32px, 5vw, 56px)', fontWeight: 700, letterSpacing: '-0.03em', lineHeight: 1.1, marginBottom: 16 }}>
+            DIY agent infra<br />vs txxt middleware.
+          </h2>
+          <p style={{ fontSize: 'clamp(15px, 1.8vw, 18px)', color: '#555555', lineHeight: 1.75, maxWidth: 580, marginBottom: 48 }}>
+            You could wire up x402 adapters, deploy identity contracts, and build reputation oracles on every chain — or you could use the middleware layer that already does all of it.
+          </p>
+
+          {/* Comparison Table */}
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(300px, 100%), 1fr))',
+            gap: 1,
+            background: 'rgba(0,0,0,0.04)',
+            borderRadius: 16,
+            overflow: 'hidden',
+            border: '1px solid rgba(0,0,0,0.08)',
+            marginBottom: 64,
+          }}>
+            <div style={{ padding: '16px 20px', background: '#F5F5F5', fontFamily: mono, fontSize: 12, fontWeight: 700, color: '#666666', letterSpacing: '0.08em', textTransform: 'uppercase' as const }}>
+              DIY Approach
+            </div>
+            <div style={{ padding: '16px 20px', background: 'rgba(0,200,150,0.06)', fontFamily: mono, fontSize: 12, fontWeight: 700, color: '#00C896', letterSpacing: '0.08em', textTransform: 'uppercase' as const }}>
+              With txxt
+            </div>
+            {[
+              { area: 'Agent Identity', diy: 'Build custom ERC-8004 contracts per chain', txxt: 'One SDK call — works on ETH, SOL, Base, Polygon', color: '#5B4FFF' },
+              { area: 'Agent Payments', diy: 'Implement x402 adapters for each chain', txxt: 'txxt.pay() — settles on whichever chain you choose', color: '#00C896' },
+              { area: 'Work Verification', diy: 'Roll your own oracle + reputation system', txxt: 'PoAW built-in — cross-chain work verification', color: '#FB923C' },
+              { area: 'Multi-chain Support', diy: 'Separate deployments, separate state', txxt: 'One agent identity, portable across every chain', color: '#5B4FFF' },
+              { area: 'Onboarding Time', diy: 'Weeks per chain integration', txxt: '< 5 minutes — any chain, any agent framework', color: '#FF3366' },
+            ].map(row => (
+              <>
+                <div key={`diy-${row.area}`} style={{ padding: '20px', background: '#FFFFFF' }}>
+                  <div style={{ fontSize: 12, fontFamily: mono, color: row.color, fontWeight: 600, marginBottom: 6, letterSpacing: '0.05em' }}>{row.area}</div>
+                  <div style={{ fontSize: 'clamp(13px, 1.5vw, 15px)', color: '#777777', lineHeight: 1.65 }}>
+                    <span style={{ color: '#FF3366', marginRight: 6 }}>✗</span>{row.diy}
+                  </div>
+                </div>
+                <div key={`txxt-${row.area}`} style={{ padding: '20px', background: 'rgba(0,200,150,0.02)' }}>
+                  <div style={{ fontSize: 12, fontFamily: mono, color: row.color, fontWeight: 600, marginBottom: 6, letterSpacing: '0.05em' }}>{row.area}</div>
+                  <div style={{ fontSize: 'clamp(13px, 1.5vw, 15px)', color: '#333333', lineHeight: 1.65, fontWeight: 500 }}>
+                    <span style={{ color: '#00C896', marginRight: 6 }}>✓</span>{row.txxt}
+                  </div>
+                </div>
+              </>
+            ))}
+          </div>
+
+          {/* Code Comparison */}
+          <div style={{ marginBottom: 16 }}>
+            <p style={{ fontSize: 13, letterSpacing: '0.15em', color: '#FB923C', fontFamily: mono, marginBottom: 16, textTransform: 'uppercase' as const, fontWeight: 700 }}>
+              Code Comparison
+            </p>
+            <h3 style={{ fontSize: 'clamp(24px, 4vw, 40px)', fontWeight: 700, letterSpacing: '-0.03em', lineHeight: 1.1, marginBottom: 40 }}>
+              100+ lines of glue code<br />vs 5 lines.
+            </h3>
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(420px, 100%), 1fr))', gap: 16 }}>
+            {/* DIY */}
+            <div style={{ borderRadius: 16, border: '1px solid rgba(0,0,0,0.1)', overflow: 'hidden' }}>
+              <div style={{
+                padding: '12px 20px', background: '#F0F0F0',
+                borderBottom: '1px solid rgba(0,0,0,0.08)',
+                display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+              }}>
+                <span style={{ fontSize: 13, fontFamily: mono, fontWeight: 700, color: '#666666' }}>DIY Multi-chain</span>
+                <span style={{ fontSize: 11, fontFamily: mono, color: '#FF3366', fontWeight: 600 }}>~100+ lines per chain</span>
+              </div>
+              <pre style={{
+                padding: 20, margin: 0, fontFamily: mono,
+                fontSize: 'clamp(11px, 1.2vw, 13px)', lineHeight: 1.65,
+                color: '#444444', background: '#FAFAFA',
+                overflow: 'auto', maxHeight: 400,
+              }}>{`// DIY: agent payments across chains
+import { ethers } from 'ethers';
+import { Connection } from '@solana/web3.js';
+import { PaymentChannel } from './custom-x402-adapter';
+import { IdentityRegistry } from './custom-erc8004';
+
+// 1. Deploy identity on Ethereum
+const ethIdentity = await IdentityRegistry.deploy(
+  ethProvider, agentMetadata
+);
+// 2. Deploy identity on Solana (different SDK!)
+const solIdentity = await createSolanaIdentity(
+  connection, agentKeypair, metadata
+);
+// 3. Build payment channel per chain
+const ethPayment = await PaymentChannel.create(
+  ethProvider, USDC_ETH, recipient
+);
+// 4. Route payments based on chain
+// 5. Sync identity across chains
+// ... 100+ lines of glue code per chain`}</pre>
+            </div>
+
+            {/* txxt */}
+            <div style={{ borderRadius: 16, border: '2px solid #00C896', overflow: 'hidden', boxShadow: '0 4px 24px rgba(0,200,150,0.12)' }}>
+              <div style={{
+                padding: '12px 20px', background: 'rgba(0,200,150,0.06)',
+                borderBottom: '1px solid rgba(0,200,150,0.15)',
+                display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+              }}>
+                <span style={{ fontSize: 13, fontFamily: mono, fontWeight: 700, color: '#00C896' }}>txxt Middleware</span>
+                <span style={{ fontSize: 11, fontFamily: mono, color: '#00C896', fontWeight: 600 }}>5 lines · any chain</span>
+              </div>
+              <pre style={{
+                padding: 20, margin: 0, fontFamily: mono,
+                fontSize: 'clamp(11px, 1.2vw, 13px)', lineHeight: 1.65,
+                color: '#333333', background: '#FFFFFF',
+                overflow: 'auto', maxHeight: 400,
+              }}>{`// txxt middleware: one layer for everything
+import { txxt } from '@txxt/sdk';
+
+const agent = txxt.connect({
+  apiKey: API_KEY,
+  chains: ['ethereum', 'solana', 'base']
+});
+
+// Identity — works on every chain
+await agent.register({ capabilities: ['translate'] });
+
+// Payments — settles wherever you want
+await agent.pay(url, '$0.01', { chain: 'base' });
+
+// Done. One identity. Any chain. Any framework.`}</pre>
+              <div style={{
+                padding: '16px 20px', background: 'rgba(0,200,150,0.04)',
+                borderTop: '1px solid rgba(0,200,150,0.1)',
+                fontSize: 13, color: '#00C896', fontFamily: mono, fontWeight: 600,
+              }}>
+                One identity. One payment layer. Any chain underneath.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ===== HOW IT WORKS — Three Pillars ===== */}
       <section style={{ background: '#FFFFFF', borderTop: '1px solid rgba(0,0,0,0.06)' }}>
         <div style={{ maxWidth: 1300, margin: '0 auto' }}>

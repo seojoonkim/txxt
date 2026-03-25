@@ -14,7 +14,6 @@ const links = [
     href: '#',
     label: 'More',
     children: [
-      { href: '/compare', label: 'Why txxt?' },
       { href: '/poaw', label: 'PoAW' },
       { href: '/roadmap', label: 'Roadmap' },
       { href: '#', label: 'Docs' },
