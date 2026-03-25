@@ -56,13 +56,6 @@ export default function Home() {
         `}</style>
           <div style={{ maxWidth: 640, width: '100%' }}>
             {/* Small label */}
-            <p style={{
-              fontSize: 13, letterSpacing: '0.12em', color: '#555555',
-              fontFamily: mono, marginBottom: 32, fontWeight: 600,
-            }}>
-              MIDDLEWARE LAYER · NO TOKEN · GAS $0.0003
-            </p>
-
             {/* Giant txxt logo */}
             <div style={{
               fontSize: 'clamp(80px, 28vw, 200px)',
