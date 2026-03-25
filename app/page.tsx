@@ -29,10 +29,10 @@ export default function Home() {
   return (
     <div style={{ background: '#FFFFFF', color: '#0D0D0D', fontFamily: 'Inter, system-ui, sans-serif', overflowX: 'hidden' }}>
 
-      {/* ===== HERO — Full center ===== */}
+      {/* ===== HERO — Center text + video below ===== */}
       <section style={{
         background: '#FFFFFF',
-        padding: 'clamp(80px, 12vw, 160px) 24px clamp(80px, 12vw, 140px)',
+        padding: 'clamp(80px, 12vw, 160px) 24px 0',
         textAlign: 'center',
       }}>
         <div style={{ maxWidth: 800, margin: '0 auto' }}>
@@ -65,13 +65,13 @@ export default function Home() {
           {/* Sub */}
           <p style={{
             fontSize: 'clamp(14px, 1.8vw, 18px)', color: '#666666', lineHeight: 1.75,
-            marginBottom: 48, maxWidth: 560, margin: '0 auto 48px',
+            maxWidth: 560, margin: '0 auto 48px',
           }}>
             The middleware layer for AI agents. x402 payments. ERC-8004 identity. Works on top of Ethereum, Solana, Base, and more.
           </p>
 
           {/* Buttons */}
-          <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' as const }}>
+          <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' as const, marginBottom: 64 }}>
             <Link href="/build" style={{
               padding: '14px 40px', borderRadius: 10,
               background: '#00C896',
@@ -91,6 +91,18 @@ export default function Home() {
               whiteSpace: 'nowrap' as const,
             }}>Read the Protocol</Link>
           </div>
+        </div>
+
+        {/* Video below */}
+        <div style={{ maxWidth: 900, margin: '0 auto', borderRadius: '24px 24px 0 0', overflow: 'hidden' }}>
+          <video
+            src="/hero-video.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
+            style={{ width: '100%', height: 'auto', display: 'block' }}
+          />
         </div>
       </section>
 
