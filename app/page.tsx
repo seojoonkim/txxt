@@ -72,6 +72,10 @@ function LayeredArchDiagram() {
         <path d="M12 0v12m0 12v12" stroke="#00C896" strokeWidth="2" strokeDasharray="4,3" />
         <path d="M6 10l6 6 6-6" stroke="#00C896" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
         <path d="M6 26l6-6 6 6" stroke="#00C896" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        <circle cx="12" cy="18" r="3" fill="#00C896" opacity="0.8">
+          <animate attributeName="cy" values="6;30;6" dur="2s" repeatCount="indefinite" />
+          <animate attributeName="opacity" values="0;1;0" dur="2s" repeatCount="indefinite" />
+        </circle>
       </svg>
     </div>
   );
@@ -190,12 +194,14 @@ function LayeredArchDiagram() {
 }
 
 export default function Home() {
+  const [copied, setCopied] = useState(false);
+  const [txCount, setTxCount] = useState(10000);
   return (
     <div style={{ background: '#FFFFFF', color: '#0D0D0D', fontFamily: 'Inter, system-ui, sans-serif', overflowX: 'hidden' }}>
 
       {/* ===== HERO — Split layout ===== */}
       <section style={{
-        background: '#FFFFFF',
+        background: 'radial-gradient(ellipse at 50% 0%, rgba(0,200,150,0.06) 0%, #FFFFFF 60%)',
         overflow: 'hidden',
       }}>
         <div style={{ maxWidth: 1300, margin: '0 auto', display: 'flex', alignItems: 'stretch' }} className="hero-inner">
@@ -277,6 +283,35 @@ export default function Home() {
                 whiteSpace: 'nowrap' as const,
                 flex: '1 1 0',
               }}>Read the Protocol</Link>
+              <Link href="https://docs.txxt.network" target="_blank" style={{
+                padding: '13px 0', borderRadius: 10,
+                background: 'transparent',
+                border: '1.5px solid rgba(0,200,150,0.3)',
+                color: '#00C896', fontWeight: 500, fontSize: 'clamp(13px, 3.5vw, 16px)',
+                textDecoration: 'none',
+                transition: 'all 0.2s ease',
+                textAlign: 'center' as const,
+                whiteSpace: 'nowrap' as const,
+                flex: '1 1 0',
+              }}>Read Docs</Link>
+            </div>
+
+            <div style={{
+              display: 'flex', gap: 32, justifyContent: 'center', flexWrap: 'wrap',
+              marginTop: 40, paddingTop: 32,
+              borderTop: '1px solid rgba(0,0,0,0.06)',
+            }}>
+              {[
+                { value: '<10ms', label: 'Latency' },
+                { value: '$0.0003', label: 'Per Transaction' },
+                { value: '5+', label: 'Chains Supported' },
+                { value: '100%', label: 'USDC Gas' },
+              ].map(({ value, label }) => (
+                <div key={label} style={{ textAlign: 'center' }}>
+                  <div style={{ fontSize: 'clamp(20px, 4vw, 28px)', fontWeight: 800, color: '#00C896', fontFamily: mono }}>{value}</div>
+                  <div style={{ fontSize: 12, color: '#888', letterSpacing: '0.08em', marginTop: 4 }}>{label}</div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -305,12 +340,11 @@ export default function Home() {
       <section style={{
         textAlign: 'center',
         position: 'relative',
-        background: '#F8F8F8',
-        borderTop: '1px solid rgba(0,0,0,0.06)',
+        background: '#0D1117',
       }}>
         <div style={{
           position: 'absolute', inset: 0, pointerEvents: 'none',
-          background: 'radial-gradient(ellipse 50% 60% at 50% 50%, rgba(167,139,250,0.04) 0%, transparent 70%)',
+          background: 'radial-gradient(ellipse 50% 60% at 50% 50%, rgba(167,139,250,0.08) 0%, transparent 70%)',
         }} />
 
         <div style={{ maxWidth: 1300, margin: '0 auto', padding: 'clamp(100px, 15vh, 180px) 24px', position: 'relative', zIndex: 1 }}>
@@ -327,7 +361,7 @@ export default function Home() {
             letterSpacing: '-0.04em',
             lineHeight: 1.0,
             margin: '0 0 24px 0',
-            color: '#0D0D0D',
+            color: '#FFFFFF',
           }}>
             Agents need to pay<br />and trust each other.
           </h2>
@@ -350,15 +384,15 @@ export default function Home() {
             <div style={{
               padding: 'clamp(24px, 3vw, 32px)',
               borderRadius: 14,
-              border: '1px solid rgba(0,200,150,0.15)',
-              background: 'rgba(0,200,150,0.03)',
+              border: '1px solid rgba(0,200,150,0.2)',
+              background: 'rgba(0,200,150,0.08)',
               textAlign: 'left' as const,
             }}>
               <div style={{ fontSize: 13, fontFamily: mono, fontWeight: 700, color: '#00C896', letterSpacing: '0.08em', marginBottom: 12 }}>x402 PROTOCOL</div>
-              <p style={{ fontSize: 'clamp(15px, 2vw, 18px)', fontWeight: 600, color: '#0D0D0D', margin: '0 0 8px', lineHeight: 1.3 }}>
+              <p style={{ fontSize: 'clamp(15px, 2vw, 18px)', fontWeight: 600, color: '#FFFFFF', margin: '0 0 8px', lineHeight: 1.3 }}>
                 How agents pay each other.
               </p>
-              <p style={{ fontSize: 'clamp(14px, 1.8vw, 16px)', color: '#555555', lineHeight: 1.75, margin: 0 }}>
+              <p style={{ fontSize: 'clamp(14px, 1.8vw, 16px)', color: 'rgba(255,255,255,0.7)', lineHeight: 1.75, margin: 0 }}>
                 HTTP-native payments, any token, any amount, at machine speed. The spec exists — but no middleware unifies it across chains.
               </p>
             </div>
@@ -366,15 +400,15 @@ export default function Home() {
             <div style={{
               padding: 'clamp(24px, 3vw, 32px)',
               borderRadius: 14,
-              border: '1px solid rgba(91,79,255,0.15)',
-              background: 'rgba(91,79,255,0.03)',
+              border: '1px solid rgba(91,79,255,0.2)',
+              background: 'rgba(91,79,255,0.08)',
               textAlign: 'left' as const,
             }}>
               <div style={{ fontSize: 13, fontFamily: mono, fontWeight: 700, color: '#5B4FFF', letterSpacing: '0.08em', marginBottom: 12 }}>ERC-8004 STANDARD</div>
-              <p style={{ fontSize: 'clamp(15px, 2vw, 18px)', fontWeight: 600, color: '#0D0D0D', margin: '0 0 8px', lineHeight: 1.3 }}>
+              <p style={{ fontSize: 'clamp(15px, 2vw, 18px)', fontWeight: 600, color: '#FFFFFF', margin: '0 0 8px', lineHeight: 1.3 }}>
                 How agents prove who they are.
               </p>
-              <p style={{ fontSize: 'clamp(14px, 1.8vw, 16px)', color: '#555555', lineHeight: 1.75, margin: 0 }}>
+              <p style={{ fontSize: 'clamp(14px, 1.8vw, 16px)', color: 'rgba(255,255,255,0.7)', lineHeight: 1.75, margin: 0 }}>
                 Verifiable identity, reputation, and capabilities on-chain. The spec exists — but every chain treats it as a plugin. txxt makes it native across all of them.
               </p>
             </div>
@@ -385,12 +419,12 @@ export default function Home() {
             maxWidth: 700, margin: '0 auto',
             padding: '28px 32px',
             borderRadius: 14,
-            background: 'rgba(229,62,62,0.04)',
-            border: '1px solid rgba(229,62,62,0.12)',
+            background: 'rgba(229,62,62,0.08)',
+            border: '1px solid rgba(229,62,62,0.15)',
           }}>
             <p style={{
               fontSize: 'clamp(14px, 1.8vw, 17px)',
-              color: '#444444',
+              color: 'rgba(255,255,255,0.7)',
               lineHeight: 1.75,
               margin: 0,
             }}>
@@ -730,6 +764,43 @@ export default function Home() {
             txxt gas: USDC/USDT. $0.0003 per tx. Always.
           </p>
 
+          {/* Gas Cost Simulator */}
+          <div style={{
+            maxWidth: 560, margin: '0 auto 40px',
+            padding: '28px 32px',
+            borderRadius: 14,
+            background: '#FFFFFF',
+            border: '1px solid rgba(0,0,0,0.08)',
+            boxShadow: '0 1px 3px rgba(0,0,0,0.04)',
+          }}>
+            <p style={{ fontSize: 13, fontFamily: mono, fontWeight: 700, color: '#888', letterSpacing: '0.08em', marginBottom: 16 }}>GAS COST SIMULATOR</p>
+            <input
+              type="range"
+              min={1000}
+              max={1000000}
+              step={1000}
+              value={txCount}
+              onChange={(e) => setTxCount(+e.target.value)}
+              style={{ width: '100%', accentColor: '#00C896', marginBottom: 16 }}
+            />
+            <p style={{ fontSize: 'clamp(14px, 2vw, 16px)', color: '#444', margin: '0 0 12px', fontFamily: mono }}>
+              At <strong style={{ color: '#0D0D0D' }}>{txCount.toLocaleString()}</strong> transactions/month:
+            </p>
+            <div style={{ display: 'flex', justifyContent: 'space-between', gap: 16 }}>
+              <div style={{ flex: 1, textAlign: 'center', padding: '12px', borderRadius: 8, background: 'rgba(239,68,68,0.05)', border: '1px solid rgba(239,68,68,0.1)' }}>
+                <div style={{ fontSize: 11, color: '#888', fontFamily: mono, marginBottom: 4 }}>Others</div>
+                <div style={{ fontSize: 'clamp(18px, 3vw, 24px)', fontWeight: 800, color: '#EF4444', fontFamily: mono }}>${(txCount * 0.05).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
+              </div>
+              <div style={{ flex: 1, textAlign: 'center', padding: '12px', borderRadius: 8, background: 'rgba(0,200,150,0.05)', border: '1px solid rgba(0,200,150,0.1)' }}>
+                <div style={{ fontSize: 11, color: '#888', fontFamily: mono, marginBottom: 4 }}>txxt</div>
+                <div style={{ fontSize: 'clamp(18px, 3vw, 24px)', fontWeight: 800, color: '#00C896', fontFamily: mono }}>${(txCount * 0.0003).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
+              </div>
+            </div>
+            <p style={{ fontSize: 'clamp(14px, 2vw, 16px)', color: '#00C896', fontWeight: 700, fontFamily: mono, marginTop: 12, textAlign: 'center' }}>
+              You save: ${((txCount * 0.05) - (txCount * 0.0003)).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+            </p>
+          </div>
+
           {/* Comparison table */}
           <div style={{
             maxWidth: 560, margin: '0 auto',
@@ -765,7 +836,7 @@ export default function Home() {
                 background: '#FFFFFF',
               }}>
                 <div style={{ padding: '14px 20px', fontSize: 13, fontFamily: mono, color: '#0D0D0D', fontWeight: 600 }}>{row.label}</div>
-                <div style={{ padding: '14px 20px', fontSize: 13, color: '#666666', textAlign: 'center' }}>
+                <div style={{ padding: '14px 20px', fontSize: 13, color: '#EF4444', textAlign: 'center' }}>
                   <XIcon size={14} />{' '}{row.them}
                 </div>
                 <div style={{ padding: '14px 20px', fontSize: 13, color: '#00C896', fontWeight: 600, textAlign: 'center' }}>
@@ -907,6 +978,41 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ===== LOGO MARQUEE ===== */}
+      <section style={{ background: '#F8F8F8', borderTop: '1px solid rgba(0,0,0,0.06)', padding: '48px 0', overflow: 'hidden' }}>
+        <style>{`
+          @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+          }
+        `}</style>
+        <p style={{ fontSize: 12, letterSpacing: '0.12em', fontWeight: 700, color: '#888', fontFamily: mono, textAlign: 'center', marginBottom: 24, textTransform: 'uppercase' }}>
+          BUILT WITH
+        </p>
+        <div style={{ display: 'flex', animation: 'marquee 30s linear infinite', width: 'max-content' }}>
+          {[...Array(2)].map((_, setIdx) => (
+            <div key={setIdx} style={{ display: 'flex', gap: 16, paddingRight: 16 }}>
+              {['Ethereum', 'Solana', 'Base', 'Polygon', 'Arbitrum', 'MCP', 'A2A', 'x402', 'ERC-8004', 'USDC', 'PoAW'].map((name) => (
+                <span key={`${setIdx}-${name}`} style={{
+                  display: 'inline-block',
+                  padding: '8px 20px',
+                  borderRadius: 999,
+                  background: '#FFFFFF',
+                  border: '1px solid rgba(0,0,0,0.08)',
+                  fontSize: 13,
+                  fontWeight: 600,
+                  color: '#555',
+                  fontFamily: mono,
+                  whiteSpace: 'nowrap',
+                }}>
+                  {name}
+                </span>
+              ))}
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* ===== AGENTSCRIPT — Code showcase ===== */}
       <section style={{ background: '#F8F8F8', borderTop: '1px solid rgba(0,0,0,0.06)' }}>
         <div style={{ maxWidth: 1300, margin: '0 auto', padding: 'clamp(100px, 12vh, 160px) 24px' }}>
@@ -968,7 +1074,45 @@ export default function Home() {
               <span style={{ fontSize: 13, color: 'rgba(255,255,255,0.5)', fontFamily: mono, marginLeft: 8 }}>
                 travel_planner.agent
               </span>
-              <span style={{ marginLeft: 'auto' }}><TerminalCursor /></span>
+              <button
+                onClick={() => {
+                  const code = `agent TravelPlanner {
+  identity: "txxt:0x1a2b...verified"
+  reputation_minimum: 80
+
+  task hire_flight_agent(destination) {
+    let agent = discover({
+      capability: "flight_search",
+      min_reputation: 85
+    })
+
+    let result = delegate(agent, search(destination), {
+      payment: "0.004 USDC",
+      gas: "0.0003 USDC"
+    })
+
+    rate(agent, score: 95, proof: result.receipt)
+  }
+}`;
+                  navigator.clipboard.writeText(code);
+                  setCopied(true);
+                  setTimeout(() => setCopied(false), 2000);
+                }}
+                style={{
+                  marginLeft: 'auto',
+                  background: 'rgba(255,255,255,0.08)',
+                  border: '1px solid rgba(255,255,255,0.1)',
+                  borderRadius: 6,
+                  padding: '4px 10px',
+                  color: copied ? '#00C896' : 'rgba(255,255,255,0.5)',
+                  fontSize: 12,
+                  fontFamily: mono,
+                  cursor: 'pointer',
+                  transition: 'all 0.2s ease',
+                }}
+              >
+                {copied ? '✓ Copied!' : 'Copy'}
+              </button>
             </div>
             <div style={{ padding: 'clamp(24px, 4vw, 40px)' }}>
               <pre style={{ fontSize: 'clamp(12px, 1.3vw, 14px)', fontFamily: mono, lineHeight: 2, margin: 0, overflowX: 'auto' as const }}>
