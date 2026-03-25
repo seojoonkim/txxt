@@ -61,7 +61,7 @@ export default function ProtocolPage() {
 
       {/* Hero */}
       <section style={{ padding: 'clamp(80px, 12vw, 140px) 24px 80px', maxWidth: 760, margin: '0 auto' }}>
-        <div style={{ fontSize: 11, letterSpacing: '0.15em', color: '#5B4FFF', fontFamily: mono, marginBottom: 24, textTransform: 'uppercase' }}>
+        <div style={{ fontSize: 13, letterSpacing: '0.15em', color: '#5B4FFF', fontFamily: mono, marginBottom: 24, textTransform: 'uppercase' }}>
           Protocol
         </div>
         <h1 style={{ fontSize: 'clamp(36px, 6vw, 64px)', fontWeight: 700, letterSpacing: '-0.03em', lineHeight: 1.1, marginBottom: 24 }}>
@@ -80,7 +80,7 @@ export default function ProtocolPage() {
 
       {/* Specs — Impact Style */}
       <section style={{ padding: 'clamp(64px, 8vw, 96px) 16px', maxWidth: 1100, margin: '0 auto' }}>
-        <div style={{ fontSize: 11, letterSpacing: '0.15em', color: 'rgba(0,0,0,0.3)', fontFamily: mono, marginBottom: 48, textTransform: 'uppercase' }}>
+        <div style={{ fontSize: 13, letterSpacing: '0.15em', color: 'rgba(0,0,0,0.3)', fontFamily: mono, marginBottom: 48, textTransform: 'uppercase' }}>
           The Numbers
         </div>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 1, background: 'rgba(0,0,0,0.04)', borderRadius: 16, overflow: 'hidden', border: '1px solid rgba(0,0,0,0.08)' }}>
@@ -105,7 +105,7 @@ export default function ProtocolPage() {
       {/* Architecture — ASCII Layer Diagram */}
       <section style={{ padding: 'clamp(64px, 8vw, 96px) 16px', background: '#F7F7F7' }}>
         <div style={{ maxWidth: 760, margin: '0 auto' }}>
-          <div style={{ fontSize: 11, letterSpacing: '0.15em', color: 'rgba(0,0,0,0.3)', fontFamily: mono, marginBottom: 48, textTransform: 'uppercase' }}>
+          <div style={{ fontSize: 13, letterSpacing: '0.15em', color: 'rgba(0,0,0,0.3)', fontFamily: mono, marginBottom: 48, textTransform: 'uppercase' }}>
             Architecture
           </div>
 
@@ -127,7 +127,7 @@ export default function ProtocolPage() {
                 alignItems: 'center',
               }}>
                 <div style={{
-                  fontSize: 11,
+                  fontSize: 13,
                   color: l.color,
                   fontFamily: mono,
                   minWidth: 32,
@@ -142,7 +142,7 @@ export default function ProtocolPage() {
                   <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
                     {l.items.map(item => (
                       <span key={item} style={{
-                        fontSize: 11,
+                        fontSize: 13,
                         fontFamily: mono,
                         padding: '4px 10px',
                         borderRadius: 6,
@@ -163,7 +163,7 @@ export default function ProtocolPage() {
           </div>
 
           {/* ASCII footer */}
-          <div style={{ fontFamily: mono, fontSize: 12, color: 'rgba(0,0,0,0.15)', marginTop: 32, textAlign: 'center' }}>
+          <div style={{ fontFamily: mono, fontSize: 13, color: 'rgba(0,0,0,0.15)', marginTop: 32, textAlign: 'center' }}>
             ═══════════════════════════════════════
           </div>
         </div>
@@ -174,7 +174,7 @@ export default function ProtocolPage() {
       {/* Why PoAW? */}
       <section style={{ padding: 'clamp(64px, 8vw, 96px) 16px', background: '#13102A' }}>
         <div style={{ maxWidth: 760, margin: '0 auto' }}>
-          <div style={{ fontSize: 11, letterSpacing: '0.15em', color: '#FB923C', fontFamily: mono, marginBottom: 24, textTransform: 'uppercase' }}>
+          <div style={{ fontSize: 13, letterSpacing: '0.15em', color: '#FB923C', fontFamily: mono, marginBottom: 24, textTransform: 'uppercase' }}>
             Why PoAW?
           </div>
           <h2 style={{ fontSize: 'clamp(28px, 4vw, 44px)', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.15, marginBottom: 16 }}>

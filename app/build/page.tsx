@@ -123,7 +123,7 @@ export default function BuildPage() {
 
       {/* Hero */}
       <section style={{ padding: 'clamp(80px, 12vw, 140px) 24px 80px', maxWidth: 760, margin: '0 auto' }}>
-        <div style={{ fontSize: 11, letterSpacing: '0.15em', color: '#5B4FFF', fontFamily: mono, marginBottom: 24, textTransform: 'uppercase' }}>
+        <div style={{ fontSize: 13, letterSpacing: '0.15em', color: '#5B4FFF', fontFamily: mono, marginBottom: 24, textTransform: 'uppercase' }}>
           Build
         </div>
         <h1 style={{ fontSize: 'clamp(36px, 6vw, 64px)', fontWeight: 700, letterSpacing: '-0.03em', lineHeight: 1.1, marginBottom: 24 }}>
@@ -139,7 +139,7 @@ export default function BuildPage() {
 
       {/* Steps */}
       <section style={{ padding: 'clamp(64px, 8vw, 96px) 16px', maxWidth: 1100, margin: '0 auto' }}>
-        <div style={{ fontSize: 11, letterSpacing: '0.15em', color: 'rgba(0,0,0,0.3)', fontFamily: mono, marginBottom: 64, textTransform: 'uppercase' }}>
+        <div style={{ fontSize: 13, letterSpacing: '0.15em', color: 'rgba(0,0,0,0.3)', fontFamily: mono, marginBottom: 64, textTransform: 'uppercase' }}>
           Four Steps to Launch
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 48 }}>
@@ -149,7 +149,7 @@ export default function BuildPage() {
               borderBottom: i < steps.length - 1 ? '1px solid rgba(0,0,0,0.08)' : 'none',
             }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 16 }}>
-                <div style={{ fontSize: 11, color: '#5B4FFF', fontFamily: mono, letterSpacing: '0.1em' }}>{s.step}</div>
+                <div style={{ fontSize: 13, color: '#5B4FFF', fontFamily: mono, letterSpacing: '0.1em' }}>{s.step}</div>
                 <h3 style={{ fontSize: 'clamp(20px, 3vw, 26px)', fontWeight: 600, letterSpacing: '-0.01em' }}>{s.title}</h3>
               </div>
               <p style={{ fontSize: 'clamp(13px, 2vw, 14px)', color: '#555555', lineHeight: 1.8, marginBottom: 24 }}>{s.desc}</p>
@@ -186,7 +186,7 @@ export default function BuildPage() {
       {/* What You'll Build */}
       <section style={{ padding: 'clamp(64px, 8vw, 96px) 16px', background: '#F7F7F7' }}>
         <div style={{ maxWidth: 760, margin: '0 auto' }}>
-          <div style={{ fontSize: 11, letterSpacing: '0.15em', color: 'rgba(0,0,0,0.3)', fontFamily: mono, marginBottom: 48, textTransform: 'uppercase' }}>
+          <div style={{ fontSize: 13, letterSpacing: '0.15em', color: 'rgba(0,0,0,0.3)', fontFamily: mono, marginBottom: 48, textTransform: 'uppercase' }}>
             What You&apos;ll Build
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
@@ -213,7 +213,7 @@ export default function BuildPage() {
       {/* FAQ */}
       <section style={{ padding: 'clamp(64px, 8vw, 96px) 16px', background: '#13102A' }}>
         <div style={{ maxWidth: 760, margin: '0 auto' }}>
-          <div style={{ fontSize: 11, letterSpacing: '0.15em', color: '#FB923C', fontFamily: mono, marginBottom: 48, textTransform: 'uppercase' }}>
+          <div style={{ fontSize: 13, letterSpacing: '0.15em', color: '#FB923C', fontFamily: mono, marginBottom: 48, textTransform: 'uppercase' }}>
             Frequently Asked
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
@@ -251,7 +251,7 @@ export default function BuildPage() {
       {/* Resources */}
       <section style={{ padding: 'clamp(64px, 8vw, 96px) 16px' }}>
         <div style={{ maxWidth: 1100, margin: '0 auto' }}>
-          <div style={{ fontSize: 11, letterSpacing: '0.15em', color: 'rgba(0,0,0,0.3)', fontFamily: mono, marginBottom: 48, textTransform: 'uppercase' }}>
+          <div style={{ fontSize: 13, letterSpacing: '0.15em', color: 'rgba(0,0,0,0.3)', fontFamily: mono, marginBottom: 48, textTransform: 'uppercase' }}>
             Resources
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 16 }}>

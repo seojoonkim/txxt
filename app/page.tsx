@@ -35,7 +35,7 @@ export default function Home() {
           <div style={{ maxWidth: 600 }}>
             {/* Small label */}
             <p style={{
-              fontSize: 12, letterSpacing: '0.12em', color: '#555555',
+              fontSize: 13, letterSpacing: '0.12em', color: '#555555',
               fontFamily: mono, marginBottom: 32, fontWeight: 600,
             }}>
               LIVE MAINNET · NO TOKEN · GAS IN $0.0003
@@ -144,20 +144,32 @@ export default function Home() {
         {/* Section label */}
         <div style={{ padding: '80px 24px 0', textAlign: 'center' }}>
           <p style={{
-            fontSize: 11, letterSpacing: '0.1em', color: '#007A5E',
+            fontSize: 13, letterSpacing: '0.1em', color: '#007A5E',
             fontFamily: mono, margin: 0, fontWeight: 700,
           }}>
             WHY TXXT
           </p>
+          <h2 style={{
+            fontSize: 'clamp(28px, 5vw, 42px)', fontWeight: 800, color: '#0D0D0D',
+            margin: '24px 0 16px', letterSpacing: '-0.02em', lineHeight: 1.2,
+          }}>
+            x402. ERC-8004. Natively integrated.
+          </h2>
+          <p style={{
+            fontSize: 'clamp(16px, 2.5vw, 20px)', color: '#666', lineHeight: 1.6,
+            margin: '0 auto', maxWidth: 600,
+          }}>
+            Other chains bolt these on. txxt was built with them from block zero.
+          </p>
         </div>
 
-        {/* Four letters — stacked horizontal items (Linear style) */}
+        {/* Four items — stacked horizontal items (Linear style) */}
         <div style={{ maxWidth: 900, margin: '0 auto', padding: '40px 24px 0' }}>
           {[
-            { letter: 't', word: 'transact', desc: 'Agents pay agents. $0.004 per trip planned. $0.0001 per search. Automatic, atomic, instant.', color: '#00C896', num: '01' },
-            { letter: 'x', word: 'exchange', desc: 'A flight agent hires a hotel agent. A research agent sells insights to a trading agent. Skills traded like services, on-chain.', color: '#5B4FFF', num: '02' },
-            { letter: 'x', word: 'exist', desc: 'Before txxt: your agent is an anonymous script. After txxt: it has a name, a history, a score. It exists.', color: '#FF8C00', num: '03' },
-            { letter: 't', word: 'trust', desc: 'Score: 94/100. Breakdown: 12,847 tasks completed, 0 disputes, 99.9% uptime. That\u2019s not a rating. That\u2019s math.', color: '#00C896', num: '04' },
+            { letter: 'x402', word: 'Native Payments', desc: 'x402 is the protocol for agent-to-agent payments. On other chains, you need custom contracts, unpredictable gas, and middleware that breaks. On txxt, x402 is L1-native. $0.0003 per transaction. Always.', color: '#00C896', num: '01' },
+            { letter: '8004', word: 'Native Identity', desc: 'ERC-8004 defines how agents prove who they are. On other chains, it lives in a smart contract layer — fragile, expensive, slow. On txxt, every agent gets an on-chain identity at registration. Instant. Unfakeable.', color: '#5B4FFF', num: '02' },
+            { letter: '+', word: 'Atomic Trust', desc: 'When x402 and ERC-8004 live on the same chain, an agent can verify its counterpart\u2019s identity AND complete a payment in a single atomic transaction. 10ms. No middleware. No trust gaps.', color: '#FF3366', num: '03' },
+            { letter: '✓', word: 'Seamless Commerce', desc: 'Without L1-native identity and payment integration, every agent interaction requires stitching together multiple protocols across multiple chains. With txxt: find the agent, verify its reputation, pay — all in one breath.', color: '#FF8C00', num: '04' },
           ].map((item, i) => (
             <div key={i} style={{
               display: 'flex',
@@ -167,11 +179,11 @@ export default function Home() {
               alignItems: 'flex-start',
             }}>
               <div style={{
-                fontSize: 'clamp(48px, 10vw, 80px)',
+                fontSize: item.letter.length > 2 ? 'clamp(32px, 7vw, 56px)' : 'clamp(48px, 10vw, 80px)',
                 fontWeight: 900,
                 color: item.color,
                 fontFamily: mono,
-                minWidth: '1ch',
+                minWidth: item.letter.length > 2 ? '3ch' : '1ch',
                 flexShrink: 0,
                 lineHeight: 1,
                 letterSpacing: '-0.03em',
@@ -180,9 +192,9 @@ export default function Home() {
               </div>
               <div style={{ flex: 1 }}>
                 <div style={{
-                  fontSize: 12, fontWeight: 700, color: '#007A5E',
+                  fontSize: 13, fontWeight: 700, color: item.color,
                   fontFamily: mono, marginBottom: 8, letterSpacing: '0.08em',
-                }}>_{item.word}</div>
+                }}>{item.word}</div>
                 <p style={{
                   fontSize: 'clamp(14px, 2vw, 16px)', color: '#444', lineHeight: 1.75,
                   margin: 0, maxWidth: '65ch',
@@ -197,10 +209,10 @@ export default function Home() {
         {/* Bottom quote */}
         <div style={{ padding: '48px 24px 80px', textAlign: 'center' }}>
           <p style={{
-            fontSize: 13, color: '#555555', fontStyle: 'italic',
-            fontFamily: mono, margin: 0, maxWidth: 500, marginLeft: 'auto', marginRight: 'auto',
+            fontSize: 14, color: '#555555', fontStyle: 'italic',
+            fontFamily: mono, margin: 0, maxWidth: 600, marginLeft: 'auto', marginRight: 'auto',
           }}>
-            &ldquo;txt carried human words. txxt carries agent trust.&rdquo;
+            &ldquo;x402 tells agents how to pay. ERC-8004 tells agents who to trust. txxt is where both actually work.&rdquo;
           </p>
         </div>
       </section>
@@ -305,7 +317,7 @@ export default function Home() {
         {/* Section header */}
         <div style={{ padding: '100px 24px 0', textAlign: 'center' }}>
           <p style={{
-            fontSize: 11, letterSpacing: '0.1em', color: '#007A5E',
+            fontSize: 13, letterSpacing: '0.1em', color: '#007A5E',
             fontFamily: mono, marginBottom: 20, fontWeight: 700,
           }}>
             CORE INFRASTRUCTURE
@@ -334,7 +346,7 @@ export default function Home() {
               color: 'rgba(167,139,250,0.08)', fontFamily: mono,
               lineHeight: 1, marginBottom: 24, letterSpacing: '-0.05em',
             }}>01</div>
-            <p style={{ fontSize: 11, letterSpacing: '0.12em', color: '#5B4FFF', fontFamily: mono, marginBottom: 16, fontWeight: 600 }}>IDENTITY</p>
+            <p style={{ fontSize: 13, letterSpacing: '0.12em', color: '#5B4FFF', fontFamily: mono, marginBottom: 16, fontWeight: 600 }}>IDENTITY</p>
             <h3 style={{ fontSize: 'clamp(24px, 4vw, 36px)', fontWeight: 700, marginBottom: 16, letterSpacing: '-0.03em', lineHeight: 1.2 }}>
               Every agent gets<br />a passport.
             </h3>
@@ -404,7 +416,7 @@ export default function Home() {
               color: 'rgba(0,245,196,0.06)', fontFamily: mono,
               lineHeight: 1, marginBottom: 24, letterSpacing: '-0.05em',
             }}>02</div>
-            <p style={{ fontSize: 11, letterSpacing: '0.12em', color: '#007A5E', fontFamily: mono, marginBottom: 16, fontWeight: 600 }}>REPUTATION</p>
+            <p style={{ fontSize: 13, letterSpacing: '0.12em', color: '#007A5E', fontFamily: mono, marginBottom: 16, fontWeight: 600 }}>REPUTATION</p>
             <h3 style={{ fontSize: 'clamp(24px, 4vw, 36px)', fontWeight: 700, marginBottom: 16, letterSpacing: '-0.03em', lineHeight: 1.2 }}>
               Trust is earned<br />on-chain.
             </h3>
@@ -431,7 +443,7 @@ export default function Home() {
               color: 'rgba(251,146,60,0.06)', fontFamily: mono,
               lineHeight: 1, marginBottom: 24, letterSpacing: '-0.05em',
             }}>03</div>
-            <p style={{ fontSize: 11, letterSpacing: '0.12em', color: '#FF8C00', fontFamily: mono, marginBottom: 16, fontWeight: 600 }}>VALIDATION</p>
+            <p style={{ fontSize: 13, letterSpacing: '0.12em', color: '#FF8C00', fontFamily: mono, marginBottom: 16, fontWeight: 600 }}>VALIDATION</p>
             <h3 style={{ fontSize: 'clamp(24px, 4vw, 36px)', fontWeight: 700, marginBottom: 16, letterSpacing: '-0.03em', lineHeight: 1.2 }}>
               Three layers.<br />Zero doubt.
             </h3>
@@ -534,9 +546,9 @@ export default function Home() {
               background: '#F0F0F0',
               borderBottom: '1px solid rgba(0,0,0,0.12)',
             }}>
-              <div style={{ padding: '16px 20px', fontSize: 12, fontFamily: mono, color: '#555555', fontWeight: 600, letterSpacing: '0.05em' }}></div>
-              <div style={{ padding: '16px 20px', fontSize: 12, fontFamily: mono, color: '#555555', fontWeight: 600, letterSpacing: '0.05em', textAlign: 'center' }}>Others</div>
-              <div style={{ padding: '16px 20px', fontSize: 12, fontFamily: mono, color: '#007A5E', fontWeight: 700, letterSpacing: '0.05em', textAlign: 'center' }}>txxt</div>
+              <div style={{ padding: '16px 20px', fontSize: 13, fontFamily: mono, color: '#555555', fontWeight: 600, letterSpacing: '0.05em' }}></div>
+              <div style={{ padding: '16px 20px', fontSize: 13, fontFamily: mono, color: '#555555', fontWeight: 600, letterSpacing: '0.05em', textAlign: 'center' }}>Others</div>
+              <div style={{ padding: '16px 20px', fontSize: 13, fontFamily: mono, color: '#007A5E', fontWeight: 700, letterSpacing: '0.05em', textAlign: 'center' }}>txxt</div>
             </div>
             {/* Table rows */}
             {[
@@ -569,7 +581,7 @@ export default function Home() {
         <div style={{ maxWidth: 720, margin: '0 auto' }}>
           <div style={{ marginBottom: 56 }}>
             <p style={{
-              fontSize: 11, letterSpacing: '0.1em', color: '#007A5E',
+              fontSize: 13, letterSpacing: '0.1em', color: '#007A5E',
               fontFamily: mono, marginBottom: 16, fontWeight: 700,
             }}>
               AGENTSCRIPT
@@ -622,7 +634,7 @@ export default function Home() {
                   <div key={c} style={{ width: 12, height: 12, borderRadius: '50%', background: c }} />
                 ))}
               </div>
-              <span style={{ fontSize: 12, color: 'rgba(255,255,255,0.3)', fontFamily: mono, marginLeft: 8 }}>
+              <span style={{ fontSize: 13, color: 'rgba(255,255,255,0.3)', fontFamily: mono, marginLeft: 8 }}>
                 travel_planner.agent
               </span>
               <span style={{ marginLeft: 'auto' }}><TerminalCursor /></span>

@@ -84,7 +84,7 @@ export default function IdentityPage() {
 
       {/* Hero */}
       <section style={{ padding: 'clamp(80px, 12vw, 140px) 24px 80px', maxWidth: 760, margin: '0 auto' }}>
-        <div style={{ fontSize: 11, letterSpacing: '0.15em', color: '#5B4FFF', fontFamily: mono, marginBottom: 24, textTransform: 'uppercase' }}>
+        <div style={{ fontSize: 13, letterSpacing: '0.15em', color: '#5B4FFF', fontFamily: mono, marginBottom: 24, textTransform: 'uppercase' }}>
           Identity · Reputation · Validation
         </div>
         <h1 style={{ fontSize: 'clamp(36px, 6vw, 64px)', fontWeight: 700, letterSpacing: '-0.03em', lineHeight: 1.1, marginBottom: 24 }}>
@@ -101,7 +101,7 @@ export default function IdentityPage() {
       {/* Agent Profile Card */}
       <section style={{ padding: 'clamp(64px, 8vw, 96px) 16px', background: '#F7F7F7' }}>
         <div style={{ maxWidth: 760, margin: '0 auto', textAlign: 'center' }}>
-          <div style={{ fontSize: 11, letterSpacing: '0.15em', color: 'rgba(0,0,0,0.3)', fontFamily: mono, marginBottom: 48, textTransform: 'uppercase' }}>
+          <div style={{ fontSize: 13, letterSpacing: '0.15em', color: 'rgba(0,0,0,0.3)', fontFamily: mono, marginBottom: 48, textTransform: 'uppercase' }}>
             Agent Profile Card
           </div>
 
@@ -166,16 +166,16 @@ export default function IdentityPage() {
       {/* Without vs With */}
       <section style={{ padding: 'clamp(64px, 8vw, 96px) 16px' }}>
         <div style={{ maxWidth: 900, margin: '0 auto' }}>
-          <div style={{ fontSize: 11, letterSpacing: '0.15em', color: 'rgba(0,0,0,0.3)', fontFamily: mono, marginBottom: 48, textTransform: 'uppercase' }}>
+          <div style={{ fontSize: 13, letterSpacing: '0.15em', color: 'rgba(0,0,0,0.3)', fontFamily: mono, marginBottom: 48, textTransform: 'uppercase' }}>
             The Difference
           </div>
 
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 0, borderRadius: 16, overflow: 'hidden', border: '1px solid rgba(0,0,0,0.08)' }}>
             {/* Headers */}
-            <div style={{ padding: 'clamp(16px, 2vw, 24px)', background: 'rgba(255,79,79,0.06)', borderBottom: '1px solid rgba(0,0,0,0.08)', fontFamily: mono, fontSize: 11, letterSpacing: '0.1em', color: 'rgba(220,50,50,0.8)' }}>
+            <div style={{ padding: 'clamp(16px, 2vw, 24px)', background: 'rgba(255,79,79,0.06)', borderBottom: '1px solid rgba(0,0,0,0.08)', fontFamily: mono, fontSize: 13, letterSpacing: '0.1em', color: 'rgba(220,50,50,0.8)' }}>
               ✗ WITHOUT TXXT IDENTITY
             </div>
-            <div style={{ padding: 'clamp(16px, 2vw, 24px)', background: 'rgba(0,245,196,0.04)', borderBottom: '1px solid rgba(0,0,0,0.08)', fontFamily: mono, fontSize: 11, letterSpacing: '0.1em', color: 'rgba(0,180,140,0.9)' }}>
+            <div style={{ padding: 'clamp(16px, 2vw, 24px)', background: 'rgba(0,245,196,0.04)', borderBottom: '1px solid rgba(0,0,0,0.08)', fontFamily: mono, fontSize: 13, letterSpacing: '0.1em', color: 'rgba(0,180,140,0.9)' }}>
               ✓ WITH TXXT IDENTITY
             </div>
 
@@ -217,10 +217,10 @@ export default function IdentityPage() {
             <div style={{ maxWidth: 1100, margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(280px, 100%), 1fr))', gap: 40, alignItems: 'start' }}>
               {/* Left */}
               <div>
-                <div style={{ fontSize: 11, letterSpacing: '0.1em', color: 'rgba(255,255,255,0.25)', fontFamily: mono, marginBottom: 12 }}>
+                <div style={{ fontSize: 13, letterSpacing: '0.1em', color: 'rgba(255,255,255,0.25)', fontFamily: mono, marginBottom: 12 }}>
                   {p.num}
                 </div>
-                <div style={{ fontSize: 11, letterSpacing: '0.1em', color: '#5B4FFF', fontFamily: mono, marginBottom: 20 }}>
+                <div style={{ fontSize: 13, letterSpacing: '0.1em', color: '#5B4FFF', fontFamily: mono, marginBottom: 20 }}>
                   {p.label}
                 </div>
                 <h2 style={{ fontSize: 'clamp(24px, 3.5vw, 36px)', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.2, marginBottom: 20, color: '#FFFFFF' }}>

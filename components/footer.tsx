@@ -66,7 +66,7 @@ export default function Footer() {
             <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.35)', lineHeight: 1.7, maxWidth: 200, marginBottom: 12 }}>
               The first public blockchain built for AI agents.
             </p>
-            <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.2)', fontFamily: mono, letterSpacing: '0.05em' }}>
+            <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.2)', fontFamily: mono, letterSpacing: '0.05em' }}>
               t_ransact · x_change · x_ist · t_rust
             </p>
           </div>
@@ -74,7 +74,7 @@ export default function Footer() {
           {/* 링크 컬럼들 */}
           {Object.entries(footerLinks).map(([title, links]) => (
             <div key={title}>
-              <h4 style={{ fontSize: 12, fontWeight: 600, color: '#FFFFFF', marginBottom: 20, letterSpacing: '0.05em' }}>
+              <h4 style={{ fontSize: 13, fontWeight: 600, color: '#FFFFFF', marginBottom: 20, letterSpacing: '0.05em' }}>
                 {title}
               </h4>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
@@ -100,10 +100,10 @@ export default function Footer() {
           flexDirection: 'column',
           gap: 12,
         }}>
-          <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.35)' }}>
+          <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.35)' }}>
             © 2026 txxt. Agent-Native Infrastructure.
           </p>
-          <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.3)', fontFamily: mono }}>
+          <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.3)', fontFamily: mono }}>
             txt built the web. txxt builds the economy.
           </p>
         </div>

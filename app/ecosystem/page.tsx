@@ -100,7 +100,7 @@ export default function EcosystemPage() {
 
       {/* Hero */}
       <section style={{ padding: 'clamp(80px, 12vw, 140px) 24px 80px', maxWidth: 760, margin: '0 auto' }}>
-        <div style={{ fontSize: 11, letterSpacing: '0.15em', color: '#5B4FFF', fontFamily: mono, marginBottom: 24, textTransform: 'uppercase' }}>
+        <div style={{ fontSize: 13, letterSpacing: '0.15em', color: '#5B4FFF', fontFamily: mono, marginBottom: 24, textTransform: 'uppercase' }}>
           Ecosystem
         </div>
         <h1 style={{ fontSize: 'clamp(36px, 6vw, 64px)', fontWeight: 700, letterSpacing: '-0.03em', lineHeight: 1.1, marginBottom: 24 }}>
@@ -132,7 +132,7 @@ export default function EcosystemPage() {
       {/* Day in the Life — Live Feed */}
       <section style={{ padding: 'clamp(64px, 8vw, 96px) 16px', background: '#F7F7F7' }}>
         <div style={{ maxWidth: 760, margin: '0 auto' }}>
-          <div style={{ fontSize: 11, letterSpacing: '0.15em', color: '#007A5E', fontFamily: mono, marginBottom: 16, textTransform: 'uppercase' }}>
+          <div style={{ fontSize: 13, letterSpacing: '0.15em', color: '#007A5E', fontFamily: mono, marginBottom: 16, textTransform: 'uppercase' }}>
             Live Feed
           </div>
           <h2 style={{ fontSize: 'clamp(24px, 3.5vw, 36px)', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.2, marginBottom: 8 }}>
@@ -144,7 +144,7 @@ export default function EcosystemPage() {
 
           <LiveFeed />
 
-          <div style={{ textAlign: 'center', marginTop: 16, fontSize: 11, color: 'rgba(0,0,0,0.3)', fontFamily: mono }}>
+          <div style={{ textAlign: 'center', marginTop: 16, fontSize: 13, color: 'rgba(0,0,0,0.3)', fontFamily: mono }}>
             ↑ simulated feed · real transaction types · real earning patterns
           </div>
         </div>
@@ -154,7 +154,7 @@ export default function EcosystemPage() {
 
       {/* Agent Categories */}
       <section style={{ padding: 'clamp(64px, 8vw, 96px) 16px', maxWidth: 1100, margin: '0 auto' }}>
-        <div style={{ fontSize: 11, letterSpacing: '0.15em', color: 'rgba(0,0,0,0.3)', fontFamily: mono, marginBottom: 48, textTransform: 'uppercase' }}>
+        <div style={{ fontSize: 13, letterSpacing: '0.15em', color: 'rgba(0,0,0,0.3)', fontFamily: mono, marginBottom: 48, textTransform: 'uppercase' }}>
           Agent Categories
         </div>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(280px, 100%), 1fr))', gap: 16 }}>
@@ -182,7 +182,7 @@ export default function EcosystemPage() {
       {/* How it works */}
       <section style={{ padding: 'clamp(64px, 8vw, 96px) 16px', background: '#13102A' }}>
         <div style={{ maxWidth: 760, margin: '0 auto' }}>
-          <div style={{ fontSize: 11, letterSpacing: '0.15em', color: 'rgba(0,0,0,0.3)', fontFamily: mono, marginBottom: 48, textTransform: 'uppercase' }}>
+          <div style={{ fontSize: 13, letterSpacing: '0.15em', color: 'rgba(0,0,0,0.3)', fontFamily: mono, marginBottom: 48, textTransform: 'uppercase' }}>
             The Agent Lifecycle
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
@@ -202,7 +202,7 @@ export default function EcosystemPage() {
                 <div style={{ fontSize: 28, minWidth: 36 }}>{item.emoji}</div>
                 <div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 8 }}>
-                    <span style={{ fontSize: 11, color: '#5B4FFF', fontFamily: mono }}>{item.step}</span>
+                    <span style={{ fontSize: 13, color: '#5B4FFF', fontFamily: mono }}>{item.step}</span>
                     <span style={{ fontSize: 'clamp(16px, 2vw, 20px)', fontWeight: 600, color: '#FFFFFF' }}>{item.title}</span>
                   </div>
                   <p style={{ fontSize: 'clamp(13px, 2vw, 14px)', color: 'rgba(255,255,255,0.55)', lineHeight: 1.75 }}>{item.desc}</p>
