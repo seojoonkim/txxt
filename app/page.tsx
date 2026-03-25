@@ -24,6 +24,8 @@ export default function Home() {
         background: '#FFFFFF',
         position: 'relative',
         overflow: 'hidden',
+        contain: 'layout',
+        maxWidth: '100vw',
         display: 'flex',
         alignItems: 'center',
       }}>
