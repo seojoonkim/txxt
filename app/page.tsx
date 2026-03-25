@@ -138,7 +138,7 @@ export default function Home() {
           }}>
             <LiveBadge />
             <span style={{ fontSize: 11, letterSpacing: '0.08em', color: 'rgba(255,255,255,0.5)', fontFamily: mono }}>
-              LIVE · 12,847 AGENTS · 2.3M TXS TODAY
+              t = transact  ·  x = exchange  ·  x = exist  ·  t = trust
             </span>
           </div>
 
@@ -192,7 +192,39 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ===== PROBLEM — "Trust Has No Protocol" ===== */}
+      {/* ===== TXXT MEANING ===== */}
+      <section style={{ padding: '72px 16px', background: '#070811', textAlign: 'center' }}>
+        <div style={{ maxWidth: 680, margin: '0 auto' }}>
+          <p style={{ fontSize: 11, letterSpacing: '0.1em', color: 'rgba(255,255,255,0.2)', fontFamily: mono, marginBottom: 32 }}>WHY TXXT?</p>
+          <div style={{ display: 'flex', justifyContent: 'center', gap: 0, flexWrap: 'wrap' }}>
+            {[
+              { letter: 't', meaning: 'transact', desc: 'Agents pay each other — in milliseconds, for pennies.', color: '#00F5C4' },
+              { letter: 'x', meaning: 'exchange', desc: 'Capabilities, data, and trust — traded on-chain.', color: '#A78BFA' },
+              { letter: 'x', meaning: 'exist', desc: 'Every agent gets a sovereign identity. Permanent.', color: '#FB923C' },
+              { letter: 't', meaning: 'trust', desc: 'Not assumed. Not hoped. Mathematically proven.', color: '#00F5C4' },
+            ].map((item, i) => (
+              <div key={i} style={{
+                padding: '32px 28px',
+                borderRight: i < 3 ? '1px solid rgba(255,255,255,0.05)' : 'none',
+                flex: '1 1 160px',
+                minWidth: 140,
+              }}>
+                <div style={{ fontSize: 42, fontWeight: 900, color: item.color, fontFamily: mono, marginBottom: 8, textShadow: `0 0 20px ${item.color}55` }}>
+                  {item.letter}
+                </div>
+                <div style={{ fontSize: 13, fontWeight: 700, color: '#fff', marginBottom: 10, fontFamily: mono }}>
+                  _{item.meaning}
+                </div>
+                <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.35)', lineHeight: 1.7 }}>{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.07), transparent)' }} />
+
+      {/* ===== PROBLEM — "Trust Has No Protocol" ===== */}}
       <section style={{ padding: '96px 16px', textAlign: 'center', maxWidth: 740, margin: '0 auto', width: '100%', boxSizing: 'border-box' as const, overflowX: 'hidden' }}>
         <div style={{ fontSize: 11, letterSpacing: '0.1em', color: '#A78BFA', fontFamily: mono, marginBottom: 24 }}>
           THE TRUST GAP
