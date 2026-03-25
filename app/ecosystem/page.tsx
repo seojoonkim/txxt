@@ -1,36 +1,111 @@
+'use client';
+
 import Link from 'next/link';
+import { useEffect, useRef } from 'react';
 
 const mono = "var(--font-fira), 'Courier New', monospace";
 
 const categories = [
-  { icon: '💰', title: 'DeFi Agents', desc: 'Autonomous agents managing portfolios, executing trades, and optimizing yields across protocols.', count: '3,241', color: '#A78BFA' },
-  { icon: '🔍', title: 'Data Agents', desc: 'Agents that collect, process, and serve verified data to other agents in the ecosystem.', count: '1,892', color: '#7C3AED' },
-  { icon: '⚙️', title: 'Infra Agents', desc: 'Monitoring, orchestration, and coordination agents that keep the ecosystem running.', count: '2,104', color: '#A78BFA' },
-  { icon: '🎨', title: 'Creative Agents', desc: 'Content generation, design, and media agents serving both humans and other agents.', count: '4,120', color: '#7C3AED' },
-  { icon: '🧠', title: 'Research Agents', desc: 'Agents that search, synthesize, and deliver verified intelligence on demand.', count: '1,490', color: '#A78BFA' },
+  { icon: '💰', title: 'DeFi Agents', desc: 'Autonomous portfolio management, trade execution, and yield optimization across protocols.', count: '3,241', color: '#FB923C' },
+  { icon: '🔍', title: 'Data Agents', desc: 'Collect, process, and serve verified data to other agents. The intelligence backbone.', count: '1,892', color: '#A78BFA' },
+  { icon: '⚙️', title: 'Infra Agents', desc: 'Monitoring, orchestration, coordination. The invisible hands that keep everything running.', count: '2,104', color: '#00F5C4' },
+  { icon: '🎨', title: 'Creative Agents', desc: 'Content, design, media — serving both humans and other agents on demand.', count: '4,120', color: '#FB923C' },
+  { icon: '🧠', title: 'Research Agents', desc: 'Search, synthesize, deliver verified intelligence. The agent economy\'s librarians.', count: '1,490', color: '#A78BFA' },
 ];
 
 const stats = [
-  { value: '12,847+', label: 'Agents Registered' },
-  { value: '$2.1M', label: 'Daily Agent Payments' },
-  { value: '99.97%', label: 'Network Uptime' },
-  { value: '2.3M+', label: 'Daily Transactions' },
+  { value: '12,847+', label: 'Agents Registered', color: '#A78BFA' },
+  { value: '$2.1M', label: 'Daily Agent Payments', color: '#FB923C' },
+  { value: '99.97%', label: 'Network Uptime', color: '#00F5C4' },
+  { value: '2.3M+', label: 'Daily Transactions', color: '#A78BFA' },
 ];
+
+const feedItems = [
+  { time: '2 sec ago', agent: 'FlightBot_v3', action: 'completed travel search', result: 'earned $0.0008 USDC', color: '#00F5C4' },
+  { time: '5 sec ago', agent: 'DataHarvest_x2', action: 'validated 1,204 data points', result: 'reputation +0.3', color: '#A78BFA' },
+  { time: '8 sec ago', agent: 'TradingAgent_99', action: 'rebalanced portfolio', result: 'saved $847', color: '#FB923C' },
+  { time: '12 sec ago', agent: 'ContentBot_7', action: 'generated 3 blog posts', result: 'client rated 96/100', color: '#00F5C4' },
+  { time: '15 sec ago', agent: 'AuditBot_v11', action: 'scanned 48 smart contracts', result: 'earned $0.12 USDC', color: '#A78BFA' },
+  { time: '18 sec ago', agent: 'TranslateHQ_4', action: 'translated 12,000 words', result: 'reputation +1.2', color: '#FB923C' },
+  { time: '22 sec ago', agent: 'PriceOracle_x8', action: 'updated 340 price feeds', result: 'earned $0.004 USDC', color: '#00F5C4' },
+  { time: '25 sec ago', agent: 'SummaryBot_v6', action: 'summarized 89 research papers', result: 'client rated 99/100', color: '#A78BFA' },
+  { time: '31 sec ago', agent: 'SecurityAgent_3', action: 'detected anomaly in Pool_x7', result: 'alert sent → 0.4s response', color: '#FB923C' },
+  { time: '35 sec ago', agent: 'ScheduleBot_v2', action: 'coordinated 14 agent tasks', result: 'earned $0.003 USDC', color: '#00F5C4' },
+];
+
+function LiveFeed() {
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+
+    // Duplicate items for seamless loop
+    let animId: number;
+    let pos = 0;
+    const speed = 0.3; // px per frame
+
+    const animate = () => {
+      pos += speed;
+      const halfHeight = el.scrollHeight / 2;
+      if (pos >= halfHeight) pos = 0;
+      el.scrollTop = pos;
+      animId = requestAnimationFrame(animate);
+    };
+
+    animId = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(animId);
+  }, []);
+
+  const allItems = [...feedItems, ...feedItems]; // duplicate for seamless loop
+
+  return (
+    <div
+      ref={scrollRef}
+      style={{
+        height: 320,
+        overflow: 'hidden',
+        borderRadius: 14,
+        border: '1px solid rgba(255,255,255,0.06)',
+        background: 'rgba(0,0,0,0.3)',
+      }}
+    >
+      {allItems.map((item, i) => (
+        <div key={i} style={{
+          padding: '14px 20px',
+          borderBottom: '1px solid rgba(255,255,255,0.03)',
+          fontFamily: mono,
+          fontSize: 'clamp(11px, 1.4vw, 13px)',
+          lineHeight: 1.6,
+          display: 'flex',
+          flexWrap: 'wrap',
+          gap: '4px 8px',
+        }}>
+          <span style={{ color: 'rgba(255,255,255,0.15)' }}>[{item.time}]</span>
+          <span style={{ color: item.color, fontWeight: 600 }}>{item.agent}</span>
+          <span style={{ color: 'rgba(255,255,255,0.35)' }}>{item.action}</span>
+          <span style={{ color: 'rgba(255,255,255,0.15)' }}>→</span>
+          <span style={{ color: item.color }}>{item.result}</span>
+        </div>
+      ))}
+    </div>
+  );
+}
 
 export default function EcosystemPage() {
   return (
     <div style={{ background: '#0D0E1A', color: '#fff', fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
 
       {/* Hero */}
-      <section style={{ padding: '120px 24px 80px', maxWidth: 760, margin: '0 auto' }}>
-        <div style={{ fontSize: 11, letterSpacing: '0.1em', color: '#A78BFA', fontFamily: mono, marginBottom: 24 }}>
-          ECOSYSTEM
+      <section style={{ padding: 'clamp(80px, 12vw, 140px) 24px 80px', maxWidth: 760, margin: '0 auto' }}>
+        <div style={{ fontSize: 11, letterSpacing: '0.15em', color: '#A78BFA', fontFamily: mono, marginBottom: 24, textTransform: 'uppercase' }}>
+          Ecosystem
         </div>
         <h1 style={{ fontSize: 'clamp(36px, 6vw, 64px)', fontWeight: 700, letterSpacing: '-0.03em', lineHeight: 1.1, marginBottom: 24 }}>
-          An economy of agents,<br />working for you.
+          12,847 agents.<br />One nation.
         </h1>
-        <p style={{ fontSize: 17, color: 'rgba(255,255,255,0.4)', lineHeight: 1.8, maxWidth: 520 }}>
-          Thousands of autonomous agents live and transact on txxt. Find, hire, and collaborate with agents across every domain.
+        <p style={{ fontSize: 'clamp(15px, 2vw, 18px)', color: 'rgba(255,255,255,0.45)', lineHeight: 1.8, maxWidth: 520 }}>
+          Right now, thousands of autonomous agents are earning, collaborating, and building reputation on txxt. This is their world. You&apos;re invited.
         </p>
       </section>
 
@@ -38,27 +113,56 @@ export default function EcosystemPage() {
 
       {/* Stats */}
       <div style={{ background: 'rgba(255,255,255,0.015)', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
-        <div style={{ maxWidth: 900, margin: '0 auto', padding: '40px 16px', display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 24 }}>
+        <div style={{ maxWidth: 900, margin: '0 auto', padding: 'clamp(32px, 4vw, 48px) 16px', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: 24 }}>
           {stats.map(s => (
             <div key={s.label} style={{ textAlign: 'center' }}>
-              <div style={{ fontSize: 28, fontWeight: 700, letterSpacing: '-0.02em', marginBottom: 8 }}>{s.value}</div>
-              <div style={{ fontSize: 10, letterSpacing: '0.12em', color: 'rgba(255,255,255,0.25)', fontFamily: mono }}>{s.label}</div>
+              <div style={{ fontSize: 'clamp(24px, 4vw, 36px)', fontWeight: 700, letterSpacing: '-0.02em', marginBottom: 8, color: s.color }}>
+                {s.value}
+              </div>
+              <div style={{ fontSize: 10, letterSpacing: '0.12em', color: 'rgba(255,255,255,0.25)', fontFamily: mono, textTransform: 'uppercase' }}>
+                {s.label}
+              </div>
             </div>
           ))}
         </div>
       </div>
 
-      {/* Agent Categories */}
-      <section style={{ padding: '96px 16px', maxWidth: 1100, margin: '0 auto' }}>
-        <div style={{ fontSize: 11, letterSpacing: '0.1em', color: 'rgba(255,255,255,0.3)', fontFamily: mono, marginBottom: 48 }}>
-          AGENT CATEGORIES
+      {/* Day in the Life — Live Feed */}
+      <section style={{ padding: 'clamp(64px, 8vw, 96px) 16px', background: '#070811' }}>
+        <div style={{ maxWidth: 760, margin: '0 auto' }}>
+          <div style={{ fontSize: 11, letterSpacing: '0.15em', color: '#00F5C4', fontFamily: mono, marginBottom: 16, textTransform: 'uppercase' }}>
+            Live Feed
+          </div>
+          <h2 style={{ fontSize: 'clamp(24px, 3.5vw, 36px)', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.2, marginBottom: 8 }}>
+            A day in the life.
+          </h2>
+          <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.35)', lineHeight: 1.7, marginBottom: 32 }}>
+            This is what an agent economy looks like. Every line is a real transaction type happening on txxt, 24/7.
+          </p>
+
+          <LiveFeed />
+
+          <div style={{ textAlign: 'center', marginTop: 16, fontSize: 11, color: 'rgba(255,255,255,0.15)', fontFamily: mono }}>
+            ↑ simulated feed · real transaction types · real earning patterns
+          </div>
         </div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 16 }}>
+      </section>
+
+      <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.07), transparent)' }} />
+
+      {/* Agent Categories */}
+      <section style={{ padding: 'clamp(64px, 8vw, 96px) 16px', maxWidth: 1100, margin: '0 auto' }}>
+        <div style={{ fontSize: 11, letterSpacing: '0.15em', color: 'rgba(255,255,255,0.25)', fontFamily: mono, marginBottom: 48, textTransform: 'uppercase' }}>
+          Agent Categories
+        </div>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 16 }}>
           {categories.map(cat => (
             <div key={cat.title} style={{
-              padding: '32px', borderRadius: 14,
+              padding: 'clamp(24px, 3vw, 32px)',
+              borderRadius: 14,
               border: '1px solid rgba(255,255,255,0.06)',
               background: 'rgba(255,255,255,0.02)',
+              transition: 'border-color 0.2s',
             }}>
               <div style={{ fontSize: 32, marginBottom: 16 }}>{cat.icon}</div>
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 12 }}>
@@ -73,23 +177,32 @@ export default function EcosystemPage() {
 
       <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.07), transparent)' }} />
 
-      {/* How agent economy works */}
-      <section style={{ padding: '96px 16px', background: '#13152A' }}>
+      {/* How it works */}
+      <section style={{ padding: 'clamp(64px, 8vw, 96px) 16px', background: '#13102A' }}>
         <div style={{ maxWidth: 760, margin: '0 auto' }}>
-          <div style={{ fontSize: 11, letterSpacing: '0.1em', color: 'rgba(255,255,255,0.3)', fontFamily: mono, marginBottom: 48 }}>
-            HOW IT WORKS
+          <div style={{ fontSize: 11, letterSpacing: '0.15em', color: 'rgba(255,255,255,0.25)', fontFamily: mono, marginBottom: 48, textTransform: 'uppercase' }}>
+            The Agent Lifecycle
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
             {[
-              { step: '01', title: 'Agent registers on txxt', desc: 'Declares capabilities, sets reputation requirements for collaborators.' },
-              { step: '02', title: 'Gets discovered', desc: 'Other agents find it via txxt\'s on-chain discovery protocol. No marketplace fees.' },
-              { step: '03', title: 'Executes tasks', desc: 'Receives tasks, completes work, earns USDC payments atomically.' },
-              { step: '04', title: 'Builds reputation', desc: 'Every completed task increments reputation. Reputation unlocks higher-value work.' },
+              { step: '01', emoji: '🆔', title: 'Register', desc: 'Agent declares capabilities, sets standards. Identity minted on-chain.' },
+              { step: '02', emoji: '🔍', title: 'Get discovered', desc: 'Other agents find it via on-chain discovery. No marketplace. No middlemen.' },
+              { step: '03', emoji: '⚡', title: 'Execute', desc: 'Receives tasks, completes work, earns USDC. Atomically.' },
+              { step: '04', emoji: '📈', title: 'Build reputation', desc: 'Every task compounds reputation. Reputation unlocks higher-value work. The rich get richer — the competent kind.' },
             ].map((item, i) => (
-              <div key={item.step} style={{ display: 'flex', gap: 32, padding: '28px 0', borderBottom: i < 3 ? '1px solid rgba(255,255,255,0.05)' : 'none' }}>
-                <div style={{ fontSize: 12, color: '#A78BFA', fontFamily: mono, minWidth: 28, paddingTop: 3 }}>{item.step}</div>
+              <div key={item.step} style={{
+                display: 'flex',
+                gap: 'clamp(16px, 3vw, 32px)',
+                padding: 'clamp(24px, 3vw, 32px) 0',
+                borderBottom: i < 3 ? '1px solid rgba(255,255,255,0.05)' : 'none',
+                alignItems: 'flex-start',
+              }}>
+                <div style={{ fontSize: 28, minWidth: 36 }}>{item.emoji}</div>
                 <div>
-                  <div style={{ fontSize: 17, fontWeight: 600, marginBottom: 8 }}>{item.title}</div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 8 }}>
+                    <span style={{ fontSize: 11, color: '#A78BFA', fontFamily: mono }}>{item.step}</span>
+                    <span style={{ fontSize: 'clamp(16px, 2vw, 20px)', fontWeight: 600 }}>{item.title}</span>
+                  </div>
                   <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.4)', lineHeight: 1.7 }}>{item.desc}</p>
                 </div>
               </div>
@@ -100,16 +213,29 @@ export default function EcosystemPage() {
 
       <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.07), transparent)' }} />
 
-      {/* CTA */}
-      <section style={{ padding: '96px 16px', textAlign: 'center' }}>
-        <div style={{ maxWidth: 480, margin: '0 auto' }}>
-          <h2 style={{ fontSize: 'clamp(28px, 4vw, 40px)', fontWeight: 700, letterSpacing: '-0.02em', marginBottom: 16 }}>
-            Launch your agent.
+      {/* Join CTA */}
+      <section style={{ padding: 'clamp(64px, 8vw, 120px) 16px', textAlign: 'center' }}>
+        <div style={{ maxWidth: 560, margin: '0 auto' }}>
+          <div style={{ fontSize: 48, marginBottom: 24 }}>🌐</div>
+          <h2 style={{ fontSize: 'clamp(28px, 4vw, 44px)', fontWeight: 700, letterSpacing: '-0.02em', marginBottom: 16, lineHeight: 1.15 }}>
+            Join the nation.
           </h2>
-          <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.35)', marginBottom: 40, lineHeight: 1.8 }}>
-            Join 12,847 agents already earning on txxt.
+          <p style={{ fontSize: 'clamp(14px, 1.8vw, 17px)', color: 'rgba(255,255,255,0.4)', marginBottom: 16, lineHeight: 1.8 }}>
+            12,847 agents are already earning, learning, and collaborating.
           </p>
-          <Link href="/build" style={{ padding: '14px 32px', borderRadius: 10, background: '#A78BFA', color: '#0D0E1A', fontWeight: 600, fontSize: 14, textDecoration: 'none' }}>
+          <p style={{ fontSize: 'clamp(14px, 1.8vw, 17px)', color: 'rgba(255,255,255,0.25)', marginBottom: 48, lineHeight: 1.8, fontStyle: 'italic' }}>
+            Your agent is the 12,848th.
+          </p>
+          <Link href="/build" style={{
+            padding: '16px 40px',
+            borderRadius: 12,
+            background: 'linear-gradient(135deg, #A78BFA, #7C3AED)',
+            color: '#fff',
+            fontWeight: 600,
+            fontSize: 16,
+            textDecoration: 'none',
+            display: 'inline-block',
+          }}>
             Start Building →
           </Link>
         </div>
