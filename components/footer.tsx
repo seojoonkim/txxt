@@ -1,6 +1,8 @@
 import Link from 'next/link';
 
-const footerLinks = {
+const mono = "var(--font-fira), 'Courier New', monospace";
+
+const footerLinks: Record<string, { label: string; href: string }[]> = {
   Protocol: [
     { label: 'Overview', href: '/protocol' },
     { label: 'Consensus', href: '#' },
@@ -29,40 +31,76 @@ const footerLinks = {
 
 export default function Footer() {
   return (
-    <footer className="border-t border-[rgba(255,255,255,0.06)] bg-[#060610]">
-      <div className="max-w-7xl mx-auto px-6 pt-20 pb-16">
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-10">
-          <div className="col-span-2 md:col-span-1">
-            <span style={{ fontFamily: "var(--font-fira), 'Courier New', monospace", fontSize: 22, fontWeight: 900, letterSpacing: '-0.04em', color: '#00F5C4', textShadow: '0 0 16px rgba(0,245,196,0.35)', WebkitTextStroke: '1.5px #00F5C4' }}>
-              txxt
-            </span>
-            <p className="mt-3 text-sm text-[rgba(255,255,255,0.4)] leading-relaxed">
+    <footer style={{
+      borderTop: '1px solid rgba(255,255,255,0.06)',
+      background: '#060610',
+    }}>
+      <div style={{
+        maxWidth: 1100,
+        margin: '0 auto',
+        padding: '64px 24px 48px',
+        boxSizing: 'border-box' as const,
+      }}>
+
+        {/* 상단: 로고 + 링크 그리드 */}
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))',
+          gap: 40,
+          marginBottom: 64,
+        }}>
+          {/* 로고 + 설명 */}
+          <div>
+            <div style={{ marginBottom: 16 }}>
+              <span style={{
+                fontFamily: mono,
+                fontSize: 22, fontWeight: 900,
+                letterSpacing: '-0.04em',
+                color: '#00F5C4',
+                textShadow: '0 0 16px rgba(0,245,196,0.35)',
+                WebkitTextStroke: '1px #00F5C4',
+              }}>
+                txxt
+              </span>
+            </div>
+            <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.35)', lineHeight: 1.7, maxWidth: 200 }}>
               The first public blockchain built for AI agents.
             </p>
           </div>
+
+          {/* 링크 컬럼들 */}
           {Object.entries(footerLinks).map(([title, links]) => (
             <div key={title}>
-              <h4 className="text-sm font-semibold text-white mb-5">{title}</h4>
-              <ul className="space-y-3">
+              <h4 style={{ fontSize: 12, fontWeight: 600, color: '#fff', marginBottom: 20, letterSpacing: '0.05em' }}>
+                {title}
+              </h4>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
                 {links.map((link) => (
-                  <li key={link.label}>
-                    <Link
-                      href={link.href}
-                      className="text-sm text-[rgba(255,255,255,0.4)] hover:text-[#00F5C4] transition-colors"
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
+                  <Link
+                    key={link.label}
+                    href={link.href}
+                    style={{ fontSize: 13, color: 'rgba(255,255,255,0.4)', textDecoration: 'none' }}
+                  >
+                    {link.label}
+                  </Link>
                 ))}
-              </ul>
+              </div>
             </div>
           ))}
         </div>
-        <div className="mt-16 pt-8 border-t border-[rgba(255,255,255,0.06)] flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-xs text-[rgba(255,255,255,0.3)]">
+
+        {/* 하단 바 */}
+        <div style={{
+          borderTop: '1px solid rgba(255,255,255,0.06)',
+          paddingTop: 28,
+          display: 'flex',
+          flexDirection: 'column',
+          gap: 12,
+        }}>
+          <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.25)' }}>
             © 2026 txxt. Agent-Native Infrastructure.
           </p>
-          <p className="text-xs text-[rgba(255,255,255,0.2)]" style={{ fontFamily: "var(--font-fira), 'Courier New', monospace" }}>
+          <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.15)', fontFamily: mono }}>
             Trust is Math, Not Faith.
           </p>
         </div>
