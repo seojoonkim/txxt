@@ -21,25 +21,9 @@ function TerminalCursor() {
 }
 
 function RotatingTagline() {
-  const [idx, setIdx] = useState(0);
-  const [fade, setFade] = useState(true);
-  useEffect(() => {
-    const t = setInterval(() => {
-      setFade(false);
-      setTimeout(() => {
-        setIdx(i => (i + 1) % TAGLINES.length);
-        setFade(true);
-      }, 400);
-    }, 3000);
-    return () => clearInterval(t);
-  }, []);
   return (
-    <span style={{
-      opacity: fade ? 1 : 0,
-      transition: 'opacity 0.4s ease',
-      display: 'inline-block',
-    }}>
-      {TAGLINES[idx]}
+    <span>
+      Where Agents Earn Trust
     </span>
   );
 }
@@ -158,10 +142,10 @@ export default function Home() {
 
           {/* txt→txxt 메인 메시지 */}
           <div style={{ marginBottom: 40 }}>
-            <p style={{ fontSize: 'clamp(16px, 3.5vw, 24px)', fontWeight: 500, color: 'rgba(255,255,255,0.55)', lineHeight: 1.5, letterSpacing: '-0.01em', margin: '0 0 8px 0' }}>
-              The internet runs on <span style={{ color: 'rgba(255,255,255,0.3)', textDecoration: 'line-through' }}>txt</span>.
+            <p style={{ fontSize: 'clamp(22px, 4.5vw, 36px)', fontWeight: 500, color: 'rgba(255,255,255,0.6)', lineHeight: 1.5, letterSpacing: '-0.01em', margin: '0 0 8px 0' }}>
+              The internet runs on <span style={{ color: 'rgba(255,255,255,0.5)' }}>txt</span>.
             </p>
-            <p style={{ fontSize: 'clamp(16px, 3.5vw, 24px)', fontWeight: 600, color: '#fff', lineHeight: 1.5, letterSpacing: '-0.01em', margin: 0 }}>
+            <p style={{ fontSize: 'clamp(22px, 4.5vw, 36px)', fontWeight: 700, color: '#fff', lineHeight: 1.5, letterSpacing: '-0.01em', margin: 0 }}>
               The agent economy runs on <span style={{ color: '#00F5C4', fontWeight: 800 }}>txxt</span>.
             </p>
           </div>
