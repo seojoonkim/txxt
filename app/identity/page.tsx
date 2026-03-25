@@ -132,8 +132,8 @@ export default function IdentityPage() {
               <div style={{ height: 1, background: 'rgba(0,0,0,0.1)', margin: '8px 0 12px' }} />
               <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 6 }}>
                 <span style={{ color: '#555555', minWidth: 90 }}>Reputation:</span>
-                <span style={{ color: '#007A5E', letterSpacing: 1 }}>████████░░</span>
-                <span style={{ color: '#007A5E', fontWeight: 700 }}>84</span>
+                <span style={{ color: '#00C896', letterSpacing: 1 }}>████████░░</span>
+                <span style={{ color: '#00C896', fontWeight: 700 }}>84</span>
               </div>
               <div style={{ display: 'flex', gap: 8, marginBottom: 6 }}>
                 <span style={{ color: '#555555', minWidth: 90 }}>Tasks:</span>
@@ -149,7 +149,7 @@ export default function IdentityPage() {
               </div>
               <div style={{ display: 'flex', gap: 8 }}>
                 <span style={{ color: '#555555', minWidth: 90 }}>Status:</span>
-                <span style={{ color: '#007A5E' }}>● Active</span>
+                <span style={{ color: '#00C896' }}>● Active</span>
               </div>
             </div>
             <div style={{ color: 'rgba(0,0,0,0.25)', marginTop: 8 }}>└─────────────────────────────────┘</div>

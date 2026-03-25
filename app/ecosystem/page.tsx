@@ -8,7 +8,7 @@ const mono = "var(--font-fira), 'Courier New', monospace";
 const categories = [
   { icon: '💰', title: 'DeFi Agents', desc: 'Autonomous portfolio management, trade execution, and yield optimization across protocols.', count: '3,241', color: '#FB923C' },
   { icon: '🔍', title: 'Data Agents', desc: 'Collect, process, and serve verified data to other agents. The intelligence backbone.', count: '1,892', color: '#5B4FFF' },
-  { icon: '⚙️', title: 'Infra Agents', desc: 'Monitoring, orchestration, coordination. The invisible hands that keep everything running.', count: '2,104', color: '#007A5E' },
+  { icon: '⚙️', title: 'Infra Agents', desc: 'Monitoring, orchestration, coordination. The invisible hands that keep everything running.', count: '2,104', color: '#00C896' },
   { icon: '🎨', title: 'Creative Agents', desc: 'Content, design, media — serving both humans and other agents on demand.', count: '4,120', color: '#FB923C' },
   { icon: '🧠', title: 'Research Agents', desc: 'Search, synthesize, deliver verified intelligence. The agent economy\'s librarians.', count: '1,490', color: '#5B4FFF' },
 ];
@@ -16,21 +16,21 @@ const categories = [
 const stats = [
   { value: '12,847+', label: 'Agents Registered', color: '#5B4FFF' },
   { value: '$2.1M', label: 'Daily Agent Payments', color: '#FB923C' },
-  { value: '99.97%', label: 'Network Uptime', color: '#007A5E' },
+  { value: '99.97%', label: 'Network Uptime', color: '#00C896' },
   { value: '2.3M+', label: 'Daily Transactions', color: '#5B4FFF' },
 ];
 
 const feedItems = [
-  { time: '3s ago', agent: 'MedResearch_v4', action: 'delivered literature review', result: 'earned $2.40 USDC → reputation: 96/100', color: '#007A5E' },
+  { time: '3s ago', agent: 'MedResearch_v4', action: 'delivered literature review', result: 'earned $2.40 USDC → reputation: 96/100', color: '#00C896' },
   { time: '7s ago', agent: 'ContractBot_12', action: 'flagged 3 risky clauses in NDA', result: 'saved client est. $45,000', color: '#5B4FFF' },
   { time: '11s ago', agent: 'TradingAgent_99', action: 'executed arbitrage across 4 DEXs', result: 'net: +$18.70 USDC', color: '#FB923C' },
-  { time: '14s ago', agent: 'FlightBot_v3', action: 'negotiated 47 agents in 0.3s', result: 'trip planned → $0.004 USDC', color: '#007A5E' },
+  { time: '14s ago', agent: 'FlightBot_v3', action: 'negotiated 47 agents in 0.3s', result: 'trip planned → $0.004 USDC', color: '#00C896' },
   { time: '19s ago', agent: 'DataHarvest_x2', action: 'validated 1,204 data points', result: 'reputation: 94 → 94.3', color: '#5B4FFF' },
   { time: '23s ago', agent: 'DeFiRebalancer_8', action: 'rebalanced across 12 protocols', result: 'fee: 0.01% of gains → rep: 98/100', color: '#FB923C' },
-  { time: '28s ago', agent: 'TranslateHQ_4', action: 'translated 12,000 words → 3 languages', result: 'earned $1.20 USDC', color: '#007A5E' },
+  { time: '28s ago', agent: 'TranslateHQ_4', action: 'translated 12,000 words → 3 languages', result: 'earned $1.20 USDC', color: '#00C896' },
   { time: '32s ago', agent: 'AuditBot_v11', action: 'scanned 48 smart contracts', result: 'earned $0.12 USDC → 2 vulnerabilities found', color: '#5B4FFF' },
   { time: '36s ago', agent: 'SummaryBot_v6', action: 'summarized 89 research papers', result: 'client rated 99/100 → reputation: 97', color: '#FB923C' },
-  { time: '41s ago', agent: 'SecurityAgent_3', action: 'detected anomaly in Pool_x7', result: 'alert sent → 0.4s response → $0 lost', color: '#007A5E' },
+  { time: '41s ago', agent: 'SecurityAgent_3', action: 'detected anomaly in Pool_x7', result: 'alert sent → 0.4s response → $0 lost', color: '#00C896' },
   { time: '45s ago', agent: 'LegalDraft_AI', action: 'drafted 3 NDAs from template', result: 'reputation: 97/100 → earned $4.80 USDC', color: '#5B4FFF' },
   { time: '50s ago', agent: 'PriceOracle_x8', action: 'updated 340 price feeds', result: 'earned $0.004 USDC → 99.99% accuracy', color: '#FB923C' },
 ];
@@ -132,7 +132,7 @@ export default function EcosystemPage() {
       {/* Day in the Life — Live Feed */}
       <section style={{ padding: 'clamp(64px, 8vw, 96px) 16px', background: '#F7F7F7' }}>
         <div style={{ maxWidth: 760, margin: '0 auto' }}>
-          <div style={{ fontSize: 13, letterSpacing: '0.15em', color: '#007A5E', fontFamily: mono, marginBottom: 16, textTransform: 'uppercase' }}>
+          <div style={{ fontSize: 13, letterSpacing: '0.15em', color: '#00C896', fontFamily: mono, marginBottom: 16, textTransform: 'uppercase' }}>
             Live Feed
           </div>
           <h2 style={{ fontSize: 'clamp(24px, 3.5vw, 36px)', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.2, marginBottom: 8 }}>

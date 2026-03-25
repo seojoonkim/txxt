@@ -13,7 +13,7 @@ const specs = [
     value: '<10ms Blocks',
     headline: 'An agent thinks in milliseconds.',
     sub: 'Its blockchain should too. 10ms finality means decisions and payments happen in the same breath.',
-    color: '#007A5E',
+    color: '#00C896',
   },
   {
     value: 'USDC Gas',
@@ -31,7 +31,7 @@ const specs = [
     value: 'Agent-Centric State',
     headline: 'Every agent is a first-class citizen.',
     sub: 'Its own state tree. Its own history. Its own world.',
-    color: '#007A5E',
+    color: '#00C896',
   },
   {
     value: 'PoAW Consensus',
@@ -56,7 +56,7 @@ const specs = [
 const layers = [
   { num: '04', title: 'Settlement Layer', items: ['USDC/USDT gas', 'Atomic payments', 'No volatility'], color: '#FB923C' },
   { num: '03', title: 'Consensus Layer', items: ['Proof of Agent Work', 'Reputation-weighted', 'Byzantine fault tolerant'], color: '#5B4FFF' },
-  { num: '02', title: 'Identity Layer', items: ['On-chain registry', 'Capability proofs', 'Reputation scores'], color: '#007A5E' },
+  { num: '02', title: 'Identity Layer', items: ['On-chain registry', 'Capability proofs', 'Reputation scores'], color: '#00C896' },
   { num: '01', title: 'Execution Layer', items: ['AgentVM', 'Parallel execution', '<10ms blocks'], color: '#5B4FFF' },
 ];
 
@@ -195,7 +195,7 @@ export default function ProtocolPage() {
           <p style={{ fontSize: 'clamp(14px, 1.8vw, 17px)', color: 'rgba(255,255,255,0.55)', lineHeight: 1.8, marginBottom: 24, maxWidth: 560 }}>
             Every other consensus asks what you own.<br />
             PoAW asks what you&apos;ve done.<br />
-            In an economy run by workers, not investors, <span style={{ color: '#007A5E' }}>only one of these makes sense</span>.
+            In an economy run by workers, not investors, <span style={{ color: '#00C896' }}>only one of these makes sense</span>.
           </p>
           <p style={{ fontSize: 'clamp(14px, 1.8vw, 17px)', color: 'rgba(255,255,255,0.55)', lineHeight: 1.8, marginBottom: 48, maxWidth: 560 }}>
             PoAW is why txxt can support x402 and ERC-8004 natively. Traditional PoS validators don&apos;t understand agent work — they just validate tokens. PoAW validators understand agent tasks, identity attestations, and payment receipts. The consensus mechanism was designed for what agents actually do.
@@ -231,8 +231,8 @@ export default function ProtocolPage() {
             <div style={{ color: 'rgba(255,255,255,0.3)', marginBottom: 16 }}>{'// consensus comparison'}</div>
             <div style={{ marginBottom: 12 }}><span style={{ color: '#FB923C' }}>PoW:</span> {"\"I burned electricity\"  → here's a block"}</div>
             <div style={{ marginBottom: 12 }}><span style={{ color: '#5B4FFF' }}>PoS:</span> {"\"I have money\"         → here's a block"}</div>
-            <div style={{ marginBottom: 12 }}><span style={{ color: '#007A5E' }}>PoAW:</span> {"\"I did useful work\"    → here's a block  ✓"}</div>
-            <div style={{ paddingTop: 16, borderTop: '1px solid rgba(255,255,255,0.1)', marginTop: 16, color: 'rgba(255,255,255,0.4)' }}>PoW burns energy to prove nothing useful.<br />PoS asks: how much do you own?<br />PoAW asks: how much have you proven?<br /><br /><span style={{ color: '#007A5E' }}>The only consensus mechanism designed for a world where value comes from work, not capital.</span></div>
+            <div style={{ marginBottom: 12 }}><span style={{ color: '#00C896' }}>PoAW:</span> {"\"I did useful work\"    → here's a block  ✓"}</div>
+            <div style={{ paddingTop: 16, borderTop: '1px solid rgba(255,255,255,0.1)', marginTop: 16, color: 'rgba(255,255,255,0.4)' }}>PoW burns energy to prove nothing useful.<br />PoS asks: how much do you own?<br />PoAW asks: how much have you proven?<br /><br /><span style={{ color: '#00C896' }}>The only consensus mechanism designed for a world where value comes from work, not capital.</span></div>
           </div>
         </div>
       </section>

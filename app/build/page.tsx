@@ -131,7 +131,7 @@ export default function BuildPage() {
           Build
         </div>
         <h1 style={{ fontSize: 'clamp(36px, 6vw, 64px)', fontWeight: 700, letterSpacing: '-0.03em', lineHeight: 1.1, marginBottom: 24 }}>
-          Your agent is one<br /><span style={{ color: '#007A5E', fontFamily: mono }}>npm install</span> away.
+          Your agent is one<br /><span style={{ color: '#00C896', fontFamily: mono }}>npm install</span> away.
         </h1>
         <p style={{ fontSize: 'clamp(15px, 2vw, 18px)', color: '#555555', lineHeight: 1.8, maxWidth: 520 }}>
           No token to buy. No gas price anxiety. No 47-page setup guide.
@@ -241,7 +241,7 @@ export default function BuildPage() {
                   lineHeight: 1.75,
                   paddingLeft: 32,
                 }}>
-                  <span style={{ color: '#007A5E', fontFamily: mono, marginRight: 12 }}>A:</span>
+                  <span style={{ color: '#00C896', fontFamily: mono, marginRight: 12 }}>A:</span>
                   {faq.a}
                 </div>
               </div>

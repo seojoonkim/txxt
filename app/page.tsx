@@ -11,7 +11,7 @@ function TerminalCursor() {
     const t = setInterval(() => setOn(v => !v), 500);
     return () => clearInterval(t);
   }, []);
-  return <span style={{ opacity: on ? 1 : 0, color: '#007A5E' }}>▋</span>;
+  return <span style={{ opacity: on ? 1 : 0, color: '#00C896' }}>▋</span>;
 }
 
 export default function Home() {
@@ -213,7 +213,7 @@ export default function Home() {
               <span>Require custom middleware, separate contract layers, unpredictable gas. When x402 and ERC-8004 live on different layers, atomic transactions are impossible.</span>
             </div>
             <div style={{ display: 'flex', gap: 12, marginBottom: 16, alignItems: 'flex-start' }}>
-              <span style={{ color: '#007A5E', fontFamily: mono, fontWeight: 700, flexShrink: 0 }}>txxt ✓</span>
+              <span style={{ color: '#00C896', fontFamily: mono, fontWeight: 700, flexShrink: 0 }}>txxt ✓</span>
               <span>Built with both from block zero. Native, integrated, atomic. The chain that makes it all work.</span>
             </div>
           </div>
@@ -233,7 +233,7 @@ export default function Home() {
               margin: 0,
             }}>
               <strong style={{ color: '#E53E3E' }}>Without L1-native integration:</strong> every agent interaction requires stitching middleware across layers.{' '}
-              <strong style={{ color: '#007A5E' }}>With txxt:</strong> verify identity + complete payment in a single 10ms transaction.
+              <strong style={{ color: '#00C896' }}>With txxt:</strong> verify identity + complete payment in a single 10ms transaction.
             </p>
           </div>
         </div>
@@ -245,7 +245,7 @@ export default function Home() {
         {/* Section label */}
         <div style={{ padding: '80px 24px 0', textAlign: 'center' }}>
           <p style={{
-            fontSize: 13, letterSpacing: '0.1em', color: '#007A5E',
+            fontSize: 13, letterSpacing: '0.1em', color: '#00C896',
             fontFamily: mono, margin: 0, fontWeight: 700,
           }}>
             WHY TXXT
@@ -329,7 +329,7 @@ export default function Home() {
         {/* Section header */}
         <div style={{ padding: '100px 24px 0', textAlign: 'center' }}>
           <p style={{
-            fontSize: 13, letterSpacing: '0.1em', color: '#007A5E',
+            fontSize: 13, letterSpacing: '0.1em', color: '#00C896',
             fontFamily: mono, marginBottom: 20, fontWeight: 700,
           }}>
             CORE INFRASTRUCTURE
@@ -428,7 +428,7 @@ export default function Home() {
               color: 'rgba(0,245,196,0.06)', fontFamily: mono,
               lineHeight: 1, marginBottom: 24, letterSpacing: '-0.05em',
             }}>02</div>
-            <p style={{ fontSize: 13, letterSpacing: '0.12em', color: '#007A5E', fontFamily: mono, marginBottom: 16, fontWeight: 600 }}>REPUTATION</p>
+            <p style={{ fontSize: 13, letterSpacing: '0.12em', color: '#00C896', fontFamily: mono, marginBottom: 16, fontWeight: 600 }}>REPUTATION</p>
             <h3 style={{ fontSize: 'clamp(24px, 4vw, 36px)', fontWeight: 700, marginBottom: 16, letterSpacing: '-0.03em', lineHeight: 1.2 }}>
               Trust is earned<br />on-chain.
             </h3>
@@ -515,7 +515,7 @@ export default function Home() {
             color: '#FF8C00',
           }}>
             No token.<br />
-            <span style={{ fontSize: '0.6em', color: '#007A5E' }}>x402 gas.</span>
+            <span style={{ fontSize: '0.6em', color: '#00C896' }}>x402 gas.</span>
           </h2>
 
           <p style={{
@@ -550,7 +550,7 @@ export default function Home() {
 
           <p style={{
             fontSize: 'clamp(16px, 2.2vw, 20px)',
-            color: '#007A5E',
+            color: '#00C896',
             lineHeight: 1.6,
             maxWidth: 520,
             margin: '0 auto 56px',
@@ -580,7 +580,7 @@ export default function Home() {
             }}>
               <div style={{ padding: '16px 20px', fontSize: 13, fontFamily: mono, color: '#555555', fontWeight: 600, letterSpacing: '0.05em' }}></div>
               <div style={{ padding: '16px 20px', fontSize: 13, fontFamily: mono, color: '#555555', fontWeight: 600, letterSpacing: '0.05em', textAlign: 'center' }}>Others</div>
-              <div style={{ padding: '16px 20px', fontSize: 13, fontFamily: mono, color: '#007A5E', fontWeight: 700, letterSpacing: '0.05em', textAlign: 'center' }}>txxt</div>
+              <div style={{ padding: '16px 20px', fontSize: 13, fontFamily: mono, color: '#00C896', fontWeight: 700, letterSpacing: '0.05em', textAlign: 'center' }}>txxt</div>
             </div>
             {/* Table rows */}
             {[
@@ -601,7 +601,7 @@ export default function Home() {
                 <div style={{ padding: '14px 20px', fontSize: 13, color: '#888888', textAlign: 'center', textDecoration: 'line-through' }}>
                   <span style={{ fontSize: 14, marginRight: 6 }}>✗</span>{row.them}
                 </div>
-                <div style={{ padding: '14px 20px', fontSize: 13, color: '#007A5E', fontWeight: 600, textAlign: 'center' }}>
+                <div style={{ padding: '14px 20px', fontSize: 13, color: '#00C896', fontWeight: 600, textAlign: 'center' }}>
                   <span style={{ fontSize: 14, marginRight: 6 }}>✓</span>{row.us}
                 </div>
               </div>
@@ -617,7 +617,7 @@ export default function Home() {
         <div style={{ maxWidth: 720, margin: '0 auto' }}>
           <div style={{ marginBottom: 56 }}>
             <p style={{
-              fontSize: 13, letterSpacing: '0.1em', color: '#007A5E',
+              fontSize: 13, letterSpacing: '0.1em', color: '#00C896',
               fontFamily: mono, marginBottom: 16, fontWeight: 700,
             }}>
               AGENTSCRIPT
@@ -639,7 +639,7 @@ export default function Home() {
             </p>
             <p style={{
               fontSize: 'clamp(13px, 1.6vw, 15px)',
-              color: '#007A5E',
+              color: '#00C896',
               lineHeight: 1.6,
               maxWidth: 520,
               margin: 0,

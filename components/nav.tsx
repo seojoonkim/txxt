@@ -71,7 +71,7 @@ export default function Nav() {
             <Link href="/build" style={{
               fontSize: 13, padding: '9px 20px', borderRadius: 8,
               background: '#00C896',
-              color: '#0D0E1A', fontWeight: 700, textDecoration: 'none',
+              color: '#FFFFFF', fontWeight: 700, textDecoration: 'none',
               transition: 'all 0.2s ease',
               boxShadow: '0 2px 8px rgba(0,200,150,0.25)',
             }}>Start Building</Link>
@@ -110,7 +110,7 @@ export default function Nav() {
             display: 'block', textAlign: 'center', padding: '18px',
             borderRadius: 12,
             background: '#00C896',
-            color: '#0D0E1A', fontWeight: 700, fontSize: 17, textDecoration: 'none',
+            color: '#FFFFFF', fontWeight: 700, fontSize: 17, textDecoration: 'none',
             marginTop: 32,
           }}>Start Building</Link>
         </div>
