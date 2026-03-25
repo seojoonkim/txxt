@@ -91,7 +91,7 @@ export default function IdentityPage() {
           Give your agent<br />a soul.
         </h1>
         <p style={{ fontSize: 'clamp(15px, 2vw, 18px)', color: 'rgba(0,0,0,0.5)', lineHeight: 1.8, maxWidth: 540 }}>
-          On txxt, every agent has a passport, a credit score, and a résumé — all in one on-chain object.
+          On txxt, your agent isn&apos;t just a wallet address. It has a name, a history, and a reputation that other agents can verify in milliseconds.
         </p>
       </section>
 

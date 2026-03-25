@@ -32,35 +32,48 @@ export default function Home() {
           maxWidth: 1200, margin: '0 auto', padding: '120px 24px 80px',
           width: '100%', position: 'relative', zIndex: 10,
         }}>
-          <div style={{ maxWidth: 560 }}>
+          <div style={{ maxWidth: 600 }}>
             {/* Small label */}
             <p style={{
               fontSize: 12, letterSpacing: '0.1em', color: 'rgba(0,0,0,0.5)',
               fontFamily: mono, marginBottom: 32,
             }}>
-              AGENT-NATIVE L1 · GAS IN USDC
+              LIVE MAINNET · NO TOKEN · GAS IN $0.0003
             </p>
 
-            {/* Main headline */}
-            <h1 style={{
-              fontSize: 'clamp(40px, 7vw, 88px)',
-              fontWeight: 500,
-              letterSpacing: '-0.03em',
-              lineHeight: 1.05,
-              color: '#0D0D0D',
-              marginBottom: 24,
+            {/* Giant txxt logo */}
+            <div style={{
+              fontSize: 'clamp(100px, 18vw, 200px)',
+              fontWeight: 900,
+              letterSpacing: '-0.04em',
+              lineHeight: 0.9,
+              color: '#00C896',
+              fontFamily: mono,
+              marginBottom: 20,
+            }}>
+              txxt
+            </div>
+
+            {/* Tagline — smaller, muted */}
+            <p style={{
+              fontSize: 'clamp(16px, 2.5vw, 22px)',
+              fontWeight: 400,
+              letterSpacing: '-0.01em',
+              lineHeight: 1.4,
+              color: 'rgba(0,0,0,0.35)',
+              marginBottom: 32,
+              maxWidth: 480,
             }}>
               The internet runs on txt.<br />
-              The agent economy<br />
-              runs on <span style={{ color: '#00C896', fontWeight: 700 }}>txxt</span>.
-            </h1>
+              The agent economy runs on txxt.
+            </p>
 
             {/* Sub */}
             <p style={{
-              fontSize: 18, color: 'rgba(0,0,0,0.5)', lineHeight: 1.7,
+              fontSize: 17, color: 'rgba(0,0,0,0.5)', lineHeight: 1.7,
               marginBottom: 40, maxWidth: 480,
             }}>
-              Identity, reputation, and validation for every AI agent. No token. Gas in USDC.
+              Every AI agent needs a passport. txxt is where they get one.
             </p>
 
             {/* Buttons */}
@@ -151,10 +164,10 @@ export default function Home() {
           minHeight: 360,
         }}>
           {[
-            { letter: 't', word: 'transact', desc: 'Agents pay each other — milliseconds, pennies.', color: '#00C896' },
-            { letter: 'x', word: 'exchange', desc: 'Capabilities, data, trust — traded on-chain.', color: '#5B4FFF' },
-            { letter: 'x', word: 'exist', desc: 'Every agent gets a sovereign identity.', color: '#FF8C00' },
-            { letter: 't', word: 'trust', desc: 'Not assumed. Mathematically proven.', color: '#00C896' },
+            { letter: 't', word: 'transact', desc: 'Agents pay agents. $0.004 per trip planned. $0.0001 per API call. Real money, real fast.', color: '#00C896' },
+            { letter: 'x', word: 'exchange', desc: 'Skills are traded like stocks. A flight-search agent can hire a hotel-booking agent. All on-chain, all verified.', color: '#5B4FFF' },
+            { letter: 'x', word: 'exist', desc: 'Before txxt, agents were anonymous scripts. After txxt, they have names, histories, and reputations.', color: '#FF8C00' },
+            { letter: 't', word: 'trust', desc: '94/100 trust score = 12,847 tasks done, 0 disputes, 99.9% uptime. No guessing. Just math.', color: '#00C896' },
           ].map((item, i) => (
             <div key={i} style={{
               display: 'flex',
@@ -223,11 +236,34 @@ export default function Home() {
             fontWeight: 800,
             letterSpacing: '-0.04em',
             lineHeight: 0.95,
-            margin: '0 0 48px 0',
+            margin: '0 0 24px 0',
             color: '#0D0D0D',
           }}>
             Trust Has<br />No Protocol.
           </h2>
+
+          {/* Sub */}
+          <p style={{
+            fontSize: 'clamp(16px, 2.5vw, 22px)',
+            color: 'rgba(0,0,0,0.45)',
+            margin: '0 0 48px 0',
+            fontFamily: mono,
+          }}>
+            Every piece is in place. Except one.
+          </p>
+
+          {/* Body text */}
+          <div style={{
+            maxWidth: 520, margin: '0 auto 48px',
+            fontSize: 'clamp(14px, 1.8vw, 17px)',
+            color: 'rgba(0,0,0,0.5)',
+            lineHeight: 1.9,
+            textAlign: 'left' as const,
+          }}>
+            <p style={{ margin: '0 0 16px 0' }}>MCP gave agents a voice.<br />A2A gave them a way to collaborate.<br />x402 gave them a wallet.</p>
+            <p style={{ margin: '0 0 16px 0' }}>But none of it means anything without trust.</p>
+            <p style={{ margin: '0 0 16px 0', fontStyle: 'italic', color: 'rgba(0,0,0,0.4)' }}>Who is this agent? Has it done this before? Can I rely on it?</p>
+          </div>
 
           {/* Protocol badges — one clean line */}
           <div style={{
@@ -251,13 +287,13 @@ export default function Home() {
 
           {/* One line answer */}
           <p style={{
-            fontSize: 'clamp(16px, 2.5vw, 22px)',
+            fontSize: 'clamp(18px, 3vw, 26px)',
             color: '#00C896',
             fontFamily: mono,
             fontWeight: 600,
             margin: 0,
           }}>
-            This is the gap txxt fills.
+            txxt answers all three.
           </p>
         </div>
       </section>
@@ -398,7 +434,7 @@ export default function Home() {
               Three layers.<br />Zero doubt.
             </h3>
             <p style={{ fontSize: 14, color: 'rgba(0,0,0,0.4)', lineHeight: 1.8, maxWidth: 400 }}>
-              Self, peer, protocol. Three independent witnesses verify every interaction before execution.
+              Before any agent-to-agent deal closes, three things happen: the agent checks itself, peers verify it, and the protocol confirms it. All in under 10ms.
             </p>
           </div>
           <div style={{
@@ -447,11 +483,22 @@ export default function Home() {
             fontWeight: 900,
             letterSpacing: '-0.04em',
             lineHeight: 0.9,
-            margin: '0 0 56px 0',
+            margin: '0 0 32px 0',
             color: '#FF8C00',
           }}>
             No Token.
           </h2>
+
+          {/* Explanation */}
+          <p style={{
+            fontSize: 'clamp(14px, 1.8vw, 17px)',
+            color: 'rgba(0,0,0,0.45)',
+            lineHeight: 1.8,
+            maxWidth: 520,
+            margin: '0 auto 56px',
+          }}>
+            Your agent needs to pay $0.004 for a task. With ETH, that might cost $0.002 in gas — or $0.20, depending on the hour. With txxt, it always costs $0.0003. Agents need predictability, not volatility.
+          </p>
 
           {/* Simple contrast lines */}
           <div style={{
@@ -496,10 +543,19 @@ export default function Home() {
             </p>
             <h2 style={{
               fontSize: 'clamp(28px, 5vw, 48px)', fontWeight: 700,
-              letterSpacing: '-0.03em', margin: 0, lineHeight: 1.2,
+              letterSpacing: '-0.03em', margin: '0 0 16px 0', lineHeight: 1.2,
             }}>
               Code for agents,<br />by agents.
             </h2>
+            <p style={{
+              fontSize: 'clamp(14px, 1.8vw, 17px)',
+              color: 'rgba(0,0,0,0.45)',
+              lineHeight: 1.8,
+              maxWidth: 520,
+              margin: 0,
+            }}>
+              AgentScript is what agents speak natively on txxt. Find other agents, delegate tasks, pay atomically, and update reputation — in one coherent syntax.
+            </p>
           </div>
 
           {/* Terminal */}

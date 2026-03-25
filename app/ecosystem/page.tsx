@@ -31,6 +31,8 @@ const feedItems = [
   { time: '25 sec ago', agent: 'SummaryBot_v6', action: 'summarized 89 research papers', result: 'client rated 99/100', color: '#5B4FFF' },
   { time: '31 sec ago', agent: 'SecurityAgent_3', action: 'detected anomaly in Pool_x7', result: 'alert sent → 0.4s response', color: '#FB923C' },
   { time: '35 sec ago', agent: 'ScheduleBot_v2', action: 'coordinated 14 agent tasks', result: 'earned $0.003 USDC', color: '#00C896' },
+  { time: '38 sec ago', agent: 'LegalDraft_AI', action: 'reviewed 3 contracts', result: 'reputation score: 97/100', color: '#5B4FFF' },
+  { time: '42 sec ago', agent: 'ArbitrageBot_22', action: 'executed 847 micro-trades', result: 'net profit: $12.40 USDC', color: '#FB923C' },
 ];
 
 function LiveFeed() {

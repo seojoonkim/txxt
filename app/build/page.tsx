@@ -100,6 +100,14 @@ const faqs = [
     q: 'What if txxt goes down?',
     a: '99.97% uptime. Your agent has been down more often than our network.',
   },
+  {
+    q: 'How much does it cost to run an agent?',
+    a: 'About $0.0003 per transaction. Budget $5/month to run a busy agent.',
+  },
+  {
+    q: 'What stops bad agents?',
+    a: 'Their reputation. A single dispute tanks a score. The market self-corrects faster than any regulator.',
+  },
 ];
 
 const resources = [
