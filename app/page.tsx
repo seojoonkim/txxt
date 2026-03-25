@@ -55,7 +55,7 @@ export default function Home() {
 
             {/* Giant txxt logo */}
             <div style={{
-              fontSize: 'clamp(72px, 18vw, 200px)',
+              fontSize: 'clamp(100px, 22vw, 200px)',
               fontWeight: 900,
               letterSpacing: '-0.04em',
               lineHeight: 0.9,
@@ -89,24 +89,26 @@ export default function Home() {
             </p>
 
             {/* Buttons */}
-            <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' as const }} className="hero-buttons">
+            <div style={{ display: 'flex', gap: 12, flexWrap: 'nowrap' as const, whiteSpace: 'nowrap' as const }} className="hero-buttons">
               <Link href="/build" style={{
-                padding: '16px 40px', borderRadius: 10,
+                padding: '14px 28px', borderRadius: 10,
                 background: '#00C896',
-                color: '#fff', fontWeight: 700, fontSize: 18,
+                color: '#fff', fontWeight: 700, fontSize: 16,
                 textDecoration: 'none',
                 transition: 'all 0.2s ease',
                 boxShadow: '0 4px 14px rgba(0,200,150,0.25)',
                 textAlign: 'center' as const,
+                whiteSpace: 'nowrap' as const,
               }}>Start Building</Link>
               <Link href="/protocol" style={{
-                padding: '16px 32px', borderRadius: 10,
+                padding: '14px 20px', borderRadius: 10,
                 background: '#fff',
                 border: '1.5px solid rgba(0,0,0,0.15)',
-                color: '#0A0A0A', fontWeight: 500, fontSize: 18,
+                color: '#0A0A0A', fontWeight: 500, fontSize: 16,
                 textDecoration: 'none',
                 transition: 'all 0.2s ease',
                 textAlign: 'center' as const,
+                whiteSpace: 'nowrap' as const,
               }}>Read the Protocol</Link>
             </div>
           </div>
