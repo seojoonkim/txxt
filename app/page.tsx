@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState, useMemo } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 
 const mono = "var(--font-fira), 'Courier New', monospace";
@@ -25,146 +25,166 @@ function TerminalCursor() {
   return <span style={{ opacity: on ? 1 : 0, color: '#00C896' }}>▋</span>;
 }
 
-/* ===== Agent Network Diagram ===== */
-const AGENTS = [
-  { label: 'TravelBot', color: '#A78BFA', x: 60, y: 55 },
-  { label: 'TradeAgent', color: '#FB923C', x: 160, y: 35 },
-  { label: 'DataBot', color: '#FF3366', x: 260, y: 35 },
-  { label: 'LegalAI', color: '#38BDF8', x: 360, y: 55 },
-];
+/* ===== Layered Architecture Diagram (Card-based) ===== */
+function LayeredArchDiagram() {
+  const agents = [
+    { label: 'TravelBot', color: '#5B4FFF' },
+    { label: 'TradeAgent', color: '#FB923C' },
+    { label: 'DataBot', color: '#FF3366' },
+    { label: 'LegalAI', color: '#4285F4' },
+    { label: 'SearchAgent', color: '#00C896' },
+  ];
+  const chains = [
+    { label: 'Ethereum', color: '#627EEA' },
+    { label: 'Solana', color: '#9945FF' },
+    { label: 'Base', color: '#0052FF' },
+    { label: 'Polygon', color: '#8247E5' },
+    { label: 'Arbitrum', color: '#28A0F0' },
+  ];
+  const protocols = [
+    { label: 'x402 Payments', color: '#00C896' },
+    { label: 'ERC-8004 Identity', color: '#5B4FFF' },
+    { label: 'PoAW Validation', color: '#FB923C' },
+  ];
 
-const CHAINS = [
-  { label: 'ETH', color: '#627EEA', x: 60, y: 345 },
-  { label: 'SOL', color: '#9945FF', x: 160, y: 365 },
-  { label: 'Base', color: '#0052FF', x: 260, y: 365 },
-  { label: 'Polygon', color: '#8247E5', x: 360, y: 345 },
-];
+  const cardBase: React.CSSProperties = {
+    borderRadius: 16,
+    padding: 'clamp(20px, 3vw, 32px)',
+    width: '100%',
+    maxWidth: 640,
+  };
 
-const TXXT_CENTER = { x: 210, y: 200 };
+  const pillBase: React.CSSProperties = {
+    display: 'inline-flex',
+    alignItems: 'center',
+    gap: 6,
+    padding: '6px 14px',
+    borderRadius: 999,
+    fontSize: 'clamp(11px, 1.4vw, 13px)',
+    fontWeight: 600,
+    fontFamily: mono,
+    whiteSpace: 'nowrap' as const,
+  };
 
-function FlowDot({ x1, y1, x2, y2, delay, dur, color }: { x1: number; y1: number; x2: number; y2: number; delay: number; dur: number; color: string }) {
-  return (
-    <circle r="3" fill={color} opacity="0.8">
-      <animateMotion
-        dur={`${dur}s`}
-        repeatCount="indefinite"
-        begin={`${delay}s`}
-        path={`M${x1},${y1} L${x2},${y2}`}
-      />
-      <animate attributeName="opacity" values="0;0.9;0.9;0" dur={`${dur}s`} repeatCount="indefinite" begin={`${delay}s`} />
-    </circle>
-  );
-}
-
-function AgentNetworkDiagram() {
-  const lines = useMemo(() => {
-    const agentLines = AGENTS.map((a, i) => ({
-      x1: a.x, y1: a.y + 22, x2: TXXT_CENTER.x, y2: TXXT_CENTER.y - 30,
-      dashed: true, color: a.color, delay: i * 0.7, key: `a-${i}`,
-    }));
-    const chainLines = CHAINS.map((c, i) => ({
-      x1: TXXT_CENTER.x, y1: TXXT_CENTER.y + 30, x2: c.x, y2: c.y - 22,
-      dashed: false, color: c.color, delay: i * 0.6 + 0.3, key: `c-${i}`,
-    }));
-    return [...agentLines, ...chainLines];
-  }, []);
-
-  return (
-    <div style={{ width: '100%', aspectRatio: '1.05', position: 'relative', maxWidth: 480 }}>
-      <svg viewBox="0 0 420 400" style={{ width: '100%', height: '100%', overflow: 'visible' }}>
-        <defs>
-          <filter id="txxt-glow">
-            <feGaussianBlur stdDeviation="8" result="blur" />
-            <feMerge>
-              <feMergeNode in="blur" />
-              <feMergeNode in="SourceGraphic" />
-            </feMerge>
-          </filter>
-          <filter id="node-shadow">
-            <feDropShadow dx="0" dy="2" stdDeviation="3" floodOpacity="0.1" />
-          </filter>
-        </defs>
-
-        {/* Connection lines */}
-        {lines.map((l) => (
-          <line
-            key={l.key}
-            x1={l.x1} y1={l.y1} x2={l.x2} y2={l.y2}
-            stroke={l.color}
-            strokeWidth="1.5"
-            strokeOpacity="0.25"
-            strokeDasharray={l.dashed ? '6,4' : 'none'}
-          />
-        ))}
-
-        {/* Animated flowing dots */}
-        {AGENTS.map((a, i) => (
-          <FlowDot
-            key={`dot-a-${i}`}
-            x1={a.x} y1={a.y + 22}
-            x2={TXXT_CENTER.x} y2={TXXT_CENTER.y - 30}
-            delay={i * 1.2} dur={2.5} color={a.color}
-          />
-        ))}
-        {CHAINS.map((c, i) => (
-          <FlowDot
-            key={`dot-c-${i}`}
-            x1={TXXT_CENTER.x} y1={TXXT_CENTER.y + 30}
-            x2={c.x} y2={c.y - 22}
-            delay={i * 1.1 + 0.5} dur={2.2} color={c.color}
-          />
-        ))}
-
-        {/* Micro-payment labels flowing on agent lines */}
-        {AGENTS.map((a, i) => {
-          const mx = (a.x + TXXT_CENTER.x) / 2;
-          const my = (a.y + 22 + TXXT_CENTER.y - 30) / 2;
-          return (
-            <text key={`price-a-${i}`} x={mx} y={my - 6} textAnchor="middle" fontSize="8" fill={a.color} opacity="0.6" fontFamily={mono}>
-              $0.0003
-            </text>
-          );
-        })}
-
-        {/* Central txxt node */}
-        <g filter="url(#txxt-glow)">
-          <circle cx={TXXT_CENTER.x} cy={TXXT_CENTER.y} r="38" fill="#00C896">
-            <animate attributeName="r" values="38;40;38" dur="3s" repeatCount="indefinite" />
-          </circle>
-          <text x={TXXT_CENTER.x} y={TXXT_CENTER.y + 6} textAnchor="middle" fontSize="18" fontWeight="900" fill="#fff" fontFamily={mono}>
-            txxt
-          </text>
-        </g>
-
-        {/* Agent nodes (top) */}
-        {AGENTS.map((a, i) => (
-          <g key={`agent-${i}`} filter="url(#node-shadow)">
-            <circle cx={a.x} cy={a.y} r="22" fill="#fff" stroke={a.color} strokeWidth="2" />
-            <text x={a.x} y={a.y + 1} textAnchor="middle" fontSize="7.5" fontWeight="700" fill={a.color} fontFamily={mono} dominantBaseline="middle">
-              {a.label}
-            </text>
-          </g>
-        ))}
-
-        {/* Chain nodes (bottom) */}
-        {CHAINS.map((c, i) => (
-          <g key={`chain-${i}`} filter="url(#node-shadow)">
-            <circle cx={c.x} cy={c.y} r="22" fill={c.color} opacity="0.12" />
-            <circle cx={c.x} cy={c.y} r="22" fill="none" stroke={c.color} strokeWidth="2" />
-            <text x={c.x} y={c.y + 1} textAnchor="middle" fontSize="9" fontWeight="800" fill={c.color} fontFamily={mono} dominantBaseline="middle">
-              {c.label}
-            </text>
-          </g>
-        ))}
-
-        {/* Labels */}
-        <text x="210" y="16" textAnchor="middle" fontSize="9" fill="#888" fontFamily={mono} letterSpacing="0.1em">
-          AI AGENTS
-        </text>
-        <text x="210" y="396" textAnchor="middle" fontSize="9" fill="#888" fontFamily={mono} letterSpacing="0.1em">
-          BLOCKCHAINS
-        </text>
+  const ArrowConnector = () => (
+    <div style={{ display: 'flex', justifyContent: 'center', padding: '12px 0' }}>
+      <svg width="24" height="36" viewBox="0 0 24 36" fill="none">
+        <path d="M12 0v12m0 12v12" stroke="#00C896" strokeWidth="2" strokeDasharray="4,3" />
+        <path d="M6 10l6 6 6-6" stroke="#00C896" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M6 26l6-6 6 6" stroke="#00C896" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
+    </div>
+  );
+
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 0, width: '100%' }}>
+      {/* Layer 1: AI Agents */}
+      <div style={{
+        ...cardBase,
+        background: '#FFFFFF',
+        border: '1px solid rgba(0,0,0,0.08)',
+        boxShadow: '0 1px 3px rgba(0,0,0,0.04)',
+      }}>
+        <p style={{
+          fontSize: 11, letterSpacing: '0.14em', fontWeight: 700,
+          color: '#888', fontFamily: mono, margin: '0 0 14px',
+          textTransform: 'uppercase',
+        }}>
+          AI Agents Layer
+        </p>
+        <div style={{ display: 'flex', flexWrap: 'wrap' as const, gap: 8 }}>
+          {agents.map(a => (
+            <span key={a.label} style={{
+              ...pillBase,
+              background: `${a.color}0A`,
+              border: `1px solid ${a.color}25`,
+              color: a.color,
+            }}>
+              <span style={{
+                width: 8, height: 8, borderRadius: '50%',
+                background: a.color, flexShrink: 0,
+              }} />
+              {a.label}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      <ArrowConnector />
+
+      {/* Layer 2: txxt Middleware (emphasized) */}
+      <div style={{
+        ...cardBase,
+        background: '#FFFFFF',
+        border: '2px solid #00C896',
+        boxShadow: '0 0 0 4px rgba(0,200,150,0.08), 0 4px 16px rgba(0,200,150,0.1)',
+        padding: 'clamp(24px, 3.5vw, 40px)',
+        position: 'relative',
+      }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 16 }}>
+          <span style={{
+            fontSize: 'clamp(18px, 2.5vw, 24px)', fontWeight: 900,
+            color: '#00C896', fontFamily: mono,
+          }}>
+            txxt
+          </span>
+          <span style={{
+            fontSize: 11, letterSpacing: '0.14em', fontWeight: 700,
+            color: '#888', fontFamily: mono, textTransform: 'uppercase',
+          }}>
+            Middleware Layer
+          </span>
+        </div>
+        <div style={{ display: 'flex', flexWrap: 'wrap' as const, gap: 8 }}>
+          {protocols.map(p => (
+            <span key={p.label} style={{
+              ...pillBase,
+              background: `${p.color}0F`,
+              border: `1.5px solid ${p.color}40`,
+              color: p.color,
+              fontWeight: 700,
+            }}>
+              {p.label}
+            </span>
+          ))}
+        </div>
+        <p style={{
+          fontSize: 12, color: 'rgba(0,0,0,0.4)', fontFamily: mono,
+          margin: '14px 0 0', lineHeight: 1.6,
+        }}>
+          Identity + Payment + Validation → one atomic transaction, any chain
+        </p>
+      </div>
+
+      <ArrowConnector />
+
+      {/* Layer 3: Settlement Chains */}
+      <div style={{
+        ...cardBase,
+        background: '#FFFFFF',
+        border: '1px solid rgba(0,0,0,0.08)',
+        boxShadow: '0 1px 3px rgba(0,0,0,0.04)',
+      }}>
+        <p style={{
+          fontSize: 11, letterSpacing: '0.14em', fontWeight: 700,
+          color: '#888', fontFamily: mono, margin: '0 0 14px',
+          textTransform: 'uppercase',
+        }}>
+          Settlement Chains
+        </p>
+        <div style={{ display: 'flex', flexWrap: 'wrap' as const, gap: 8 }}>
+          {chains.map(c => (
+            <span key={c.label} style={{
+              ...pillBase,
+              background: '#FFFFFF',
+              border: `1.5px solid ${c.color}50`,
+              color: c.color,
+            }}>
+              {c.label}
+            </span>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
@@ -272,7 +292,8 @@ export default function Home() {
           borderBottomLeftRadius: 40,
           padding: '40px 24px',
         }}>
-          <AgentNetworkDiagram />
+          <video src="/hero-video.mp4" autoPlay loop muted playsInline
+            style={{ width: '100%', maxWidth: 520, height: 'auto', objectFit: 'contain', display: 'block' }} />
         </div>
 
         </div>
@@ -376,6 +397,31 @@ export default function Home() {
               <strong style={{ color: '#E53E3E' }}>The catch:</strong> when these protocols live on different layers, atomic transactions are impossible. You can&apos;t verify identity and settle payment in one step — unless a middleware layer unifies them across every chain.
             </p>
           </div>
+        </div>
+      </section>
+
+      {/* ===== HOW IT WORKS — Layered Architecture ===== */}
+      <section style={{ background: '#F8F8F8', padding: 'clamp(80px, 10vw, 140px) 24px', borderTop: '1px solid rgba(0,0,0,0.06)' }}>
+        <div style={{ maxWidth: 1300, margin: '0 auto' }}>
+          <p style={{
+            fontSize: 12, letterSpacing: '0.12em', fontWeight: 700, color: '#00C896',
+            fontFamily: mono, marginBottom: 16, textTransform: 'uppercase', textAlign: 'center',
+          }}>
+            HOW IT WORKS
+          </p>
+          <h2 style={{
+            fontSize: 'clamp(32px, 5vw, 56px)', fontWeight: 800, color: '#0D0D0D',
+            textAlign: 'center', marginBottom: 16, letterSpacing: '-0.03em',
+          }}>
+            txxt sits between<br />agents and blockchains.
+          </h2>
+          <p style={{
+            fontSize: 'clamp(15px, 1.8vw, 18px)', color: '#666666',
+            textAlign: 'center', maxWidth: 560, margin: '0 auto 64px', lineHeight: 1.75,
+          }}>
+            Any agent. Any chain. txxt handles the identity, the payment, and the trust — so you don&apos;t have to.
+          </p>
+          <LayeredArchDiagram />
         </div>
       </section>
 
