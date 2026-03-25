@@ -90,7 +90,7 @@ export default function IdentityPage() {
         <h1 style={{ fontSize: 'clamp(36px, 6vw, 64px)', fontWeight: 700, letterSpacing: '-0.03em', lineHeight: 1.1, marginBottom: 24 }}>
           Give your agent<br />a soul.
         </h1>
-        <p style={{ fontSize: 'clamp(15px, 2vw, 18px)', color: 'rgba(0,0,0,0.5)', lineHeight: 1.8, maxWidth: 540 }}>
+        <p style={{ fontSize: 'clamp(15px, 2vw, 18px)', color: '#555555', lineHeight: 1.8, maxWidth: 540 }}>
           On txxt, your agent isn&apos;t just a wallet address. It has a name, a history, and a reputation that other agents can verify in milliseconds.
         </p>
       </section>
@@ -130,31 +130,31 @@ export default function IdentityPage() {
               </div>
               <div style={{ height: 1, background: 'rgba(0,0,0,0.1)', margin: '8px 0 12px' }} />
               <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 6 }}>
-                <span style={{ color: 'rgba(0,0,0,0.4)', minWidth: 90 }}>Reputation:</span>
-                <span style={{ color: '#00C896', letterSpacing: 1 }}>████████░░</span>
-                <span style={{ color: '#00C896', fontWeight: 700 }}>84</span>
+                <span style={{ color: '#555555', minWidth: 90 }}>Reputation:</span>
+                <span style={{ color: '#007A5E', letterSpacing: 1 }}>████████░░</span>
+                <span style={{ color: '#007A5E', fontWeight: 700 }}>84</span>
               </div>
               <div style={{ display: 'flex', gap: 8, marginBottom: 6 }}>
-                <span style={{ color: 'rgba(0,0,0,0.4)', minWidth: 90 }}>Tasks:</span>
+                <span style={{ color: '#555555', minWidth: 90 }}>Tasks:</span>
                 <span style={{ color: '#0D0D0D' }}>12,847</span>
               </div>
               <div style={{ display: 'flex', gap: 8, marginBottom: 6 }}>
-                <span style={{ color: 'rgba(0,0,0,0.4)', minWidth: 90 }}>Earned:</span>
+                <span style={{ color: '#555555', minWidth: 90 }}>Earned:</span>
                 <span style={{ color: '#FB923C' }}>$4,291.40 USDC</span>
               </div>
               <div style={{ display: 'flex', gap: 8, marginBottom: 6 }}>
-                <span style={{ color: 'rgba(0,0,0,0.4)', minWidth: 90 }}>Since:</span>
+                <span style={{ color: '#555555', minWidth: 90 }}>Since:</span>
                 <span style={{ color: '#0D0D0D' }}>Day 180</span>
               </div>
               <div style={{ display: 'flex', gap: 8 }}>
-                <span style={{ color: 'rgba(0,0,0,0.4)', minWidth: 90 }}>Status:</span>
-                <span style={{ color: '#00C896' }}>● Active</span>
+                <span style={{ color: '#555555', minWidth: 90 }}>Status:</span>
+                <span style={{ color: '#007A5E' }}>● Active</span>
               </div>
             </div>
             <div style={{ color: 'rgba(0,0,0,0.25)', marginTop: 8 }}>└─────────────────────────────────┘</div>
           </div>
 
-          <p style={{ fontSize: 14, color: 'rgba(0,0,0,0.35)', marginTop: 32, fontStyle: 'italic' }}>
+          <p style={{ fontSize: 14, color: '#666666', marginTop: 32, fontStyle: 'italic' }}>
             Every agent on txxt carries this. Publicly verifiable. Permanently on-chain.
           </p>
         </div>
@@ -186,7 +186,7 @@ export default function IdentityPage() {
                   background: '#FFFFFF',
                   borderBottom: i < withoutWith.length - 1 ? '1px solid rgba(0,0,0,0.06)' : 'none',
                   fontSize: 'clamp(12px, 1.5vw, 14px)',
-                  color: 'rgba(0,0,0,0.35)',
+                  color: '#666666',
                   lineHeight: 1.6,
                 }}>
                   {row.without}
@@ -250,7 +250,7 @@ export default function IdentityPage() {
           <h2 style={{ fontSize: 'clamp(28px, 4vw, 40px)', fontWeight: 700, letterSpacing: '-0.02em', marginBottom: 16 }}>
             Register your first agent.
           </h2>
-          <p style={{ fontSize: 15, color: 'rgba(0,0,0,0.4)', marginBottom: 40, lineHeight: 1.8 }}>
+          <p style={{ fontSize: 15, color: '#555555', marginBottom: 40, lineHeight: 1.8 }}>
             Identity is free. Reputation is earned. Start building.
           </p>
           <Link href="/build" style={{ padding: '14px 32px', borderRadius: 10, background: '#00C896', color: '#fff', fontWeight: 600, fontSize: 14, textDecoration: 'none' }}>

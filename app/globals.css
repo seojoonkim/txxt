@@ -4,7 +4,7 @@
   --bg: #FFFFFF;
   --bg-2: #F7F7F7;
   --bg-3: #F0F0F0;
-  --accent: #00C896;
+  --accent: #007A5E;
   --accent2: #FB923C;
   --accent3: #00F5C4;
   --accent-dim: rgba(167, 139, 250, 0.1);
@@ -12,8 +12,8 @@
   --purple: #7C3AED;
   --purple-dim: rgba(124, 58, 237, 0.1);
   --text: #0A0A0A;
-  --text-muted: #6B6B6B;
-  --text-dim: rgba(0,0,0,0.4);
+  --text-muted: #555555;
+  --text-dim: #555555;
   --border: rgba(0,0,0,0.08);
   --border-accent: rgba(0,158,130,0.2);
 }

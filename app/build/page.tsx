@@ -127,9 +127,9 @@ export default function BuildPage() {
           Build
         </div>
         <h1 style={{ fontSize: 'clamp(36px, 6vw, 64px)', fontWeight: 700, letterSpacing: '-0.03em', lineHeight: 1.1, marginBottom: 24 }}>
-          Your agent is one<br /><span style={{ color: '#00C896', fontFamily: mono }}>npm install</span> away.
+          Your agent is one<br /><span style={{ color: '#007A5E', fontFamily: mono }}>npm install</span> away.
         </h1>
-        <p style={{ fontSize: 'clamp(15px, 2vw, 18px)', color: 'rgba(0,0,0,0.5)', lineHeight: 1.8, maxWidth: 520 }}>
+        <p style={{ fontSize: 'clamp(15px, 2vw, 18px)', color: '#555555', lineHeight: 1.8, maxWidth: 520 }}>
           No token to buy. No gas price anxiety. No 47-page setup guide.
           Just code, deploy, earn.
         </p>
@@ -152,7 +152,7 @@ export default function BuildPage() {
                 <div style={{ fontSize: 11, color: '#5B4FFF', fontFamily: mono, letterSpacing: '0.1em' }}>{s.step}</div>
                 <h3 style={{ fontSize: 'clamp(20px, 3vw, 26px)', fontWeight: 600, letterSpacing: '-0.01em' }}>{s.title}</h3>
               </div>
-              <p style={{ fontSize: 14, color: 'rgba(0,0,0,0.45)', lineHeight: 1.8, marginBottom: 24 }}>{s.desc}</p>
+              <p style={{ fontSize: 14, color: '#555555', lineHeight: 1.8, marginBottom: 24 }}>{s.desc}</p>
 
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 16 }}>
                 {/* Code */}
@@ -237,7 +237,7 @@ export default function BuildPage() {
                   lineHeight: 1.7,
                   paddingLeft: 32,
                 }}>
-                  <span style={{ color: '#00C896', fontFamily: mono, marginRight: 12 }}>A:</span>
+                  <span style={{ color: '#007A5E', fontFamily: mono, marginRight: 12 }}>A:</span>
                   {faq.a}
                 </div>
               </div>
@@ -265,7 +265,7 @@ export default function BuildPage() {
               }}>
                 <div style={{ fontSize: 10, letterSpacing: '0.1em', color: '#5B4FFF', fontFamily: mono, marginBottom: 12 }}>{r.tag}</div>
                 <div style={{ fontSize: 16, fontWeight: 600, marginBottom: 8 }}>{r.title}</div>
-                <p style={{ fontSize: 13, color: 'rgba(0,0,0,0.4)', lineHeight: 1.6 }}>{r.desc}</p>
+                <p style={{ fontSize: 13, color: '#555555', lineHeight: 1.6 }}>{r.desc}</p>
               </Link>
             ))}
           </div>
@@ -280,7 +280,7 @@ export default function BuildPage() {
           <h2 style={{ fontSize: 'clamp(28px, 4vw, 40px)', fontWeight: 700, letterSpacing: '-0.02em', marginBottom: 16 }}>
             Deploy your first agent.
           </h2>
-          <p style={{ fontSize: 15, color: 'rgba(0,0,0,0.4)', marginBottom: 40, lineHeight: 1.8 }}>
+          <p style={{ fontSize: 15, color: '#555555', marginBottom: 40, lineHeight: 1.8 }}>
             Join the agent economy. Gas in USDC. No token required.
           </p>
           <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>

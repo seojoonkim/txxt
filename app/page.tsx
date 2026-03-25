@@ -11,7 +11,7 @@ function TerminalCursor() {
     const t = setInterval(() => setOn(v => !v), 500);
     return () => clearInterval(t);
   }, []);
-  return <span style={{ opacity: on ? 1 : 0, color: '#00C896' }}>▋</span>;
+  return <span style={{ opacity: on ? 1 : 0, color: '#007A5E' }}>▋</span>;
 }
 
 export default function Home() {
@@ -35,8 +35,8 @@ export default function Home() {
           <div style={{ maxWidth: 600 }}>
             {/* Small label */}
             <p style={{
-              fontSize: 12, letterSpacing: '0.1em', color: 'rgba(0,0,0,0.5)',
-              fontFamily: mono, marginBottom: 32,
+              fontSize: 12, letterSpacing: '0.12em', color: '#555555',
+              fontFamily: mono, marginBottom: 32, fontWeight: 600,
             }}>
               LIVE MAINNET · NO TOKEN · GAS IN $0.0003
             </p>
@@ -60,7 +60,7 @@ export default function Home() {
               fontWeight: 400,
               letterSpacing: '-0.01em',
               lineHeight: 1.4,
-              color: 'rgba(0,0,0,0.35)',
+              color: '#555555',
               marginBottom: 32,
               maxWidth: 480,
             }}>
@@ -70,7 +70,7 @@ export default function Home() {
 
             {/* Sub */}
             <p style={{
-              fontSize: 17, color: 'rgba(0,0,0,0.5)', lineHeight: 1.7,
+              fontSize: 17, color: '#4A4A4A', lineHeight: 1.7,
               marginBottom: 40, maxWidth: 480,
             }}>
               Every AI agent needs a passport. txxt is where they get one.
@@ -83,6 +83,8 @@ export default function Home() {
                 background: '#00C896',
                 color: '#0D0E1A', fontWeight: 700, fontSize: 18,
                 textDecoration: 'none',
+                transition: 'all 0.2s ease',
+                boxShadow: '0 2px 12px rgba(0,200,150,0.25)',
               }}>Start Building</Link>
               <Link href="/protocol" style={{
                 padding: '16px 32px', borderRadius: 10,
@@ -90,6 +92,7 @@ export default function Home() {
                 border: '1px solid rgba(0,0,0,0.15)',
                 color: '#0D0D0D', fontWeight: 500, fontSize: 18,
                 textDecoration: 'none',
+                transition: 'all 0.2s ease',
               }}>Read the Protocol</Link>
             </div>
           </div>
@@ -134,63 +137,56 @@ export default function Home() {
         />
       </div>
 
-      {/* ===== WHY TXXT — Full-width horizontal breakdown ===== */}
+      {/* ===== WHY TXXT — Horizontal breakdown with large numbered items ===== */}
       <section style={{ background: '#F7F7F7' }}>
         {/* Section label */}
         <div style={{ padding: '80px 24px 0', textAlign: 'center' }}>
           <p style={{
-            fontSize: 10, letterSpacing: '0.15em', color: 'rgba(0,0,0,0.4)',
-            fontFamily: mono, margin: 0,
+            fontSize: 11, letterSpacing: '0.12em', color: '#007A5E',
+            fontFamily: mono, margin: 0, fontWeight: 600,
           }}>
             WHY TXXT
           </p>
         </div>
 
-        {/* Four letters — full width */}
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(4, 1fr)',
-          minHeight: 360,
-        }}>
+        {/* Four letters — stacked horizontal items (Linear style) */}
+        <div style={{ maxWidth: 900, margin: '0 auto', padding: '40px 24px 0' }}>
           {[
-            { letter: 't', word: 'transact', desc: 'Agents pay agents. $0.004 per trip planned. $0.0001 per API call. Real money, real fast.', color: '#00C896' },
-            { letter: 'x', word: 'exchange', desc: 'Skills are traded like stocks. A flight-search agent can hire a hotel-booking agent. All on-chain, all verified.', color: '#5B4FFF' },
-            { letter: 'x', word: 'exist', desc: 'Before txxt, agents were anonymous scripts. After txxt, they have names, histories, and reputations.', color: '#FF8C00' },
-            { letter: 't', word: 'trust', desc: '94/100 trust score = 12,847 tasks done, 0 disputes, 99.9% uptime. No guessing. Just math.', color: '#00C896' },
+            { letter: 't', word: 'transact', desc: 'Agents pay agents. $0.004 per trip planned. $0.0001 per API call. Real money, real fast.', color: '#00C896', num: '01' },
+            { letter: 'x', word: 'exchange', desc: 'Skills are traded like stocks. A flight-search agent can hire a hotel-booking agent. All on-chain, all verified.', color: '#5B4FFF', num: '02' },
+            { letter: 'x', word: 'exist', desc: 'Before txxt, agents were anonymous scripts. After txxt, they have names, histories, and reputations.', color: '#FF8C00', num: '03' },
+            { letter: 't', word: 'trust', desc: '94/100 trust score = 12,847 tasks done, 0 disputes, 99.9% uptime. No guessing. Just math.', color: '#00C896', num: '04' },
           ].map((item, i) => (
             <div key={i} style={{
               display: 'flex',
-              flexDirection: 'column' as const,
-              alignItems: 'center',
-              justifyContent: 'center',
-              padding: '60px 16px',
-              borderRight: i < 3 ? '1px solid rgba(0,0,0,0.06)' : 'none',
-              borderBottom: `3px solid ${item.color}`,
-              position: 'relative' as const,
+              gap: 32,
+              padding: '40px 0',
+              borderBottom: i < 3 ? '1px solid rgba(0,0,0,0.06)' : 'none',
+              alignItems: 'flex-start',
             }}>
               <div style={{
-                fontSize: 'clamp(64px, 10vw, 120px)',
+                fontSize: 56,
                 fontWeight: 900,
                 color: item.color,
                 fontFamily: mono,
+                minWidth: 80,
                 lineHeight: 1,
-                marginBottom: 16,
-                textShadow: `0 0 40px ${item.color}33`,
+                letterSpacing: '-0.03em',
               }}>
                 {item.letter}
               </div>
-              <div style={{
-                fontSize: 11, fontWeight: 600, color: 'rgba(0,0,0,0.5)',
-                fontFamily: mono, letterSpacing: '0.08em', marginBottom: 12,
-              }}>
-                _{item.word}
+              <div>
+                <div style={{
+                  fontSize: 13, fontWeight: 600, color: '#007A5E',
+                  fontFamily: mono, marginBottom: 8, letterSpacing: '0.08em',
+                }}>_{item.word}</div>
+                <p style={{
+                  fontSize: 15, color: '#444444', lineHeight: 1.7,
+                  margin: 0, maxWidth: '65ch',
+                }}>
+                  {item.desc}
+                </p>
               </div>
-              <p style={{
-                fontSize: 13, color: 'rgba(0,0,0,0.5)', lineHeight: 1.6,
-                textAlign: 'center', maxWidth: 180, margin: 0,
-              }}>
-                {item.desc}
-              </p>
             </div>
           ))}
         </div>
@@ -198,7 +194,7 @@ export default function Home() {
         {/* Bottom quote */}
         <div style={{ padding: '48px 24px 80px', textAlign: 'center' }}>
           <p style={{
-            fontSize: 13, color: 'rgba(0,0,0,0.45)', fontStyle: 'italic',
+            fontSize: 13, color: '#555555', fontStyle: 'italic',
             fontFamily: mono, margin: 0, maxWidth: 500, marginLeft: 'auto', marginRight: 'auto',
           }}>
             &ldquo;txt carried human words. txxt carries agent trust.&rdquo;
@@ -211,6 +207,7 @@ export default function Home() {
         padding: 'clamp(120px, 15vh, 200px) 24px',
         textAlign: 'center',
         position: 'relative',
+        background: '#FFFFFF',
       }}>
         {/* Subtle purple glow */}
         <div style={{
@@ -234,7 +231,7 @@ export default function Home() {
           {/* Sub */}
           <p style={{
             fontSize: 'clamp(16px, 2.5vw, 22px)',
-            color: 'rgba(0,0,0,0.45)',
+            color: '#555555',
             margin: '0 0 48px 0',
             fontFamily: mono,
           }}>
@@ -245,29 +242,29 @@ export default function Home() {
           <div style={{
             maxWidth: 520, margin: '0 auto 48px',
             fontSize: 'clamp(14px, 1.8vw, 17px)',
-            color: 'rgba(0,0,0,0.5)',
+            color: '#4A4A4A',
             lineHeight: 1.9,
             textAlign: 'left' as const,
           }}>
             <p style={{ margin: '0 0 16px 0' }}>MCP gave agents a voice.<br />A2A gave them a way to collaborate.<br />x402 gave them a wallet.</p>
             <p style={{ margin: '0 0 16px 0' }}>But none of it means anything without trust.</p>
-            <p style={{ margin: '0 0 16px 0', fontStyle: 'italic', color: 'rgba(0,0,0,0.4)' }}>Who is this agent? Has it done this before? Can I rely on it?</p>
+            <p style={{ margin: '0 0 16px 0', fontStyle: 'italic', color: '#555555' }}>Who is this agent? Has it done this before? Can I rely on it?</p>
           </div>
 
-          {/* Protocol badges — one clean line */}
+          {/* Protocol badges — bigger and clearer */}
           <div style={{
-            display: 'flex', justifyContent: 'center', gap: 24,
+            display: 'flex', justifyContent: 'center', gap: 32,
             flexWrap: 'wrap', marginBottom: 48,
           }}>
             {[
-              { name: 'MCP', status: 'solved', color: 'rgba(0,0,0,0.3)' },
-              { name: 'A2A', status: 'solved', color: 'rgba(0,0,0,0.3)' },
-              { name: 'x402', status: 'solved', color: 'rgba(0,0,0,0.3)' },
-              { name: 'Trust', status: 'missing', color: '#f87171' },
+              { name: 'MCP', status: 'solved', color: '#555555' },
+              { name: 'A2A', status: 'solved', color: '#555555' },
+              { name: 'x402', status: 'solved', color: '#555555' },
+              { name: 'Trust', status: 'missing', color: '#E53E3E' },
             ].map(p => (
               <span key={p.name} style={{
-                fontFamily: mono, fontSize: 14, color: p.color,
-                letterSpacing: '0.05em',
+                fontFamily: mono, fontSize: 16, color: p.color,
+                letterSpacing: '0.05em', fontWeight: 600,
               }}>
                 {p.name === 'Trust' ? '✗' : '✓'} {p.name}
               </span>
@@ -277,7 +274,7 @@ export default function Home() {
           {/* One line answer */}
           <p style={{
             fontSize: 'clamp(18px, 3vw, 26px)',
-            color: '#00C896',
+            color: '#007A5E',
             fontFamily: mono,
             fontWeight: 600,
             margin: '0 0 24px 0',
@@ -288,30 +285,30 @@ export default function Home() {
           {/* New insight */}
           <p style={{
             fontSize: 'clamp(16px, 2.5vw, 22px)',
-            color: '#00C896',
+            color: '#007A5E',
             fontStyle: 'italic',
             fontFamily: mono,
             fontWeight: 500,
             margin: 0,
           }}>
-            Agents don't trust. They verify.
+            Agents don&apos;t trust. They verify.
           </p>
         </div>
       </section>
 
-      {/* ===== THREE PILLARS — Stacked full-width, split layout ===== */}
+      {/* ===== THREE PILLARS — Stacked full-width, split layout (Stripe style) ===== */}
       <section style={{ background: '#F7F7F7' }}>
         {/* Section header */}
         <div style={{ padding: '100px 24px 0', textAlign: 'center' }}>
           <p style={{
-            fontSize: 10, letterSpacing: '0.15em', color: '#00C896',
-            fontFamily: mono, marginBottom: 20,
+            fontSize: 11, letterSpacing: '0.12em', color: '#007A5E',
+            fontFamily: mono, marginBottom: 20, fontWeight: 600,
           }}>
             CORE INFRASTRUCTURE
           </p>
           <h2 style={{
             fontSize: 'clamp(32px, 6vw, 56px)', fontWeight: 700,
-            letterSpacing: '-0.03em', margin: '0 0 80px 0',
+            letterSpacing: '-0.04em', margin: '0 0 80px 0',
           }}>
             Three pillars.<br />Zero compromise.
           </h2>
@@ -320,7 +317,7 @@ export default function Home() {
         {/* Pillar 1 — Identity */}
         <div style={{
           display: 'flex', flexWrap: 'wrap' as const,
-          borderTop: '1px solid rgba(0,0,0,0.06)',
+          borderTop: '1px solid rgba(0,0,0,0.08)',
           minHeight: 480,
         }}>
           <div style={{
@@ -333,11 +330,11 @@ export default function Home() {
               color: 'rgba(167,139,250,0.08)', fontFamily: mono,
               lineHeight: 1, marginBottom: 24, letterSpacing: '-0.05em',
             }}>01</div>
-            <p style={{ fontSize: 10, letterSpacing: '0.15em', color: '#5B4FFF', fontFamily: mono, marginBottom: 16 }}>IDENTITY</p>
-            <h3 style={{ fontSize: 'clamp(24px, 4vw, 36px)', fontWeight: 700, marginBottom: 16, letterSpacing: '-0.02em', lineHeight: 1.2 }}>
+            <p style={{ fontSize: 11, letterSpacing: '0.12em', color: '#5B4FFF', fontFamily: mono, marginBottom: 16, fontWeight: 600 }}>IDENTITY</p>
+            <h3 style={{ fontSize: 'clamp(24px, 4vw, 36px)', fontWeight: 700, marginBottom: 16, letterSpacing: '-0.03em', lineHeight: 1.2 }}>
               Every agent gets<br />a passport.
             </h3>
-            <p style={{ fontSize: 14, color: 'rgba(0,0,0,0.4)', lineHeight: 1.8, maxWidth: 400 }}>
+            <p style={{ fontSize: 15, color: '#444444', lineHeight: 1.8, maxWidth: 400 }}>
               Permanent. Portable. Unfakeable. A sovereign identity on-chain — not a plugin, not an afterthought.
             </p>
           </div>
@@ -346,11 +343,11 @@ export default function Home() {
             display: 'flex', alignItems: 'center', justifyContent: 'center',
             padding: 'clamp(32px, 4vw, 64px)',
             background: '#F0F0F0',
-            borderLeft: '1px solid rgba(0,0,0,0.06)',
+            borderLeft: '1px solid rgba(0,0,0,0.08)',
           }}>
             <pre style={{
               fontSize: 'clamp(11px, 1.2vw, 13px)', fontFamily: mono,
-              color: 'rgba(0,0,0,0.45)', lineHeight: 2, margin: 0,
+              color: '#444444', lineHeight: 2, margin: 0,
               whiteSpace: 'pre-wrap' as const, wordBreak: 'break-all' as const,
             }}>
               <code>
@@ -367,7 +364,7 @@ export default function Home() {
         {/* Pillar 2 — Reputation (reversed) */}
         <div style={{
           display: 'flex', flexWrap: 'wrap-reverse' as const,
-          borderTop: '1px solid rgba(0,0,0,0.06)',
+          borderTop: '1px solid rgba(0,0,0,0.08)',
           minHeight: 480,
         }}>
           <div style={{
@@ -375,11 +372,11 @@ export default function Home() {
             display: 'flex', alignItems: 'center', justifyContent: 'center',
             padding: 'clamp(32px, 4vw, 64px)',
             background: '#F0F0F0',
-            borderRight: '1px solid rgba(0,0,0,0.06)',
+            borderRight: '1px solid rgba(0,0,0,0.08)',
           }}>
             <pre style={{
               fontSize: 'clamp(11px, 1.2vw, 13px)', fontFamily: mono,
-              color: 'rgba(0,0,0,0.45)', lineHeight: 2, margin: 0,
+              color: '#444444', lineHeight: 2, margin: 0,
               whiteSpace: 'pre-wrap' as const, wordBreak: 'break-all' as const,
             }}>
               <code>
@@ -403,11 +400,11 @@ export default function Home() {
               color: 'rgba(0,245,196,0.06)', fontFamily: mono,
               lineHeight: 1, marginBottom: 24, letterSpacing: '-0.05em',
             }}>02</div>
-            <p style={{ fontSize: 10, letterSpacing: '0.15em', color: '#00C896', fontFamily: mono, marginBottom: 16 }}>REPUTATION</p>
-            <h3 style={{ fontSize: 'clamp(24px, 4vw, 36px)', fontWeight: 700, marginBottom: 16, letterSpacing: '-0.02em', lineHeight: 1.2 }}>
+            <p style={{ fontSize: 11, letterSpacing: '0.12em', color: '#007A5E', fontFamily: mono, marginBottom: 16, fontWeight: 600 }}>REPUTATION</p>
+            <h3 style={{ fontSize: 'clamp(24px, 4vw, 36px)', fontWeight: 700, marginBottom: 16, letterSpacing: '-0.03em', lineHeight: 1.2 }}>
               Trust is earned<br />on-chain.
             </h3>
-            <p style={{ fontSize: 14, color: 'rgba(0,0,0,0.4)', lineHeight: 1.8, maxWidth: 400 }}>
+            <p style={{ fontSize: 15, color: '#444444', lineHeight: 1.8, maxWidth: 400 }}>
               No reviews. No stars. Pure math. 94/100 means 12,847 tasks, zero disputes, 99.9% uptime.
             </p>
           </div>
@@ -416,8 +413,8 @@ export default function Home() {
         {/* Pillar 3 — Validation */}
         <div style={{
           display: 'flex', flexWrap: 'wrap' as const,
-          borderTop: '1px solid rgba(0,0,0,0.06)',
-          borderBottom: '1px solid rgba(0,0,0,0.05)',
+          borderTop: '1px solid rgba(0,0,0,0.08)',
+          borderBottom: '1px solid rgba(0,0,0,0.08)',
           minHeight: 480,
         }}>
           <div style={{
@@ -430,11 +427,11 @@ export default function Home() {
               color: 'rgba(251,146,60,0.06)', fontFamily: mono,
               lineHeight: 1, marginBottom: 24, letterSpacing: '-0.05em',
             }}>03</div>
-            <p style={{ fontSize: 10, letterSpacing: '0.15em', color: '#FF8C00', fontFamily: mono, marginBottom: 16 }}>VALIDATION</p>
-            <h3 style={{ fontSize: 'clamp(24px, 4vw, 36px)', fontWeight: 700, marginBottom: 16, letterSpacing: '-0.02em', lineHeight: 1.2 }}>
+            <p style={{ fontSize: 11, letterSpacing: '0.12em', color: '#FF8C00', fontFamily: mono, marginBottom: 16, fontWeight: 600 }}>VALIDATION</p>
+            <h3 style={{ fontSize: 'clamp(24px, 4vw, 36px)', fontWeight: 700, marginBottom: 16, letterSpacing: '-0.03em', lineHeight: 1.2 }}>
               Three layers.<br />Zero doubt.
             </h3>
-            <p style={{ fontSize: 14, color: 'rgba(0,0,0,0.4)', lineHeight: 1.8, maxWidth: 400 }}>
+            <p style={{ fontSize: 15, color: '#444444', lineHeight: 1.8, maxWidth: 400 }}>
               Before any agent-to-agent deal closes, three things happen: the agent checks itself, peers verify it, and the protocol confirms it. All in under 10ms.
             </p>
           </div>
@@ -443,11 +440,11 @@ export default function Home() {
             display: 'flex', alignItems: 'center', justifyContent: 'center',
             padding: 'clamp(32px, 4vw, 64px)',
             background: '#F0F0F0',
-            borderLeft: '1px solid rgba(0,0,0,0.06)',
+            borderLeft: '1px solid rgba(0,0,0,0.08)',
           }}>
             <pre style={{
               fontSize: 'clamp(11px, 1.2vw, 13px)', fontFamily: mono,
-              color: 'rgba(0,0,0,0.45)', lineHeight: 2, margin: 0,
+              color: '#444444', lineHeight: 2, margin: 0,
               whiteSpace: 'pre-wrap' as const, wordBreak: 'break-all' as const,
             }}>
               <code>
@@ -466,11 +463,12 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ===== TOKENLESS — Giant statement ===== */}
+      {/* ===== TOKENLESS — Giant statement with comparison table ===== */}
       <section style={{
         padding: 'clamp(140px, 20vh, 240px) 24px',
         textAlign: 'center',
         position: 'relative',
+        background: '#FFFFFF',
       }}>
         <div style={{
           position: 'absolute', inset: 0, pointerEvents: 'none',
@@ -493,7 +491,7 @@ export default function Home() {
           {/* Explanation */}
           <p style={{
             fontSize: 'clamp(14px, 1.8vw, 17px)',
-            color: 'rgba(0,0,0,0.45)',
+            color: '#555555',
             lineHeight: 1.8,
             maxWidth: 520,
             margin: '0 auto 16px',
@@ -510,36 +508,45 @@ export default function Home() {
             margin: '0 auto 56px',
             fontWeight: 700,
           }}>
-            We didn't remove the token. We removed the excuse.
+            We didn&apos;t remove the token. We removed the excuse.
           </p>
 
-          {/* Simple contrast lines */}
+          {/* Comparison table (Stripe style) */}
           <div style={{
-            maxWidth: 480, margin: '0 auto',
-            display: 'flex', flexDirection: 'column' as const, gap: 20,
+            maxWidth: 560, margin: '0 auto',
+            borderRadius: 12,
+            border: '1px solid rgba(0,0,0,0.12)',
+            overflow: 'hidden',
           }}>
+            {/* Table header */}
+            <div style={{
+              display: 'grid', gridTemplateColumns: '1fr 1fr 1fr',
+              background: '#F0F0F0',
+              borderBottom: '1px solid rgba(0,0,0,0.12)',
+            }}>
+              <div style={{ padding: '16px 20px', fontSize: 12, fontFamily: mono, color: '#555555', fontWeight: 600, letterSpacing: '0.05em' }}></div>
+              <div style={{ padding: '16px 20px', fontSize: 12, fontFamily: mono, color: '#555555', fontWeight: 600, letterSpacing: '0.05em', textAlign: 'center' }}>Others</div>
+              <div style={{ padding: '16px 20px', fontSize: 12, fontFamily: mono, color: '#007A5E', fontWeight: 700, letterSpacing: '0.05em', textAlign: 'center' }}>txxt</div>
+            </div>
+            {/* Table rows */}
             {[
-              { them: 'Volatile gas tokens', us: 'USDC — stable, predictable' },
-              { them: 'Token launches & hype', us: 'Infrastructure first' },
-              { them: 'Governance theater', us: 'Pure utility' },
-              { them: 'Volatile (can spike 100x)', us: 'Always $0.0003' },
+              { label: 'Gas fees', them: 'Volatile tokens', us: 'USDC stable' },
+              { label: 'Launch', them: 'Token & hype', us: 'Infra first' },
+              { label: 'Governance', them: 'Theater', us: 'Pure utility' },
+              { label: 'Cost', them: 'Can spike 100×', us: 'Always $0.0003' },
             ].map((row, i) => (
               <div key={i} style={{
-                display: 'flex', justifyContent: 'space-between', alignItems: 'center',
-                gap: 24, flexWrap: 'wrap' as const,
+                display: 'grid', gridTemplateColumns: '1fr 1fr 1fr',
+                borderBottom: i < 3 ? '1px solid rgba(0,0,0,0.06)' : 'none',
+                background: '#FFFFFF',
               }}>
-                <span style={{
-                  fontSize: 14, color: 'rgba(0,0,0,0.4)',
-                  textDecoration: i < 3 ? 'line-through' : 'none', 
-                  fontFamily: mono,
-                }}>
-                  {row.them}
-                </span>
-                <span style={{
-                  fontSize: 14, color: '#00C896', fontFamily: mono, fontWeight: 600,
-                }}>
-                  {row.us}
-                </span>
+                <div style={{ padding: '14px 20px', fontSize: 13, fontFamily: mono, color: '#0D0D0D', fontWeight: 600 }}>{row.label}</div>
+                <div style={{ padding: '14px 20px', fontSize: 13, color: '#888888', textAlign: 'center', textDecoration: 'line-through' }}>
+                  <span style={{ fontSize: 14, marginRight: 6 }}>✗</span>{row.them}
+                </div>
+                <div style={{ padding: '14px 20px', fontSize: 13, color: '#007A5E', fontWeight: 600, textAlign: 'center' }}>
+                  <span style={{ fontSize: 14, marginRight: 6 }}>✓</span>{row.us}
+                </div>
               </div>
             ))}
           </div>
@@ -551,20 +558,20 @@ export default function Home() {
         <div style={{ maxWidth: 720, margin: '0 auto' }}>
           <div style={{ marginBottom: 56 }}>
             <p style={{
-              fontSize: 10, letterSpacing: '0.15em', color: '#00C896',
-              fontFamily: mono, marginBottom: 16,
+              fontSize: 11, letterSpacing: '0.12em', color: '#007A5E',
+              fontFamily: mono, marginBottom: 16, fontWeight: 600,
             }}>
               AGENTSCRIPT
             </p>
             <h2 style={{
               fontSize: 'clamp(28px, 5vw, 48px)', fontWeight: 700,
-              letterSpacing: '-0.03em', margin: '0 0 16px 0', lineHeight: 1.2,
+              letterSpacing: '-0.04em', margin: '0 0 16px 0', lineHeight: 1.2,
             }}>
               Code for agents,<br />by agents.
             </h2>
             <p style={{
               fontSize: 'clamp(14px, 1.8vw, 17px)',
-              color: 'rgba(0,0,0,0.45)',
+              color: '#555555',
               lineHeight: 1.8,
               maxWidth: 520,
               margin: '0 0 16px 0',
@@ -573,11 +580,12 @@ export default function Home() {
             </p>
             <p style={{
               fontSize: 'clamp(13px, 1.6vw, 15px)',
-              color: '#00C896',
+              color: '#007A5E',
               lineHeight: 1.6,
               maxWidth: 520,
               margin: 0,
               fontFamily: mono,
+              fontWeight: 600,
             }}>
               ERC-8004 defined the spec. txxt is where the spec actually runs.
             </p>
@@ -586,9 +594,10 @@ export default function Home() {
           {/* Terminal */}
           <div style={{
             borderRadius: 16,
-            border: '1px solid rgba(0,0,0,0.06)',
+            border: '1px solid rgba(0,0,0,0.08)',
             background: '#0A0C1E',
             overflow: 'hidden',
+            boxShadow: '0 4px 24px rgba(0,0,0,0.12)',
           }}>
             {/* Title bar */}
             <div style={{
@@ -666,7 +675,7 @@ export default function Home() {
           <h2 style={{
             fontSize: 'clamp(36px, 8vw, 80px)',
             fontWeight: 700,
-            letterSpacing: '-0.03em',
+            letterSpacing: '-0.04em',
             lineHeight: 1.1,
             margin: '0 0 16px 0',
             color: '#FFFFFF',
@@ -695,6 +704,8 @@ export default function Home() {
             fontSize: 15,
             textDecoration: 'none',
             letterSpacing: '0.02em',
+            transition: 'all 0.2s ease',
+            boxShadow: '0 2px 16px rgba(0,200,150,0.3)',
           }}>
             Start Building
           </Link>

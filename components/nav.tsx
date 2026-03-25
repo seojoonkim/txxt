@@ -60,7 +60,7 @@ export default function Nav() {
             <div style={{ display: 'flex', alignItems: 'center', gap: 28 }}>
               {links.map(l => (
                 <Link key={l.label} href={l.href} style={{
-                  fontSize: 14, color: 'rgba(0,0,0,0.5)',
+                  fontSize: 14, color: '#555555',
                   textDecoration: 'none', transition: 'color 0.2s',
                 }}>{l.label}</Link>
               ))}
@@ -72,6 +72,8 @@ export default function Nav() {
               fontSize: 13, padding: '9px 20px', borderRadius: 8,
               background: '#00C896',
               color: '#0D0E1A', fontWeight: 700, textDecoration: 'none',
+              transition: 'all 0.2s ease',
+              boxShadow: '0 2px 8px rgba(0,200,150,0.25)',
             }}>Start Building</Link>
           )}
 

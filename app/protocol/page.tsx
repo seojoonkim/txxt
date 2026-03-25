@@ -13,7 +13,7 @@ const specs = [
     value: '<10ms Blocks',
     headline: 'Faster than a human blink.',
     sub: 'Slower than an agent thinks.',
-    color: '#00C896',
+    color: '#007A5E',
   },
   {
     value: 'USDC Gas',
@@ -31,7 +31,7 @@ const specs = [
     value: 'Agent-Centric State',
     headline: 'Every agent is a first-class citizen.',
     sub: 'Its own state tree. Its own history. Its own world.',
-    color: '#00C896',
+    color: '#007A5E',
   },
   {
     value: 'PoAW Consensus',
@@ -44,7 +44,7 @@ const specs = [
 const layers = [
   { num: '04', title: 'Settlement Layer', items: ['USDC/USDT gas', 'Atomic payments', 'No volatility'], color: '#FB923C' },
   { num: '03', title: 'Consensus Layer', items: ['Proof of Agent Work', 'Reputation-weighted', 'Byzantine fault tolerant'], color: '#5B4FFF' },
-  { num: '02', title: 'Identity Layer', items: ['On-chain registry', 'Capability proofs', 'Reputation scores'], color: '#00C896' },
+  { num: '02', title: 'Identity Layer', items: ['On-chain registry', 'Capability proofs', 'Reputation scores'], color: '#007A5E' },
   { num: '01', title: 'Execution Layer', items: ['AgentVM', 'Parallel execution', '<10ms blocks'], color: '#5B4FFF' },
 ];
 
@@ -70,7 +70,7 @@ export default function ProtocolPage() {
         <p style={{ fontSize: 13, color: '#5B4FFF', fontFamily: mono, marginBottom: 16, letterSpacing: '0.05em' }}>
           txt: v1 · txxt: v2 — same wires, different civilization
         </p>
-        <p style={{ fontSize: 'clamp(15px, 2vw, 18px)', color: 'rgba(0,0,0,0.5)', lineHeight: 1.8, maxWidth: 520 }}>
+        <p style={{ fontSize: 'clamp(15px, 2vw, 18px)', color: '#555555', lineHeight: 1.8, maxWidth: 520 }}>
           Not a general-purpose chain with AI bolted on.<br />
           Every layer was designed with one user in mind: autonomous agents.
         </p>
@@ -92,7 +92,7 @@ export default function ProtocolPage() {
               <div style={{ fontSize: 'clamp(16px, 2vw, 20px)', fontWeight: 600, letterSpacing: '-0.01em', marginBottom: 8, lineHeight: 1.3 }}>
                 {s.headline}
               </div>
-              <p style={{ fontSize: 14, color: 'rgba(0,0,0,0.4)', lineHeight: 1.7, fontStyle: 'italic' }}>
+              <p style={{ fontSize: 14, color: '#555555', lineHeight: 1.7, fontStyle: 'italic' }}>
                 {s.sub}
               </p>
             </div>
@@ -110,8 +110,8 @@ export default function ProtocolPage() {
           </div>
 
           {/* ASCII Art Style Stack */}
-          <div style={{ fontFamily: mono, fontSize: 'clamp(11px, 1.5vw, 14px)', lineHeight: 1.6, color: 'rgba(0,0,0,0.5)', marginBottom: 48 }}>
-            <div style={{ padding: '16px 0', borderBottom: '1px solid rgba(0,0,0,0.08)', color: 'rgba(0,0,0,0.35)' }}>
+          <div style={{ fontFamily: mono, fontSize: 'clamp(11px, 1.5vw, 14px)', lineHeight: 1.6, color: '#555555', marginBottom: 48 }}>
+            <div style={{ padding: '16px 0', borderBottom: '1px solid rgba(0,0,0,0.08)', color: '#666666' }}>
               {'// txxt protocol stack — bottom up'}
             </div>
           </div>
@@ -148,7 +148,7 @@ export default function ProtocolPage() {
                         borderRadius: 6,
                         background: 'rgba(0,0,0,0.04)',
                         border: '1px solid rgba(0,0,0,0.08)',
-                        color: 'rgba(0,0,0,0.45)',
+                        color: '#555555',
                       }}>
                         {item}
                       </span>
@@ -182,7 +182,7 @@ export default function ProtocolPage() {
           </h2>
           <p style={{ fontSize: 'clamp(14px, 1.8vw, 17px)', color: 'rgba(255,255,255,0.55)', lineHeight: 1.8, marginBottom: 48, maxWidth: 560 }}>
             Most blockchains reward you for having money (PoS) or burning electricity (PoW).
-            txxt rewards you for <span style={{ color: '#00C896' }}>actually doing useful work</span>.
+            txxt rewards you for <span style={{ color: '#007A5E' }}>actually doing useful work</span>.
             Revolutionary? No. Obvious? Yes. Someone had to build it.
           </p>
 
@@ -216,8 +216,8 @@ export default function ProtocolPage() {
             <div style={{ color: 'rgba(255,255,255,0.3)', marginBottom: 16 }}>{'// consensus comparison'}</div>
             <div style={{ marginBottom: 12 }}><span style={{ color: '#FB923C' }}>PoW:</span> {"\"I burned electricity\"  → here's a block"}</div>
             <div style={{ marginBottom: 12 }}><span style={{ color: '#5B4FFF' }}>PoS:</span> {"\"I have money\"         → here's a block"}</div>
-            <div style={{ marginBottom: 12 }}><span style={{ color: '#00C896' }}>PoAW:</span> {"\"I did useful work\"    → here's a block  ✓"}</div>
-            <div style={{ paddingTop: 16, borderTop: '1px solid rgba(255,255,255,0.1)', marginTop: 16, color: 'rgba(255,255,255,0.4)' }}>PoW burns energy to prove nothing useful.<br />PoS asks: how much do you own?<br />PoAW asks: how much have you proven?<br /><br /><span style={{ color: '#00C896' }}>The only consensus mechanism designed for a world where value comes from work, not capital.</span></div>
+            <div style={{ marginBottom: 12 }}><span style={{ color: '#007A5E' }}>PoAW:</span> {"\"I did useful work\"    → here's a block  ✓"}</div>
+            <div style={{ paddingTop: 16, borderTop: '1px solid rgba(255,255,255,0.1)', marginTop: 16, color: 'rgba(255,255,255,0.4)' }}>PoW burns energy to prove nothing useful.<br />PoS asks: how much do you own?<br />PoAW asks: how much have you proven?<br /><br /><span style={{ color: '#007A5E' }}>The only consensus mechanism designed for a world where value comes from work, not capital.</span></div>
           </div>
         </div>
       </section>
@@ -230,7 +230,7 @@ export default function ProtocolPage() {
           <h2 style={{ fontSize: 'clamp(28px, 4vw, 40px)', fontWeight: 700, letterSpacing: '-0.02em', marginBottom: 16 }}>
             Ready to build on txxt?
           </h2>
-          <p style={{ fontSize: 15, color: 'rgba(0,0,0,0.4)', marginBottom: 40, lineHeight: 1.8 }}>
+          <p style={{ fontSize: 15, color: '#555555', marginBottom: 40, lineHeight: 1.8 }}>
             Read the full technical specification or start deploying agents today.
           </p>
           <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
