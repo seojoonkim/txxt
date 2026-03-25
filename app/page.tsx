@@ -310,10 +310,12 @@ export default function Home() {
             &ldquo;x402 tells agents how to pay. ERC-8004 tells agents who to trust. txxt is the only chain where both work natively — together.&rdquo;
           </p>
         </div>
+        </div>
       </section>
 
       {/* ===== THREE PILLARS — Stacked full-width, split layout (Stripe style) ===== */}
       <section style={{ background: '#F8F8F8', borderTop: '1px solid rgba(0,0,0,0.06)' }}>
+        <div style={{ maxWidth: 1300, margin: '0 auto' }}>
         {/* Section header */}
         <div style={{ padding: '100px 24px 0', textAlign: 'center' }}>
           <p style={{
@@ -477,11 +479,11 @@ export default function Home() {
             </pre>
           </div>
         </div>
+        </div>
       </section>
 
       {/* ===== TOKENLESS — Giant statement with comparison table ===== */}
       <section style={{
-        padding: 'clamp(140px, 20vh, 240px) 24px',
         textAlign: 'center',
         position: 'relative',
         background: '#FFFFFF',
@@ -492,7 +494,7 @@ export default function Home() {
           background: 'radial-gradient(ellipse 40% 50% at 50% 50%, rgba(251,146,60,0.04) 0%, transparent 70%)',
         }} />
 
-        <div style={{ position: 'relative', zIndex: 1 }}>
+        <div style={{ maxWidth: 1300, margin: '0 auto', padding: 'clamp(140px, 20vh, 240px) 24px', position: 'relative', zIndex: 1 }}>
           {/* Giant headline */}
           <h2 style={{
             fontSize: 'clamp(40px, 10vw, 120px)',
@@ -600,7 +602,8 @@ export default function Home() {
       </section>
 
       {/* ===== AGENTSCRIPT — Code showcase ===== */}
-      <section style={{ background: '#F8F8F8', padding: 'clamp(100px, 12vh, 160px) 24px', borderTop: '1px solid rgba(0,0,0,0.06)' }}>
+      <section style={{ background: '#F8F8F8', borderTop: '1px solid rgba(0,0,0,0.06)' }}>
+        <div style={{ maxWidth: 1300, margin: '0 auto', padding: 'clamp(100px, 12vh, 160px) 24px' }}>
         <div style={{ maxWidth: 720, margin: '0 auto' }}>
           <div style={{ marginBottom: 56 }}>
             <p style={{
