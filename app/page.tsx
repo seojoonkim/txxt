@@ -18,84 +18,118 @@ export default function Home() {
   return (
     <div style={{ background: '#0D0E1A', color: '#fff', fontFamily: 'Inter, system-ui, sans-serif', overflowX: 'hidden' }}>
 
-      {/* ===== HERO — Full viewport, one massive word ===== */}
+      {/* ===== HERO — Split layout ===== */}
       <section style={{
         minHeight: '100vh',
-        display: 'flex',
-        flexDirection: 'column' as const,
-        alignItems: 'center',
-        justifyContent: 'center',
+        background: '#0D0E1A',
         position: 'relative',
-        padding: '0 24px',
+        overflow: 'hidden',
+        display: 'flex',
+        alignItems: 'center',
       }}>
-        {/* Subtle glow */}
+        {/* Left text block */}
         <div style={{
-          position: 'absolute', inset: 0, pointerEvents: 'none',
-          background: 'radial-gradient(ellipse 60% 50% at 50% 45%, rgba(0,245,196,0.05) 0%, transparent 70%)',
-        }} />
-
-        <div style={{ position: 'relative', zIndex: 1, textAlign: 'center', width: '100%' }}>
-          {/* Tiny label */}
-          <p style={{
-            fontSize: 10, letterSpacing: '0.2em', color: 'rgba(255,255,255,0.2)',
-            fontFamily: mono, marginBottom: 32, textTransform: 'uppercase' as const,
-          }}>
-            The Trust Layer for AI Agents
-          </p>
-
-          {/* MASSIVE logo */}
-          <div style={{
-            fontSize: 'clamp(100px, 22vw, 280px)',
-            fontWeight: 900,
-            letterSpacing: '-0.05em',
-            lineHeight: 0.85,
-            color: '#00F5C4',
-            fontFamily: mono,
-            textShadow: '0 0 80px rgba(0,245,196,0.25), 0 0 160px rgba(0,245,196,0.08)',
-            marginBottom: 40,
-          }}>
-            txxt
-          </div>
-
-          {/* Core message — large */}
-          <div style={{ marginBottom: 64 }}>
+          maxWidth: 1200, margin: '0 auto', padding: '120px 24px 80px',
+          width: '100%', position: 'relative', zIndex: 10,
+        }}>
+          <div style={{ maxWidth: 560 }}>
+            {/* Small label */}
             <p style={{
-              fontSize: 'clamp(20px, 3.5vw, 36px)',
-              fontWeight: 400,
-              color: 'rgba(255,255,255,0.4)',
-              lineHeight: 1.5,
-              margin: '0 0 4px 0',
-              letterSpacing: '-0.01em',
+              fontSize: 12, letterSpacing: '0.1em', color: 'rgba(255,255,255,0.3)',
+              fontFamily: mono, marginBottom: 32,
             }}>
-              The internet runs on <span style={{ fontFamily: mono }}>txt</span>.
+              AGENT-NATIVE L1 · GAS IN USDC
             </p>
-            <p style={{
-              fontSize: 'clamp(20px, 3.5vw, 36px)',
-              fontWeight: 600,
+
+            {/* Main headline */}
+            <h1 style={{
+              fontSize: 'clamp(40px, 7vw, 88px)',
+              fontWeight: 500,
+              letterSpacing: '-0.03em',
+              lineHeight: 1.05,
               color: '#fff',
-              lineHeight: 1.5,
-              margin: 0,
-              letterSpacing: '-0.01em',
+              marginBottom: 24,
             }}>
-              The agent economy runs on{' '}
-              <span style={{ color: '#00F5C4', fontWeight: 800, fontFamily: mono }}>txxt</span>.
-            </p>
-          </div>
+              The internet<br />
+              runs on <span style={{ color: 'rgba(255,255,255,0.35)' }}>txt</span>.<br />
+              We run on<br />
+              <span style={{ color: '#00F5C4' }}>txxt</span>.
+            </h1>
 
-          {/* Single CTA */}
-          <Link href="/build" style={{
-            display: 'inline-block',
-            padding: '16px 48px',
-            borderRadius: 10,
-            background: '#A78BFA',
-            color: '#0D0E1A',
-            fontWeight: 700,
-            fontSize: 15,
-            textDecoration: 'none',
-            letterSpacing: '0.02em',
+            {/* Sub */}
+            <p style={{
+              fontSize: 18, color: 'rgba(255,255,255,0.45)', lineHeight: 1.7,
+              marginBottom: 40, maxWidth: 480,
+            }}>
+              Identity, reputation, and validation for every AI agent. No token. Gas in USDC.
+            </p>
+
+            {/* Buttons */}
+            <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' as const }}>
+              <Link href="/build" style={{
+                padding: '16px 40px', borderRadius: 10,
+                background: 'linear-gradient(180deg, #1AFFD5 0%, #00C4A0 100%)',
+                color: '#0D0E1A', fontWeight: 700, fontSize: 18,
+                textDecoration: 'none',
+              }}>Start Building</Link>
+              <Link href="/protocol" style={{
+                padding: '16px 32px', borderRadius: 10,
+                background: 'rgba(255,255,255,0.05)',
+                border: '1px solid rgba(255,255,255,0.1)',
+                color: 'rgba(255,255,255,0.8)', fontWeight: 500, fontSize: 18,
+                textDecoration: 'none',
+              }}>Read the Protocol</Link>
+            </div>
+          </div>
+        </div>
+
+        {/* Right visual panel (desktop only) */}
+        <div style={{
+          position: 'absolute', top: 0, right: 0,
+          width: '50%', height: '100%',
+          background: 'linear-gradient(135deg, #080A14 0%, #13102A 100%)',
+          borderBottomLeftRadius: 40,
+          overflow: 'hidden',
+        }} className="hidden lg:block">
+          {/* SVG Network */}
+          <svg style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', opacity: 0.25 }}>
+            <line x1="20%" y1="30%" x2="60%" y2="50%" stroke="#A78BFA" strokeWidth="0.8" strokeDasharray="6 10" style={{ animation: 'data-flow 4s linear infinite' }} />
+            <line x1="80%" y1="20%" x2="60%" y2="50%" stroke="#00F5C4" strokeWidth="0.8" strokeDasharray="6 10" style={{ animation: 'data-flow 5s linear infinite 1s' }} />
+            <line x1="15%" y1="70%" x2="60%" y2="50%" stroke="#FB923C" strokeWidth="0.8" strokeDasharray="6 10" style={{ animation: 'data-flow 6s linear infinite 2s' }} />
+            <line x1="85%" y1="75%" x2="60%" y2="50%" stroke="#A78BFA" strokeWidth="0.8" strokeDasharray="6 10" style={{ animation: 'data-flow 4.5s linear infinite 0.5s' }} />
+            <circle cx="60%" cy="50%" r="6" fill="#00F5C4" style={{ animation: 'node-blink 2s ease-in-out infinite' }} />
+            <circle cx="20%" cy="30%" r="4" fill="#A78BFA" style={{ animation: 'node-blink 2.5s ease-in-out infinite 0.5s' }} />
+            <circle cx="80%" cy="20%" r="4" fill="#FB923C" style={{ animation: 'node-blink 3s ease-in-out infinite 1s' }} />
+            <circle cx="15%" cy="70%" r="3.5" fill="#A78BFA" style={{ animation: 'node-blink 2s ease-in-out infinite 1.5s' }} />
+            <circle cx="85%" cy="75%" r="3.5" fill="#00F5C4" style={{ animation: 'node-blink 2.8s ease-in-out infinite 2s' }} />
+            <circle cx="60%" cy="50%" r="120" fill="none" stroke="#A78BFA" strokeWidth="0.5" style={{ animation: 'hero-pulse 6s ease-in-out infinite', transformOrigin: '60% 50%' }} />
+          </svg>
+
+          {/* Code card */}
+          <div style={{
+            position: 'absolute', bottom: 60, left: 40, right: 40,
+            background: 'rgba(6,6,18,0.85)',
+            borderRadius: 14, padding: '24px 28px',
+            border: '1px solid rgba(255,255,255,0.08)',
+            backdropFilter: 'blur(10px)',
           }}>
-            Start Building
-          </Link>
+            <div style={{ display: 'flex', gap: 6, marginBottom: 16 }}>
+              {['#ff5f57','#febc2e','#28c840'].map(c => (
+                <div key={c} style={{ width: 10, height: 10, borderRadius: '50%', background: c }} />
+              ))}
+              <span style={{ fontSize: 11, color: 'rgba(255,255,255,0.2)', fontFamily: mono, marginLeft: 8 }}>travel_planner.agent</span>
+            </div>
+            <pre style={{ fontSize: 12, fontFamily: mono, color: 'rgba(255,255,255,0.5)', lineHeight: 1.8, margin: 0 }}>{`agent TravelPlanner {
+  requires: [flight_search]
+  reputation_minimum: 80
+
+  task plan_trip(destination) {
+    let agent = discover(min_rep: 85)
+    pay(agent, 0.004) // USDC
+    rate(agent, score: 95)
+  }
+}`}</pre>
+          </div>
         </div>
       </section>
 
@@ -561,7 +595,7 @@ export default function Home() {
             display: 'inline-block',
             padding: '16px 48px',
             borderRadius: 10,
-            background: '#A78BFA',
+            background: 'linear-gradient(180deg, #1AFFD5 0%, #00C4A0 100%)',
             color: '#0D0E1A',
             fontWeight: 700,
             fontSize: 15,
