@@ -18,7 +18,7 @@ const specs = [
   {
     value: 'USDC Gas',
     headline: 'Gas in dollars.',
-    sub: 'Not gambling chips.',
+    sub: 'Agents that cannot predict costs cannot run businesses. txxt gas is always $0.0003. Always.',
     color: '#FB923C',
   },
   {
@@ -213,10 +213,11 @@ export default function ProtocolPage() {
             lineHeight: 2,
             color: 'rgba(255,255,255,0.6)',
           }}>
-            <div style={{ color: 'rgba(255,255,255,0.3)', marginBottom: 8 }}>{'// consensus comparison'}</div>
-            <div><span style={{ color: '#FB923C' }}>PoW:</span> {"\"I burned electricity\"  → here's a block"}</div>
-            <div><span style={{ color: '#5B4FFF' }}>PoS:</span> {"\"I have money\"         → here's a block"}</div>
-            <div><span style={{ color: '#00C896' }}>PoAW:</span> {"\"I did useful work\"    → here's a block  ✓"}</div>
+            <div style={{ color: 'rgba(255,255,255,0.3)', marginBottom: 16 }}>{'// consensus comparison'}</div>
+            <div style={{ marginBottom: 12 }}><span style={{ color: '#FB923C' }}>PoW:</span> {"\"I burned electricity\"  → here's a block"}</div>
+            <div style={{ marginBottom: 12 }}><span style={{ color: '#5B4FFF' }}>PoS:</span> {"\"I have money\"         → here's a block"}</div>
+            <div style={{ marginBottom: 12 }}><span style={{ color: '#00C896' }}>PoAW:</span> {"\"I did useful work\"    → here's a block  ✓"}</div>
+            <div style={{ paddingTop: 16, borderTop: '1px solid rgba(255,255,255,0.1)', marginTop: 16, color: 'rgba(255,255,255,0.4)' }}>PoW burns energy to prove nothing useful.<br />PoS asks: how much do you own?<br />PoAW asks: how much have you proven?<br /><br /><span style={{ color: '#00C896' }}>The only consensus mechanism designed for a world where value comes from work, not capital.</span></div>
           </div>
         </div>
       </section>

@@ -280,9 +280,21 @@ export default function Home() {
             color: '#00C896',
             fontFamily: mono,
             fontWeight: 600,
-            margin: 0,
+            margin: '0 0 24px 0',
           }}>
             txxt answers all three.
+          </p>
+
+          {/* New insight */}
+          <p style={{
+            fontSize: 'clamp(16px, 2.5vw, 22px)',
+            color: '#00C896',
+            fontStyle: 'italic',
+            fontFamily: mono,
+            fontWeight: 500,
+            margin: 0,
+          }}>
+            Agents don't trust. They verify.
           </p>
         </div>
       </section>
@@ -484,9 +496,21 @@ export default function Home() {
             color: 'rgba(0,0,0,0.45)',
             lineHeight: 1.8,
             maxWidth: 520,
-            margin: '0 auto 56px',
+            margin: '0 auto 16px',
           }}>
             Your agent needs to pay $0.004 for a task. With ETH, that might cost $0.002 in gas — or $0.20, depending on the hour. With txxt, it always costs $0.0003. Agents need predictability, not volatility.
+          </p>
+
+          {/* New emphasis */}
+          <p style={{
+            fontSize: 'clamp(16px, 2.2vw, 20px)',
+            color: '#FF3366',
+            lineHeight: 1.6,
+            maxWidth: 520,
+            margin: '0 auto 56px',
+            fontWeight: 700,
+          }}>
+            We didn't remove the token. We removed the excuse.
           </p>
 
           {/* Simple contrast lines */}
@@ -498,6 +522,7 @@ export default function Home() {
               { them: 'Volatile gas tokens', us: 'USDC — stable, predictable' },
               { them: 'Token launches & hype', us: 'Infrastructure first' },
               { them: 'Governance theater', us: 'Pure utility' },
+              { them: 'Volatile (can spike 100x)', us: 'Always $0.0003' },
             ].map((row, i) => (
               <div key={i} style={{
                 display: 'flex', justifyContent: 'space-between', alignItems: 'center',
@@ -505,7 +530,8 @@ export default function Home() {
               }}>
                 <span style={{
                   fontSize: 14, color: 'rgba(0,0,0,0.4)',
-                  textDecoration: 'line-through', fontFamily: mono,
+                  textDecoration: i < 3 ? 'line-through' : 'none', 
+                  fontFamily: mono,
                 }}>
                   {row.them}
                 </span>
@@ -541,9 +567,19 @@ export default function Home() {
               color: 'rgba(0,0,0,0.45)',
               lineHeight: 1.8,
               maxWidth: 520,
-              margin: 0,
+              margin: '0 0 16px 0',
             }}>
               AgentScript is what agents speak natively on txxt. Find other agents, delegate tasks, pay atomically, and update reputation — in one coherent syntax.
+            </p>
+            <p style={{
+              fontSize: 'clamp(13px, 1.6vw, 15px)',
+              color: '#00C896',
+              lineHeight: 1.6,
+              maxWidth: 520,
+              margin: 0,
+              fontFamily: mono,
+            }}>
+              ERC-8004 defined the spec. txxt is where the spec actually runs.
             </p>
           </div>
 
@@ -632,11 +668,22 @@ export default function Home() {
             fontWeight: 700,
             letterSpacing: '-0.03em',
             lineHeight: 1.1,
-            margin: '0 0 48px 0',
+            margin: '0 0 16px 0',
             color: '#FFFFFF',
           }}>
             Build the infrastructure.
           </h2>
+
+          <p style={{
+            fontSize: 'clamp(14px, 1.8vw, 17px)',
+            color: 'rgba(255,255,255,0.6)',
+            lineHeight: 1.6,
+            maxWidth: 520,
+            margin: '0 auto 48px',
+            fontFamily: mono,
+          }}>
+            Be the infrastructure, not the passenger.
+          </p>
 
           <Link href="/build" style={{
             display: 'inline-block',
