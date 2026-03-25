@@ -29,8 +29,8 @@ export default function Home() {
       }}>
         {/* Left text block */}
         <div style={{
-          flex: '0 0 50%',
-          maxWidth: '50%',
+          flex: '0 0 55%',
+          maxWidth: '55%',
           padding: 'clamp(80px, 10vw, 120px) clamp(24px, 4vw, 64px) 80px',
           display: 'flex',
           alignItems: 'center',
@@ -111,11 +111,13 @@ export default function Home() {
 
         {/* Right video panel */}
         <div className="hero-right" style={{
-          flex: '0 0 50%',
-          maxWidth: '50%',
+          flex: '0 0 45%',
+          maxWidth: '45%',
           overflow: 'hidden',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
           borderBottomLeftRadius: 40,
-          minHeight: '100vh',
         }}>
           <video
             src="/hero-video.mp4"
@@ -125,10 +127,9 @@ export default function Home() {
             playsInline
             style={{
               width: '100%',
-              height: '100%',
-              objectFit: 'cover',
+              height: 'auto',
+              objectFit: 'contain',
               display: 'block',
-              minHeight: '100vh',
             }}
           />
         </div>
