@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 const mono = "var(--font-fira), 'Courier New', monospace";
 
@@ -10,7 +10,16 @@ const links = [
   { href: '/identity', label: 'Identity' },
   { href: '/ecosystem', label: 'Ecosystem' },
   { href: '/build', label: 'Build' },
-  { href: '#', label: 'Docs' },
+  {
+    href: '#',
+    label: 'More',
+    children: [
+      { href: '/compare', label: 'Why txxt?' },
+      { href: '/poaw', label: 'PoAW' },
+      { href: '/roadmap', label: 'Roadmap' },
+      { href: '#', label: 'Docs' },
+    ],
+  },
 ];
 
 export default function Nav() {
