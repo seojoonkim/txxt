@@ -151,7 +151,7 @@ export default function Home() {
             color: '#00F5C4',
             fontFamily: mono,
             marginBottom: 24,
-            textShadow: '0 0 60px rgba(0,245,196,0.35), 0 0 120px rgba(0,245,196,0.12)', WebkitTextStroke: '1px rgba(0,245,196,0.4)',
+            textShadow: '0 0 60px rgba(0,245,196,0.35), 0 0 120px rgba(0,245,196,0.12)', WebkitTextStroke: '2.5px #00F5C4',
           }}>
             txxt
           </div>

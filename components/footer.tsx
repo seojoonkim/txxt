@@ -33,7 +33,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6 pt-20 pb-16">
         <div className="grid grid-cols-2 md:grid-cols-5 gap-10">
           <div className="col-span-2 md:col-span-1">
-            <span style={{ fontFamily: "var(--font-fira), 'Courier New', monospace", fontSize: 22, fontWeight: 900, letterSpacing: '-0.04em', color: '#00F5C4', textShadow: '0 0 16px rgba(0,245,196,0.35)' }}>
+            <span style={{ fontFamily: "var(--font-fira), 'Courier New', monospace", fontSize: 22, fontWeight: 900, letterSpacing: '-0.04em', color: '#00F5C4', textShadow: '0 0 16px rgba(0,245,196,0.35)', WebkitTextStroke: '1.5px #00F5C4' }}>
               txxt
             </span>
             <p className="mt-3 text-sm text-[rgba(255,255,255,0.4)] leading-relaxed">
