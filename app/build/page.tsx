@@ -170,12 +170,12 @@ export default function BuildPage() {
                   </pre>
                 </div>
                 {/* Output */}
-                <div style={{ borderRadius: 12, border: '1px solid rgba(0,245,196,0.12)', background: 'rgba(0,245,196,0.03)', overflow: 'hidden' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '10px 14px', borderBottom: '1px solid rgba(0,245,196,0.08)', background: 'rgba(0,245,196,0.02)' }}>
+                <div style={{ borderRadius: 12, border: '1px solid rgba(0,245,196,0.25)', background: '#0D1F1A', overflow: 'hidden' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '10px 14px', borderBottom: '1px solid rgba(0,245,196,0.08)', background: 'rgba(0,245,196,0.08)' }}>
                     <div style={{ width: 6, height: 6, borderRadius: '50%', background: '#00F5C4' }} />
-                    <span style={{ fontSize: 10, color: 'rgba(0,245,196,0.5)', fontFamily: mono }}>output</span>
+                    <span style={{ fontSize: 10, color: 'rgba(0,245,196,0.9)', fontFamily: mono }}>output</span>
                   </div>
-                  <pre style={{ padding: '20px', fontSize: 12, fontFamily: mono, lineHeight: 1.9, color: 'rgba(0,245,196,0.6)', margin: 0, overflowX: 'auto' }}>
+                  <pre style={{ padding: '20px', fontSize: 12, fontFamily: mono, lineHeight: 1.9, color: '#00F5C4', margin: 0, overflowX: 'auto' }}>
                     <code>{s.output}</code>
                   </pre>
                 </div>
