@@ -138,7 +138,7 @@ export default function Home() {
           }}>
             <LiveBadge />
             <span style={{ fontSize: 11, letterSpacing: '0.08em', color: 'rgba(255,255,255,0.5)', fontFamily: mono }}>
-              ◉ LIVE · 12,847 AGENTS · 2.3M TXS TODAY
+              LIVE · 12,847 AGENTS · 2.3M TXS TODAY
             </span>
           </div>
 
