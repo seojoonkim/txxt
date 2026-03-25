@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useMemo } from 'react';
 import Link from 'next/link';
 
 const mono = "var(--font-fira), 'Courier New', monospace";
@@ -23,6 +23,150 @@ function TerminalCursor() {
     return () => clearInterval(t);
   }, []);
   return <span style={{ opacity: on ? 1 : 0, color: '#00C896' }}>▋</span>;
+}
+
+/* ===== Agent Network Diagram ===== */
+const AGENTS = [
+  { label: 'TravelBot', color: '#A78BFA', x: 60, y: 55 },
+  { label: 'TradeAgent', color: '#FB923C', x: 160, y: 35 },
+  { label: 'DataBot', color: '#FF3366', x: 260, y: 35 },
+  { label: 'LegalAI', color: '#38BDF8', x: 360, y: 55 },
+];
+
+const CHAINS = [
+  { label: 'ETH', color: '#627EEA', x: 60, y: 345 },
+  { label: 'SOL', color: '#9945FF', x: 160, y: 365 },
+  { label: 'Base', color: '#0052FF', x: 260, y: 365 },
+  { label: 'Polygon', color: '#8247E5', x: 360, y: 345 },
+];
+
+const TXXT_CENTER = { x: 210, y: 200 };
+
+function FlowDot({ x1, y1, x2, y2, delay, dur, color }: { x1: number; y1: number; x2: number; y2: number; delay: number; dur: number; color: string }) {
+  return (
+    <circle r="3" fill={color} opacity="0.8">
+      <animateMotion
+        dur={`${dur}s`}
+        repeatCount="indefinite"
+        begin={`${delay}s`}
+        path={`M${x1},${y1} L${x2},${y2}`}
+      />
+      <animate attributeName="opacity" values="0;0.9;0.9;0" dur={`${dur}s`} repeatCount="indefinite" begin={`${delay}s`} />
+    </circle>
+  );
+}
+
+function AgentNetworkDiagram() {
+  const lines = useMemo(() => {
+    const agentLines = AGENTS.map((a, i) => ({
+      x1: a.x, y1: a.y + 22, x2: TXXT_CENTER.x, y2: TXXT_CENTER.y - 30,
+      dashed: true, color: a.color, delay: i * 0.7, key: `a-${i}`,
+    }));
+    const chainLines = CHAINS.map((c, i) => ({
+      x1: TXXT_CENTER.x, y1: TXXT_CENTER.y + 30, x2: c.x, y2: c.y - 22,
+      dashed: false, color: c.color, delay: i * 0.6 + 0.3, key: `c-${i}`,
+    }));
+    return [...agentLines, ...chainLines];
+  }, []);
+
+  return (
+    <div style={{ width: '100%', aspectRatio: '1.05', position: 'relative', maxWidth: 480 }}>
+      <svg viewBox="0 0 420 400" style={{ width: '100%', height: '100%', overflow: 'visible' }}>
+        <defs>
+          <filter id="txxt-glow">
+            <feGaussianBlur stdDeviation="8" result="blur" />
+            <feMerge>
+              <feMergeNode in="blur" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+          <filter id="node-shadow">
+            <feDropShadow dx="0" dy="2" stdDeviation="3" floodOpacity="0.1" />
+          </filter>
+        </defs>
+
+        {/* Connection lines */}
+        {lines.map((l) => (
+          <line
+            key={l.key}
+            x1={l.x1} y1={l.y1} x2={l.x2} y2={l.y2}
+            stroke={l.color}
+            strokeWidth="1.5"
+            strokeOpacity="0.25"
+            strokeDasharray={l.dashed ? '6,4' : 'none'}
+          />
+        ))}
+
+        {/* Animated flowing dots */}
+        {AGENTS.map((a, i) => (
+          <FlowDot
+            key={`dot-a-${i}`}
+            x1={a.x} y1={a.y + 22}
+            x2={TXXT_CENTER.x} y2={TXXT_CENTER.y - 30}
+            delay={i * 1.2} dur={2.5} color={a.color}
+          />
+        ))}
+        {CHAINS.map((c, i) => (
+          <FlowDot
+            key={`dot-c-${i}`}
+            x1={TXXT_CENTER.x} y1={TXXT_CENTER.y + 30}
+            x2={c.x} y2={c.y - 22}
+            delay={i * 1.1 + 0.5} dur={2.2} color={c.color}
+          />
+        ))}
+
+        {/* Micro-payment labels flowing on agent lines */}
+        {AGENTS.map((a, i) => {
+          const mx = (a.x + TXXT_CENTER.x) / 2;
+          const my = (a.y + 22 + TXXT_CENTER.y - 30) / 2;
+          return (
+            <text key={`price-a-${i}`} x={mx} y={my - 6} textAnchor="middle" fontSize="8" fill={a.color} opacity="0.6" fontFamily={mono}>
+              $0.0003
+            </text>
+          );
+        })}
+
+        {/* Central txxt node */}
+        <g filter="url(#txxt-glow)">
+          <circle cx={TXXT_CENTER.x} cy={TXXT_CENTER.y} r="38" fill="#00C896">
+            <animate attributeName="r" values="38;40;38" dur="3s" repeatCount="indefinite" />
+          </circle>
+          <text x={TXXT_CENTER.x} y={TXXT_CENTER.y + 6} textAnchor="middle" fontSize="18" fontWeight="900" fill="#fff" fontFamily={mono}>
+            txxt
+          </text>
+        </g>
+
+        {/* Agent nodes (top) */}
+        {AGENTS.map((a, i) => (
+          <g key={`agent-${i}`} filter="url(#node-shadow)">
+            <circle cx={a.x} cy={a.y} r="22" fill="#fff" stroke={a.color} strokeWidth="2" />
+            <text x={a.x} y={a.y + 1} textAnchor="middle" fontSize="7.5" fontWeight="700" fill={a.color} fontFamily={mono} dominantBaseline="middle">
+              {a.label}
+            </text>
+          </g>
+        ))}
+
+        {/* Chain nodes (bottom) */}
+        {CHAINS.map((c, i) => (
+          <g key={`chain-${i}`} filter="url(#node-shadow)">
+            <circle cx={c.x} cy={c.y} r="22" fill={c.color} opacity="0.12" />
+            <circle cx={c.x} cy={c.y} r="22" fill="none" stroke={c.color} strokeWidth="2" />
+            <text x={c.x} y={c.y + 1} textAnchor="middle" fontSize="9" fontWeight="800" fill={c.color} fontFamily={mono} dominantBaseline="middle">
+              {c.label}
+            </text>
+          </g>
+        ))}
+
+        {/* Labels */}
+        <text x="210" y="16" textAnchor="middle" fontSize="9" fill="#888" fontFamily={mono} letterSpacing="0.1em">
+          AI AGENTS
+        </text>
+        <text x="210" y="396" textAnchor="middle" fontSize="9" fill="#888" fontFamily={mono} letterSpacing="0.1em">
+          BLOCKCHAINS
+        </text>
+      </svg>
+    </div>
+  );
 }
 
 export default function Home() {
@@ -57,15 +201,15 @@ export default function Home() {
           <div style={{ maxWidth: 640, width: '100%', textAlign: 'center' as const }}>
             {/* Tagline — above logo */}
             <p style={{
-              fontSize: 'clamp(13px, 2.5vw, 18px)',
+              fontSize: 'clamp(16px, 3vw, 22px)',
               fontWeight: 400,
               letterSpacing: '-0.01em',
-              lineHeight: 1.4,
+              lineHeight: 1.5,
               color: '#555555',
               marginBottom: 16,
             }}>
               The internet runs on txt.<br />
-              The agent economy runs on txxt.
+              <span style={{ color: '#00C896' }}>The agent economy runs on <strong>txxt</strong>.</span>
             </p>
 
             {/* Giant txxt logo */}
@@ -128,20 +272,7 @@ export default function Home() {
           borderBottomLeftRadius: 40,
           padding: '40px 24px',
         }}>
-          <video
-            src="/hero-video.mp4"
-            autoPlay
-            loop
-            muted
-            playsInline
-            style={{
-              width: '100%',
-              maxWidth: 520,
-              height: 'auto',
-              objectFit: 'contain',
-              display: 'block',
-            }}
-          />
+          <AgentNetworkDiagram />
         </div>
 
         </div>
