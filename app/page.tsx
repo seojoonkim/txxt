@@ -29,123 +29,68 @@ export default function Home() {
   return (
     <div style={{ background: '#FFFFFF', color: '#0D0D0D', fontFamily: 'Inter, system-ui, sans-serif', overflowX: 'hidden' }}>
 
-      {/* ===== HERO — Split layout ===== */}
+      {/* ===== HERO — Full center ===== */}
       <section style={{
         background: '#FFFFFF',
-        overflow: 'hidden',
+        padding: 'clamp(80px, 12vw, 160px) 24px clamp(80px, 12vw, 140px)',
+        textAlign: 'center',
       }}>
-        <div style={{ maxWidth: 1300, margin: '0 auto', display: 'flex', alignItems: 'stretch' }} className="hero-inner">
-        {/* Left text block */}
-        <div style={{
-          flex: '0 0 50%',
-          maxWidth: '50%',
-          padding: 'clamp(60px, 8vw, 100px) clamp(24px, 3vw, 48px) clamp(60px, 8vw, 100px) clamp(24px, 5vw, 80px)',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-        }} className="hero-left">
-        <style>{`
-          @media (max-width: 1023px) {
-            .hero-inner { flex-direction: column !important; }
-            .hero-left { flex: 0 0 100% !important; max-width: 100% !important; padding-bottom: 0 !important; }
-            .hero-right { flex: 0 0 100% !important; max-width: 100% !important; display: flex !important; border-bottom-left-radius: 0 !important; min-height: 320px; }
-          }
-          @media (max-width: 600px) {
-            .hero-right { min-height: 240px; }
-          }
-        `}</style>
-          <div style={{ maxWidth: 640, width: '100%' }}>
-            {/* Small label */}
-            {/* Giant txxt logo */}
-            <div style={{
-              fontSize: 'clamp(80px, 28vw, 200px)',
-              fontWeight: 900,
-              letterSpacing: '-0.04em',
-              lineHeight: 0.9,
-              color: '#00C896',
-              fontFamily: mono,
-              marginBottom: 20,
-            }}>
-              txxt
-            </div>
-
-            {/* Tagline */}
-            <p style={{
-              fontSize: 'clamp(15px, 3.5vw, 22px)',
-              fontWeight: 400,
-              letterSpacing: '-0.01em',
-              lineHeight: 1.4,
-              color: '#555555',
-              marginBottom: 32,
-              maxWidth: 480,
-            }}>
-              Every blockchain.<br />
-              Every agent. One layer.
-            </p>
-
-            {/* Sub */}
-            <p style={{
-              fontSize: 'clamp(14px, 3vw, 18px)', color: '#444444', lineHeight: 1.75,
-              marginBottom: 40, maxWidth: 480,
-            }}>
-              txxt is the middleware that makes any blockchain agent-ready. x402 payments. ERC-8004 identity. Works on top of Ethereum, Solana, Base, and more.
-            </p>
-
-            {/* Buttons */}
-            <div style={{ display: 'flex', gap: 10, flexWrap: 'nowrap' as const }} className="hero-buttons">
-              <Link href="/build" style={{
-                padding: '13px 0', borderRadius: 10,
-                background: '#00C896',
-                color: '#fff', fontWeight: 700, fontSize: 'clamp(13px, 3.5vw, 16px)',
-                textDecoration: 'none',
-                transition: 'all 0.2s ease',
-                boxShadow: '0 4px 14px rgba(0,200,150,0.25)',
-                textAlign: 'center' as const,
-                whiteSpace: 'nowrap' as const,
-                flex: '1 1 0',
-              }}>Start Building</Link>
-              <Link href="/protocol" style={{
-                padding: '13px 0', borderRadius: 10,
-                background: '#fff',
-                border: '1.5px solid rgba(0,0,0,0.15)',
-                color: '#0A0A0A', fontWeight: 500, fontSize: 'clamp(13px, 3.5vw, 16px)',
-                textDecoration: 'none',
-                transition: 'all 0.2s ease',
-                textAlign: 'center' as const,
-                whiteSpace: 'nowrap' as const,
-                flex: '1 1 0',
-              }}>Read the Protocol</Link>
-            </div>
+        <div style={{ maxWidth: 800, margin: '0 auto' }}>
+          {/* Giant txxt logo */}
+          <div style={{
+            fontSize: 'clamp(80px, 20vw, 200px)',
+            fontWeight: 900,
+            letterSpacing: '-0.04em',
+            lineHeight: 0.9,
+            color: '#00C896',
+            fontFamily: mono,
+            marginBottom: 32,
+          }}>
+            txxt
           </div>
-        </div>
 
-        {/* Right video panel */}
-        <div className="hero-right" style={{
-          flex: '0 0 50%',
-          maxWidth: '50%',
-          overflow: 'hidden',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          borderBottomLeftRadius: 40,
-          padding: '40px 24px',
-        }}>
-          <video
-            src="/hero-video.mp4"
-            autoPlay
-            loop
-            muted
-            playsInline
-            style={{
-              width: '100%',
-              maxWidth: 520,
-              height: 'auto',
-              objectFit: 'contain',
-              display: 'block',
-            }}
-          />
-        </div>
+          {/* Tagline */}
+          <p style={{
+            fontSize: 'clamp(18px, 3.5vw, 28px)',
+            fontWeight: 400,
+            letterSpacing: '-0.01em',
+            lineHeight: 1.4,
+            color: '#555555',
+            marginBottom: 24,
+          }}>
+            The internet runs on txt.<br />
+            The agent economy runs on txxt.
+          </p>
 
+          {/* Sub */}
+          <p style={{
+            fontSize: 'clamp(14px, 1.8vw, 18px)', color: '#666666', lineHeight: 1.75,
+            marginBottom: 48, maxWidth: 560, margin: '0 auto 48px',
+          }}>
+            The middleware layer for AI agents. x402 payments. ERC-8004 identity. Works on top of Ethereum, Solana, Base, and more.
+          </p>
+
+          {/* Buttons */}
+          <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' as const }}>
+            <Link href="/build" style={{
+              padding: '14px 40px', borderRadius: 10,
+              background: '#00C896',
+              color: '#fff', fontWeight: 700, fontSize: 16,
+              textDecoration: 'none',
+              transition: 'all 0.2s ease',
+              boxShadow: '0 4px 14px rgba(0,200,150,0.25)',
+              whiteSpace: 'nowrap' as const,
+            }}>Start Building</Link>
+            <Link href="/protocol" style={{
+              padding: '14px 32px', borderRadius: 10,
+              background: '#fff',
+              border: '1.5px solid rgba(0,0,0,0.15)',
+              color: '#0A0A0A', fontWeight: 500, fontSize: 16,
+              textDecoration: 'none',
+              transition: 'all 0.2s ease',
+              whiteSpace: 'nowrap' as const,
+            }}>Read the Protocol</Link>
+          </div>
         </div>
       </section>
 
