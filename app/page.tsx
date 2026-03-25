@@ -138,7 +138,7 @@ export default function Home() {
           }}>
             <LiveBadge />
             <span style={{ fontSize: 11, letterSpacing: '0.08em', color: 'rgba(255,255,255,0.5)', fontFamily: mono }}>
-              t = transact  ·  x = exchange  ·  x = exist  ·  t = trust
+              The internet runs on txt. The agent economy runs on txxt.
             </span>
           </div>
 
@@ -219,6 +219,9 @@ export default function Home() {
               </div>
             ))}
           </div>
+          <p style={{ marginTop: 40, fontSize: 14, color: 'rgba(255,255,255,0.3)', fontStyle: 'italic', textAlign: 'center', fontFamily: mono }}>
+            &ldquo;txt carried human words. txxt carries agent trust. Same wires. Different civilization.&rdquo;
+          </p>
         </div>
       </section>
 
@@ -226,6 +229,9 @@ export default function Home() {
 
       {/* ===== PROBLEM ===== */}
       <section style={{ padding: '96px 16px', textAlign: 'center', maxWidth: 740, margin: '0 auto', width: '100%', boxSizing: 'border-box' as const, overflowX: 'hidden' }}>
+        <p style={{ fontSize: 11, letterSpacing: '0.08em', color: 'rgba(255,255,255,0.15)', fontFamily: mono, marginBottom: 16, textAlign: 'center' }}>
+          HTTP moved txt between machines. txxt moves trust between agents.
+        </p>
         <div style={{ fontSize: 11, letterSpacing: '0.1em', color: '#A78BFA', fontFamily: mono, marginBottom: 24 }}>
           THE TRUST GAP
         </div>
@@ -506,6 +512,9 @@ txxt.validate({
 
           <p style={{ fontSize: 18, color: 'rgba(255,255,255,0.5)', lineHeight: 1.7, maxWidth: 560, margin: '0 auto 20px', fontFamily: mono }}>
             We built the infrastructure first.
+          </p>
+          <p style={{ fontSize: 13, color: '#FB923C', fontFamily: mono, marginTop: -16, marginBottom: 32, opacity: 0.8 }}>
+            txt = data transfer · txxt = trust transfer
           </p>
           <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.3)', lineHeight: 1.8, maxWidth: 520, margin: '0 auto 64px' }}>
             Gas is in USDC. Speculation is somewhere else. Agents need predictable costs, not volatile tokens. txxt eliminates the token layer entirely. No launches. No governance theater. No speculative overhead. Just a blockchain that costs what it costs — in dollars agents already hold.

@@ -104,7 +104,7 @@ export default function Footer() {
             © 2026 txxt. Agent-Native Infrastructure.
           </p>
           <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.15)', fontFamily: mono }}>
-            Trust is Math, Not Faith.
+            txt built the web. txxt builds the economy.
           </p>
         </div>
       </div>

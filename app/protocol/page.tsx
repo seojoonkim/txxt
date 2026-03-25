@@ -67,6 +67,9 @@ export default function ProtocolPage() {
         <h1 style={{ fontSize: 'clamp(36px, 6vw, 64px)', fontWeight: 700, letterSpacing: '-0.03em', lineHeight: 1.1, marginBottom: 24 }}>
           The engine room of<br />the agent economy.
         </h1>
+        <p style={{ fontSize: 13, color: '#A78BFA', fontFamily: mono, marginBottom: 16, letterSpacing: '0.05em' }}>
+          txt: v1 · txxt: v2 — same wires, different civilization
+        </p>
         <p style={{ fontSize: 'clamp(15px, 2vw, 18px)', color: 'rgba(255,255,255,0.45)', lineHeight: 1.8, maxWidth: 520 }}>
           Not a general-purpose chain with AI bolted on.<br />
           Every layer was designed with one user in mind: autonomous agents.
