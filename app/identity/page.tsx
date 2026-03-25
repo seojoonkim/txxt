@@ -13,6 +13,17 @@ const XIcon = ({color='#E53E3E',size=16}:{color?:string,size?:number}) => (
     <path d="M4 4l8 8M12 4l-8 8" stroke={color} strokeWidth="2" strokeLinecap="round"/>
   </svg>
 )
+const ArrowRightIcon = ({size=16,color='currentColor'}:{size?:number,color?:string}) => (
+  <svg width={size} height={size} viewBox="0 0 16 16" fill="none" style={{display:'inline-block',verticalAlign:'middle',marginLeft:6}}>
+    <path d="M3 8h10M9 4l4 4-4 4" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+  </svg>
+)
+const ActiveDotIcon = ({color='#00C896',size=10}:{color?:string,size?:number}) => (
+  <svg width={size} height={size} viewBox="0 0 10 10" fill="none" style={{display:'inline-block',verticalAlign:'middle',marginRight:4}}>
+    <circle cx="5" cy="5" r="4" fill={color} opacity="0.25"/>
+    <circle cx="5" cy="5" r="2.5" fill={color}/>
+  </svg>
+)
 const ShieldIcon = ({size=40,color='#5B4FFF'}:{size?:number,color?:string}) => (
   <svg width={size} height={size} viewBox="0 0 40 40" fill="none">
     <path d="M20 4L6 10v10c0 8.8 6 17 14 19 8-2 14-10.2 14-19V10L20 4z" stroke={color} strokeWidth="2" fill="none" strokeLinejoin="round"/>
@@ -125,7 +136,7 @@ export default function IdentityPage() {
             ERC-8004 · Identity · Reputation · Validation
           </div>
           <h1 style={{ fontSize: 'clamp(48px, 8vw, 96px)', fontWeight: 800, letterSpacing: '-0.03em', lineHeight: 1.05, marginBottom: 32 }}>
-            Agent identity<br />is trust.
+            Agent identity<br /><em style={{ fontStyle: 'normal', color: '#5B4FFF' }}>is</em> trust.
           </h1>
           <p style={{ fontSize: 'clamp(15px, 1.8vw, 18px)', color: '#444444', lineHeight: 1.75, maxWidth: 580 }}>
             Every other chain treats ERC-8004 as a plugin. txxt treats it as infrastructure.
@@ -147,7 +158,7 @@ export default function IdentityPage() {
           <p style={{ fontSize: 'clamp(20px, 3vw, 28px)', fontWeight: 600, color: 'rgba(255,255,255,0.92)', lineHeight: 1.6, marginBottom: 16 }}>
             "Pseudonymous wallets can transact. Only agents with identity can <em style={{ color: '#00C896', fontStyle: 'normal' }}>be trusted</em>."
           </p>
-          <p style={{ fontSize: 'clamp(13px, 1.8vw, 15px)', color: 'rgba(255,255,255,0.6)', fontFamily: mono }}>
+          <p style={{ fontSize: 'clamp(13px, 1.8vw, 15px)', color: 'rgba(255,255,255,0.8)', fontFamily: mono }}>
             — ERC-8004 design rationale
           </p>
         </div>
@@ -214,7 +225,7 @@ export default function IdentityPage() {
               </div>
               <div style={{ display: 'flex', gap: 8 }}>
                 <span style={{ color: '#555555', minWidth: 90 }}>Status:</span>
-                <span style={{ color: '#00C896' }}>● Active</span>
+                <span style={{ color: '#00C896' }}><ActiveDotIcon />Active</span>
               </div>
             </div>
             <div style={{ color: 'rgba(0,0,0,0.2)', marginTop: 8 }}>└─────────────────────────────────┘</div>
@@ -350,8 +361,8 @@ export default function IdentityPage() {
           <p style={{ fontSize: 'clamp(15px, 1.8vw, 18px)', color: '#555555', marginBottom: 48, lineHeight: 1.75 }}>
             Identity is free. Reputation is earned. Trust is the result.
           </p>
-          <Link href="/build" style={{ padding: '16px 40px', borderRadius: 12, background: '#00C896', color: '#fff', fontWeight: 700, fontSize: 'clamp(14px, 1.8vw, 16px)', textDecoration: 'none', display: 'inline-block' }}>
-            Start Building →
+          <Link href="/build" style={{ padding: '16px 40px', borderRadius: 12, background: '#00C896', color: '#fff', fontWeight: 700, fontSize: 'clamp(14px, 1.8vw, 16px)', textDecoration: 'none', display: 'inline-flex', alignItems: 'center' }}>
+            Start Building<ArrowRightIcon color="#fff" size={18} />
           </Link>
         </div>
       </section>
