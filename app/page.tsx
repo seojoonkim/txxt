@@ -95,53 +95,43 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Right visual panel (desktop only) */}
+        {/* Right visual panel — Desktop video */}
         <div style={{
           position: 'absolute', top: 0, right: 0,
           width: '50%', height: '100%',
-          background: 'linear-gradient(135deg, #080A14 0%, #13102A 100%)',
-          borderBottomLeftRadius: 40,
           overflow: 'hidden',
+          borderBottomLeftRadius: 40,
         }} className="hidden lg:block">
-          {/* SVG Network */}
-          <svg style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', opacity: 0.25 }}>
-            <line x1="20%" y1="30%" x2="60%" y2="50%" stroke="#A78BFA" strokeWidth="0.8" strokeDasharray="6 10" style={{ animation: 'data-flow 4s linear infinite' }} />
-            <line x1="80%" y1="20%" x2="60%" y2="50%" stroke="#00F5C4" strokeWidth="0.8" strokeDasharray="6 10" style={{ animation: 'data-flow 5s linear infinite 1s' }} />
-            <line x1="15%" y1="70%" x2="60%" y2="50%" stroke="#FB923C" strokeWidth="0.8" strokeDasharray="6 10" style={{ animation: 'data-flow 6s linear infinite 2s' }} />
-            <line x1="85%" y1="75%" x2="60%" y2="50%" stroke="#A78BFA" strokeWidth="0.8" strokeDasharray="6 10" style={{ animation: 'data-flow 4.5s linear infinite 0.5s' }} />
-            <circle cx="60%" cy="50%" r="6" fill="#00F5C4" style={{ animation: 'node-blink 2s ease-in-out infinite' }} />
-            <circle cx="20%" cy="30%" r="4" fill="#A78BFA" style={{ animation: 'node-blink 2.5s ease-in-out infinite 0.5s' }} />
-            <circle cx="80%" cy="20%" r="4" fill="#FB923C" style={{ animation: 'node-blink 3s ease-in-out infinite 1s' }} />
-            <circle cx="15%" cy="70%" r="3.5" fill="#A78BFA" style={{ animation: 'node-blink 2s ease-in-out infinite 1.5s' }} />
-            <circle cx="85%" cy="75%" r="3.5" fill="#00F5C4" style={{ animation: 'node-blink 2.8s ease-in-out infinite 2s' }} />
-            <circle cx="60%" cy="50%" r="120" fill="none" stroke="#A78BFA" strokeWidth="0.5" style={{ animation: 'hero-pulse 6s ease-in-out infinite', transformOrigin: '60% 50%' }} />
-          </svg>
+          <video
+            src="/hero-video.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
+            style={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+            }}
+          />
+        </div>
 
-          {/* Code card */}
-          <div style={{
-            position: 'absolute', bottom: 60, left: 40, right: 40,
-            background: 'rgba(6,6,18,0.85)',
-            borderRadius: 14, padding: '28px 32px',
-            border: '1px solid rgba(255,255,255,0.1)',
-            backdropFilter: 'blur(10px)',
-          }}>
-            <div style={{ display: 'flex', gap: 6, marginBottom: 16 }}>
-              {['#ff5f57','#febc2e','#28c840'].map(c => (
-                <div key={c} style={{ width: 10, height: 10, borderRadius: '50%', background: c }} />
-              ))}
-              <span style={{ fontSize: 11, color: 'rgba(255,255,255,0.35)', fontFamily: mono, marginLeft: 8 }}>travel_planner.agent</span>
-            </div>
-            <pre style={{ fontSize: 13, fontFamily: mono, color: 'rgba(255,255,255,0.65)', lineHeight: 1.8, margin: 0 }}>{`agent TravelPlanner {
-  requires: [flight_search]
-  reputation_minimum: 80
-
-  task plan_trip(destination) {
-    let agent = discover(min_rep: 85)
-    pay(agent, 0.004) // USDC
-    rate(agent, score: 95)
-  }
-}`}</pre>
-          </div>
+        {/* Mobile video — Below text */}
+        <div style={{
+          width: '100%',
+          borderRadius: 12,
+          overflow: 'hidden',
+          marginTop: 40,
+          aspectRatio: '16/9',
+        }} className="lg:hidden">
+          <video
+            src="/hero-video.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
+            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+          />
         </div>
       </section>
 
