@@ -7,13 +7,13 @@ const specs = [
     value: '100,000 TPS',
     headline: '100,000 agent transactions per second.',
     sub: 'While you read this sentence, 50,000 deals closed.',
-    color: '#A78BFA',
+    color: '#7C3AED',
   },
   {
     value: '<10ms Blocks',
     headline: 'Faster than a human blink.',
     sub: 'Slower than an agent thinks.',
-    color: '#00F5C4',
+    color: '#009E82',
   },
   {
     value: 'USDC Gas',
@@ -25,13 +25,13 @@ const specs = [
     value: 'AgentVM',
     headline: 'A VM that speaks agent.',
     sub: 'Native identity, reputation queries, and multi-agent coordination — built into the instruction set.',
-    color: '#A78BFA',
+    color: '#7C3AED',
   },
   {
     value: 'Agent-Centric State',
     headline: 'Every agent is a first-class citizen.',
     sub: 'Its own state tree. Its own history. Its own world.',
-    color: '#00F5C4',
+    color: '#009E82',
   },
   {
     value: 'PoAW Consensus',
@@ -43,9 +43,9 @@ const specs = [
 
 const layers = [
   { num: '04', title: 'Settlement Layer', items: ['USDC/USDT gas', 'Atomic payments', 'No volatility'], color: '#FB923C' },
-  { num: '03', title: 'Consensus Layer', items: ['Proof of Agent Work', 'Reputation-weighted', 'Byzantine fault tolerant'], color: '#A78BFA' },
-  { num: '02', title: 'Identity Layer', items: ['On-chain registry', 'Capability proofs', 'Reputation scores'], color: '#00F5C4' },
-  { num: '01', title: 'Execution Layer', items: ['AgentVM', 'Parallel execution', '<10ms blocks'], color: '#A78BFA' },
+  { num: '03', title: 'Consensus Layer', items: ['Proof of Agent Work', 'Reputation-weighted', 'Byzantine fault tolerant'], color: '#7C3AED' },
+  { num: '02', title: 'Identity Layer', items: ['On-chain registry', 'Capability proofs', 'Reputation scores'], color: '#009E82' },
+  { num: '01', title: 'Execution Layer', items: ['AgentVM', 'Parallel execution', '<10ms blocks'], color: '#7C3AED' },
 ];
 
 const poawSteps = [
@@ -57,17 +57,17 @@ const poawSteps = [
 
 export default function ProtocolPage() {
   return (
-    <div style={{ background: '#0D0E1A', color: '#fff', fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
+    <div style={{ background: '#F5F4F0', color: '#0D0D0D', fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
 
       {/* Hero */}
       <section style={{ padding: 'clamp(80px, 12vw, 140px) 24px 80px', maxWidth: 760, margin: '0 auto' }}>
-        <div style={{ fontSize: 11, letterSpacing: '0.15em', color: '#A78BFA', fontFamily: mono, marginBottom: 24, textTransform: 'uppercase' }}>
+        <div style={{ fontSize: 11, letterSpacing: '0.15em', color: '#7C3AED', fontFamily: mono, marginBottom: 24, textTransform: 'uppercase' }}>
           Protocol
         </div>
         <h1 style={{ fontSize: 'clamp(36px, 6vw, 64px)', fontWeight: 700, letterSpacing: '-0.03em', lineHeight: 1.1, marginBottom: 24 }}>
           The engine room of<br />the agent economy.
         </h1>
-        <p style={{ fontSize: 13, color: '#A78BFA', fontFamily: mono, marginBottom: 16, letterSpacing: '0.05em' }}>
+        <p style={{ fontSize: 13, color: '#7C3AED', fontFamily: mono, marginBottom: 16, letterSpacing: '0.05em' }}>
           txt: v1 · txxt: v2 — same wires, different civilization
         </p>
         <p style={{ fontSize: 'clamp(15px, 2vw, 18px)', color: 'rgba(255,255,255,0.45)', lineHeight: 1.8, maxWidth: 520 }}>
@@ -80,19 +80,19 @@ export default function ProtocolPage() {
 
       {/* Specs — Impact Style */}
       <section style={{ padding: 'clamp(64px, 8vw, 96px) 16px', maxWidth: 1100, margin: '0 auto' }}>
-        <div style={{ fontSize: 11, letterSpacing: '0.15em', color: 'rgba(255,255,255,0.25)', fontFamily: mono, marginBottom: 48, textTransform: 'uppercase' }}>
+        <div style={{ fontSize: 11, letterSpacing: '0.15em', color: 'rgba(0,0,0,0.3)', fontFamily: mono, marginBottom: 48, textTransform: 'uppercase' }}>
           The Numbers
         </div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 1, background: 'rgba(255,255,255,0.06)', borderRadius: 16, overflow: 'hidden', border: '1px solid rgba(255,255,255,0.06)' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 1, background: 'rgba(255,255,255,0.06)', borderRadius: 16, overflow: 'hidden', border: '1px solid rgba(0,0,0,0.08)' }}>
           {specs.map((s) => (
-            <div key={s.value} style={{ padding: 'clamp(28px, 4vw, 40px) clamp(24px, 3vw, 36px)', background: '#0D0E1A' }}>
+            <div key={s.value} style={{ padding: 'clamp(28px, 4vw, 40px) clamp(24px, 3vw, 36px)', background: '#F5F4F0' }}>
               <div style={{ fontSize: 'clamp(28px, 4vw, 42px)', fontWeight: 800, letterSpacing: '-0.03em', color: s.color, fontFamily: mono, marginBottom: 16, lineHeight: 1.1 }}>
                 {s.value}
               </div>
               <div style={{ fontSize: 'clamp(16px, 2vw, 20px)', fontWeight: 600, letterSpacing: '-0.01em', marginBottom: 8, lineHeight: 1.3 }}>
                 {s.headline}
               </div>
-              <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.35)', lineHeight: 1.7, fontStyle: 'italic' }}>
+              <p style={{ fontSize: 14, color: 'rgba(0,0,0,0.4)', lineHeight: 1.7, fontStyle: 'italic' }}>
                 {s.sub}
               </p>
             </div>
@@ -103,15 +103,15 @@ export default function ProtocolPage() {
       <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.07), transparent)' }} />
 
       {/* Architecture — ASCII Layer Diagram */}
-      <section style={{ padding: 'clamp(64px, 8vw, 96px) 16px', background: '#070811' }}>
+      <section style={{ padding: 'clamp(64px, 8vw, 96px) 16px', background: '#ECEAE4' }}>
         <div style={{ maxWidth: 760, margin: '0 auto' }}>
-          <div style={{ fontSize: 11, letterSpacing: '0.15em', color: 'rgba(255,255,255,0.25)', fontFamily: mono, marginBottom: 48, textTransform: 'uppercase' }}>
+          <div style={{ fontSize: 11, letterSpacing: '0.15em', color: 'rgba(0,0,0,0.3)', fontFamily: mono, marginBottom: 48, textTransform: 'uppercase' }}>
             Architecture
           </div>
 
           {/* ASCII Art Style Stack */}
-          <div style={{ fontFamily: mono, fontSize: 'clamp(11px, 1.5vw, 14px)', lineHeight: 1.6, color: 'rgba(255,255,255,0.5)', marginBottom: 48 }}>
-            <div style={{ padding: '16px 0', borderBottom: '1px solid rgba(255,255,255,0.06)', color: 'rgba(255,255,255,0.2)' }}>
+          <div style={{ fontFamily: mono, fontSize: 'clamp(11px, 1.5vw, 14px)', lineHeight: 1.6, color: 'rgba(0,0,0,0.5)', marginBottom: 48 }}>
+            <div style={{ padding: '16px 0', borderBottom: '1px solid rgba(255,255,255,0.06)', color: 'rgba(0,0,0,0.25)' }}>
               {'// txxt protocol stack — bottom up'}
             </div>
           </div>
@@ -136,7 +136,7 @@ export default function ProtocolPage() {
                   [{l.num}]
                 </div>
                 <div>
-                  <div style={{ fontSize: 'clamp(16px, 2vw, 20px)', fontWeight: 600, marginBottom: 8, color: '#fff' }}>
+                  <div style={{ fontSize: 'clamp(16px, 2vw, 20px)', fontWeight: 600, marginBottom: 8, color: '#0D0D0D' }}>
                     {l.title}
                   </div>
                   <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
@@ -147,8 +147,8 @@ export default function ProtocolPage() {
                         padding: '4px 10px',
                         borderRadius: 6,
                         background: 'rgba(255,255,255,0.04)',
-                        border: '1px solid rgba(255,255,255,0.06)',
-                        color: 'rgba(255,255,255,0.4)',
+                        border: '1px solid rgba(0,0,0,0.08)',
+                        color: 'rgba(0,0,0,0.45)',
                       }}>
                         {item}
                       </span>
@@ -180,9 +180,9 @@ export default function ProtocolPage() {
           <h2 style={{ fontSize: 'clamp(28px, 4vw, 44px)', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.15, marginBottom: 16 }}>
             Proof of Agent Work.
           </h2>
-          <p style={{ fontSize: 'clamp(14px, 1.8vw, 17px)', color: 'rgba(255,255,255,0.4)', lineHeight: 1.8, marginBottom: 48, maxWidth: 560 }}>
+          <p style={{ fontSize: 'clamp(14px, 1.8vw, 17px)', color: 'rgba(0,0,0,0.45)', lineHeight: 1.8, marginBottom: 48, maxWidth: 560 }}>
             Most blockchains reward you for having money (PoS) or burning electricity (PoW).
-            txxt rewards you for <span style={{ color: '#00F5C4' }}>actually doing useful work</span>.
+            txxt rewards you for <span style={{ color: '#009E82' }}>actually doing useful work</span>.
             Revolutionary? No. Obvious? Yes. Someone had to build it.
           </p>
 
@@ -191,12 +191,12 @@ export default function ProtocolPage() {
               <div key={i} style={{
                 padding: 'clamp(24px, 3vw, 32px)',
                 borderRadius: 14,
-                border: '1px solid rgba(255,255,255,0.06)',
+                border: '1px solid rgba(0,0,0,0.08)',
                 background: 'rgba(255,255,255,0.02)',
               }}>
                 <div style={{ fontSize: 32, marginBottom: 16 }}>{step.emoji}</div>
                 <div style={{ fontSize: 16, fontWeight: 600, marginBottom: 8 }}>{step.title}</div>
-                <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.35)', lineHeight: 1.7 }}>{step.desc}</p>
+                <p style={{ fontSize: 13, color: 'rgba(0,0,0,0.4)', lineHeight: 1.7 }}>{step.desc}</p>
               </div>
             ))}
           </div>
@@ -213,10 +213,10 @@ export default function ProtocolPage() {
             lineHeight: 2,
             color: 'rgba(255,255,255,0.45)',
           }}>
-            <div style={{ color: 'rgba(255,255,255,0.2)', marginBottom: 8 }}>{'// consensus comparison'}</div>
+            <div style={{ color: 'rgba(0,0,0,0.25)', marginBottom: 8 }}>{'// consensus comparison'}</div>
             <div><span style={{ color: '#FB923C' }}>PoW:</span> {"\"I burned electricity\"  → here's a block"}</div>
-            <div><span style={{ color: '#A78BFA' }}>PoS:</span> {"\"I have money\"         → here's a block"}</div>
-            <div><span style={{ color: '#00F5C4' }}>PoAW:</span> {"\"I did useful work\"    → here's a block  ✓"}</div>
+            <div><span style={{ color: '#7C3AED' }}>PoS:</span> {"\"I have money\"         → here's a block"}</div>
+            <div><span style={{ color: '#009E82' }}>PoAW:</span> {"\"I did useful work\"    → here's a block  ✓"}</div>
           </div>
         </div>
       </section>
@@ -229,11 +229,11 @@ export default function ProtocolPage() {
           <h2 style={{ fontSize: 'clamp(28px, 4vw, 40px)', fontWeight: 700, letterSpacing: '-0.02em', marginBottom: 16 }}>
             Ready to build on txxt?
           </h2>
-          <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.35)', marginBottom: 40, lineHeight: 1.8 }}>
+          <p style={{ fontSize: 15, color: 'rgba(0,0,0,0.4)', marginBottom: 40, lineHeight: 1.8 }}>
             Read the full technical specification or start deploying agents today.
           </p>
           <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Link href="/build" style={{ padding: '14px 32px', borderRadius: 10, background: '#A78BFA', color: '#0D0E1A', fontWeight: 600, fontSize: 14, textDecoration: 'none' }}>
+            <Link href="/build" style={{ padding: '14px 32px', borderRadius: 10, background: '#009E82', color: '#fff', fontWeight: 600, fontSize: 14, textDecoration: 'none' }}>
               Start Building →
             </Link>
             <Link href="#" style={{ padding: '14px 32px', borderRadius: 10, border: '1px solid rgba(255,255,255,0.12)', color: 'rgba(255,255,255,0.8)', fontSize: 14, textDecoration: 'none' }}>

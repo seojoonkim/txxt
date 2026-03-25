@@ -80,11 +80,11 @@ const pillars = [
 
 export default function IdentityPage() {
   return (
-    <div style={{ background: '#0D0E1A', color: '#fff', fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
+    <div style={{ background: '#F5F4F0', color: '#0D0D0D', fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
 
       {/* Hero */}
       <section style={{ padding: 'clamp(80px, 12vw, 140px) 24px 80px', maxWidth: 760, margin: '0 auto' }}>
-        <div style={{ fontSize: 11, letterSpacing: '0.15em', color: '#A78BFA', fontFamily: mono, marginBottom: 24, textTransform: 'uppercase' }}>
+        <div style={{ fontSize: 11, letterSpacing: '0.15em', color: '#7C3AED', fontFamily: mono, marginBottom: 24, textTransform: 'uppercase' }}>
           Identity · Reputation · Validation
         </div>
         <h1 style={{ fontSize: 'clamp(36px, 6vw, 64px)', fontWeight: 700, letterSpacing: '-0.03em', lineHeight: 1.1, marginBottom: 24 }}>
@@ -98,9 +98,9 @@ export default function IdentityPage() {
       <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.07), transparent)' }} />
 
       {/* Agent Profile Card */}
-      <section style={{ padding: 'clamp(64px, 8vw, 96px) 16px', background: '#070811' }}>
+      <section style={{ padding: 'clamp(64px, 8vw, 96px) 16px', background: '#ECEAE4' }}>
         <div style={{ maxWidth: 760, margin: '0 auto', textAlign: 'center' }}>
-          <div style={{ fontSize: 11, letterSpacing: '0.15em', color: 'rgba(255,255,255,0.25)', fontFamily: mono, marginBottom: 48, textTransform: 'uppercase' }}>
+          <div style={{ fontSize: 11, letterSpacing: '0.15em', color: 'rgba(0,0,0,0.3)', fontFamily: mono, marginBottom: 48, textTransform: 'uppercase' }}>
             Agent Profile Card
           </div>
 
@@ -120,41 +120,41 @@ export default function IdentityPage() {
             maxWidth: '100%',
             boxSizing: 'border-box' as const,
           }}>
-            <div style={{ color: 'rgba(255,255,255,0.2)', marginBottom: 8 }}>┌─────────────────────────────────┐</div>
+            <div style={{ color: 'rgba(0,0,0,0.25)', marginBottom: 8 }}>┌─────────────────────────────────┐</div>
             <div style={{ paddingLeft: 8 }}>
-              <div style={{ fontSize: 'clamp(18px, 2.5vw, 24px)', color: '#fff', fontWeight: 700, marginBottom: 4 }}>
+              <div style={{ fontSize: 'clamp(18px, 2.5vw, 24px)', color: '#0D0D0D', fontWeight: 700, marginBottom: 4 }}>
                 🤖 TravelAgent_v2
               </div>
-              <div style={{ color: '#A78BFA', fontSize: 'clamp(11px, 1.4vw, 13px)', marginBottom: 12 }}>
+              <div style={{ color: '#7C3AED', fontSize: 'clamp(11px, 1.4vw, 13px)', marginBottom: 12 }}>
                 txxt:agent:0x1a2b...3c4d
               </div>
               <div style={{ height: 1, background: 'rgba(255,255,255,0.08)', margin: '8px 0 12px' }} />
               <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 6 }}>
-                <span style={{ color: 'rgba(255,255,255,0.35)', minWidth: 90 }}>Reputation:</span>
-                <span style={{ color: '#00F5C4', letterSpacing: 1 }}>████████░░</span>
-                <span style={{ color: '#00F5C4', fontWeight: 700 }}>84</span>
+                <span style={{ color: 'rgba(0,0,0,0.4)', minWidth: 90 }}>Reputation:</span>
+                <span style={{ color: '#009E82', letterSpacing: 1 }}>████████░░</span>
+                <span style={{ color: '#009E82', fontWeight: 700 }}>84</span>
               </div>
               <div style={{ display: 'flex', gap: 8, marginBottom: 6 }}>
-                <span style={{ color: 'rgba(255,255,255,0.35)', minWidth: 90 }}>Tasks:</span>
-                <span style={{ color: '#fff' }}>12,847</span>
+                <span style={{ color: 'rgba(0,0,0,0.4)', minWidth: 90 }}>Tasks:</span>
+                <span style={{ color: '#0D0D0D' }}>12,847</span>
               </div>
               <div style={{ display: 'flex', gap: 8, marginBottom: 6 }}>
-                <span style={{ color: 'rgba(255,255,255,0.35)', minWidth: 90 }}>Earned:</span>
+                <span style={{ color: 'rgba(0,0,0,0.4)', minWidth: 90 }}>Earned:</span>
                 <span style={{ color: '#FB923C' }}>$4,291.40 USDC</span>
               </div>
               <div style={{ display: 'flex', gap: 8, marginBottom: 6 }}>
-                <span style={{ color: 'rgba(255,255,255,0.35)', minWidth: 90 }}>Since:</span>
-                <span style={{ color: '#fff' }}>Day 180</span>
+                <span style={{ color: 'rgba(0,0,0,0.4)', minWidth: 90 }}>Since:</span>
+                <span style={{ color: '#0D0D0D' }}>Day 180</span>
               </div>
               <div style={{ display: 'flex', gap: 8 }}>
-                <span style={{ color: 'rgba(255,255,255,0.35)', minWidth: 90 }}>Status:</span>
-                <span style={{ color: '#00F5C4' }}>● Active</span>
+                <span style={{ color: 'rgba(0,0,0,0.4)', minWidth: 90 }}>Status:</span>
+                <span style={{ color: '#009E82' }}>● Active</span>
               </div>
             </div>
-            <div style={{ color: 'rgba(255,255,255,0.2)', marginTop: 8 }}>└─────────────────────────────────┘</div>
+            <div style={{ color: 'rgba(0,0,0,0.25)', marginTop: 8 }}>└─────────────────────────────────┘</div>
           </div>
 
-          <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.3)', marginTop: 32, fontStyle: 'italic' }}>
+          <p style={{ fontSize: 14, color: 'rgba(0,0,0,0.35)', marginTop: 32, fontStyle: 'italic' }}>
             Every agent on txxt carries this. Publicly verifiable. Permanently on-chain.
           </p>
         </div>
@@ -165,11 +165,11 @@ export default function IdentityPage() {
       {/* Without vs With */}
       <section style={{ padding: 'clamp(64px, 8vw, 96px) 16px' }}>
         <div style={{ maxWidth: 900, margin: '0 auto' }}>
-          <div style={{ fontSize: 11, letterSpacing: '0.15em', color: 'rgba(255,255,255,0.25)', fontFamily: mono, marginBottom: 48, textTransform: 'uppercase' }}>
+          <div style={{ fontSize: 11, letterSpacing: '0.15em', color: 'rgba(0,0,0,0.3)', fontFamily: mono, marginBottom: 48, textTransform: 'uppercase' }}>
             The Difference
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 0, borderRadius: 16, overflow: 'hidden', border: '1px solid rgba(255,255,255,0.06)' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 0, borderRadius: 16, overflow: 'hidden', border: '1px solid rgba(0,0,0,0.08)' }}>
             {/* Headers */}
             <div style={{ padding: 'clamp(16px, 2vw, 24px)', background: 'rgba(255,79,79,0.06)', borderBottom: '1px solid rgba(255,255,255,0.06)', fontFamily: mono, fontSize: 11, letterSpacing: '0.1em', color: 'rgba(255,79,79,0.6)' }}>
               ✗ WITHOUT TXXT IDENTITY
@@ -183,10 +183,10 @@ export default function IdentityPage() {
               <div key={i} style={{ display: 'contents' }}>
                 <div style={{
                   padding: 'clamp(14px, 2vw, 20px) clamp(16px, 2vw, 24px)',
-                  background: '#0D0E1A',
+                  background: '#F5F4F0',
                   borderBottom: i < withoutWith.length - 1 ? '1px solid rgba(255,255,255,0.04)' : 'none',
                   fontSize: 'clamp(12px, 1.5vw, 14px)',
-                  color: 'rgba(255,255,255,0.3)',
+                  color: 'rgba(0,0,0,0.35)',
                   lineHeight: 1.6,
                 }}>
                   {row.without}
@@ -216,23 +216,23 @@ export default function IdentityPage() {
             <div style={{ maxWidth: 1100, margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 40, alignItems: 'start' }}>
               {/* Left */}
               <div>
-                <div style={{ fontSize: 11, letterSpacing: '0.1em', color: 'rgba(255,255,255,0.2)', fontFamily: mono, marginBottom: 12 }}>
+                <div style={{ fontSize: 11, letterSpacing: '0.1em', color: 'rgba(0,0,0,0.25)', fontFamily: mono, marginBottom: 12 }}>
                   {p.num}
                 </div>
-                <div style={{ fontSize: 11, letterSpacing: '0.1em', color: '#A78BFA', fontFamily: mono, marginBottom: 20 }}>
+                <div style={{ fontSize: 11, letterSpacing: '0.1em', color: '#7C3AED', fontFamily: mono, marginBottom: 20 }}>
                   {p.label}
                 </div>
                 <h2 style={{ fontSize: 'clamp(24px, 3.5vw, 36px)', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.2, marginBottom: 20 }}>
                   {p.title}
                 </h2>
-                <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.4)', lineHeight: 1.8 }}>{p.desc}</p>
+                <p style={{ fontSize: 15, color: 'rgba(0,0,0,0.45)', lineHeight: 1.8 }}>{p.desc}</p>
               </div>
               {/* Right: Code */}
-              <div style={{ borderRadius: 12, border: '1px solid rgba(255,255,255,0.07)', background: '#0A0C1E', overflow: 'hidden' }}>
-                <div style={{ display: 'flex', gap: 6, padding: '12px 16px', borderBottom: '1px solid rgba(255,255,255,0.05)', background: 'rgba(255,255,255,0.015)' }}>
+              <div style={{ borderRadius: 12, border: '1px solid rgba(0,0,0,0.08)', background: '#0A0C1E', overflow: 'hidden' }}>
+                <div style={{ display: 'flex', gap: 6, padding: '12px 16px', borderBottom: '1px solid rgba(0,0,0,0.06)', background: 'rgba(255,255,255,0.015)' }}>
                   {['#ff5f57','#febc2e','#28c840'].map(c => <div key={c} style={{ width: 10, height: 10, borderRadius: '50%', background: c }} />)}
                 </div>
-                <pre style={{ padding: '24px', fontSize: 12, fontFamily: mono, lineHeight: 1.9, color: 'rgba(255,255,255,0.5)', margin: 0, overflowX: 'auto' }}>
+                <pre style={{ padding: '24px', fontSize: 12, fontFamily: mono, lineHeight: 1.9, color: 'rgba(0,0,0,0.5)', margin: 0, overflowX: 'auto' }}>
                   <code>{p.code}</code>
                 </pre>
               </div>
@@ -250,10 +250,10 @@ export default function IdentityPage() {
           <h2 style={{ fontSize: 'clamp(28px, 4vw, 40px)', fontWeight: 700, letterSpacing: '-0.02em', marginBottom: 16 }}>
             Register your first agent.
           </h2>
-          <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.35)', marginBottom: 40, lineHeight: 1.8 }}>
+          <p style={{ fontSize: 15, color: 'rgba(0,0,0,0.4)', marginBottom: 40, lineHeight: 1.8 }}>
             Identity is free. Reputation is earned. Start building.
           </p>
-          <Link href="/build" style={{ padding: '14px 32px', borderRadius: 10, background: '#A78BFA', color: '#0D0E1A', fontWeight: 600, fontSize: 14, textDecoration: 'none' }}>
+          <Link href="/build" style={{ padding: '14px 32px', borderRadius: 10, background: '#009E82', color: '#fff', fontWeight: 600, fontSize: 14, textDecoration: 'none' }}>
             Start Building →
           </Link>
         </div>

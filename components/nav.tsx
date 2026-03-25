@@ -38,12 +38,12 @@ export default function Nav() {
       }}>
         <nav style={{
           maxWidth: 1200, margin: '0 auto',
-          background: 'rgba(13,14,26,0.92)',
+          background: 'rgba(255,255,255,0.97)',
           backdropFilter: 'blur(20px)',
           WebkitBackdropFilter: 'blur(20px)',
           borderRadius: 14,
-          border: '1px solid rgba(255,255,255,0.08)',
-          boxShadow: '0 4px 32px rgba(0,0,0,0.4)',
+          border: '1px solid rgba(0,0,0,0.08)',
+          boxShadow: '0 2px 20px rgba(0,0,0,0.08)',
           padding: '14px 28px',
           display: 'flex', alignItems: 'center', justifyContent: 'space-between',
         }}>
@@ -60,7 +60,7 @@ export default function Nav() {
             <div style={{ display: 'flex', alignItems: 'center', gap: 28 }}>
               {links.map(l => (
                 <Link key={l.label} href={l.href} style={{
-                  fontSize: 14, color: 'rgba(255,255,255,0.5)',
+                  fontSize: 14, color: 'rgba(0,0,0,0.5)',
                   textDecoration: 'none', transition: 'color 0.2s',
                 }}>{l.label}</Link>
               ))}
@@ -78,7 +78,7 @@ export default function Nav() {
           {!isDesktop && (
             <button onClick={() => setOpen(!open)} style={{
               background: 'none', border: 'none', cursor: 'pointer',
-              padding: 8, color: '#fff',
+              padding: 8, color: '#0D0D0D',
             }}>
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 {open ? <path d="M18 6L6 18M6 6l12 12"/> : <path d="M4 6h16M4 12h16M4 18h16"/>}
@@ -91,16 +91,16 @@ export default function Nav() {
       {open && !isDesktop && (
         <div style={{
           position: 'fixed', inset: 0, zIndex: 99,
-          background: '#0D0E1A',
+          background: '#F5F4F0',
           display: 'flex', flexDirection: 'column',
           padding: '80px 32px 48px',
         }}>
           <div style={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
             {links.map((l, i) => (
               <Link key={l.label} href={l.href} onClick={() => setOpen(false)} style={{
-                fontSize: 28, fontWeight: 700, color: 'rgba(255,255,255,0.8)',
+                fontSize: 28, fontWeight: 700, color: 'rgba(0,0,0,0.8)',
                 textDecoration: 'none', padding: '16px 0',
-                borderBottom: i < links.length - 1 ? '1px solid rgba(255,255,255,0.06)' : 'none',
+                borderBottom: i < links.length - 1 ? '1px solid rgba(0,0,0,0.06)' : 'none',
               }}>{l.label}</Link>
             ))}
           </div>

@@ -111,15 +111,15 @@ const resources = [
 
 export default function BuildPage() {
   return (
-    <div style={{ background: '#0D0E1A', color: '#fff', fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
+    <div style={{ background: '#F5F4F0', color: '#0D0D0D', fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
 
       {/* Hero */}
       <section style={{ padding: 'clamp(80px, 12vw, 140px) 24px 80px', maxWidth: 760, margin: '0 auto' }}>
-        <div style={{ fontSize: 11, letterSpacing: '0.15em', color: '#A78BFA', fontFamily: mono, marginBottom: 24, textTransform: 'uppercase' }}>
+        <div style={{ fontSize: 11, letterSpacing: '0.15em', color: '#7C3AED', fontFamily: mono, marginBottom: 24, textTransform: 'uppercase' }}>
           Build
         </div>
         <h1 style={{ fontSize: 'clamp(36px, 6vw, 64px)', fontWeight: 700, letterSpacing: '-0.03em', lineHeight: 1.1, marginBottom: 24 }}>
-          Your agent is one<br /><span style={{ color: '#00F5C4', fontFamily: mono }}>npm install</span> away.
+          Your agent is one<br /><span style={{ color: '#009E82', fontFamily: mono }}>npm install</span> away.
         </h1>
         <p style={{ fontSize: 'clamp(15px, 2vw, 18px)', color: 'rgba(255,255,255,0.45)', lineHeight: 1.8, maxWidth: 520 }}>
           No token to buy. No gas price anxiety. No 47-page setup guide.
@@ -131,7 +131,7 @@ export default function BuildPage() {
 
       {/* Steps */}
       <section style={{ padding: 'clamp(64px, 8vw, 96px) 16px', maxWidth: 1100, margin: '0 auto' }}>
-        <div style={{ fontSize: 11, letterSpacing: '0.15em', color: 'rgba(255,255,255,0.25)', fontFamily: mono, marginBottom: 64, textTransform: 'uppercase' }}>
+        <div style={{ fontSize: 11, letterSpacing: '0.15em', color: 'rgba(0,0,0,0.3)', fontFamily: mono, marginBottom: 64, textTransform: 'uppercase' }}>
           Four Steps to Launch
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 48 }}>
@@ -141,19 +141,19 @@ export default function BuildPage() {
               borderBottom: i < steps.length - 1 ? '1px solid rgba(255,255,255,0.05)' : 'none',
             }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 16 }}>
-                <div style={{ fontSize: 11, color: '#A78BFA', fontFamily: mono, letterSpacing: '0.1em' }}>{s.step}</div>
+                <div style={{ fontSize: 11, color: '#7C3AED', fontFamily: mono, letterSpacing: '0.1em' }}>{s.step}</div>
                 <h3 style={{ fontSize: 'clamp(20px, 3vw, 26px)', fontWeight: 600, letterSpacing: '-0.01em' }}>{s.title}</h3>
               </div>
-              <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.4)', lineHeight: 1.8, marginBottom: 24 }}>{s.desc}</p>
+              <p style={{ fontSize: 14, color: 'rgba(0,0,0,0.45)', lineHeight: 1.8, marginBottom: 24 }}>{s.desc}</p>
 
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 16 }}>
                 {/* Code */}
-                <div style={{ borderRadius: 12, border: '1px solid rgba(255,255,255,0.07)', background: '#0A0C1E', overflow: 'hidden' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: 6, padding: '10px 14px', borderBottom: '1px solid rgba(255,255,255,0.05)', background: 'rgba(255,255,255,0.01)' }}>
+                <div style={{ borderRadius: 12, border: '1px solid rgba(0,0,0,0.08)', background: '#0A0C1E', overflow: 'hidden' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 6, padding: '10px 14px', borderBottom: '1px solid rgba(0,0,0,0.06)', background: 'rgba(255,255,255,0.01)' }}>
                     {['#ff5f57','#febc2e','#28c840'].map(c => <div key={c} style={{ width: 10, height: 10, borderRadius: '50%', background: c }} />)}
                     <span style={{ fontSize: 10, color: 'rgba(255,255,255,0.15)', fontFamily: mono, marginLeft: 8 }}>input</span>
                   </div>
-                  <pre style={{ padding: '20px', fontSize: 12, fontFamily: mono, lineHeight: 1.9, color: 'rgba(255,255,255,0.5)', margin: 0, overflowX: 'auto' }}>
+                  <pre style={{ padding: '20px', fontSize: 12, fontFamily: mono, lineHeight: 1.9, color: 'rgba(0,0,0,0.5)', margin: 0, overflowX: 'auto' }}>
                     <code>{s.code}</code>
                   </pre>
                 </div>
@@ -176,9 +176,9 @@ export default function BuildPage() {
       <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.07), transparent)' }} />
 
       {/* What You'll Build */}
-      <section style={{ padding: 'clamp(64px, 8vw, 96px) 16px', background: '#070811' }}>
+      <section style={{ padding: 'clamp(64px, 8vw, 96px) 16px', background: '#ECEAE4' }}>
         <div style={{ maxWidth: 760, margin: '0 auto' }}>
-          <div style={{ fontSize: 11, letterSpacing: '0.15em', color: 'rgba(255,255,255,0.25)', fontFamily: mono, marginBottom: 48, textTransform: 'uppercase' }}>
+          <div style={{ fontSize: 11, letterSpacing: '0.15em', color: 'rgba(0,0,0,0.3)', fontFamily: mono, marginBottom: 48, textTransform: 'uppercase' }}>
             What You&apos;ll Build
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
@@ -218,18 +218,18 @@ export default function BuildPage() {
                   fontSize: 'clamp(15px, 2vw, 18px)',
                   fontWeight: 600,
                   marginBottom: 12,
-                  color: '#fff',
+                  color: '#0D0D0D',
                 }}>
-                  <span style={{ color: '#A78BFA', fontFamily: mono, marginRight: 12 }}>Q:</span>
+                  <span style={{ color: '#7C3AED', fontFamily: mono, marginRight: 12 }}>Q:</span>
                   {faq.q}
                 </div>
                 <div style={{
                   fontSize: 'clamp(14px, 1.8vw, 16px)',
-                  color: 'rgba(255,255,255,0.5)',
+                  color: 'rgba(0,0,0,0.5)',
                   lineHeight: 1.7,
                   paddingLeft: 32,
                 }}>
-                  <span style={{ color: '#00F5C4', fontFamily: mono, marginRight: 12 }}>A:</span>
+                  <span style={{ color: '#009E82', fontFamily: mono, marginRight: 12 }}>A:</span>
                   {faq.a}
                 </div>
               </div>
@@ -243,21 +243,21 @@ export default function BuildPage() {
       {/* Resources */}
       <section style={{ padding: 'clamp(64px, 8vw, 96px) 16px' }}>
         <div style={{ maxWidth: 1100, margin: '0 auto' }}>
-          <div style={{ fontSize: 11, letterSpacing: '0.15em', color: 'rgba(255,255,255,0.25)', fontFamily: mono, marginBottom: 48, textTransform: 'uppercase' }}>
+          <div style={{ fontSize: 11, letterSpacing: '0.15em', color: 'rgba(0,0,0,0.3)', fontFamily: mono, marginBottom: 48, textTransform: 'uppercase' }}>
             Resources
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 16 }}>
             {resources.map(r => (
               <Link key={r.title} href={r.href} style={{
                 display: 'block', padding: '28px', borderRadius: 12,
-                border: '1px solid rgba(255,255,255,0.06)',
+                border: '1px solid rgba(0,0,0,0.08)',
                 background: 'rgba(255,255,255,0.02)',
                 textDecoration: 'none', color: 'inherit',
                 transition: 'border-color 0.2s',
               }}>
                 <div style={{ fontSize: 10, letterSpacing: '0.1em', color: '#7C3AED', fontFamily: mono, marginBottom: 12 }}>{r.tag}</div>
                 <div style={{ fontSize: 16, fontWeight: 600, marginBottom: 8 }}>{r.title}</div>
-                <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.35)', lineHeight: 1.6 }}>{r.desc}</p>
+                <p style={{ fontSize: 13, color: 'rgba(0,0,0,0.4)', lineHeight: 1.6 }}>{r.desc}</p>
               </Link>
             ))}
           </div>
@@ -272,11 +272,11 @@ export default function BuildPage() {
           <h2 style={{ fontSize: 'clamp(28px, 4vw, 40px)', fontWeight: 700, letterSpacing: '-0.02em', marginBottom: 16 }}>
             Deploy your first agent.
           </h2>
-          <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.35)', marginBottom: 40, lineHeight: 1.8 }}>
+          <p style={{ fontSize: 15, color: 'rgba(0,0,0,0.4)', marginBottom: 40, lineHeight: 1.8 }}>
             Join the agent economy. Gas in USDC. No token required.
           </p>
           <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Link href="#" style={{ padding: '14px 32px', borderRadius: 10, background: '#A78BFA', color: '#0D0E1A', fontWeight: 600, fontSize: 14, textDecoration: 'none' }}>
+            <Link href="#" style={{ padding: '14px 32px', borderRadius: 10, background: '#009E82', color: '#fff', fontWeight: 600, fontSize: 14, textDecoration: 'none' }}>
               Get Started Free
             </Link>
             <Link href="/protocol" style={{ padding: '14px 32px', borderRadius: 10, border: '1px solid rgba(255,255,255,0.12)', color: 'rgba(255,255,255,0.8)', fontSize: 14, textDecoration: 'none' }}>

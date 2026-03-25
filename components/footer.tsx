@@ -32,8 +32,8 @@ const footerLinks: Record<string, { label: string; href: string }[]> = {
 export default function Footer() {
   return (
     <footer style={{
-      borderTop: '1px solid rgba(255,255,255,0.06)',
-      background: '#060610',
+      borderTop: '1px solid rgba(0,0,0,0.08)',
+      background: '#E8E6DF',
     }}>
       <div style={{
         maxWidth: 1100,
@@ -56,9 +56,9 @@ export default function Footer() {
                 fontFamily: mono,
                 fontSize: 22, fontWeight: 900,
                 letterSpacing: '-0.04em',
-                color: '#00F5C4',
-                textShadow: '0 0 16px rgba(0,245,196,0.35)',
-                WebkitTextStroke: '1px #00F5C4',
+                color: '#009E82',
+                textShadow: 'none',
+                WebkitTextStroke: '1px #009E82',
               }}>
                 txxt
               </span>
@@ -74,7 +74,7 @@ export default function Footer() {
           {/* 링크 컬럼들 */}
           {Object.entries(footerLinks).map(([title, links]) => (
             <div key={title}>
-              <h4 style={{ fontSize: 12, fontWeight: 600, color: '#fff', marginBottom: 20, letterSpacing: '0.05em' }}>
+              <h4 style={{ fontSize: 12, fontWeight: 600, color: '#0D0D0D', marginBottom: 20, letterSpacing: '0.05em' }}>
                 {title}
               </h4>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
@@ -82,7 +82,7 @@ export default function Footer() {
                   <Link
                     key={link.label}
                     href={link.href}
-                    style={{ fontSize: 13, color: 'rgba(255,255,255,0.4)', textDecoration: 'none' }}
+                    style={{ fontSize: 13, color: 'rgba(0,0,0,0.45)', textDecoration: 'none' }}
                   >
                     {link.label}
                   </Link>
@@ -94,16 +94,16 @@ export default function Footer() {
 
         {/* 하단 바 */}
         <div style={{
-          borderTop: '1px solid rgba(255,255,255,0.06)',
+          borderTop: '1px solid rgba(0,0,0,0.08)',
           paddingTop: 28,
           display: 'flex',
           flexDirection: 'column',
           gap: 12,
         }}>
-          <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.25)' }}>
+          <p style={{ fontSize: 12, color: 'rgba(0,0,0,0.3)' }}>
             © 2026 txxt. Agent-Native Infrastructure.
           </p>
-          <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.15)', fontFamily: mono }}>
+          <p style={{ fontSize: 12, color: 'rgba(0,0,0,0.25)', fontFamily: mono }}>
             txt built the web. txxt builds the economy.
           </p>
         </div>

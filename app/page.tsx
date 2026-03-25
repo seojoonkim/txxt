@@ -11,17 +11,17 @@ function TerminalCursor() {
     const t = setInterval(() => setOn(v => !v), 500);
     return () => clearInterval(t);
   }, []);
-  return <span style={{ opacity: on ? 1 : 0, color: '#00F5C4' }}>▋</span>;
+  return <span style={{ opacity: on ? 1 : 0, color: '#009E82' }}>▋</span>;
 }
 
 export default function Home() {
   return (
-    <div style={{ background: '#0D0E1A', color: '#fff', fontFamily: 'Inter, system-ui, sans-serif', overflowX: 'hidden' }}>
+    <div style={{ background: '#F5F4F0', color: '#0D0D0D', fontFamily: 'Inter, system-ui, sans-serif', overflowX: 'hidden' }}>
 
       {/* ===== HERO — Split layout ===== */}
       <section style={{
         minHeight: '100vh',
-        background: '#0D0E1A',
+        background: '#F5F4F0',
         position: 'relative',
         overflow: 'hidden',
         display: 'flex',
@@ -35,7 +35,7 @@ export default function Home() {
           <div style={{ maxWidth: 560 }}>
             {/* Small label */}
             <p style={{
-              fontSize: 12, letterSpacing: '0.1em', color: 'rgba(255,255,255,0.3)',
+              fontSize: 12, letterSpacing: '0.1em', color: 'rgba(0,0,0,0.35)',
               fontFamily: mono, marginBottom: 32,
             }}>
               AGENT-NATIVE L1 · GAS IN USDC
@@ -47,18 +47,18 @@ export default function Home() {
               fontWeight: 500,
               letterSpacing: '-0.03em',
               lineHeight: 1.05,
-              color: '#fff',
+              color: '#0D0D0D',
               marginBottom: 24,
             }}>
               The internet<br />
-              runs on <span style={{ color: 'rgba(255,255,255,0.35)' }}>txt</span>.<br />
+              runs on <span style={{ color: 'rgba(0,0,0,0.4)' }}>txt</span>.<br />
               We run on<br />
-              <span style={{ color: '#00F5C4' }}>txxt</span>.
+              <span style={{ color: '#009E82' }}>txxt</span>.
             </h1>
 
             {/* Sub */}
             <p style={{
-              fontSize: 18, color: 'rgba(255,255,255,0.45)', lineHeight: 1.7,
+              fontSize: 18, color: 'rgba(0,0,0,0.5)', lineHeight: 1.7,
               marginBottom: 40, maxWidth: 480,
             }}>
               Identity, reputation, and validation for every AI agent. No token. Gas in USDC.
@@ -68,7 +68,7 @@ export default function Home() {
             <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' as const }}>
               <Link href="/build" style={{
                 padding: '16px 40px', borderRadius: 10,
-                background: 'linear-gradient(180deg, #1AFFD5 0%, #00C4A0 100%)',
+                background: 'linear-gradient(180deg, #00D4B0 0%, #009E82 100%)',
                 color: '#0D0E1A', fontWeight: 700, fontSize: 18,
                 textDecoration: 'none',
               }}>Start Building</Link>
@@ -76,7 +76,7 @@ export default function Home() {
                 padding: '16px 32px', borderRadius: 10,
                 background: 'rgba(255,255,255,0.05)',
                 border: '1px solid rgba(255,255,255,0.1)',
-                color: 'rgba(255,255,255,0.8)', fontWeight: 500, fontSize: 18,
+                color: 'rgba(0,0,0,0.7)', fontWeight: 500, fontSize: 18,
                 textDecoration: 'none',
               }}>Read the Protocol</Link>
             </div>
@@ -110,16 +110,16 @@ export default function Home() {
             position: 'absolute', bottom: 60, left: 40, right: 40,
             background: 'rgba(6,6,18,0.85)',
             borderRadius: 14, padding: '24px 28px',
-            border: '1px solid rgba(255,255,255,0.08)',
+            border: '1px solid rgba(0,0,0,0.08)',
             backdropFilter: 'blur(10px)',
           }}>
             <div style={{ display: 'flex', gap: 6, marginBottom: 16 }}>
               {['#ff5f57','#febc2e','#28c840'].map(c => (
                 <div key={c} style={{ width: 10, height: 10, borderRadius: '50%', background: c }} />
               ))}
-              <span style={{ fontSize: 11, color: 'rgba(255,255,255,0.2)', fontFamily: mono, marginLeft: 8 }}>travel_planner.agent</span>
+              <span style={{ fontSize: 11, color: 'rgba(0,0,0,0.25)', fontFamily: mono, marginLeft: 8 }}>travel_planner.agent</span>
             </div>
-            <pre style={{ fontSize: 12, fontFamily: mono, color: 'rgba(255,255,255,0.5)', lineHeight: 1.8, margin: 0 }}>{`agent TravelPlanner {
+            <pre style={{ fontSize: 12, fontFamily: mono, color: 'rgba(0,0,0,0.5)', lineHeight: 1.8, margin: 0 }}>{`agent TravelPlanner {
   requires: [flight_search]
   reputation_minimum: 80
 
@@ -134,11 +134,11 @@ export default function Home() {
       </section>
 
       {/* ===== WHY TXXT — Full-width horizontal breakdown ===== */}
-      <section style={{ background: '#070811' }}>
+      <section style={{ background: '#ECEAE4' }}>
         {/* Section label */}
         <div style={{ padding: '80px 24px 0', textAlign: 'center' }}>
           <p style={{
-            fontSize: 10, letterSpacing: '0.15em', color: 'rgba(255,255,255,0.15)',
+            fontSize: 10, letterSpacing: '0.15em', color: 'rgba(0,0,0,0.2)',
             fontFamily: mono, margin: 0,
           }}>
             WHY TXXT
@@ -152,10 +152,10 @@ export default function Home() {
           minHeight: 360,
         }}>
           {[
-            { letter: 't', word: 'transact', desc: 'Agents pay each other — milliseconds, pennies.', color: '#00F5C4' },
-            { letter: 'x', word: 'exchange', desc: 'Capabilities, data, trust — traded on-chain.', color: '#A78BFA' },
+            { letter: 't', word: 'transact', desc: 'Agents pay each other — milliseconds, pennies.', color: '#009E82' },
+            { letter: 'x', word: 'exchange', desc: 'Capabilities, data, trust — traded on-chain.', color: '#7C3AED' },
             { letter: 'x', word: 'exist', desc: 'Every agent gets a sovereign identity.', color: '#FB923C' },
-            { letter: 't', word: 'trust', desc: 'Not assumed. Mathematically proven.', color: '#00F5C4' },
+            { letter: 't', word: 'trust', desc: 'Not assumed. Mathematically proven.', color: '#009E82' },
           ].map((item, i) => (
             <div key={i} style={{
               display: 'flex',
@@ -178,13 +178,13 @@ export default function Home() {
                 {item.letter}
               </div>
               <div style={{
-                fontSize: 11, fontWeight: 600, color: 'rgba(255,255,255,0.5)',
+                fontSize: 11, fontWeight: 600, color: 'rgba(0,0,0,0.5)',
                 fontFamily: mono, letterSpacing: '0.08em', marginBottom: 12,
               }}>
                 _{item.word}
               </div>
               <p style={{
-                fontSize: 12, color: 'rgba(255,255,255,0.25)', lineHeight: 1.6,
+                fontSize: 12, color: 'rgba(0,0,0,0.3)', lineHeight: 1.6,
                 textAlign: 'center', maxWidth: 180, margin: 0,
               }}>
                 {item.desc}
@@ -196,7 +196,7 @@ export default function Home() {
         {/* Bottom quote */}
         <div style={{ padding: '48px 24px 80px', textAlign: 'center' }}>
           <p style={{
-            fontSize: 13, color: 'rgba(255,255,255,0.2)', fontStyle: 'italic',
+            fontSize: 13, color: 'rgba(0,0,0,0.25)', fontStyle: 'italic',
             fontFamily: mono, margin: 0, maxWidth: 500, marginLeft: 'auto', marginRight: 'auto',
           }}>
             &ldquo;txt carried human words. txxt carries agent trust.&rdquo;
@@ -224,7 +224,7 @@ export default function Home() {
             letterSpacing: '-0.04em',
             lineHeight: 0.95,
             margin: '0 0 48px 0',
-            color: '#fff',
+            color: '#0D0D0D',
           }}>
             Trust Has<br />No Protocol.
           </h2>
@@ -235,9 +235,9 @@ export default function Home() {
             flexWrap: 'wrap', marginBottom: 48,
           }}>
             {[
-              { name: 'MCP', status: 'solved', color: 'rgba(255,255,255,0.25)' },
-              { name: 'A2A', status: 'solved', color: 'rgba(255,255,255,0.25)' },
-              { name: 'x402', status: 'solved', color: 'rgba(255,255,255,0.25)' },
+              { name: 'MCP', status: 'solved', color: 'rgba(0,0,0,0.3)' },
+              { name: 'A2A', status: 'solved', color: 'rgba(0,0,0,0.3)' },
+              { name: 'x402', status: 'solved', color: 'rgba(0,0,0,0.3)' },
               { name: 'Trust', status: 'missing', color: '#f87171' },
             ].map(p => (
               <span key={p.name} style={{
@@ -252,7 +252,7 @@ export default function Home() {
           {/* One line answer */}
           <p style={{
             fontSize: 'clamp(16px, 2.5vw, 22px)',
-            color: '#00F5C4',
+            color: '#009E82',
             fontFamily: mono,
             fontWeight: 600,
             margin: 0,
@@ -263,11 +263,11 @@ export default function Home() {
       </section>
 
       {/* ===== THREE PILLARS — Stacked full-width, split layout ===== */}
-      <section style={{ background: '#070811' }}>
+      <section style={{ background: '#ECEAE4' }}>
         {/* Section header */}
         <div style={{ padding: '100px 24px 0', textAlign: 'center' }}>
           <p style={{
-            fontSize: 10, letterSpacing: '0.15em', color: '#00F5C4',
+            fontSize: 10, letterSpacing: '0.15em', color: '#009E82',
             fontFamily: mono, marginBottom: 20,
           }}>
             CORE INFRASTRUCTURE
@@ -296,11 +296,11 @@ export default function Home() {
               color: 'rgba(167,139,250,0.08)', fontFamily: mono,
               lineHeight: 1, marginBottom: 24, letterSpacing: '-0.05em',
             }}>01</div>
-            <p style={{ fontSize: 10, letterSpacing: '0.15em', color: '#A78BFA', fontFamily: mono, marginBottom: 16 }}>IDENTITY</p>
+            <p style={{ fontSize: 10, letterSpacing: '0.15em', color: '#7C3AED', fontFamily: mono, marginBottom: 16 }}>IDENTITY</p>
             <h3 style={{ fontSize: 'clamp(24px, 4vw, 36px)', fontWeight: 700, marginBottom: 16, letterSpacing: '-0.02em', lineHeight: 1.2 }}>
               Every agent gets<br />a passport.
             </h3>
-            <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.35)', lineHeight: 1.8, maxWidth: 400 }}>
+            <p style={{ fontSize: 14, color: 'rgba(0,0,0,0.4)', lineHeight: 1.8, maxWidth: 400 }}>
               Permanent. Portable. Unfakeable. A sovereign identity on-chain — not a plugin, not an afterthought.
             </p>
           </div>
@@ -313,7 +313,7 @@ export default function Home() {
           }}>
             <pre style={{
               fontSize: 'clamp(11px, 1.2vw, 13px)', fontFamily: mono,
-              color: 'rgba(255,255,255,0.4)', lineHeight: 2, margin: 0,
+              color: 'rgba(0,0,0,0.45)', lineHeight: 2, margin: 0,
               whiteSpace: 'pre-wrap' as const, wordBreak: 'break-all' as const,
             }}>
               <code>
@@ -342,7 +342,7 @@ export default function Home() {
           }}>
             <pre style={{
               fontSize: 'clamp(11px, 1.2vw, 13px)', fontFamily: mono,
-              color: 'rgba(255,255,255,0.4)', lineHeight: 2, margin: 0,
+              color: 'rgba(0,0,0,0.45)', lineHeight: 2, margin: 0,
               whiteSpace: 'pre-wrap' as const, wordBreak: 'break-all' as const,
             }}>
               <code>
@@ -366,11 +366,11 @@ export default function Home() {
               color: 'rgba(0,245,196,0.06)', fontFamily: mono,
               lineHeight: 1, marginBottom: 24, letterSpacing: '-0.05em',
             }}>02</div>
-            <p style={{ fontSize: 10, letterSpacing: '0.15em', color: '#00F5C4', fontFamily: mono, marginBottom: 16 }}>REPUTATION</p>
+            <p style={{ fontSize: 10, letterSpacing: '0.15em', color: '#009E82', fontFamily: mono, marginBottom: 16 }}>REPUTATION</p>
             <h3 style={{ fontSize: 'clamp(24px, 4vw, 36px)', fontWeight: 700, marginBottom: 16, letterSpacing: '-0.02em', lineHeight: 1.2 }}>
               Trust is earned<br />on-chain.
             </h3>
-            <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.35)', lineHeight: 1.8, maxWidth: 400 }}>
+            <p style={{ fontSize: 14, color: 'rgba(0,0,0,0.4)', lineHeight: 1.8, maxWidth: 400 }}>
               No reviews. No stars. Pure math. 94/100 means 12,847 tasks, zero disputes, 99.9% uptime.
             </p>
           </div>
@@ -380,7 +380,7 @@ export default function Home() {
         <div style={{
           display: 'flex', flexWrap: 'wrap' as const,
           borderTop: '1px solid rgba(255,255,255,0.05)',
-          borderBottom: '1px solid rgba(255,255,255,0.05)',
+          borderBottom: '1px solid rgba(0,0,0,0.05)',
           minHeight: 480,
         }}>
           <div style={{
@@ -397,7 +397,7 @@ export default function Home() {
             <h3 style={{ fontSize: 'clamp(24px, 4vw, 36px)', fontWeight: 700, marginBottom: 16, letterSpacing: '-0.02em', lineHeight: 1.2 }}>
               Three layers.<br />Zero doubt.
             </h3>
-            <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.35)', lineHeight: 1.8, maxWidth: 400 }}>
+            <p style={{ fontSize: 14, color: 'rgba(0,0,0,0.4)', lineHeight: 1.8, maxWidth: 400 }}>
               Self, peer, protocol. Three independent witnesses verify every interaction before execution.
             </p>
           </div>
@@ -410,7 +410,7 @@ export default function Home() {
           }}>
             <pre style={{
               fontSize: 'clamp(11px, 1.2vw, 13px)', fontFamily: mono,
-              color: 'rgba(255,255,255,0.4)', lineHeight: 2, margin: 0,
+              color: 'rgba(0,0,0,0.45)', lineHeight: 2, margin: 0,
               whiteSpace: 'pre-wrap' as const, wordBreak: 'break-all' as const,
             }}>
               <code>
@@ -468,13 +468,13 @@ export default function Home() {
                 gap: 24, flexWrap: 'wrap' as const,
               }}>
                 <span style={{
-                  fontSize: 14, color: 'rgba(255,255,255,0.2)',
+                  fontSize: 14, color: 'rgba(0,0,0,0.25)',
                   textDecoration: 'line-through', fontFamily: mono,
                 }}>
                   {row.them}
                 </span>
                 <span style={{
-                  fontSize: 14, color: '#00F5C4', fontFamily: mono, fontWeight: 600,
+                  fontSize: 14, color: '#009E82', fontFamily: mono, fontWeight: 600,
                 }}>
                   {row.us}
                 </span>
@@ -485,11 +485,11 @@ export default function Home() {
       </section>
 
       {/* ===== AGENTSCRIPT — Code showcase ===== */}
-      <section style={{ background: '#070811', padding: 'clamp(100px, 12vh, 160px) 24px' }}>
+      <section style={{ background: '#ECEAE4', padding: 'clamp(100px, 12vh, 160px) 24px' }}>
         <div style={{ maxWidth: 720, margin: '0 auto' }}>
           <div style={{ marginBottom: 56 }}>
             <p style={{
-              fontSize: 10, letterSpacing: '0.15em', color: '#00F5C4',
+              fontSize: 10, letterSpacing: '0.15em', color: '#009E82',
               fontFamily: mono, marginBottom: 16,
             }}>
               AGENTSCRIPT
@@ -505,7 +505,7 @@ export default function Home() {
           {/* Terminal */}
           <div style={{
             borderRadius: 16,
-            border: '1px solid rgba(255,255,255,0.06)',
+            border: '1px solid rgba(0,0,0,0.06)',
             background: '#0A0C1E',
             overflow: 'hidden',
           }}>
@@ -513,7 +513,7 @@ export default function Home() {
             <div style={{
               display: 'flex', alignItems: 'center', gap: 8,
               padding: '14px 16px',
-              borderBottom: '1px solid rgba(255,255,255,0.04)',
+              borderBottom: '1px solid rgba(0,0,0,0.04)',
               background: 'rgba(255,255,255,0.015)',
             }}>
               <div style={{ display: 'flex', gap: 6 }}>
@@ -521,7 +521,7 @@ export default function Home() {
                   <div key={c} style={{ width: 12, height: 12, borderRadius: '50%', background: c }} />
                 ))}
               </div>
-              <span style={{ fontSize: 12, color: 'rgba(255,255,255,0.15)', fontFamily: mono, marginLeft: 8 }}>
+              <span style={{ fontSize: 12, color: 'rgba(0,0,0,0.2)', fontFamily: mono, marginLeft: 8 }}>
                 travel_planner.agent
               </span>
               <span style={{ marginLeft: 'auto' }}><TerminalCursor /></span>
@@ -530,38 +530,38 @@ export default function Home() {
             <div style={{ padding: 'clamp(24px, 4vw, 40px)' }}>
               <pre style={{ fontSize: 'clamp(12px, 1.3vw, 14px)', fontFamily: mono, lineHeight: 2, margin: 0, overflowX: 'auto' as const }}>
                 <code>
-                  <span style={{ color: '#A78BFA' }}>agent</span>{' '}
-                  <span style={{ color: '#00F5C4' }}>TravelPlanner</span>{' '}
-                  <span style={{ color: 'rgba(255,255,255,0.15)' }}>{'{'}</span>{'\n'}
-                  {'  '}<span style={{ color: 'rgba(255,255,255,0.3)' }}>requires:</span>{' '}
-                  <span style={{ color: 'rgba(255,255,255,0.5)' }}>[flight_search, hotel_booking]</span>{'\n'}
-                  {'  '}<span style={{ color: 'rgba(255,255,255,0.3)' }}>reputation_minimum:</span>{' '}
-                  <span style={{ color: '#00F5C4' }}>80</span>{'\n'}
+                  <span style={{ color: '#7C3AED' }}>agent</span>{' '}
+                  <span style={{ color: '#009E82' }}>TravelPlanner</span>{' '}
+                  <span style={{ color: 'rgba(0,0,0,0.2)' }}>{'{'}</span>{'\n'}
+                  {'  '}<span style={{ color: 'rgba(0,0,0,0.35)' }}>requires:</span>{' '}
+                  <span style={{ color: 'rgba(0,0,0,0.5)' }}>[flight_search, hotel_booking]</span>{'\n'}
+                  {'  '}<span style={{ color: 'rgba(0,0,0,0.35)' }}>reputation_minimum:</span>{' '}
+                  <span style={{ color: '#009E82' }}>80</span>{'\n'}
                   {'\n'}
-                  {'  '}<span style={{ color: '#A78BFA' }}>task</span>{' '}
-                  <span style={{ color: '#fff' }}>plan_trip</span>
-                  <span style={{ color: 'rgba(255,255,255,0.3)' }}>(destination, budget)</span>{' '}
-                  <span style={{ color: 'rgba(255,255,255,0.15)' }}>{'{'}</span>{'\n'}
-                  {'    '}<span style={{ color: '#A78BFA' }}>let</span>{' '}
-                  <span style={{ color: '#fff' }}>flights</span>{' = '}
-                  <span style={{ color: '#00F5C4' }}>discover</span>
-                  <span style={{ color: 'rgba(255,255,255,0.3)' }}>(</span>
+                  {'  '}<span style={{ color: '#7C3AED' }}>task</span>{' '}
+                  <span style={{ color: '#0D0D0D' }}>plan_trip</span>
+                  <span style={{ color: 'rgba(0,0,0,0.35)' }}>(destination, budget)</span>{' '}
+                  <span style={{ color: 'rgba(0,0,0,0.2)' }}>{'{'}</span>{'\n'}
+                  {'    '}<span style={{ color: '#7C3AED' }}>let</span>{' '}
+                  <span style={{ color: '#0D0D0D' }}>flights</span>{' = '}
+                  <span style={{ color: '#009E82' }}>discover</span>
+                  <span style={{ color: 'rgba(0,0,0,0.35)' }}>(</span>
                   <span style={{ color: '#f59e0b' }}>&quot;flight_search&quot;</span>
-                  <span style={{ color: 'rgba(255,255,255,0.3)' }}>, min_rep: </span>
-                  <span style={{ color: '#00F5C4' }}>85</span>
-                  <span style={{ color: 'rgba(255,255,255,0.3)' }}>)</span>{'\n'}
-                  {'    '}<span style={{ color: '#A78BFA' }}>let</span>{' '}
-                  <span style={{ color: '#fff' }}>result</span>{' = '}
-                  <span style={{ color: '#00F5C4' }}>delegate</span>
-                  <span style={{ color: 'rgba(255,255,255,0.3)' }}>(flights[0], destination)</span>{'\n'}
-                  {'    '}<span style={{ color: '#00F5C4' }}>pay</span>
-                  <span style={{ color: 'rgba(255,255,255,0.3)' }}>(flights[0], result.cost)</span>{'\n'}
-                  {'    '}<span style={{ color: '#00F5C4' }}>rate</span>
-                  <span style={{ color: 'rgba(255,255,255,0.3)' }}>(flights[0], score: </span>
-                  <span style={{ color: '#00F5C4' }}>95</span>
-                  <span style={{ color: 'rgba(255,255,255,0.3)' }}>)</span>{'\n'}
-                  {'  '}<span style={{ color: 'rgba(255,255,255,0.15)' }}>{'}'}</span>{'\n'}
-                  <span style={{ color: 'rgba(255,255,255,0.15)' }}>{'}'}</span>
+                  <span style={{ color: 'rgba(0,0,0,0.35)' }}>, min_rep: </span>
+                  <span style={{ color: '#009E82' }}>85</span>
+                  <span style={{ color: 'rgba(0,0,0,0.35)' }}>)</span>{'\n'}
+                  {'    '}<span style={{ color: '#7C3AED' }}>let</span>{' '}
+                  <span style={{ color: '#0D0D0D' }}>result</span>{' = '}
+                  <span style={{ color: '#009E82' }}>delegate</span>
+                  <span style={{ color: 'rgba(0,0,0,0.35)' }}>(flights[0], destination)</span>{'\n'}
+                  {'    '}<span style={{ color: '#009E82' }}>pay</span>
+                  <span style={{ color: 'rgba(0,0,0,0.35)' }}>(flights[0], result.cost)</span>{'\n'}
+                  {'    '}<span style={{ color: '#009E82' }}>rate</span>
+                  <span style={{ color: 'rgba(0,0,0,0.35)' }}>(flights[0], score: </span>
+                  <span style={{ color: '#009E82' }}>95</span>
+                  <span style={{ color: 'rgba(0,0,0,0.35)' }}>)</span>{'\n'}
+                  {'  '}<span style={{ color: 'rgba(0,0,0,0.2)' }}>{'}'}</span>{'\n'}
+                  <span style={{ color: 'rgba(0,0,0,0.2)' }}>{'}'}</span>
                 </code>
               </pre>
             </div>
@@ -595,7 +595,7 @@ export default function Home() {
             display: 'inline-block',
             padding: '16px 48px',
             borderRadius: 10,
-            background: 'linear-gradient(180deg, #1AFFD5 0%, #00C4A0 100%)',
+            background: 'linear-gradient(180deg, #00D4B0 0%, #009E82 100%)',
             color: '#0D0E1A',
             fontWeight: 700,
             fontSize: 15,
