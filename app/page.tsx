@@ -251,8 +251,8 @@ export default function Home() {
 
       {/* ===== CONCEPT — x402 + ERC-8004 ===== */}
       <section style={{
-        background: '#0A0A0A',
-        borderTop: '1px solid rgba(255,255,255,0.06)',
+        background: '#F8F8F8',
+        borderTop: '1px solid rgba(0,0,0,0.06)',
       }}>
         <div style={{ maxWidth: 1300, margin: '0 auto', padding: 'clamp(80px, 12vh, 140px) 24px' }}>
           <p style={{
@@ -267,7 +267,7 @@ export default function Home() {
             letterSpacing: '-0.03em',
             lineHeight: 1.15,
             margin: '0 0 56px 0',
-            color: '#FFFFFF',
+            color: '#0D0D0D',
             textAlign: 'center',
           }}>
             Pay. Trust. Repeat.
@@ -277,66 +277,66 @@ export default function Home() {
             {/* Row 1 */}
             <div style={{
               display: 'flex', gap: 32, alignItems: 'flex-start',
-              padding: '32px 0', borderBottom: '1px solid rgba(255,255,255,0.07)',
+              padding: '32px 0', borderBottom: '1px solid rgba(0,0,0,0.07)',
             }}>
               <div style={{ flex: '0 0 auto', paddingTop: 4 }}>
-                <span style={{ display: 'inline-block', width: 32, height: 32, borderRadius: 8, background: 'rgba(0,200,150,0.12)', border: '1px solid rgba(0,200,150,0.25)', textAlign: 'center', lineHeight: '32px', fontSize: 13, color: '#00C896', fontFamily: mono, fontWeight: 700 }}>1</span>
+                <span style={{ display: 'inline-block', width: 32, height: 32, borderRadius: 8, background: 'rgba(0,200,150,0.10)', border: '1px solid rgba(0,200,150,0.25)', textAlign: 'center', lineHeight: '32px', fontSize: 13, color: '#00C896', fontFamily: mono, fontWeight: 700 }}>1</span>
               </div>
               <div style={{ flex: 1 }}>
-                <p style={{ fontSize: 'clamp(16px, 2vw, 20px)', fontWeight: 600, color: '#FFFFFF', margin: '0 0 8px 0', lineHeight: 1.3 }}>
+                <p style={{ fontSize: 'clamp(16px, 2vw, 20px)', fontWeight: 600, color: '#0D0D0D', margin: '0 0 8px 0', lineHeight: 1.3 }}>
                   Agents need to pay each other.
                 </p>
-                <p style={{ fontSize: 'clamp(13px, 1.6vw, 15px)', color: 'rgba(255,255,255,0.45)', lineHeight: 1.75, margin: 0 }}>
+                <p style={{ fontSize: 'clamp(13px, 1.6vw, 15px)', color: '#555555', lineHeight: 1.75, margin: 0 }}>
                   Autonomous agents delegate tasks, hire specialists, and settle invoices — continuously, at machine speed. The x402 protocol defines exactly how this works: HTTP-native payments, any token, any amount. The spec is done. The need is real.
                 </p>
               </div>
               <div style={{ flex: '0 0 auto', textAlign: 'right' as const, paddingTop: 4 }}>
                 <span style={{ fontSize: 12, fontFamily: mono, color: '#00C896', fontWeight: 700, letterSpacing: '0.08em' }}>x402</span>
-                <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.25)', fontFamily: mono, marginTop: 2 }}>payment protocol</div>
+                <div style={{ fontSize: 11, color: '#AAAAAA', fontFamily: mono, marginTop: 2 }}>payment protocol</div>
               </div>
             </div>
 
             {/* Row 2 */}
             <div style={{
               display: 'flex', gap: 32, alignItems: 'flex-start',
-              padding: '32px 0', borderBottom: '1px solid rgba(255,255,255,0.07)',
+              padding: '32px 0', borderBottom: '1px solid rgba(0,0,0,0.07)',
             }}>
               <div style={{ flex: '0 0 auto', paddingTop: 4 }}>
-                <span style={{ display: 'inline-block', width: 32, height: 32, borderRadius: 8, background: 'rgba(91,79,255,0.12)', border: '1px solid rgba(91,79,255,0.25)', textAlign: 'center', lineHeight: '32px', fontSize: 13, color: '#5B4FFF', fontFamily: mono, fontWeight: 700 }}>2</span>
+                <span style={{ display: 'inline-block', width: 32, height: 32, borderRadius: 8, background: 'rgba(91,79,255,0.10)', border: '1px solid rgba(91,79,255,0.25)', textAlign: 'center', lineHeight: '32px', fontSize: 13, color: '#5B4FFF', fontFamily: mono, fontWeight: 700 }}>2</span>
               </div>
               <div style={{ flex: 1 }}>
-                <p style={{ fontSize: 'clamp(16px, 2vw, 20px)', fontWeight: 600, color: '#FFFFFF', margin: '0 0 8px 0', lineHeight: 1.3 }}>
+                <p style={{ fontSize: 'clamp(16px, 2vw, 20px)', fontWeight: 600, color: '#0D0D0D', margin: '0 0 8px 0', lineHeight: 1.3 }}>
                   Agents need to trust each other.
                 </p>
-                <p style={{ fontSize: 'clamp(13px, 1.6vw, 15px)', color: 'rgba(255,255,255,0.45)', lineHeight: 1.75, margin: 0 }}>
+                <p style={{ fontSize: 'clamp(13px, 1.6vw, 15px)', color: '#555555', lineHeight: 1.75, margin: 0 }}>
                   Before any agent pays another, it needs to know who it&apos;s dealing with — capabilities, reputation, history. ERC-8004 defines the standard for on-chain agent identity: verifiable, portable, permanent. The spec is done. The need is real.
                 </p>
               </div>
               <div style={{ flex: '0 0 auto', textAlign: 'right' as const, paddingTop: 4 }}>
                 <span style={{ fontSize: 12, fontFamily: mono, color: '#5B4FFF', fontWeight: 700, letterSpacing: '0.08em' }}>ERC-8004</span>
-                <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.25)', fontFamily: mono, marginTop: 2 }}>identity protocol</div>
+                <div style={{ fontSize: 11, color: '#AAAAAA', fontFamily: mono, marginTop: 2 }}>identity protocol</div>
               </div>
             </div>
 
             {/* Row 3 — The problem */}
             <div style={{
               display: 'flex', gap: 32, alignItems: 'flex-start',
-              padding: '32px 0', borderBottom: '1px solid rgba(255,255,255,0.07)',
+              padding: '32px 0', borderBottom: '1px solid rgba(0,0,0,0.07)',
             }}>
               <div style={{ flex: '0 0 auto', paddingTop: 4 }}>
-                <span style={{ display: 'inline-block', width: 32, height: 32, borderRadius: 8, background: 'rgba(229,62,62,0.12)', border: '1px solid rgba(229,62,62,0.25)', textAlign: 'center', lineHeight: '32px', fontSize: 13, color: '#E53E3E', fontFamily: mono, fontWeight: 700 }}>!</span>
+                <span style={{ display: 'inline-block', width: 32, height: 32, borderRadius: 8, background: 'rgba(229,62,62,0.10)', border: '1px solid rgba(229,62,62,0.25)', textAlign: 'center', lineHeight: '32px', fontSize: 13, color: '#E53E3E', fontFamily: mono, fontWeight: 700 }}>!</span>
               </div>
               <div style={{ flex: 1 }}>
-                <p style={{ fontSize: 'clamp(16px, 2vw, 20px)', fontWeight: 600, color: '#FFFFFF', margin: '0 0 8px 0', lineHeight: 1.3 }}>
+                <p style={{ fontSize: 'clamp(16px, 2vw, 20px)', fontWeight: 600, color: '#0D0D0D', margin: '0 0 8px 0', lineHeight: 1.3 }}>
                   But no chain supports both natively.
                 </p>
-                <p style={{ fontSize: 'clamp(13px, 1.6vw, 15px)', color: 'rgba(255,255,255,0.45)', lineHeight: 1.75, margin: 0 }}>
+                <p style={{ fontSize: 'clamp(13px, 1.6vw, 15px)', color: '#555555', lineHeight: 1.75, margin: 0 }}>
                   Ethereum has neither at L1. Other chains pick one or none. The result: custom middleware, separate layers, impossible atomic transactions. You can&apos;t verify identity and settle payment in a single transaction if they live on different systems.
                 </p>
               </div>
               <div style={{ flex: '0 0 auto', textAlign: 'right' as const, paddingTop: 4 }}>
                 <span style={{ fontSize: 12, fontFamily: mono, color: '#E53E3E', fontWeight: 700, letterSpacing: '0.08em' }}>Others</span>
-                <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.25)', fontFamily: mono, marginTop: 2 }}>pick one or zero</div>
+                <div style={{ fontSize: 11, color: '#AAAAAA', fontFamily: mono, marginTop: 2 }}>pick one or zero</div>
               </div>
             </div>
 
@@ -346,19 +346,19 @@ export default function Home() {
               padding: '32px 0',
             }}>
               <div style={{ flex: '0 0 auto', paddingTop: 4 }}>
-                <span style={{ display: 'inline-block', width: 32, height: 32, borderRadius: 8, background: 'rgba(0,200,150,0.15)', border: '1px solid rgba(0,200,150,0.35)', textAlign: 'center', lineHeight: '32px', fontSize: 13, color: '#00C896', fontFamily: mono, fontWeight: 700 }}>✓</span>
+                <span style={{ display: 'inline-block', width: 32, height: 32, borderRadius: 8, background: 'rgba(0,200,150,0.12)', border: '1px solid rgba(0,200,150,0.30)', textAlign: 'center', lineHeight: '32px', fontSize: 13, color: '#00C896', fontFamily: mono, fontWeight: 700 }}>✓</span>
               </div>
               <div style={{ flex: 1 }}>
                 <p style={{ fontSize: 'clamp(16px, 2vw, 20px)', fontWeight: 600, color: '#00C896', margin: '0 0 8px 0', lineHeight: 1.3 }}>
                   txxt was built with both from block zero.
                 </p>
-                <p style={{ fontSize: 'clamp(13px, 1.6vw, 15px)', color: 'rgba(255,255,255,0.45)', lineHeight: 1.75, margin: 0 }}>
+                <p style={{ fontSize: 'clamp(13px, 1.6vw, 15px)', color: '#555555', lineHeight: 1.75, margin: 0 }}>
                   x402 payments and ERC-8004 identity are L1 primitives on txxt — not plugins, not add-ons. Which means: verify identity + settle payment in one atomic transaction, under 10ms, always $0.0003 in gas.
                 </p>
               </div>
               <div style={{ flex: '0 0 auto', textAlign: 'right' as const, paddingTop: 4 }}>
                 <span style={{ fontSize: 12, fontFamily: mono, color: '#00C896', fontWeight: 700, letterSpacing: '0.08em' }}>txxt</span>
-                <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.25)', fontFamily: mono, marginTop: 2 }}>both, natively</div>
+                <div style={{ fontSize: 11, color: '#AAAAAA', fontFamily: mono, marginTop: 2 }}>both, natively</div>
               </div>
             </div>
           </div>
@@ -450,7 +450,7 @@ export default function Home() {
       </section>
 
       {/* ===== THREE PILLARS — Stacked full-width, split layout (Stripe style) ===== */}
-      <section style={{ background: '#F8F8F8', borderTop: '1px solid rgba(0,0,0,0.06)' }}>
+      <section style={{ background: '#FFFFFF', borderTop: '1px solid rgba(0,0,0,0.06)' }}>
         <div style={{ maxWidth: 1300, margin: '0 auto' }}>
         {/* Section header */}
         <div style={{ padding: '100px 24px 0', textAlign: 'center' }}>
@@ -622,7 +622,7 @@ export default function Home() {
       <section style={{
         textAlign: 'center',
         position: 'relative',
-        background: '#FFFFFF',
+        background: '#F8F8F8',
         borderTop: '1px solid rgba(0,0,0,0.06)',
       }}>
         <div style={{
@@ -872,12 +872,12 @@ export default function Home() {
         padding: 'clamp(120px, 22vh, 280px) 24px',
         textAlign: 'center',
         position: 'relative',
-        background: '#0A0A0A',
+        background: '#FFFFFF',
         borderTop: '1px solid rgba(0,0,0,0.06)',
       }}>
         <div style={{
           position: 'absolute', inset: 0, pointerEvents: 'none',
-          background: 'radial-gradient(ellipse 50% 50% at 50% 50%, rgba(167,139,250,0.08) 0%, transparent 70%)',
+          background: 'radial-gradient(ellipse 50% 50% at 50% 50%, rgba(167,139,250,0.05) 0%, transparent 70%)',
         }} />
 
         <div style={{ maxWidth: 1300, margin: '0 auto', position: 'relative', zIndex: 1 }}>
@@ -887,7 +887,7 @@ export default function Home() {
             letterSpacing: '-0.04em',
             lineHeight: 1.1,
             margin: '0 0 16px 0',
-            color: '#FFFFFF',
+            color: '#0D0D0D',
           }}>
             The only chain that supports<br />
             <span style={{ color: '#00C896' }}>x402</span> and <span style={{ color: '#5B4FFF' }}>ERC-8004</span> natively.
@@ -895,7 +895,7 @@ export default function Home() {
 
           <p style={{
             fontSize: 'clamp(14px, 1.8vw, 17px)',
-            color: 'rgba(255,255,255,0.6)',
+            color: '#555555',
             lineHeight: 1.6,
             maxWidth: 520,
             margin: '0 auto 48px',
