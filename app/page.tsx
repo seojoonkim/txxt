@@ -598,7 +598,7 @@ export default function Home() {
                 background: '#FFFFFF',
               }}>
                 <div style={{ padding: '14px 20px', fontSize: 13, fontFamily: mono, color: '#0D0D0D', fontWeight: 600 }}>{row.label}</div>
-                <div style={{ padding: '14px 20px', fontSize: 13, color: '#888888', textAlign: 'center', textDecoration: 'line-through' }}>
+                <div style={{ padding: '14px 20px', fontSize: 13, color: '#888888', textAlign: 'center' }}>
                   <span style={{ fontSize: 14, marginRight: 6 }}>✗</span>{row.them}
                 </div>
                 <div style={{ padding: '14px 20px', fontSize: 13, color: '#00C896', fontWeight: 600, textAlign: 'center' }}>
