@@ -47,7 +47,7 @@ export default function Home() {
           background: 'radial-gradient(ellipse 600px 500px at 70% 30%, rgba(124,58,237,0.05) 0%, transparent 70%)',
         }} />
 
-        <div style={{ position: 'relative', zIndex: 1, maxWidth: 720, margin: '0 auto', padding: '90px 24px 60px', textAlign: 'center' }}>
+        <div style={{ position: 'relative', zIndex: 1, maxWidth: '100%', margin: '0 auto', padding: '90px 20px 60px', textAlign: 'center', boxSizing: 'border-box' }}>
           {/* Badge */}
           <div style={{
             display: 'inline-flex', alignItems: 'center', gap: 8,
@@ -82,7 +82,7 @@ export default function Home() {
           </h1>
 
           {/* Sub */}
-          <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.45)', fontFamily: mono, marginBottom: 24, letterSpacing: '0.03em' }}>
+          <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.45)', fontFamily: mono, marginBottom: 24, letterSpacing: '0.03em', wordBreak: 'break-word', overflowWrap: 'break-word' }}>
             The public blockchain built for AI agents — not adapted for them.
           </p>
 
@@ -113,7 +113,7 @@ export default function Home() {
       </section>
 
       {/* ===== 2. PROBLEM — "Trust Has No Protocol" ===== */}
-      <section style={{ padding: '128px 24px', textAlign: 'center', maxWidth: 700, margin: '0 auto' }}>
+      <section style={{ padding: '96px 20px', textAlign: 'center', maxWidth: 700, margin: '0 auto', overflowX: 'hidden' }}>
         <div style={{ fontSize: 11, letterSpacing: '0.15em', color: '#7C3AED', fontFamily: mono, marginBottom: 24 }}>
           THE TRUST GAP
         </div>
