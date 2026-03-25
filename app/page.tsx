@@ -24,7 +24,7 @@ export default function Home() {
         background: '#FFFFFF',
         overflow: 'hidden',
       }}>
-        <div style={{ maxWidth: 1300, margin: '0 auto', display: 'flex', alignItems: 'stretch', minHeight: '100vh' }}>
+        <div style={{ maxWidth: 1300, margin: '0 auto', display: 'flex', alignItems: 'stretch', minHeight: '100vh' }} className="hero-inner">
         {/* Left text block */}
         <div style={{
           flex: '0 0 50%',
@@ -36,8 +36,12 @@ export default function Home() {
         }} className="hero-left">
         <style>{`
           @media (max-width: 1023px) {
-            .hero-left { flex: 0 0 100% !important; max-width: 100% !important; }
-            .hero-right { display: none !important; }
+            .hero-inner { flex-direction: column !important; min-height: unset !important; }
+            .hero-left { flex: 0 0 100% !important; max-width: 100% !important; padding-bottom: 0 !important; }
+            .hero-right { flex: 0 0 100% !important; max-width: 100% !important; display: flex !important; border-bottom-left-radius: 0 !important; min-height: 320px; }
+          }
+          @media (max-width: 600px) {
+            .hero-right { min-height: 240px; }
           }
         `}</style>
           <div style={{ maxWidth: 640, width: '100%' }}>
@@ -117,6 +121,7 @@ export default function Home() {
           alignItems: 'center',
           justifyContent: 'center',
           borderBottomLeftRadius: 40,
+          padding: '40px 24px',
         }}>
           <video
             src="/hero-video.mp4"
@@ -125,7 +130,8 @@ export default function Home() {
             muted
             playsInline
             style={{
-              maxWidth: '85%',
+              width: '100%',
+              maxWidth: 520,
               height: 'auto',
               objectFit: 'contain',
               display: 'block',
