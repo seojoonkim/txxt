@@ -60,7 +60,7 @@ export default function Home() {
               fontSize: 13, letterSpacing: '0.12em', color: '#555555',
               fontFamily: mono, marginBottom: 32, fontWeight: 600,
             }}>
-              LIVE MAINNET · NO TOKEN · GAS $0.0003
+              MIDDLEWARE LAYER · NO TOKEN · GAS $0.0003
             </p>
 
             {/* Giant txxt logo */}
@@ -86,8 +86,8 @@ export default function Home() {
               marginBottom: 32,
               maxWidth: 480,
             }}>
-              The internet runs on txt.<br />
-              The agent economy runs on txxt.
+              Every blockchain.<br />
+              Every agent. One layer.
             </p>
 
             {/* Sub */}
@@ -95,7 +95,7 @@ export default function Home() {
               fontSize: 'clamp(14px, 3vw, 18px)', color: '#444444', lineHeight: 1.75,
               marginBottom: 40, maxWidth: 480,
             }}>
-              x402 payments. ERC-8004 identity. Both native to txxt — the only chain built for autonomous agents.
+              txxt is the middleware that makes any blockchain agent-ready. x402 payments. ERC-8004 identity. Works on top of Ethereum, Solana, Base, and more.
             </p>
 
             {/* Buttons */}
@@ -158,7 +158,7 @@ export default function Home() {
 
 
 
-      {/* ===== THE PROBLEM — Why agents need a new chain ===== */}
+      {/* ===== THE PROBLEM — Why agents need a middleware layer ===== */}
       <section style={{
         textAlign: 'center',
         position: 'relative',
@@ -194,7 +194,7 @@ export default function Home() {
             color: '#FF3366',
             margin: '0 0 40px 0',
           }}>
-            No blockchain supports both — until now.
+            No middleware unifies both — until now.
           </h3>
 
           {/* Two protocol cards */}
@@ -216,7 +216,7 @@ export default function Home() {
                 How agents pay each other.
               </p>
               <p style={{ fontSize: 'clamp(14px, 1.8vw, 16px)', color: '#555555', lineHeight: 1.75, margin: 0 }}>
-                HTTP-native payments, any token, any amount, at machine speed. The spec exists — but no chain runs it natively.
+                HTTP-native payments, any token, any amount, at machine speed. The spec exists — but no middleware unifies it across chains.
               </p>
             </div>
 
@@ -232,7 +232,7 @@ export default function Home() {
                 How agents prove who they are.
               </p>
               <p style={{ fontSize: 'clamp(14px, 1.8vw, 16px)', color: '#555555', lineHeight: 1.75, margin: 0 }}>
-                Verifiable identity, reputation, and capabilities on-chain. The spec exists — but every chain treats it as a plugin.
+                Verifiable identity, reputation, and capabilities on-chain. The spec exists — but every chain treats it as a plugin. txxt makes it native across all of them.
               </p>
             </div>
           </div>
@@ -251,7 +251,7 @@ export default function Home() {
               lineHeight: 1.75,
               margin: 0,
             }}>
-              <strong style={{ color: '#E53E3E' }}>The catch:</strong> when these protocols live on different layers, atomic transactions are impossible. You can&apos;t verify identity and settle payment in one step — until both are built into the same L1.
+              <strong style={{ color: '#E53E3E' }}>The catch:</strong> when these protocols live on different layers, atomic transactions are impossible. You can&apos;t verify identity and settle payment in one step — unless a middleware layer unifies them across every chain.
             </p>
           </div>
         </div>
@@ -271,13 +271,13 @@ export default function Home() {
             fontSize: 'clamp(32px, 6vw, 56px)', fontWeight: 700, color: '#0D0D0D',
             margin: '24px 0 16px', letterSpacing: '-0.03em', lineHeight: 1.15,
           }}>
-            txxt: both protocols,<br />from block zero.
+            txxt: both protocols,<br />on every chain.
           </h2>
           <p style={{
             fontSize: 'clamp(16px, 2.5vw, 20px)', color: '#666666', lineHeight: 1.6,
             margin: '0 auto', maxWidth: 600,
           }}>
-            Other chains bolt these on. txxt was designed with both as L1 primitives.
+            Other chains bolt these on separately. txxt is the middleware layer that makes both native — on any blockchain.
           </p>
         </div>
 

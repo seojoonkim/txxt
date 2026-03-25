@@ -22,9 +22,13 @@ const links = [
   },
 ];
 
+type NavLink = { href: string; label: string; children?: { href: string; label: string }[] };
+
 export default function Nav() {
   const [open, setOpen] = useState(false);
   const [isDesktop, setIsDesktop] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const check = () => setIsDesktop(window.innerWidth >= 1024);
@@ -37,6 +41,16 @@ export default function Nav() {
     document.body.style.overflow = open ? 'hidden' : '';
     return () => { document.body.style.overflow = ''; };
   }, [open]);
+
+  useEffect(() => {
+    const handleClick = (e: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setDropdownOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClick);
+    return () => document.removeEventListener('mousedown', handleClick);
+  }, []);
 
   return (
     <>
@@ -67,7 +81,40 @@ export default function Nav() {
 
           {isDesktop && (
             <div style={{ display: 'flex', alignItems: 'center', gap: 28 }}>
-              {links.map(l => (
+              {(links as NavLink[]).map(l => l.children ? (
+                <div key={l.label} ref={dropdownRef} style={{ position: 'relative' }}>
+                  <button
+                    onClick={() => setDropdownOpen(!dropdownOpen)}
+                    style={{
+                      fontSize: 14, color: '#555555', background: 'none', border: 'none',
+                      cursor: 'pointer', padding: 0, transition: 'color 0.2s',
+                      display: 'flex', alignItems: 'center', gap: 4,
+                    }}
+                  >
+                    {l.label}
+                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none" style={{ transform: dropdownOpen ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s' }}>
+                      <path d="M2 4l3 3 3-3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                    </svg>
+                  </button>
+                  {dropdownOpen && (
+                    <div style={{
+                      position: 'absolute', top: '100%', right: 0, marginTop: 12,
+                      background: 'rgba(255,255,255,0.98)', backdropFilter: 'blur(20px)',
+                      borderRadius: 12, border: '1px solid rgba(0,0,0,0.08)',
+                      boxShadow: '0 8px 32px rgba(0,0,0,0.12)',
+                      padding: '8px 0', minWidth: 160, zIndex: 200,
+                    }}>
+                      {l.children.map(c => (
+                        <Link key={c.label} href={c.href} onClick={() => setDropdownOpen(false)} style={{
+                          display: 'block', padding: '10px 20px', fontSize: 14,
+                          color: '#555555', textDecoration: 'none', transition: 'background 0.15s',
+                          whiteSpace: 'nowrap',
+                        }}>{c.label}</Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ) : (
                 <Link key={l.label} href={l.href} style={{
                   fontSize: 14, color: '#555555',
                   textDecoration: 'none', transition: 'color 0.2s',
@@ -107,11 +154,11 @@ export default function Nav() {
           padding: '80px 32px 48px',
         }}>
           <div style={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
-            {links.map((l, i) => (
+            {(links as NavLink[]).flatMap(l => l.children ? l.children : [l]).map((l, i, arr) => (
               <Link key={l.label} href={l.href} onClick={() => setOpen(false)} style={{
                 fontSize: 28, fontWeight: 700, color: 'rgba(0,0,0,0.8)',
                 textDecoration: 'none', padding: '16px 0',
-                borderBottom: i < links.length - 1 ? '1px solid rgba(0,0,0,0.06)' : 'none',
+                borderBottom: i < arr.length - 1 ? '1px solid rgba(0,0,0,0.06)' : 'none',
               }}>{l.label}</Link>
             ))}
           </div>
