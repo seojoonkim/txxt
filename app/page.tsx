@@ -22,17 +22,26 @@ export default function Home() {
       <section style={{
         minHeight: '100vh',
         background: '#FFFFFF',
-        position: 'relative',
-        overflow: 'hidden',
         display: 'flex',
-        alignItems: 'center',
+        alignItems: 'stretch',
+        overflow: 'hidden',
+        maxWidth: '100vw',
       }}>
         {/* Left text block */}
         <div style={{
-          maxWidth: 1200, margin: '0 auto', padding: 'clamp(80px, 12vw, 120px) 24px 80px',
-          width: '100%', position: 'relative', zIndex: 10,
-        }}>
-          <div style={{ maxWidth: 600 }}>
+          flex: '0 0 50%',
+          maxWidth: '50%',
+          padding: 'clamp(80px, 10vw, 120px) clamp(24px, 4vw, 64px) 80px',
+          display: 'flex',
+          alignItems: 'center',
+        }} className="hero-left">
+        <style>{`
+          @media (max-width: 1023px) {
+            .hero-left { flex: 0 0 100% !important; max-width: 100% !important; }
+            .hero-right { display: none !important; }
+          }
+        `}</style>
+          <div style={{ maxWidth: 560, width: '100%' }}>
             {/* Small label */}
             <p style={{
               fontSize: 13, letterSpacing: '0.12em', color: '#555555',
@@ -100,14 +109,14 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Right visual panel — Desktop video */}
-        <div style={{
-          position: 'absolute', top: 0, right: 0,
-          width: '50%', height: '100%',
+        {/* Right video panel */}
+        <div className="hero-right" style={{
+          flex: '0 0 50%',
+          maxWidth: '50%',
           overflow: 'hidden',
           borderBottomLeftRadius: 40,
-          display: 'none',
-        }} id="hero-video-desktop">
+          minHeight: '100vh',
+        }}>
           <video
             src="/hero-video.mp4"
             autoPlay
@@ -118,34 +127,15 @@ export default function Home() {
               width: '100%',
               height: '100%',
               objectFit: 'cover',
+              display: 'block',
+              minHeight: '100vh',
             }}
           />
         </div>
-        <style>{`
-          @media (min-width: 1024px) {
-            #hero-video-desktop { display: block !important; }
-          }
-        `}</style>
 
       </section>
 
-      {/* Mobile video — Full-width block below hero */}
-      <div style={{
-        width: '100%',
-        overflow: 'hidden',
-        aspectRatio: '16/9',
-        display: 'block',
-      }} id="hero-video-mobile">
-      <style>{`@media (min-width: 1024px) { #hero-video-mobile { display: none !important; } }`}</style>
-        <video
-          src="/hero-video.mp4"
-          autoPlay
-          loop
-          muted
-          playsInline
-          style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
-        />
-      </div>
+
 
       {/* ===== PROBLEM — The Integration Problem ===== */}
       <section style={{
