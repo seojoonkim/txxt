@@ -116,24 +116,23 @@ export default function Home() {
           />
         </div>
 
-        {/* Mobile video — Below text */}
-        <div style={{
-          width: '100%',
-          borderRadius: 12,
-          overflow: 'hidden',
-          marginTop: 40,
-          aspectRatio: '16/9',
-        }} className="lg:hidden">
-          <video
-            src="/hero-video.mp4"
-            autoPlay
-            loop
-            muted
-            playsInline
-            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-          />
-        </div>
       </section>
+
+      {/* Mobile video — Full-width block below hero */}
+      <div style={{
+        width: '100%',
+        overflow: 'hidden',
+        aspectRatio: '16/9',
+      }} className="lg:hidden">
+        <video
+          src="/hero-video.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+          style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+        />
+      </div>
 
       {/* ===== WHY TXXT — Full-width horizontal breakdown ===== */}
       <section style={{ background: '#F7F7F7' }}>
