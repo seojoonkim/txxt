@@ -35,7 +35,7 @@ export default function Home() {
           <div style={{ maxWidth: 560 }}>
             {/* Small label */}
             <p style={{
-              fontSize: 12, letterSpacing: '0.1em', color: 'rgba(0,0,0,0.35)',
+              fontSize: 12, letterSpacing: '0.1em', color: 'rgba(0,0,0,0.5)',
               fontFamily: mono, marginBottom: 32,
             }}>
               AGENT-NATIVE L1 · GAS IN USDC
@@ -73,9 +73,9 @@ export default function Home() {
               }}>Start Building</Link>
               <Link href="/protocol" style={{
                 padding: '16px 32px', borderRadius: 10,
-                background: 'rgba(255,255,255,0.05)',
-                border: '1px solid rgba(255,255,255,0.1)',
-                color: 'rgba(0,0,0,0.7)', fontWeight: 500, fontSize: 18,
+                background: '#FFFFFF',
+                border: '1px solid rgba(0,0,0,0.15)',
+                color: '#0D0D0D', fontWeight: 500, fontSize: 18,
                 textDecoration: 'none',
               }}>Read the Protocol</Link>
             </div>
@@ -108,17 +108,17 @@ export default function Home() {
           <div style={{
             position: 'absolute', bottom: 60, left: 40, right: 40,
             background: 'rgba(6,6,18,0.85)',
-            borderRadius: 14, padding: '24px 28px',
-            border: '1px solid rgba(0,0,0,0.08)',
+            borderRadius: 14, padding: '28px 32px',
+            border: '1px solid rgba(255,255,255,0.1)',
             backdropFilter: 'blur(10px)',
           }}>
             <div style={{ display: 'flex', gap: 6, marginBottom: 16 }}>
               {['#ff5f57','#febc2e','#28c840'].map(c => (
                 <div key={c} style={{ width: 10, height: 10, borderRadius: '50%', background: c }} />
               ))}
-              <span style={{ fontSize: 11, color: 'rgba(0,0,0,0.25)', fontFamily: mono, marginLeft: 8 }}>travel_planner.agent</span>
+              <span style={{ fontSize: 11, color: 'rgba(255,255,255,0.35)', fontFamily: mono, marginLeft: 8 }}>travel_planner.agent</span>
             </div>
-            <pre style={{ fontSize: 12, fontFamily: mono, color: 'rgba(0,0,0,0.5)', lineHeight: 1.8, margin: 0 }}>{`agent TravelPlanner {
+            <pre style={{ fontSize: 13, fontFamily: mono, color: 'rgba(255,255,255,0.65)', lineHeight: 1.8, margin: 0 }}>{`agent TravelPlanner {
   requires: [flight_search]
   reputation_minimum: 80
 
@@ -137,7 +137,7 @@ export default function Home() {
         {/* Section label */}
         <div style={{ padding: '80px 24px 0', textAlign: 'center' }}>
           <p style={{
-            fontSize: 10, letterSpacing: '0.15em', color: 'rgba(0,0,0,0.2)',
+            fontSize: 10, letterSpacing: '0.15em', color: 'rgba(0,0,0,0.4)',
             fontFamily: mono, margin: 0,
           }}>
             WHY TXXT
@@ -162,7 +162,8 @@ export default function Home() {
               alignItems: 'center',
               justifyContent: 'center',
               padding: '60px 16px',
-              borderRight: i < 3 ? '1px solid rgba(255,255,255,0.04)' : 'none',
+              borderRight: i < 3 ? '1px solid rgba(0,0,0,0.06)' : 'none',
+              borderBottom: `3px solid ${item.color}`,
               position: 'relative' as const,
             }}>
               <div style={{
@@ -183,7 +184,7 @@ export default function Home() {
                 _{item.word}
               </div>
               <p style={{
-                fontSize: 12, color: 'rgba(0,0,0,0.3)', lineHeight: 1.6,
+                fontSize: 13, color: 'rgba(0,0,0,0.5)', lineHeight: 1.6,
                 textAlign: 'center', maxWidth: 180, margin: 0,
               }}>
                 {item.desc}
@@ -195,7 +196,7 @@ export default function Home() {
         {/* Bottom quote */}
         <div style={{ padding: '48px 24px 80px', textAlign: 'center' }}>
           <p style={{
-            fontSize: 13, color: 'rgba(0,0,0,0.25)', fontStyle: 'italic',
+            fontSize: 13, color: 'rgba(0,0,0,0.45)', fontStyle: 'italic',
             fontFamily: mono, margin: 0, maxWidth: 500, marginLeft: 'auto', marginRight: 'auto',
           }}>
             &ldquo;txt carried human words. txxt carries agent trust.&rdquo;
@@ -282,7 +283,7 @@ export default function Home() {
         {/* Pillar 1 — Identity */}
         <div style={{
           display: 'flex', flexWrap: 'wrap' as const,
-          borderTop: '1px solid rgba(255,255,255,0.05)',
+          borderTop: '1px solid rgba(0,0,0,0.06)',
           minHeight: 480,
         }}>
           <div style={{
@@ -307,8 +308,8 @@ export default function Home() {
             flex: '1 1 50%', minWidth: 300,
             display: 'flex', alignItems: 'center', justifyContent: 'center',
             padding: 'clamp(32px, 4vw, 64px)',
-            background: 'rgba(255,255,255,0.015)',
-            borderLeft: '1px solid rgba(255,255,255,0.04)',
+            background: '#F0F0F0',
+            borderLeft: '1px solid rgba(0,0,0,0.06)',
           }}>
             <pre style={{
               fontSize: 'clamp(11px, 1.2vw, 13px)', fontFamily: mono,
@@ -329,15 +330,15 @@ export default function Home() {
         {/* Pillar 2 — Reputation (reversed) */}
         <div style={{
           display: 'flex', flexWrap: 'wrap-reverse' as const,
-          borderTop: '1px solid rgba(255,255,255,0.05)',
+          borderTop: '1px solid rgba(0,0,0,0.06)',
           minHeight: 480,
         }}>
           <div style={{
             flex: '1 1 50%', minWidth: 300,
             display: 'flex', alignItems: 'center', justifyContent: 'center',
             padding: 'clamp(32px, 4vw, 64px)',
-            background: 'rgba(255,255,255,0.015)',
-            borderRight: '1px solid rgba(255,255,255,0.04)',
+            background: '#F0F0F0',
+            borderRight: '1px solid rgba(0,0,0,0.06)',
           }}>
             <pre style={{
               fontSize: 'clamp(11px, 1.2vw, 13px)', fontFamily: mono,
@@ -378,7 +379,7 @@ export default function Home() {
         {/* Pillar 3 — Validation */}
         <div style={{
           display: 'flex', flexWrap: 'wrap' as const,
-          borderTop: '1px solid rgba(255,255,255,0.05)',
+          borderTop: '1px solid rgba(0,0,0,0.06)',
           borderBottom: '1px solid rgba(0,0,0,0.05)',
           minHeight: 480,
         }}>
@@ -404,8 +405,8 @@ export default function Home() {
             flex: '1 1 50%', minWidth: 300,
             display: 'flex', alignItems: 'center', justifyContent: 'center',
             padding: 'clamp(32px, 4vw, 64px)',
-            background: 'rgba(255,255,255,0.015)',
-            borderLeft: '1px solid rgba(255,255,255,0.04)',
+            background: '#F0F0F0',
+            borderLeft: '1px solid rgba(0,0,0,0.06)',
           }}>
             <pre style={{
               fontSize: 'clamp(11px, 1.2vw, 13px)', fontFamily: mono,
@@ -467,7 +468,7 @@ export default function Home() {
                 gap: 24, flexWrap: 'wrap' as const,
               }}>
                 <span style={{
-                  fontSize: 14, color: 'rgba(0,0,0,0.25)',
+                  fontSize: 14, color: 'rgba(0,0,0,0.4)',
                   textDecoration: 'line-through', fontFamily: mono,
                 }}>
                   {row.them}
@@ -512,15 +513,15 @@ export default function Home() {
             <div style={{
               display: 'flex', alignItems: 'center', gap: 8,
               padding: '14px 16px',
-              borderBottom: '1px solid rgba(0,0,0,0.04)',
-              background: 'rgba(255,255,255,0.015)',
+              borderBottom: '1px solid rgba(255,255,255,0.06)',
+              background: 'rgba(255,255,255,0.03)',
             }}>
               <div style={{ display: 'flex', gap: 6 }}>
                 {['#ff5f57','#febc2e','#28c840'].map(c => (
                   <div key={c} style={{ width: 12, height: 12, borderRadius: '50%', background: c }} />
                 ))}
               </div>
-              <span style={{ fontSize: 12, color: 'rgba(0,0,0,0.2)', fontFamily: mono, marginLeft: 8 }}>
+              <span style={{ fontSize: 12, color: 'rgba(255,255,255,0.3)', fontFamily: mono, marginLeft: 8 }}>
                 travel_planner.agent
               </span>
               <span style={{ marginLeft: 'auto' }}><TerminalCursor /></span>
@@ -531,36 +532,36 @@ export default function Home() {
                 <code>
                   <span style={{ color: '#5B4FFF' }}>agent</span>{' '}
                   <span style={{ color: '#00C896' }}>TravelPlanner</span>{' '}
-                  <span style={{ color: 'rgba(0,0,0,0.2)' }}>{'{'}</span>{'\n'}
-                  {'  '}<span style={{ color: 'rgba(0,0,0,0.35)' }}>requires:</span>{' '}
-                  <span style={{ color: 'rgba(0,0,0,0.5)' }}>[flight_search, hotel_booking]</span>{'\n'}
-                  {'  '}<span style={{ color: 'rgba(0,0,0,0.35)' }}>reputation_minimum:</span>{' '}
+                  <span style={{ color: 'rgba(255,255,255,0.3)' }}>{'{'}</span>{'\n'}
+                  {'  '}<span style={{ color: 'rgba(255,255,255,0.5)' }}>requires:</span>{' '}
+                  <span style={{ color: 'rgba(255,255,255,0.65)' }}>[flight_search, hotel_booking]</span>{'\n'}
+                  {'  '}<span style={{ color: 'rgba(255,255,255,0.5)' }}>reputation_minimum:</span>{' '}
                   <span style={{ color: '#00C896' }}>80</span>{'\n'}
                   {'\n'}
                   {'  '}<span style={{ color: '#5B4FFF' }}>task</span>{' '}
-                  <span style={{ color: '#0D0D0D' }}>plan_trip</span>
-                  <span style={{ color: 'rgba(0,0,0,0.35)' }}>(destination, budget)</span>{' '}
-                  <span style={{ color: 'rgba(0,0,0,0.2)' }}>{'{'}</span>{'\n'}
+                  <span style={{ color: '#FFFFFF' }}>plan_trip</span>
+                  <span style={{ color: 'rgba(255,255,255,0.5)' }}>(destination, budget)</span>{' '}
+                  <span style={{ color: 'rgba(255,255,255,0.3)' }}>{'{'}</span>{'\n'}
                   {'    '}<span style={{ color: '#5B4FFF' }}>let</span>{' '}
-                  <span style={{ color: '#0D0D0D' }}>flights</span>{' = '}
+                  <span style={{ color: '#FFFFFF' }}>flights</span>{' = '}
                   <span style={{ color: '#00C896' }}>discover</span>
-                  <span style={{ color: 'rgba(0,0,0,0.35)' }}>(</span>
+                  <span style={{ color: 'rgba(255,255,255,0.5)' }}>(</span>
                   <span style={{ color: '#f59e0b' }}>&quot;flight_search&quot;</span>
-                  <span style={{ color: 'rgba(0,0,0,0.35)' }}>, min_rep: </span>
+                  <span style={{ color: 'rgba(255,255,255,0.5)' }}>, min_rep: </span>
                   <span style={{ color: '#00C896' }}>85</span>
-                  <span style={{ color: 'rgba(0,0,0,0.35)' }}>)</span>{'\n'}
+                  <span style={{ color: 'rgba(255,255,255,0.5)' }}>)</span>{'\n'}
                   {'    '}<span style={{ color: '#5B4FFF' }}>let</span>{' '}
-                  <span style={{ color: '#0D0D0D' }}>result</span>{' = '}
+                  <span style={{ color: '#FFFFFF' }}>result</span>{' = '}
                   <span style={{ color: '#00C896' }}>delegate</span>
-                  <span style={{ color: 'rgba(0,0,0,0.35)' }}>(flights[0], destination)</span>{'\n'}
+                  <span style={{ color: 'rgba(255,255,255,0.5)' }}>(flights[0], destination)</span>{'\n'}
                   {'    '}<span style={{ color: '#00C896' }}>pay</span>
-                  <span style={{ color: 'rgba(0,0,0,0.35)' }}>(flights[0], result.cost)</span>{'\n'}
+                  <span style={{ color: 'rgba(255,255,255,0.5)' }}>(flights[0], result.cost)</span>{'\n'}
                   {'    '}<span style={{ color: '#00C896' }}>rate</span>
-                  <span style={{ color: 'rgba(0,0,0,0.35)' }}>(flights[0], score: </span>
+                  <span style={{ color: 'rgba(255,255,255,0.5)' }}>(flights[0], score: </span>
                   <span style={{ color: '#00C896' }}>95</span>
-                  <span style={{ color: 'rgba(0,0,0,0.35)' }}>)</span>{'\n'}
-                  {'  '}<span style={{ color: 'rgba(0,0,0,0.2)' }}>{'}'}</span>{'\n'}
-                  <span style={{ color: 'rgba(0,0,0,0.2)' }}>{'}'}</span>
+                  <span style={{ color: 'rgba(255,255,255,0.5)' }}>)</span>{'\n'}
+                  {'  '}<span style={{ color: 'rgba(255,255,255,0.3)' }}>{'}'}</span>{'\n'}
+                  <span style={{ color: 'rgba(255,255,255,0.3)' }}>{'}'}</span>
                 </code>
               </pre>
             </div>
@@ -573,10 +574,11 @@ export default function Home() {
         padding: 'clamp(160px, 22vh, 280px) 24px',
         textAlign: 'center',
         position: 'relative',
+        background: '#0A0A0A',
       }}>
         <div style={{
           position: 'absolute', inset: 0, pointerEvents: 'none',
-          background: 'radial-gradient(ellipse 50% 50% at 50% 50%, rgba(167,139,250,0.05) 0%, transparent 70%)',
+          background: 'radial-gradient(ellipse 50% 50% at 50% 50%, rgba(167,139,250,0.08) 0%, transparent 70%)',
         }} />
 
         <div style={{ position: 'relative', zIndex: 1 }}>
@@ -586,6 +588,7 @@ export default function Home() {
             letterSpacing: '-0.03em',
             lineHeight: 1.1,
             margin: '0 0 48px 0',
+            color: '#FFFFFF',
           }}>
             Build the infrastructure.
           </h2>

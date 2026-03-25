@@ -121,13 +121,13 @@ export default function BuildPage() {
         <h1 style={{ fontSize: 'clamp(36px, 6vw, 64px)', fontWeight: 700, letterSpacing: '-0.03em', lineHeight: 1.1, marginBottom: 24 }}>
           Your agent is one<br /><span style={{ color: '#00C896', fontFamily: mono }}>npm install</span> away.
         </h1>
-        <p style={{ fontSize: 'clamp(15px, 2vw, 18px)', color: 'rgba(255,255,255,0.45)', lineHeight: 1.8, maxWidth: 520 }}>
+        <p style={{ fontSize: 'clamp(15px, 2vw, 18px)', color: 'rgba(0,0,0,0.5)', lineHeight: 1.8, maxWidth: 520 }}>
           No token to buy. No gas price anxiety. No 47-page setup guide.
           Just code, deploy, earn.
         </p>
       </section>
 
-      <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.07), transparent)' }} />
+      <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(0,0,0,0.08), transparent)' }} />
 
       {/* Steps */}
       <section style={{ padding: 'clamp(64px, 8vw, 96px) 16px', maxWidth: 1100, margin: '0 auto' }}>
@@ -138,7 +138,7 @@ export default function BuildPage() {
           {steps.map((s, i) => (
             <div key={s.step} style={{
               paddingBottom: 48,
-              borderBottom: i < steps.length - 1 ? '1px solid rgba(255,255,255,0.05)' : 'none',
+              borderBottom: i < steps.length - 1 ? '1px solid rgba(0,0,0,0.08)' : 'none',
             }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 16 }}>
                 <div style={{ fontSize: 11, color: '#5B4FFF', fontFamily: mono, letterSpacing: '0.1em' }}>{s.step}</div>
@@ -148,12 +148,12 @@ export default function BuildPage() {
 
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 16 }}>
                 {/* Code */}
-                <div style={{ borderRadius: 12, border: '1px solid rgba(0,0,0,0.08)', background: '#0A0C1E', overflow: 'hidden' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: 6, padding: '10px 14px', borderBottom: '1px solid rgba(0,0,0,0.06)', background: 'rgba(255,255,255,0.01)' }}>
+                <div style={{ borderRadius: 12, border: '1px solid rgba(255,255,255,0.08)', background: '#0A0C1E', overflow: 'hidden' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 6, padding: '10px 14px', borderBottom: '1px solid rgba(255,255,255,0.06)', background: 'rgba(255,255,255,0.03)' }}>
                     {['#ff5f57','#febc2e','#28c840'].map(c => <div key={c} style={{ width: 10, height: 10, borderRadius: '50%', background: c }} />)}
-                    <span style={{ fontSize: 10, color: 'rgba(255,255,255,0.15)', fontFamily: mono, marginLeft: 8 }}>input</span>
+                    <span style={{ fontSize: 10, color: 'rgba(255,255,255,0.35)', fontFamily: mono, marginLeft: 8 }}>input</span>
                   </div>
-                  <pre style={{ padding: '20px', fontSize: 12, fontFamily: mono, lineHeight: 1.9, color: 'rgba(0,0,0,0.5)', margin: 0, overflowX: 'auto' }}>
+                  <pre style={{ padding: '20px', fontSize: 12, fontFamily: mono, lineHeight: 1.9, color: 'rgba(255,255,255,0.65)', margin: 0, overflowX: 'auto' }}>
                     <code>{s.code}</code>
                   </pre>
                 </div>
@@ -173,7 +173,7 @@ export default function BuildPage() {
         </div>
       </section>
 
-      <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.07), transparent)' }} />
+      <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(0,0,0,0.08), transparent)' }} />
 
       {/* What You'll Build */}
       <section style={{ padding: 'clamp(64px, 8vw, 96px) 16px', background: '#F7F7F7' }}>
@@ -188,10 +188,10 @@ export default function BuildPage() {
                 alignItems: 'center',
                 gap: 'clamp(16px, 3vw, 24px)',
                 padding: 'clamp(20px, 3vw, 28px) 0',
-                borderBottom: i < buildItems.length - 1 ? '1px solid rgba(255,255,255,0.05)' : 'none',
+                borderBottom: i < buildItems.length - 1 ? '1px solid rgba(0,0,0,0.08)' : 'none',
               }}>
                 <span style={{ fontSize: 28 }}>{item.icon}</span>
-                <span style={{ fontSize: 'clamp(16px, 2vw, 20px)', fontWeight: 500, color: 'rgba(255,255,255,0.7)' }}>
+                <span style={{ fontSize: 'clamp(16px, 2vw, 20px)', fontWeight: 500, color: '#0D0D0D' }}>
                   {item.text}
                 </span>
               </div>
@@ -200,7 +200,7 @@ export default function BuildPage() {
         </div>
       </section>
 
-      <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.07), transparent)' }} />
+      <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(0,0,0,0.08), transparent)' }} />
 
       {/* FAQ */}
       <section style={{ padding: 'clamp(64px, 8vw, 96px) 16px', background: '#13102A' }}>
@@ -212,20 +212,20 @@ export default function BuildPage() {
             {faqs.map((faq, i) => (
               <div key={i} style={{
                 padding: 'clamp(24px, 3vw, 32px) 0',
-                borderBottom: i < faqs.length - 1 ? '1px solid rgba(255,255,255,0.06)' : 'none',
+                borderBottom: i < faqs.length - 1 ? '1px solid rgba(255,255,255,0.08)' : 'none',
               }}>
                 <div style={{
                   fontSize: 'clamp(15px, 2vw, 18px)',
                   fontWeight: 600,
                   marginBottom: 12,
-                  color: '#0D0D0D',
+                  color: '#FFFFFF',
                 }}>
                   <span style={{ color: '#5B4FFF', fontFamily: mono, marginRight: 12 }}>Q:</span>
                   {faq.q}
                 </div>
                 <div style={{
                   fontSize: 'clamp(14px, 1.8vw, 16px)',
-                  color: 'rgba(0,0,0,0.5)',
+                  color: 'rgba(255,255,255,0.6)',
                   lineHeight: 1.7,
                   paddingLeft: 32,
                 }}>
@@ -238,7 +238,7 @@ export default function BuildPage() {
         </div>
       </section>
 
-      <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.07), transparent)' }} />
+      <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(0,0,0,0.08), transparent)' }} />
 
       {/* Resources */}
       <section style={{ padding: 'clamp(64px, 8vw, 96px) 16px' }}>
@@ -251,7 +251,7 @@ export default function BuildPage() {
               <Link key={r.title} href={r.href} style={{
                 display: 'block', padding: '28px', borderRadius: 12,
                 border: '1px solid rgba(0,0,0,0.08)',
-                background: 'rgba(255,255,255,0.02)',
+                background: '#FAFAFA',
                 textDecoration: 'none', color: 'inherit',
                 transition: 'border-color 0.2s',
               }}>
@@ -264,7 +264,7 @@ export default function BuildPage() {
         </div>
       </section>
 
-      <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.07), transparent)' }} />
+      <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(0,0,0,0.08), transparent)' }} />
 
       {/* CTA */}
       <section style={{ padding: 'clamp(64px, 8vw, 96px) 16px', textAlign: 'center' }}>
@@ -279,7 +279,7 @@ export default function BuildPage() {
             <Link href="#" style={{ padding: '14px 32px', borderRadius: 10, background: '#00C896', color: '#fff', fontWeight: 600, fontSize: 14, textDecoration: 'none' }}>
               Get Started Free
             </Link>
-            <Link href="/protocol" style={{ padding: '14px 32px', borderRadius: 10, border: '1px solid rgba(255,255,255,0.12)', color: 'rgba(255,255,255,0.8)', fontSize: 14, textDecoration: 'none' }}>
+            <Link href="/protocol" style={{ padding: '14px 32px', borderRadius: 10, border: '1px solid rgba(0,0,0,0.15)', color: '#0D0D0D', fontSize: 14, textDecoration: 'none' }}>
               Read the Protocol
             </Link>
           </div>

@@ -70,20 +70,20 @@ export default function ProtocolPage() {
         <p style={{ fontSize: 13, color: '#5B4FFF', fontFamily: mono, marginBottom: 16, letterSpacing: '0.05em' }}>
           txt: v1 · txxt: v2 — same wires, different civilization
         </p>
-        <p style={{ fontSize: 'clamp(15px, 2vw, 18px)', color: 'rgba(255,255,255,0.45)', lineHeight: 1.8, maxWidth: 520 }}>
+        <p style={{ fontSize: 'clamp(15px, 2vw, 18px)', color: 'rgba(0,0,0,0.5)', lineHeight: 1.8, maxWidth: 520 }}>
           Not a general-purpose chain with AI bolted on.<br />
           Every layer was designed with one user in mind: autonomous agents.
         </p>
       </section>
 
-      <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.07), transparent)' }} />
+      <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(0,0,0,0.08), transparent)' }} />
 
       {/* Specs — Impact Style */}
       <section style={{ padding: 'clamp(64px, 8vw, 96px) 16px', maxWidth: 1100, margin: '0 auto' }}>
         <div style={{ fontSize: 11, letterSpacing: '0.15em', color: 'rgba(0,0,0,0.3)', fontFamily: mono, marginBottom: 48, textTransform: 'uppercase' }}>
           The Numbers
         </div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 1, background: 'rgba(255,255,255,0.06)', borderRadius: 16, overflow: 'hidden', border: '1px solid rgba(0,0,0,0.08)' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 1, background: 'rgba(0,0,0,0.04)', borderRadius: 16, overflow: 'hidden', border: '1px solid rgba(0,0,0,0.08)' }}>
           {specs.map((s) => (
             <div key={s.value} style={{ padding: 'clamp(28px, 4vw, 40px) clamp(24px, 3vw, 36px)', background: '#FFFFFF' }}>
               <div style={{ fontSize: 'clamp(28px, 4vw, 42px)', fontWeight: 800, letterSpacing: '-0.03em', color: s.color, fontFamily: mono, marginBottom: 16, lineHeight: 1.1 }}>
@@ -100,7 +100,7 @@ export default function ProtocolPage() {
         </div>
       </section>
 
-      <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.07), transparent)' }} />
+      <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(0,0,0,0.08), transparent)' }} />
 
       {/* Architecture — ASCII Layer Diagram */}
       <section style={{ padding: 'clamp(64px, 8vw, 96px) 16px', background: '#F7F7F7' }}>
@@ -111,7 +111,7 @@ export default function ProtocolPage() {
 
           {/* ASCII Art Style Stack */}
           <div style={{ fontFamily: mono, fontSize: 'clamp(11px, 1.5vw, 14px)', lineHeight: 1.6, color: 'rgba(0,0,0,0.5)', marginBottom: 48 }}>
-            <div style={{ padding: '16px 0', borderBottom: '1px solid rgba(255,255,255,0.06)', color: 'rgba(0,0,0,0.25)' }}>
+            <div style={{ padding: '16px 0', borderBottom: '1px solid rgba(0,0,0,0.08)', color: 'rgba(0,0,0,0.35)' }}>
               {'// txxt protocol stack — bottom up'}
             </div>
           </div>
@@ -123,7 +123,7 @@ export default function ProtocolPage() {
                 gridTemplateColumns: 'auto 1fr auto',
                 gap: 'clamp(16px, 3vw, 32px)',
                 padding: 'clamp(20px, 3vw, 32px) 0',
-                borderBottom: i < layers.length - 1 ? '1px dashed rgba(255,255,255,0.08)' : 'none',
+                borderBottom: i < layers.length - 1 ? '1px dashed rgba(0,0,0,0.12)' : 'none',
                 alignItems: 'center',
               }}>
                 <div style={{
@@ -146,7 +146,7 @@ export default function ProtocolPage() {
                         fontFamily: mono,
                         padding: '4px 10px',
                         borderRadius: 6,
-                        background: 'rgba(255,255,255,0.04)',
+                        background: 'rgba(0,0,0,0.04)',
                         border: '1px solid rgba(0,0,0,0.08)',
                         color: 'rgba(0,0,0,0.45)',
                       }}>
@@ -163,13 +163,13 @@ export default function ProtocolPage() {
           </div>
 
           {/* ASCII footer */}
-          <div style={{ fontFamily: mono, fontSize: 12, color: 'rgba(255,255,255,0.15)', marginTop: 32, textAlign: 'center' }}>
+          <div style={{ fontFamily: mono, fontSize: 12, color: 'rgba(0,0,0,0.15)', marginTop: 32, textAlign: 'center' }}>
             ═══════════════════════════════════════
           </div>
         </div>
       </section>
 
-      <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.07), transparent)' }} />
+      <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(0,0,0,0.08), transparent)' }} />
 
       {/* Why PoAW? */}
       <section style={{ padding: 'clamp(64px, 8vw, 96px) 16px', background: '#13102A' }}>
@@ -180,7 +180,7 @@ export default function ProtocolPage() {
           <h2 style={{ fontSize: 'clamp(28px, 4vw, 44px)', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.15, marginBottom: 16 }}>
             Proof of Agent Work.
           </h2>
-          <p style={{ fontSize: 'clamp(14px, 1.8vw, 17px)', color: 'rgba(0,0,0,0.45)', lineHeight: 1.8, marginBottom: 48, maxWidth: 560 }}>
+          <p style={{ fontSize: 'clamp(14px, 1.8vw, 17px)', color: 'rgba(255,255,255,0.55)', lineHeight: 1.8, marginBottom: 48, maxWidth: 560 }}>
             Most blockchains reward you for having money (PoS) or burning electricity (PoW).
             txxt rewards you for <span style={{ color: '#00C896' }}>actually doing useful work</span>.
             Revolutionary? No. Obvious? Yes. Someone had to build it.
@@ -191,12 +191,12 @@ export default function ProtocolPage() {
               <div key={i} style={{
                 padding: 'clamp(24px, 3vw, 32px)',
                 borderRadius: 14,
-                border: '1px solid rgba(0,0,0,0.08)',
-                background: 'rgba(255,255,255,0.02)',
+                border: '1px solid rgba(255,255,255,0.1)',
+                background: 'rgba(255,255,255,0.04)',
               }}>
                 <div style={{ fontSize: 32, marginBottom: 16 }}>{step.emoji}</div>
-                <div style={{ fontSize: 16, fontWeight: 600, marginBottom: 8 }}>{step.title}</div>
-                <p style={{ fontSize: 13, color: 'rgba(0,0,0,0.4)', lineHeight: 1.7 }}>{step.desc}</p>
+                <div style={{ fontSize: 16, fontWeight: 600, marginBottom: 8, color: '#FFFFFF' }}>{step.title}</div>
+                <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.5)', lineHeight: 1.7 }}>{step.desc}</p>
               </div>
             ))}
           </div>
@@ -211,9 +211,9 @@ export default function ProtocolPage() {
             fontFamily: mono,
             fontSize: 'clamp(12px, 1.5vw, 14px)',
             lineHeight: 2,
-            color: 'rgba(255,255,255,0.45)',
+            color: 'rgba(255,255,255,0.6)',
           }}>
-            <div style={{ color: 'rgba(0,0,0,0.25)', marginBottom: 8 }}>{'// consensus comparison'}</div>
+            <div style={{ color: 'rgba(255,255,255,0.3)', marginBottom: 8 }}>{'// consensus comparison'}</div>
             <div><span style={{ color: '#FB923C' }}>PoW:</span> {"\"I burned electricity\"  → here's a block"}</div>
             <div><span style={{ color: '#5B4FFF' }}>PoS:</span> {"\"I have money\"         → here's a block"}</div>
             <div><span style={{ color: '#00C896' }}>PoAW:</span> {"\"I did useful work\"    → here's a block  ✓"}</div>
@@ -221,7 +221,7 @@ export default function ProtocolPage() {
         </div>
       </section>
 
-      <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.07), transparent)' }} />
+      <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(0,0,0,0.08), transparent)' }} />
 
       {/* CTA */}
       <section style={{ padding: 'clamp(64px, 8vw, 96px) 16px', textAlign: 'center' }}>
@@ -236,7 +236,7 @@ export default function ProtocolPage() {
             <Link href="/build" style={{ padding: '14px 32px', borderRadius: 10, background: '#00C896', color: '#fff', fontWeight: 600, fontSize: 14, textDecoration: 'none' }}>
               Start Building →
             </Link>
-            <Link href="#" style={{ padding: '14px 32px', borderRadius: 10, border: '1px solid rgba(255,255,255,0.12)', color: 'rgba(255,255,255,0.8)', fontSize: 14, textDecoration: 'none' }}>
+            <Link href="#" style={{ padding: '14px 32px', borderRadius: 10, border: '1px solid rgba(0,0,0,0.15)', color: '#0D0D0D', fontSize: 14, textDecoration: 'none' }}>
               Read Whitepaper
             </Link>
           </div>

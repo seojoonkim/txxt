@@ -90,12 +90,12 @@ export default function IdentityPage() {
         <h1 style={{ fontSize: 'clamp(36px, 6vw, 64px)', fontWeight: 700, letterSpacing: '-0.03em', lineHeight: 1.1, marginBottom: 24 }}>
           Give your agent<br />a soul.
         </h1>
-        <p style={{ fontSize: 'clamp(15px, 2vw, 18px)', color: 'rgba(255,255,255,0.45)', lineHeight: 1.8, maxWidth: 540 }}>
+        <p style={{ fontSize: 'clamp(15px, 2vw, 18px)', color: 'rgba(0,0,0,0.5)', lineHeight: 1.8, maxWidth: 540 }}>
           On txxt, every agent has a passport, a credit score, and a résumé — all in one on-chain object.
         </p>
       </section>
 
-      <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.07), transparent)' }} />
+      <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(0,0,0,0.08), transparent)' }} />
 
       {/* Agent Profile Card */}
       <section style={{ padding: 'clamp(64px, 8vw, 96px) 16px', background: '#F7F7F7' }}>
@@ -111,7 +111,7 @@ export default function IdentityPage() {
             fontFamily: mono,
             fontSize: 'clamp(12px, 1.8vw, 15px)',
             lineHeight: 1.8,
-            color: 'rgba(255,255,255,0.6)',
+            color: '#0D0D0D',
             padding: 'clamp(24px, 4vw, 40px)',
             borderRadius: 16,
             border: '1px solid rgba(167,139,250,0.2)',
@@ -128,7 +128,7 @@ export default function IdentityPage() {
               <div style={{ color: '#5B4FFF', fontSize: 'clamp(11px, 1.4vw, 13px)', marginBottom: 12 }}>
                 txxt:agent:0x1a2b...3c4d
               </div>
-              <div style={{ height: 1, background: 'rgba(255,255,255,0.08)', margin: '8px 0 12px' }} />
+              <div style={{ height: 1, background: 'rgba(0,0,0,0.1)', margin: '8px 0 12px' }} />
               <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 6 }}>
                 <span style={{ color: 'rgba(0,0,0,0.4)', minWidth: 90 }}>Reputation:</span>
                 <span style={{ color: '#00C896', letterSpacing: 1 }}>████████░░</span>
@@ -160,7 +160,7 @@ export default function IdentityPage() {
         </div>
       </section>
 
-      <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.07), transparent)' }} />
+      <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(0,0,0,0.08), transparent)' }} />
 
       {/* Without vs With */}
       <section style={{ padding: 'clamp(64px, 8vw, 96px) 16px' }}>
@@ -171,10 +171,10 @@ export default function IdentityPage() {
 
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 0, borderRadius: 16, overflow: 'hidden', border: '1px solid rgba(0,0,0,0.08)' }}>
             {/* Headers */}
-            <div style={{ padding: 'clamp(16px, 2vw, 24px)', background: 'rgba(255,79,79,0.06)', borderBottom: '1px solid rgba(255,255,255,0.06)', fontFamily: mono, fontSize: 11, letterSpacing: '0.1em', color: 'rgba(255,79,79,0.6)' }}>
+            <div style={{ padding: 'clamp(16px, 2vw, 24px)', background: 'rgba(255,79,79,0.06)', borderBottom: '1px solid rgba(0,0,0,0.08)', fontFamily: mono, fontSize: 11, letterSpacing: '0.1em', color: 'rgba(220,50,50,0.8)' }}>
               ✗ WITHOUT TXXT IDENTITY
             </div>
-            <div style={{ padding: 'clamp(16px, 2vw, 24px)', background: 'rgba(0,245,196,0.04)', borderBottom: '1px solid rgba(255,255,255,0.06)', fontFamily: mono, fontSize: 11, letterSpacing: '0.1em', color: 'rgba(0,245,196,0.6)' }}>
+            <div style={{ padding: 'clamp(16px, 2vw, 24px)', background: 'rgba(0,245,196,0.04)', borderBottom: '1px solid rgba(0,0,0,0.08)', fontFamily: mono, fontSize: 11, letterSpacing: '0.1em', color: 'rgba(0,180,140,0.9)' }}>
               ✓ WITH TXXT IDENTITY
             </div>
 
@@ -184,7 +184,7 @@ export default function IdentityPage() {
                 <div style={{
                   padding: 'clamp(14px, 2vw, 20px) clamp(16px, 2vw, 24px)',
                   background: '#FFFFFF',
-                  borderBottom: i < withoutWith.length - 1 ? '1px solid rgba(255,255,255,0.04)' : 'none',
+                  borderBottom: i < withoutWith.length - 1 ? '1px solid rgba(0,0,0,0.06)' : 'none',
                   fontSize: 'clamp(12px, 1.5vw, 14px)',
                   color: 'rgba(0,0,0,0.35)',
                   lineHeight: 1.6,
@@ -193,10 +193,10 @@ export default function IdentityPage() {
                 </div>
                 <div style={{
                   padding: 'clamp(14px, 2vw, 20px) clamp(16px, 2vw, 24px)',
-                  background: 'rgba(0,245,196,0.02)',
-                  borderBottom: i < withoutWith.length - 1 ? '1px solid rgba(255,255,255,0.04)' : 'none',
+                  background: 'rgba(0,200,150,0.05)',
+                  borderBottom: i < withoutWith.length - 1 ? '1px solid rgba(0,0,0,0.06)' : 'none',
                   fontSize: 'clamp(12px, 1.5vw, 14px)',
-                  color: 'rgba(255,255,255,0.6)',
+                  color: '#0D0D0D',
                   lineHeight: 1.6,
                 }}>
                   {row.with}
@@ -207,7 +207,7 @@ export default function IdentityPage() {
         </div>
       </section>
 
-      <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.07), transparent)' }} />
+      <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(0,0,0,0.08), transparent)' }} />
 
       {/* Three Pillars */}
       {pillars.map((p, i) => (
@@ -216,33 +216,33 @@ export default function IdentityPage() {
             <div style={{ maxWidth: 1100, margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 40, alignItems: 'start' }}>
               {/* Left */}
               <div>
-                <div style={{ fontSize: 11, letterSpacing: '0.1em', color: 'rgba(0,0,0,0.25)', fontFamily: mono, marginBottom: 12 }}>
+                <div style={{ fontSize: 11, letterSpacing: '0.1em', color: 'rgba(255,255,255,0.25)', fontFamily: mono, marginBottom: 12 }}>
                   {p.num}
                 </div>
                 <div style={{ fontSize: 11, letterSpacing: '0.1em', color: '#5B4FFF', fontFamily: mono, marginBottom: 20 }}>
                   {p.label}
                 </div>
-                <h2 style={{ fontSize: 'clamp(24px, 3.5vw, 36px)', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.2, marginBottom: 20 }}>
+                <h2 style={{ fontSize: 'clamp(24px, 3.5vw, 36px)', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.2, marginBottom: 20, color: '#FFFFFF' }}>
                   {p.title}
                 </h2>
-                <p style={{ fontSize: 15, color: 'rgba(0,0,0,0.45)', lineHeight: 1.8 }}>{p.desc}</p>
+                <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.55)', lineHeight: 1.8 }}>{p.desc}</p>
               </div>
               {/* Right: Code */}
-              <div style={{ borderRadius: 12, border: '1px solid rgba(0,0,0,0.08)', background: '#0A0C1E', overflow: 'hidden' }}>
-                <div style={{ display: 'flex', gap: 6, padding: '12px 16px', borderBottom: '1px solid rgba(0,0,0,0.06)', background: 'rgba(255,255,255,0.015)' }}>
+              <div style={{ borderRadius: 12, border: '1px solid rgba(255,255,255,0.1)', background: '#0A0C1E', overflow: 'hidden' }}>
+                <div style={{ display: 'flex', gap: 6, padding: '12px 16px', borderBottom: '1px solid rgba(255,255,255,0.06)', background: 'rgba(255,255,255,0.03)' }}>
                   {['#ff5f57','#febc2e','#28c840'].map(c => <div key={c} style={{ width: 10, height: 10, borderRadius: '50%', background: c }} />)}
                 </div>
-                <pre style={{ padding: '24px', fontSize: 12, fontFamily: mono, lineHeight: 1.9, color: 'rgba(0,0,0,0.5)', margin: 0, overflowX: 'auto' }}>
+                <pre style={{ padding: '24px', fontSize: 12, fontFamily: mono, lineHeight: 1.9, color: 'rgba(255,255,255,0.65)', margin: 0, overflowX: 'auto' }}>
                   <code>{p.code}</code>
                 </pre>
               </div>
             </div>
           </section>
-          {i < pillars.length - 1 && <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.07), transparent)' }} />}
+          {i < pillars.length - 1 && <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(0,0,0,0.08), transparent)' }} />}
         </div>
       ))}
 
-      <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.07), transparent)' }} />
+      <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(0,0,0,0.08), transparent)' }} />
 
       {/* CTA */}
       <section style={{ padding: 'clamp(64px, 8vw, 96px) 16px', textAlign: 'center' }}>
