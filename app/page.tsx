@@ -177,7 +177,7 @@ export default function Home() {
               fontWeight: 600, fontSize: 14, textDecoration: 'none',
               transition: 'opacity 0.2s',
             }}>
-              Start Building →
+              Start Building
             </Link>
             <Link href="#" style={{
               padding: '14px 32px', borderRadius: 10,
@@ -710,7 +710,7 @@ txxt.validate({
               background: '#A78BFA', color: '#0D0E1A',
               fontWeight: 600, fontSize: 14, textDecoration: 'none',
             }}>
-              Start Building →
+              Start Building
             </Link>
             <Link href="#" style={{
               padding: '14px 32px', borderRadius: 10,

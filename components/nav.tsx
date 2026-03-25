@@ -74,7 +74,7 @@ export default function Nav() {
               background: '#A78BFA', color: '#0D0E1A', fontWeight: 600,
               textDecoration: 'none', flexShrink: 0,
             }}>
-              Start Building →
+              Start Building
             </Link>
           )}
 
@@ -138,7 +138,7 @@ export default function Nav() {
               textDecoration: 'none', marginTop: 40,
             }}
           >
-            Start Building →
+            Start Building
           </Link>
         </div>
       )}
