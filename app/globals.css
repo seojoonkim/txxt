@@ -4,7 +4,7 @@
   --bg: #FFFFFF;
   --bg-2: #F7F7F7;
   --bg-3: #F0F0F0;
-  --accent: #007A5E;
+  --accent: #00C896;
   --accent2: #FB923C;
   --accent3: #00F5C4;
   --accent-dim: rgba(167, 139, 250, 0.1);
@@ -197,13 +197,6 @@ body {
   body {
     font-size: 16px;
     -webkit-text-size-adjust: 100%;
-  }
-  .hero-buttons {
-    flex-direction: column !important;
-  }
-  .hero-buttons a {
-    width: 100% !important;
-    text-align: center !important;
   }
   .cta-final-btn {
     width: 100% !important;
