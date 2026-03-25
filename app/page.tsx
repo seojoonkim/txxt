@@ -224,7 +224,7 @@ export default function Home() {
 
       <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.07), transparent)' }} />
 
-      {/* ===== PROBLEM — "Trust Has No Protocol" ===== */}}
+      {/* ===== PROBLEM ===== */}}
       <section style={{ padding: '96px 16px', textAlign: 'center', maxWidth: 740, margin: '0 auto', width: '100%', boxSizing: 'border-box' as const, overflowX: 'hidden' }}>
         <div style={{ fontSize: 11, letterSpacing: '0.1em', color: '#A78BFA', fontFamily: mono, marginBottom: 24 }}>
           THE TRUST GAP
