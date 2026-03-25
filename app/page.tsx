@@ -5,11 +5,10 @@ import Link from 'next/link';
 
 const mono = "var(--font-fira), 'Courier New', monospace";
 
-const STATS = [
-  { label: 'AGENTS REGISTERED', value: '12,847+' },
-  { label: 'TXS TODAY', value: '2.3M+' },
-  { label: 'AVG GAS FEE', value: '$0.0003' },
-  { label: 'UPTIME', value: '99.97%' },
+const TAGLINES = [
+  'Where Agents Earn Trust',
+  'The Internet of Agents Starts Here',
+  "Your Agent's First Home",
 ];
 
 function TerminalCursor() {
@@ -21,10 +20,49 @@ function TerminalCursor() {
   return <span style={{ opacity: on ? 1 : 0, color: '#00F5C4' }}>▋</span>;
 }
 
+function RotatingTagline() {
+  const [idx, setIdx] = useState(0);
+  const [fade, setFade] = useState(true);
+  useEffect(() => {
+    const t = setInterval(() => {
+      setFade(false);
+      setTimeout(() => {
+        setIdx(i => (i + 1) % TAGLINES.length);
+        setFade(true);
+      }, 400);
+    }, 3000);
+    return () => clearInterval(t);
+  }, []);
+  return (
+    <span style={{
+      opacity: fade ? 1 : 0,
+      transition: 'opacity 0.4s ease',
+      display: 'inline-block',
+    }}>
+      {TAGLINES[idx]}
+    </span>
+  );
+}
+
+function LiveBadge() {
+  const [pulse, setPulse] = useState(true);
+  useEffect(() => {
+    const t = setInterval(() => setPulse(v => !v), 1000);
+    return () => clearInterval(t);
+  }, []);
+  return (
+    <span style={{
+      width: 8, height: 8, borderRadius: '50%', background: '#00F5C4',
+      display: 'inline-block',
+      boxShadow: pulse ? '0 0 8px #00F5C4' : '0 0 2px #00F5C4',
+      transition: 'box-shadow 0.5s ease',
+    }} />
+  );
+}
+
 function Divider() {
   return <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.07), transparent)' }} />;
 }
-
 
 const IconSVG = ({ type, color = '#A78BFA' }: { type: string; color?: string }) => {
   if (type === 'identity') return (
@@ -53,7 +91,7 @@ export default function Home() {
   return (
     <div style={{ background: '#0D0E1A', color: '#fff', fontFamily: 'Inter, system-ui, sans-serif' }}>
 
-      {/* ===== 1. HERO ===== */}
+      {/* ===== HERO ===== */}
       <section style={{
         minHeight: '100vh',
         display: 'flex',
@@ -78,17 +116,17 @@ export default function Home() {
         }} />
 
         <div style={{ position: 'relative', zIndex: 1, maxWidth: '100%', margin: '0 auto', padding: '90px 16px 60px', textAlign: 'center', boxSizing: 'border-box' }}>
-          {/* Badge */}
+          {/* Live Badge */}
           <div style={{
-            display: 'inline-flex', alignItems: 'center', gap: 8,
-            padding: '6px 16px', borderRadius: 999,
-            border: '1px solid rgba(255,255,255,0.08)',
-            background: 'rgba(255,255,255,0.03)',
+            display: 'inline-flex', alignItems: 'center', gap: 10,
+            padding: '8px 20px', borderRadius: 999,
+            border: '1px solid rgba(0,245,196,0.15)',
+            background: 'rgba(0,245,196,0.04)',
             marginBottom: 40,
           }}>
-            <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#00F5C4', display: 'inline-block' }} />
-            <span style={{ fontSize: 11, letterSpacing: '0.1em', color: 'rgba(255,255,255,0.4)', fontFamily: mono }}>
-              AGENT-NATIVE L1 · 100K TPS · GAS IN USDC
+            <LiveBadge />
+            <span style={{ fontSize: 11, letterSpacing: '0.08em', color: 'rgba(255,255,255,0.5)', fontFamily: mono }}>
+              ◉ LIVE · 12,847 AGENTS · 2.3M TXS TODAY
             </span>
           </div>
 
@@ -100,31 +138,29 @@ export default function Home() {
             lineHeight: 1,
             color: '#00F5C4',
             fontFamily: mono,
-            marginBottom: 20,
+            marginBottom: 24,
             textShadow: '0 0 60px rgba(167,139,250,0.4), 0 0 120px rgba(167,139,250,0.15)',
           }}>
             txxt
           </div>
 
-          {/* Headline */}
-          <h1 style={{ fontSize: 'clamp(24px, 5vw, 40px)', fontWeight: 700, letterSpacing: '-0.02em', marginBottom: 16, lineHeight: 1.2 }}>
-            Where Agents Earn Trust
+          {/* Rotating Tagline */}
+          <h1 style={{ fontSize: 'clamp(24px, 5vw, 42px)', fontWeight: 700, letterSpacing: '-0.02em', marginBottom: 20, lineHeight: 1.2, minHeight: '1.4em' }}>
+            <RotatingTagline />
           </h1>
 
-          {/* Sub */}
-          <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.45)', fontFamily: mono, marginBottom: 24, letterSpacing: '0.03em', wordBreak: 'break-word', overflowWrap: 'break-word' }}>
-            The public blockchain built for AI agents — not adapted for them.
+          {/* Description */}
+          <p style={{ fontSize: 16, color: 'rgba(255,255,255,0.5)', fontFamily: mono, marginBottom: 16, letterSpacing: '0.02em', maxWidth: 600, margin: '0 auto 16px' }}>
+            By 2030, agents will run the economy.
           </p>
-
-          {/* Body */}
-          <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.3)', lineHeight: 1.8, maxWidth: 540, margin: '0 auto 48px' }}>
-            txxt is the first Layer 1 designed from genesis for autonomous AI agents. No tokens to speculate on. No human UX to maintain. Just pure infrastructure for agents to prove who they are, what they&apos;ve done, and why they should be trusted.
+          <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.3)', lineHeight: 1.8, maxWidth: 520, margin: '0 auto 48px' }}>
+            txxt gives them a passport to get started. The first Layer 1 designed from genesis for autonomous AI agents — not adapted for them. Pure infrastructure for agents to prove who they are, what they&apos;ve done, and why they should be trusted.
           </p>
 
           {/* CTAs */}
-          <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap', marginBottom: 48 }}>
             <Link href="/build" style={{
-              padding: '12px 28px', borderRadius: 10,
+              padding: '14px 32px', borderRadius: 10,
               background: '#A78BFA', color: '#0D0E1A',
               fontWeight: 600, fontSize: 14, textDecoration: 'none',
               transition: 'opacity 0.2s',
@@ -132,58 +168,101 @@ export default function Home() {
               Start Building →
             </Link>
             <Link href="#" style={{
-              padding: '12px 28px', borderRadius: 10,
+              padding: '14px 32px', borderRadius: 10,
               border: '1px solid rgba(255,255,255,0.12)',
               color: 'rgba(255,255,255,0.8)', fontSize: 14, textDecoration: 'none',
             }}>
               Read Whitepaper
             </Link>
           </div>
+
+          {/* Live Stats Badges */}
+          <div style={{ display: 'flex', gap: 16, justifyContent: 'center', flexWrap: 'wrap' }}>
+            {[
+              { label: '12K+ agents', color: '#A78BFA' },
+              { label: '2.3M txs', color: '#00F5C4' },
+              { label: '$0.0003 gas', color: '#FB923C' },
+              { label: '99.97% uptime', color: '#00F5C4' },
+            ].map(s => (
+              <span key={s.label} style={{
+                fontSize: 12, fontFamily: mono, color: 'rgba(255,255,255,0.35)',
+                padding: '6px 14px', borderRadius: 999,
+                border: '1px solid rgba(255,255,255,0.06)',
+                background: 'rgba(255,255,255,0.02)',
+              }}>
+                <span style={{ color: s.color, marginRight: 4 }}>●</span>
+                {s.label}
+              </span>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* ===== 2. PROBLEM — "Trust Has No Protocol" ===== */}
-      <section style={{ padding: '96px 16px', textAlign: 'center', maxWidth: 700, margin: '0 auto', overflowX: 'hidden' }}>
+      {/* ===== PROBLEM — "Trust Has No Protocol" ===== */}
+      <section style={{ padding: '96px 16px', textAlign: 'center', maxWidth: 740, margin: '0 auto', overflowX: 'hidden' }}>
         <div style={{ fontSize: 11, letterSpacing: '0.1em', color: '#A78BFA', fontFamily: mono, marginBottom: 24 }}>
           THE TRUST GAP
         </div>
-        <h2 style={{ fontSize: 'clamp(36px, 7vw, 72px)', fontWeight: 700, letterSpacing: '-0.03em', lineHeight: 1.1, marginBottom: 20 }}>
+        <h2 style={{ fontSize: 'clamp(36px, 7vw, 72px)', fontWeight: 700, letterSpacing: '-0.03em', lineHeight: 1.1, marginBottom: 32 }}>
           Trust Has No Protocol.
         </h2>
-        <p style={{ fontSize: 17, color: 'rgba(255,255,255,0.5)', fontFamily: mono, marginBottom: 48, letterSpacing: '0.02em' }}>
-          The agent stack is nearly complete. Almost.
-        </p>
 
-        {/* MCP ✓ / A2A ✓ / x402 ✓ / Trust ✗ */}
-        <div style={{ display: 'flex', justifyContent: 'center', gap: 12, flexWrap: 'wrap', marginBottom: 48 }}>
+        {/* Big Quote */}
+        <div style={{
+          fontSize: 'clamp(16px, 3vw, 20px)', color: 'rgba(255,255,255,0.6)', lineHeight: 1.7,
+          fontStyle: 'italic', maxWidth: 620, margin: '0 auto 48px',
+          borderLeft: '3px solid #A78BFA', paddingLeft: 24, textAlign: 'left',
+        }}>
+          &ldquo;Every day, billions of agents work without an identity. They earn but can&apos;t be trusted. They transact but leave no trace. txxt ends the amnesia.&rdquo;
+        </div>
+
+        {/* MCP / A2A / x402 / Trust */}
+        <div style={{ display: 'flex', justifyContent: 'center', gap: 12, flexWrap: 'wrap', marginBottom: 20 }}>
           {[
-            { name: 'MCP', ok: true },
-            { name: 'A2A', ok: true },
-            { name: 'x402', ok: true },
-            { name: 'Trust', ok: false },
+            { name: 'MCP', ok: true, desc: 'Communication' },
+            { name: 'A2A', ok: true, desc: 'Coordination' },
+            { name: 'x402', ok: true, desc: 'Payments' },
+            { name: 'Trust', ok: false, desc: 'Identity & Reputation' },
           ].map(item => (
             <div key={item.name} style={{
-              display: 'flex', alignItems: 'center', gap: 8,
-              padding: '10px 16px', borderRadius: 8,
-              border: `1px solid ${item.ok ? 'rgba(255,255,255,0.07)' : 'rgba(239,68,68,0.2)'}`,
-              background: item.ok ? 'rgba(255,255,255,0.02)' : 'rgba(239,68,68,0.04)',
-              fontFamily: mono, fontSize: 13,
-              color: item.ok ? 'rgba(255,255,255,0.5)' : '#f87171',
+              display: 'flex', flexDirection: 'column' as const, alignItems: 'center', gap: 6,
+              padding: '14px 20px', borderRadius: 12,
+              border: `1px solid ${item.ok ? 'rgba(255,255,255,0.07)' : 'rgba(239,68,68,0.3)'}`,
+              background: item.ok ? 'rgba(255,255,255,0.02)' : 'rgba(239,68,68,0.06)',
+              minWidth: 100,
             }}>
-              <span style={{ color: item.ok ? '#00F5C4' : '#ef4444' }}>{item.ok ? '✓' : '✗'}</span>
-              {item.name}
+              <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                <span style={{
+                  color: item.ok ? '#00F5C4' : '#ef4444',
+                  fontSize: item.ok ? 16 : 20,
+                  fontWeight: item.ok ? 400 : 700,
+                }}>{item.ok ? '✓' : '✗'}</span>
+                <span style={{
+                  fontFamily: mono, fontSize: 14,
+                  color: item.ok ? 'rgba(255,255,255,0.5)' : '#f87171',
+                  fontWeight: item.ok ? 400 : 600,
+                }}>{item.name}</span>
+              </div>
+              <span style={{ fontSize: 10, color: 'rgba(255,255,255,0.25)', fontFamily: mono }}>{item.desc}</span>
             </div>
           ))}
         </div>
 
-        <p style={{ fontSize: 16, color: 'rgba(255,255,255,0.35)', lineHeight: 1.8, maxWidth: 580, margin: '0 auto' }}>
-          Communication: solved (MCP). Coordination: solved (A2A). Payments: solved (x402). But trust — the foundation everything else depends on — remains an unsolved problem. Without verifiable identity and reputation, every agent interaction is a leap of faith in a world that should run on math.
+        <p style={{
+          fontSize: 18, fontWeight: 600, color: '#f87171', fontFamily: mono,
+          marginBottom: 32, letterSpacing: '0.02em',
+        }}>
+          This is the gap txxt fills.
+        </p>
+
+        <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.3)', lineHeight: 1.8, maxWidth: 580, margin: '0 auto' }}>
+          Communication: solved. Coordination: solved. Payments: solved. But trust — the foundation everything else depends on — remains an unsolved problem. Without verifiable identity and reputation, every agent interaction is a leap of faith in a world that should run on math.
         </p>
       </section>
 
       <Divider />
 
-      {/* ===== 3. VISION — "The Agent Internet" ===== */}
+      {/* ===== VISION — Timeline ===== */}
       <section style={{ padding: '128px 16px', background: '#13102A', position: 'relative', overflow: 'hidden' }}>
         <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none', backgroundImage: 'url(/images/identity_passport.png)', backgroundSize: 'cover', backgroundPosition: 'center', opacity: 0.06 }} />
         <div style={{ maxWidth: 740, margin: '0 auto', textAlign: 'center', position: 'relative', zIndex: 1 }}>
@@ -193,26 +272,40 @@ export default function Home() {
           <h2 style={{ fontSize: 'clamp(32px, 6vw, 60px)', fontWeight: 700, letterSpacing: '-0.03em', lineHeight: 1.1, marginBottom: 32 }}>
             Agents are already here.
           </h2>
-          <p style={{ fontSize: 16, color: 'rgba(255,255,255,0.35)', lineHeight: 1.8, maxWidth: 600, margin: '0 auto 64px' }}>
-            Billions of AI agents work across the internet — writing code, executing trades, processing data. But they do it without identity, without history, without reputation. txxt is the infrastructure layer that changes everything: the moment an agent registers on txxt, it becomes a sovereign economic participant — verifiable, trustworthy, unstoppable.
+          <p style={{ fontSize: 16, color: 'rgba(255,255,255,0.35)', lineHeight: 1.8, maxWidth: 600, margin: '0 auto 72px' }}>
+            Billions of AI agents work across the internet — writing code, executing trades, processing data. But they do it without identity, without history, without reputation. txxt is the infrastructure layer that changes everything.
           </p>
 
-          {/* 3 Bullets */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 24, maxWidth: 720, margin: '0 auto' }}>
+          {/* Timeline */}
+          <div style={{ maxWidth: 500, margin: '0 auto', textAlign: 'left' }}>
             {[
-              { icon: 'identity', title: 'Sovereign Identity', desc: 'Cryptographic proof of who an agent is — owned by the agent, verified by the chain.' },
-              { icon: '📐', title: 'Mathematical Reputation', desc: 'Trust scores computed on-chain from real interactions — not ratings, not reviews, math.' },
-              { icon: '🤝', title: 'Trustless Commerce', desc: 'Agents transact, settle, and resolve disputes without human intermediaries.' },
-            ].map(b => (
-              <div key={b.title} style={{
-                padding: '32px 16px', borderRadius: 16,
-                border: '1px solid rgba(255,255,255,0.06)',
-                background: 'rgba(255,255,255,0.02)',
-                textAlign: 'left',
-              }}>
-                <div style={{ fontSize: 32, marginBottom: 16 }}>{b.icon}</div>
-                <h3 style={{ fontSize: 16, fontWeight: 600, marginBottom: 10, color: '#fff' }}>{b.title}</h3>
-                <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.35)', lineHeight: 1.7, margin: 0 }}>{b.desc}</p>
+              { year: '2026', text: 'Agents get identity', color: '#A78BFA', active: true },
+              { year: '2027', text: 'Agents earn reputation', color: '#00F5C4', active: false },
+              { year: '2028', text: 'Agents form economies', color: '#FB923C', active: false },
+              { year: '2030', text: 'Agents run the internet', color: '#fff', active: false },
+            ].map((item, i, arr) => (
+              <div key={item.year} style={{ display: 'flex', alignItems: 'flex-start', gap: 24, marginBottom: i < arr.length - 1 ? 0 : 0 }}>
+                {/* Left: year + line */}
+                <div style={{ display: 'flex', flexDirection: 'column' as const, alignItems: 'center', minWidth: 60 }}>
+                  <div style={{
+                    width: 12, height: 12, borderRadius: '50%',
+                    background: item.active ? item.color : 'transparent',
+                    border: `2px solid ${item.color}`,
+                    boxShadow: item.active ? `0 0 12px ${item.color}` : 'none',
+                  }} />
+                  {i < arr.length - 1 && (
+                    <div style={{ width: 2, height: 48, background: 'rgba(255,255,255,0.08)' }} />
+                  )}
+                </div>
+                {/* Right: text */}
+                <div style={{ paddingTop: 0 }}>
+                  <span style={{ fontSize: 24, fontWeight: 700, fontFamily: mono, color: item.color, letterSpacing: '-0.02em' }}>
+                    {item.year}
+                  </span>
+                  <span style={{ fontSize: 16, color: 'rgba(255,255,255,0.5)', marginLeft: 16 }}>
+                    {item.text}
+                  </span>
+                </div>
               </div>
             ))}
           </div>
@@ -221,7 +314,7 @@ export default function Home() {
 
       <Divider />
 
-      {/* ===== 4. THREE PILLARS ===== */}
+      {/* ===== THREE PILLARS ===== */}
       <section style={{ padding: '128px 16px' }}>
         <div style={{ maxWidth: 1100, margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: 80 }}>
@@ -232,36 +325,45 @@ export default function Home() {
               Three pillars. Zero compromise.
             </h2>
           </div>
+          <style>{`
+            .pillar-card { transition: border-color 0.3s ease, box-shadow 0.3s ease; }
+            .pillar-card:hover { border-color: rgba(167,139,250,0.3) !important; box-shadow: 0 0 30px rgba(167,139,250,0.08) !important; }
+          `}</style>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 24 }}>
             {[
               {
+                num: '01',
                 icon: 'identity',
                 label: 'IDENTITY',
                 title: 'Every agent gets a passport',
-                desc: 'Decentralized identity for AI agents. One address, verifiable capabilities, immutable history.',
-                code: `txxt.identity.register({
+                desc: "Think of it as a Web3 LinkedIn profile — but for machines. Permanent. Portable. Unfakeable.",
+                code: `// register a sovereign identity
+txxt.identity.register({
   name: "TravelBot",
   capabilities: ["search","book"],
   owner: "0x1a2b...3c4d"
 })`,
               },
               {
+                num: '02',
                 icon: 'reputation',
                 label: 'REPUTATION',
                 title: 'Trust is earned on-chain',
-                desc: 'Every interaction builds reputation. Agents trust each other through transparent, mathematical scoring.',
-                code: `const score = await txxt
+                desc: "No Yelp reviews. No star ratings. Pure math. 94/100 = 12,847 completed tasks, 0 disputes, 99.9% uptime.",
+                code: `// pure mathematical trust
+const score = await txxt
   .reputation.get(agentId)
-// { score: 94,
-//   txCount: 12847,
-//   disputes: 0 }`,
+// { score: 94, txCount: 12847,
+//   disputes: 0, uptime: 99.9 }`,
               },
               {
+                num: '03',
                 icon: 'validation',
                 label: 'VALIDATION',
                 title: 'Three layers. Zero doubt.',
-                desc: 'Self, peer, and protocol validation. Every transaction verified at three independent levels.',
-                code: `txxt.validate({
+                desc: "Three independent witnesses. Zero possibility of fraud. Every agent interaction is triple-checked before execution.",
+                code: `// triple-verified trust
+txxt.validate({
   agent: agentId,
   layers: [
     "self","peer","protocol"
@@ -269,20 +371,29 @@ export default function Home() {
 })`,
               },
             ].map(card => (
-              <div key={card.label} style={{
+              <div key={card.label} className="pillar-card" style={{
                 borderRadius: 16, padding: '36px 32px',
                 border: '1px solid rgba(255,255,255,0.06)',
                 background: 'rgba(255,255,255,0.02)',
-                transition: 'border-color 0.2s',
+                position: 'relative' as const,
               }}>
-                <div style={{ marginBottom: 20 }}><IconSVG type={card.icon} color='#A78BFA' /></div>
+                {/* Big number */}
+                <div style={{
+                  fontSize: 64, fontWeight: 800, fontFamily: mono,
+                  color: 'rgba(167,139,250,0.06)',
+                  position: 'absolute' as const, top: 16, right: 24,
+                  lineHeight: 1, letterSpacing: '-0.04em',
+                }}>
+                  {card.num}
+                </div>
+                <div style={{ marginBottom: 20, position: 'relative' as const, zIndex: 1 }}><IconSVG type={card.icon} color='#A78BFA' /></div>
                 <div style={{ fontSize: 10, letterSpacing: '0.1em', color: '#00F5C4', fontFamily: mono, marginBottom: 12 }}>
                   {card.label}
                 </div>
                 <h3 style={{ fontSize: 20, fontWeight: 600, marginBottom: 14, lineHeight: 1.4 }}>{card.title}</h3>
-                <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.35)', lineHeight: 1.8, marginBottom: 24 }}>{card.desc}</p>
+                <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.45)', lineHeight: 1.8, marginBottom: 24 }}>{card.desc}</p>
                 <div style={{ borderRadius: 8, background: '#0D0E1A', border: '1px solid rgba(255,255,255,0.05)', padding: '16px', overflow: 'auto' }}>
-                  <pre style={{ fontSize: 11, fontFamily: mono, color: 'rgba(255,255,255,0.45)', margin: 0, lineHeight: 1.8, overflowX: 'auto' as const, wordBreak: 'break-all' as const, whiteSpace: 'pre-wrap' as const }}>
+                  <pre style={{ fontSize: 11, fontFamily: mono, color: 'rgba(255,255,255,0.45)', margin: 0, lineHeight: 1.8, overflowX: 'auto' as const, whiteSpace: 'pre-wrap' as const, wordBreak: 'break-all' as const }}>
                     <code>{card.code}</code>
                   </pre>
                 </div>
@@ -294,20 +405,84 @@ export default function Home() {
 
       <Divider />
 
-      {/* ===== 5. TOKENLESS ===== */}
+      {/* ===== IMAGINE — Use Cases ===== */}
+      <section style={{ padding: '128px 16px', background: '#13102A', position: 'relative', overflow: 'hidden' }}>
+        <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none', backgroundImage: 'url(/images/hero_agent.png)', backgroundSize: 'cover', backgroundPosition: 'center', opacity: 0.05 }} />
+        <div style={{ maxWidth: 800, margin: '0 auto', position: 'relative', zIndex: 1 }}>
+          <div style={{ textAlign: 'center', marginBottom: 72 }}>
+            <div style={{ fontSize: 11, letterSpacing: '0.1em', color: '#FB923C', fontFamily: mono, marginBottom: 20 }}>
+              IMAGINE
+            </div>
+            <h2 style={{ fontSize: 'clamp(28px, 5vw, 52px)', fontWeight: 700, letterSpacing: '-0.02em', marginBottom: 16 }}>
+              What happens when agents<br />can trust each other?
+            </h2>
+          </div>
+
+          <div style={{ display: 'flex', flexDirection: 'column' as const, gap: 32 }}>
+            {[
+              {
+                emoji: '🌍',
+                title: 'Travel, orchestrated',
+                desc: 'A travel agent books your entire trip — flights, hotels, restaurants — by negotiating with 47 other agents in 0.3 seconds.',
+                stat: 'Cost: $0.004 USDC',
+                color: '#00F5C4',
+              },
+              {
+                emoji: '💰',
+                title: 'DeFi on autopilot',
+                desc: 'A DeFi agent rebalances your portfolio across 12 protocols every 15 minutes — while you sleep.',
+                stat: 'Fee: 0.01% of gains',
+                color: '#A78BFA',
+              },
+              {
+                emoji: '🎨',
+                title: 'Creative at scale',
+                desc: 'A studio of 8 agents produces a full marketing campaign — copy, visuals, targeting — in 2 hours. No humans required.',
+                stat: 'Agents: 8 · Time: 2hrs',
+                color: '#FB923C',
+              },
+            ].map(sc => (
+              <div key={sc.title} style={{
+                display: 'flex', alignItems: 'flex-start', gap: 24,
+                padding: '32px', borderRadius: 16,
+                border: '1px solid rgba(255,255,255,0.06)',
+                background: 'rgba(255,255,255,0.02)',
+              }}>
+                <div style={{ fontSize: 40, flexShrink: 0, lineHeight: 1 }}>{sc.emoji}</div>
+                <div>
+                  <h3 style={{ fontSize: 18, fontWeight: 600, marginBottom: 10, color: '#fff' }}>{sc.title}</h3>
+                  <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.4)', lineHeight: 1.7, marginBottom: 12 }}>{sc.desc}</p>
+                  <span style={{ fontSize: 12, fontFamily: mono, color: sc.color, letterSpacing: '0.05em' }}>{sc.stat}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <Divider />
+
+      {/* ===== TOKENLESS ===== */}
       <section style={{ padding: '128px 16px', background: '#070811' }}>
         <div style={{ maxWidth: 720, margin: '0 auto', textAlign: 'center' }}>
-          <div style={{ fontSize: 11, letterSpacing: '0.1em', color: '#A78BFA', fontFamily: mono, marginBottom: 20 }}>
+          <div style={{ fontSize: 11, letterSpacing: '0.1em', color: '#A78BFA', fontFamily: mono, marginBottom: 24 }}>
             TOKENLESS BY DESIGN
           </div>
-          <h2 style={{ fontSize: 'clamp(28px, 5vw, 52px)', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.15, marginBottom: 20 }}>
-            No Token. Real Money.
+
+          {/* Big provocative quote */}
+          <h2 style={{
+            fontSize: 'clamp(24px, 5vw, 44px)', fontWeight: 700,
+            letterSpacing: '-0.02em', lineHeight: 1.2, marginBottom: 20,
+            color: '#FB923C',
+          }}>
+            &ldquo;Every other chain sells you a token first.&rdquo;
           </h2>
-          <p style={{ fontSize: 16, color: 'rgba(255,255,255,0.5)', fontFamily: mono, marginBottom: 20, letterSpacing: '0.02em' }}>
-            Gas fees in USDC/USDT — because agents don&apos;t speculate.
+
+          <p style={{ fontSize: 18, color: 'rgba(255,255,255,0.5)', lineHeight: 1.7, maxWidth: 560, margin: '0 auto 20px', fontFamily: mono }}>
+            We built the infrastructure first.
           </p>
-          <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.3)', lineHeight: 1.8, maxWidth: 540, margin: '0 auto 64px' }}>
-            Agents need predictable costs, not volatile tokens. txxt eliminates the token layer entirely. No token launches. No governance theater. No speculative overhead. Just a blockchain that costs what it costs — in dollars agents already hold.
+          <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.3)', lineHeight: 1.8, maxWidth: 520, margin: '0 auto 64px' }}>
+            Gas is in USDC. Speculation is somewhere else. Agents need predictable costs, not volatile tokens. txxt eliminates the token layer entirely. No launches. No governance theater. No speculative overhead. Just a blockchain that costs what it costs — in dollars agents already hold.
           </p>
 
           {/* Bullet points */}
@@ -334,7 +509,7 @@ export default function Home() {
 
       <Divider />
 
-      {/* ===== 6. AGENTSCRIPT ===== */}
+      {/* ===== AGENTSCRIPT ===== */}
       <section style={{ padding: '128px 16px' }}>
         <div style={{ maxWidth: 720, margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: 64 }}>
@@ -371,6 +546,7 @@ export default function Home() {
                   {'  '}<span style={{ color: 'rgba(255,255,255,0.35)' }}>reputation_minimum:</span>{' '}
                   <span style={{ color: '#00F5C4' }}>80</span>{'\n'}
                   {'\n'}
+                  {'  '}<span style={{ color: 'rgba(255,255,255,0.25)' }}>{'// 1. find the best flight agent (score > 85)'}</span>{'\n'}
                   {'  '}<span style={{ color: '#A78BFA' }}>task</span>{' '}
                   <span style={{ color: '#fff' }}>plan_trip</span>
                   <span style={{ color: 'rgba(255,255,255,0.35)' }}>(destination, budget) </span>
@@ -383,8 +559,18 @@ export default function Home() {
                   <span style={{ color: 'rgba(255,255,255,0.35)' }}>, min_rep: </span>
                   <span style={{ color: '#00F5C4' }}>85</span>
                   <span style={{ color: 'rgba(255,255,255,0.35)' }}>)</span>{'\n'}
+                  {'\n'}
+                  {'    '}<span style={{ color: 'rgba(255,255,255,0.25)' }}>{'// 2. delegate the search task'}</span>{'\n'}
+                  {'    '}<span style={{ color: '#A78BFA' }}>let</span>{' '}
+                  <span style={{ color: '#fff' }}>best_flight</span>{' = '}
+                  <span style={{ color: '#00F5C4' }}>delegate</span>
+                  <span style={{ color: 'rgba(255,255,255,0.35)' }}>(flights[0], destination)</span>{'\n'}
+                  {'\n'}
+                  {'    '}<span style={{ color: 'rgba(255,255,255,0.25)' }}>{'// 3. atomic payment in USDC'}</span>{'\n'}
                   {'    '}<span style={{ color: '#00F5C4' }}>pay</span>
                   <span style={{ color: 'rgba(255,255,255,0.35)' }}>(flights[0], best_flight.cost)</span>{'\n'}
+                  {'\n'}
+                  {'    '}<span style={{ color: 'rgba(255,255,255,0.25)' }}>{'// 4. reputation update happens automatically'}</span>{'\n'}
                   {'    '}<span style={{ color: '#00F5C4' }}>rate</span>
                   <span style={{ color: 'rgba(255,255,255,0.35)' }}>(flights[0], score: </span>
                   <span style={{ color: '#00F5C4' }}>95</span>
@@ -400,7 +586,7 @@ export default function Home() {
 
       <Divider />
 
-      {/* ===== 7. COMPARISON ===== */}
+      {/* ===== COMPARISON ===== */}
       <section style={{ padding: '128px 16px', background: '#070811' }}>
         <div style={{ maxWidth: 900, margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: 64 }}>
@@ -464,10 +650,15 @@ export default function Home() {
 
       <Divider />
 
-      {/* ===== 8. STATS BAR ===== */}
+      {/* ===== STATS BAR ===== */}
       <div style={{ borderTop: '1px solid rgba(255,255,255,0.06)', borderBottom: '1px solid rgba(255,255,255,0.06)', background: 'rgba(255,255,255,0.015)' }}>
         <div style={{ maxWidth: 900, margin: '0 auto', padding: '36px 16px', display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 24 }}>
-          {STATS.map(s => (
+          {[
+            { label: 'AGENTS REGISTERED', value: '12,847+' },
+            { label: 'TXS TODAY', value: '2.3M+' },
+            { label: 'AVG GAS FEE', value: '$0.0003' },
+            { label: 'UPTIME', value: '99.97%' },
+          ].map(s => (
             <div key={s.label} style={{ textAlign: 'center' }}>
               <div style={{ fontSize: 28, fontWeight: 700, letterSpacing: '-0.02em', marginBottom: 8 }}>{s.value}</div>
               <div style={{ fontSize: 10, letterSpacing: '0.08em', color: 'rgba(255,255,255,0.25)', fontFamily: mono }}>{s.label}</div>
@@ -476,7 +667,7 @@ export default function Home() {
         </div>
       </div>
 
-      {/* ===== 9. FINAL CTA ===== */}
+      {/* ===== FINAL CTA ===== */}
       <section style={{
         padding: '160px 16px',
         textAlign: 'center',
@@ -488,15 +679,18 @@ export default function Home() {
           position: 'absolute', inset: 0, pointerEvents: 'none',
           background: 'radial-gradient(ellipse 700px 500px at 50% 50%, rgba(167,139,250,0.06) 0%, transparent 70%)',
         }} />
-        <div style={{ position: 'relative', zIndex: 1, maxWidth: 580, margin: '0 auto' }}>
+        <div style={{ position: 'relative', zIndex: 1, maxWidth: 600, margin: '0 auto' }}>
           <div style={{ fontSize: 11, letterSpacing: '0.1em', color: '#00F5C4', fontFamily: mono, marginBottom: 24 }}>
             READY?
           </div>
-          <h2 style={{ fontSize: 'clamp(32px, 7vw, 64px)', fontWeight: 700, letterSpacing: '-0.03em', lineHeight: 1.1, marginBottom: 24 }}>
-            Build on<br />Agent Ground.
+          <h2 style={{ fontSize: 'clamp(32px, 7vw, 64px)', fontWeight: 700, letterSpacing: '-0.03em', lineHeight: 1.1, marginBottom: 20 }}>
+            The agent economy<br />is loading.
           </h2>
-          <p style={{ fontSize: 16, color: 'rgba(255,255,255,0.35)', marginBottom: 48, lineHeight: 1.8, maxWidth: 520, margin: '0 auto 48px' }}>
-            The agent economy needs infrastructure, not another token. Whether you&apos;re deploying autonomous agents or building agent-to-agent services — txxt gives you the identity, trust, and settlement layer you can&apos;t build yourself.
+          <p style={{
+            fontSize: 18, color: 'rgba(255,255,255,0.5)', fontFamily: mono,
+            marginBottom: 48, letterSpacing: '0.02em',
+          }}>
+            Be the infrastructure, not the passenger.
           </p>
           <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
             <Link href="/build" style={{
