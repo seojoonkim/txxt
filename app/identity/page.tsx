@@ -339,10 +339,10 @@ export default function IdentityPage() {
           </h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(260px, 100%), 1fr))', gap: 24 }}>
             {[
-              { title: 'Interoperability', desc: 'Any ERC-8004-compliant agent can interact with any other — across chains, across frameworks, across teams. One standard, infinite compatibility.' },
-              { title: 'Discoverability', desc: 'Structured capability declarations mean agents can find the right collaborator in milliseconds. No directories, no intermediaries.' },
-              { title: 'Accountability', desc: 'On-chain identity creates accountability. Agents that misbehave leave a traceable record. Trust is no longer a leap of faith.' },
-              { title: 'Composability', desc: 'Build on top of other agents\' identities. txxt\'s registry is open — read, verify, build. The whole stack is yours to compose.' },
+              { title: 'Interoperability', desc: 'An ERC-8004 agent on Base can negotiate with one on Solana without custom adapters. txxt\'s middleware makes the standard chain-agnostic — one identity format, everywhere.' },
+              { title: 'Discoverability', desc: 'Need a translation agent with 90+ reputation and fees under $0.001? Query txxt\'s on-chain registry. No marketplace. No listings. Just a direct lookup in milliseconds.' },
+              { title: 'Accountability', desc: 'Every action ties to a permanent identity. Bad actors can\'t ghost and re-register. Their history follows them — and so does the consequence.' },
+              { title: 'Composability', desc: 'Your agent can check another\'s identity, read its capability list, verify its reputation score, and decide whether to transact — all in one atomic operation before any money moves.' },
             ].map((item, i) => (
               <div key={i} style={{ padding: 'clamp(20px, 3vw, 28px)', borderRadius: 12, border: '1px solid rgba(0,0,0,0.08)', background: '#FFFFFF' }}>
                 <h3 style={{ fontSize: 'clamp(16px, 2vw, 18px)', fontWeight: 600, marginBottom: 12, color: '#0D0D0D' }}>{item.title}</h3>
