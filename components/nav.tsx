@@ -64,12 +64,12 @@ export default function Nav() {
         <nav style={{
           maxWidth: 1300, margin: '0 auto',
           padding: '0 24px',
-          height: 56,
+          height: 62,
           display: 'flex', alignItems: 'center', justifyContent: 'space-between',
         }}>
           <Link href="/" style={{ textDecoration: 'none' }} onClick={() => setOpen(false)}>
             <span style={{
-              fontSize: 22, fontWeight: 900, letterSpacing: '-0.04em',
+              fontSize: 24, fontWeight: 900, letterSpacing: '-0.04em',
               color: '#00C896', fontFamily: mono,
               textShadow: 'none',
               WebkitTextStroke: '0.5px #00C896',
@@ -83,7 +83,7 @@ export default function Nav() {
                   <button
                     onClick={() => setDropdownOpen(!dropdownOpen)}
                     style={{
-                      fontSize: 14, color: '#555555', background: 'none', border: 'none',
+                      fontSize: 15, color: '#555555', background: 'none', border: 'none',
                       cursor: 'pointer', padding: 0, transition: 'color 0.2s',
                       display: 'flex', alignItems: 'center', gap: 4,
                     }}
@@ -113,7 +113,7 @@ export default function Nav() {
                 </div>
               ) : (
                 <Link key={l.label} href={l.href} style={{
-                  fontSize: 14, color: '#555555',
+                  fontSize: 15, color: '#555555',
                   textDecoration: 'none', transition: 'color 0.2s',
                 }}>{l.label}</Link>
               ))}
@@ -122,7 +122,7 @@ export default function Nav() {
 
           {isDesktop && (
             <Link href="/build" style={{
-              fontSize: 13, padding: '9px 20px', borderRadius: 8,
+              fontSize: 14, padding: '10px 22px', borderRadius: 8,
               background: '#00C896',
               color: '#FFFFFF', fontWeight: 700, textDecoration: 'none',
               transition: 'all 0.2s ease',

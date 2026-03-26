@@ -48,7 +48,7 @@ export default function RootLayout({
         textRendering: "optimizeLegibility",
       }}>
         <Nav />
-        <main style={{ width: "100%", overflowX: "hidden", paddingTop: "clamp(60px, 8vw, 80px)" }}>{children}</main>
+        <main style={{ width: "100%", overflowX: "hidden", paddingTop: "62px" }}>{children}</main>
         <Footer />
       </body>
     </html>
