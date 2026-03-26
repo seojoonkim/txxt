@@ -486,10 +486,10 @@ export default function Home() {
         {/* Four differentiators */}
         <div style={{ maxWidth: 900, margin: '0 auto', padding: '40px 24px 0' }}>
           {[
-            { letter: 'x', word: 'x402 Native', title: 'Payments as infrastructure.', desc: 'On Ethereum, implementing x402 means custom contracts and unpredictable gas. Through txxt, every agent payment is a middleware operation — $0.0003, on any chain, no exceptions.', color: '#00C896', num: '01' },
-            { letter: '8', word: 'ERC-8004 Native', title: 'Identity without overhead.', desc: 'On other chains, ERC-8004 requires a smart contract layer that adds latency and cost. Through txxt, every agent gets a verified identity at registration — instant, free, and chain-agnostic.', color: '#5B4FFF', num: '02' },
-            { letter: '+', word: 'Atomic Integration', title: 'One transaction does both.', desc: 'Verify identity AND execute payment in a single atomic transaction. This is impossible when the protocols live on different layers. txxt\'s middleware makes it inevitable — on every chain.', color: '#FF3366', num: '03' },
-            { letter: '→', word: 'The Result', title: 'Agent commerce at machine speed.', desc: 'Check identity → confirm capabilities → settle payment → update reputation. One atomic transaction. Under 10ms. Always $0.0003 in gas — regardless of the underlying chain.', color: '#FB923C', num: '04' },
+            { icon: (color: string) => <svg width="56" height="56" viewBox="0 0 56 56" fill="none"><rect width="56" height="56" rx="14" fill={color}/><text x="50%" y="54%" dominantBaseline="central" textAnchor="middle" fontFamily="monospace" fontWeight="900" fontSize="26" fill="white">x</text></svg>, word: 'x402 Native', title: 'Payments as infrastructure.', desc: 'On Ethereum, implementing x402 means custom contracts and unpredictable gas. Through txxt, every agent payment is a middleware operation — $0.0003, on any chain, no exceptions.', color: '#00C896', num: '01' },
+            { icon: (color: string) => <svg width="56" height="56" viewBox="0 0 56 56" fill="none"><rect width="56" height="56" rx="14" fill={color}/><text x="50%" y="54%" dominantBaseline="central" textAnchor="middle" fontFamily="monospace" fontWeight="900" fontSize="26" fill="white">8</text></svg>, word: 'ERC-8004 Native', title: 'Identity without overhead.', desc: 'On other chains, ERC-8004 requires a smart contract layer that adds latency and cost. Through txxt, every agent gets a verified identity at registration — instant, free, and chain-agnostic.', color: '#5B4FFF', num: '02' },
+            { icon: (color: string) => <svg width="56" height="56" viewBox="0 0 56 56" fill="none"><rect width="56" height="56" rx="14" fill={color}/><text x="50%" y="54%" dominantBaseline="central" textAnchor="middle" fontFamily="monospace" fontWeight="900" fontSize="30" fill="white">+</text></svg>, word: 'Atomic Integration', title: 'One transaction does both.', desc: 'Verify identity AND execute payment in a single atomic transaction. This is impossible when the protocols live on different layers. txxt\'s middleware makes it inevitable — on every chain.', color: '#FF3366', num: '03' },
+            { icon: (color: string) => <svg width="56" height="56" viewBox="0 0 56 56" fill="none"><rect width="56" height="56" rx="14" fill={color}/><path d="M14 28h22M28 18l12 10-12 10" stroke="white" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round"/></svg>, word: 'The Result', title: 'Agent commerce at machine speed.', desc: 'Check identity → confirm capabilities → settle payment → update reputation. One atomic transaction. Under 10ms. Always $0.0003 in gas — regardless of the underlying chain.', color: '#FB923C', num: '04' },
           ].map((item, i) => (
             <div key={i} style={{
               display: 'flex',
@@ -498,17 +498,8 @@ export default function Home() {
               borderBottom: i < 3 ? '1px solid rgba(0,0,0,0.06)' : 'none',
               alignItems: 'flex-start',
             }}>
-              <div style={{
-                fontSize: 'clamp(48px, 10vw, 80px)',
-                fontWeight: 900,
-                color: item.color,
-                fontFamily: mono,
-                minWidth: '1ch',
-                flexShrink: 0,
-                lineHeight: 1,
-                letterSpacing: '-0.03em',
-              }}>
-                {item.letter}
+              <div style={{ flexShrink: 0 }}>
+                {item.icon(item.color)}
               </div>
               <div style={{ flex: 1 }}>
                 <div style={{
