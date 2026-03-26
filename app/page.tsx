@@ -1030,13 +1030,14 @@ const ethPayment = await PaymentChannel.create(
                   textAlign: 'center',
                 }}>
                   <div style={{
-                    width: 72, height: 72, borderRadius: '50%',
-                    background: '#fff', border: `2px solid ${color}`,
+                    width: 92, height: 92, borderRadius: '50%',
+                    background: '#FFFFFF', border: `2.5px solid ${color}`,
                     display: 'flex', flexDirection: 'column' as const, alignItems: 'center', justifyContent: 'center',
-                    boxShadow: `0 4px 16px ${color}22`,
+                    boxShadow: `0 4px 20px ${color}30, 0 0 0 6px #FFFFFF`,
+                    position: 'relative', zIndex: 3,
                   }}>
-                    <span style={{ fontSize: 11, fontWeight: 700, color, fontFamily: mono }}>{label}</span>
-                    <span style={{ fontSize: 9, color: '#888', marginTop: 2 }}>{desc}</span>
+                    <span style={{ fontSize: 13, fontWeight: 800, color, fontFamily: mono }}>{label}</span>
+                    <span style={{ fontSize: 11, color: '#666', marginTop: 3 }}>{desc}</span>
                   </div>
                 </div>
               );
