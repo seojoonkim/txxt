@@ -612,7 +612,7 @@ export default function Home() {
             DIY agent infra<br />vs txxt middleware.
           </h2>
           <p style={{ fontSize: 'clamp(15px, 1.8vw, 18px)', color: '#555555', lineHeight: 1.75, maxWidth: 580, marginBottom: 48 }}>
-            Building agent infra from scratch means x402 adapters per chain, identity contracts per chain, reputation oracles per chain — and praying they stay in sync. Or you use the middleware that ships with all of it.
+            Building it yourself means integrating 6+ protocols (x402, ERC-8004, PoAW, bridge SDKs, gas oracles, chain RPCs), writing adapters for every chain, and rewriting them when specs change. Or you use the middleware that ships with all of it.
           
           </p>
 
@@ -628,11 +628,11 @@ export default function Home() {
               </div>
             </div>
             {[
-              { area: 'Agent Identity', diy: 'Deploy ERC-8004 contracts per chain. Maintain each separately.', txxt: 'txxt.register() — one call, identity works on ETH, SOL, Base, Polygon', color: '#5B4FFF' },
-              { area: 'Agent Payments', diy: 'Write x402 adapters per chain. Debug bridge failures.', txxt: 'txxt.pay() — $0.0003, settles on whichever chain you choose', color: '#00C896' },
-              { area: 'Work Verification', diy: 'Build custom oracle + reputation from scratch', txxt: 'PoAW built-in — verified work, cross-chain, automatic reputation', color: '#FB923C' },
-              { area: 'Multi-chain Support', diy: 'N chains = N deployments = N state management headaches', txxt: 'One agent identity, one reputation score, portable everywhere', color: '#5B4FFF' },
-              { area: 'Onboarding Time', diy: '2-6 weeks per chain integration', txxt: 'Under 5 minutes — any chain, any agent framework', color: '#FF3366' },
+              { area: 'Agent Identity', diy: 'Deploy ERC-8004 contract per chain. 5 chains = 5 contracts, 5 ABIs, 5 gas configs to maintain.', txxt: 'txxt.register() — one call, identity works on ETH, SOL, Base, Polygon', color: '#5B4FFF' },
+              { area: 'Agent Payments', diy: 'Write x402 adapter per chain + bridge SDK + USDC routing. Rewrite when specs update.', txxt: 'txxt.pay() — $0.0003 fixed, settles on whichever chain you choose', color: '#00C896' },
+              { area: 'Work Verification', diy: 'Build custom oracle, reputation aggregator, and dispute resolution from scratch.', txxt: 'PoAW built-in — self-attest, peer-verify, protocol-confirm. Automatic reputation.', color: '#FB923C' },
+              { area: 'Multi-chain Support', diy: 'N chains = N deployments. Identity on ETH can\'t verify on SOL. State never syncs.', txxt: 'One agent identity, one reputation score, portable across every supported chain', color: '#5B4FFF' },
+              { area: 'Onboarding Time', diy: '2-6 weeks per chain. Add a new chain? Start over from scratch.', txxt: 'Under 5 minutes — any chain, any agent framework. New chains auto-supported.', color: '#FF3366' },
             ].map(row => (
               <div key={row.area} style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
                 {/* DIY */}
