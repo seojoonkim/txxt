@@ -3,6 +3,12 @@
 import Link from 'next/link';
 import { useEffect, useRef } from 'react';
 
+const ArrowRightIcon = ({size=16,color='currentColor'}:{size?:number,color?:string}) => (
+  <svg width={size} height={size} viewBox="0 0 16 16" fill="none" style={{display:'inline-block',verticalAlign:'middle',marginLeft:4}}>
+    <path d="M3 8h10M9 4l4 4-4 4" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+  </svg>
+)
+
 const mono = "var(--font-fira), 'Courier New', monospace";
 
 // ── SVG Icons (emoji replacements) ───────────────────────────────────────────
@@ -357,7 +363,7 @@ export default function EcosystemPage() {
             boxShadow: '0 4px 24px rgba(91,79,255,0.35)',
             letterSpacing: '-0.01em',
           }}>
-            Start Building →
+            Start Building<ArrowRightIcon />
           </Link>
         </div>
       </section>

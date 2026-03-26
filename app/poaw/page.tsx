@@ -3,6 +3,11 @@ import Link from 'next/link';
 
 const mono = "var(--font-fira), 'Courier New', monospace";
 
+const ArrowRightIcon = ({size=16,color='currentColor'}:{size?:number,color?:string}) => (
+  <svg width={size} height={size} viewBox="0 0 16 16" fill="none" style={{display:'inline-block',verticalAlign:'middle',marginLeft:4}}>
+    <path d="M3 8h10M9 4l4 4-4 4" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+  </svg>
+)
 const AgentIcon = ({size=32,color='currentColor'}:{size?:number,color?:string}) => (
   <svg width={size} height={size} viewBox="0 0 32 32" fill="none">
     <rect x="8" y="12" width="16" height="14" rx="3" stroke={color} strokeWidth="2"/>
@@ -323,7 +328,7 @@ export default function PoawPage() {
           </p>
           <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
             <Link href="/protocol" style={{ padding: '14px 32px', borderRadius: 10, background: '#00C896', color: '#fff', fontWeight: 600, fontSize: 'clamp(13px, 2vw, 14px)', textDecoration: 'none' }}>
-              Read the Protocol →
+              Read the Protocol<ArrowRightIcon />
             </Link>
             <Link href="/build" style={{ padding: '14px 32px', borderRadius: 10, border: '1px solid rgba(0,0,0,0.15)', color: '#0D0D0D', fontSize: 'clamp(13px, 2vw, 14px)', textDecoration: 'none' }}>
               Start Building

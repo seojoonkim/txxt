@@ -1093,10 +1093,12 @@ const ethPayment = await PaymentChannel.create(
             {[
               { label: 'MCP', fullName: 'Model Context Protocol', by: 'Anthropic', desc: 'AI assistants like Claude connect directly to txxt as a tool. Register agents, send payments, verify identity — all from natural language.', color: '#FF6B35' },
               { label: 'A2A', fullName: 'Agent-to-Agent Protocol', by: 'Google', desc: 'Agents discover and communicate with other agents on txxt. Native handshakes, capability negotiation, and task delegation.', color: '#4285F4' },
+              { label: 'ACP', fullName: 'Agent Communication Protocol', by: 'OpenAI', desc: 'Standardized agent messaging over txxt. Agents exchange structured tasks, results, and payment receipts through a shared protocol.', color: '#10A37F' },
+              { label: 'ERC-8004', fullName: 'Agent Identity Standard', by: 'Built-in', desc: 'On-chain identity for every agent — portable across chains. One registration. Reputation follows the agent everywhere.', color: '#5B4FFF' },
+              { label: 'x402', fullName: 'Agent Payment Protocol', by: 'Built-in', desc: 'HTTP-native payment protocol for agents. Pay per call, per result, or per task — settled on any chain for $0.0003.', color: '#00C896' },
               { label: 'CLI', fullName: 'Command Line Interface', by: 'txxt', desc: 'Deploy and manage agents from your terminal. txxt register, txxt pay, txxt identity — the fastest path from idea to deployed agent.', color: '#FB923C' },
               { label: 'SDK', fullName: '@txxt/sdk', by: 'txxt', desc: 'TypeScript-first SDK with full x402 and ERC-8004 support. One package. Every protocol. Python SDK coming Q2.', color: '#5B4FFF' },
               { label: 'REST', fullName: 'Universal REST API', by: 'txxt', desc: 'HTTP endpoints for any language or platform. If you can make an HTTP request, you can build on txxt.', color: '#FF3366' },
-              { label: 'x402 + ERC-8004', fullName: 'Native Middleware Protocols', by: 'Built-in', desc: 'Not an add-on. Not a smart contract. Payment and identity live at the middleware layer — atomic, instant, chain-agnostic.', color: '#00C896' },
             ].map((item) => (
               <div key={item.label} style={{
                 padding: 28, borderRadius: 16,

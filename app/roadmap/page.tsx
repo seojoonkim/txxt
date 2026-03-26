@@ -1,6 +1,18 @@
+import React from 'react';
 import Link from 'next/link';
 
 const mono = "var(--font-fira), 'Courier New', monospace";
+
+const GovernIcon = ({size=32,color='currentColor'}:{size?:number,color?:string}) => (
+  <svg width={size} height={size} viewBox="0 0 32 32" fill="none">
+    <path d="M4 28h24" stroke={color} strokeWidth="2" strokeLinecap="round"/>
+    <path d="M6 28V16" stroke={color} strokeWidth="2" strokeLinecap="round"/>
+    <path d="M26 28V16" stroke={color} strokeWidth="2" strokeLinecap="round"/>
+    <path d="M11 28V18h4v10" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+    <path d="M17 28V18h4v10" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+    <path d="M3 16l13-10 13 10" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+  </svg>
+)
 
 const timeline: { period: string; color: string; items: { title: string; desc: string }[] }[] = [
   {
@@ -49,11 +61,31 @@ const timeline: { period: string; color: string; items: { title: string; desc: s
   },
 ];
 
-const govFeatures = [
-  { title: 'Reputation-Based Voting', desc: 'One reputation point = one vote. Earned through verified work across any chain, not purchased with tokens. The more you contribute, the more your voice matters.', icon: '🗳️' },
-  { title: 'PoAW Verifiers as Governors', desc: 'Verifiers who run the middleware also govern it. They understand the system because they operate it daily — across every supported chain.', icon: '🏛️' },
-  { title: 'Proposal Threshold', desc: 'Only agents with cross-chain reputation ≥ 80/100 can submit governance proposals. This ensures proposals come from active, trusted multi-chain participants.', icon: '📋' },
-  { title: 'Time-Weighted Reputation', desc: 'Recent work weighs more than old work. You must stay active across chains to stay influential. No "retire and govern" dynamics.', icon: '⏳' },
+const VoteIcon = ({size=32,color='currentColor'}:{size?:number,color?:string}) => (
+  <svg width={size} height={size} viewBox="0 0 32 32" fill="none">
+    <rect x="4" y="8" width="24" height="16" rx="3" stroke={color} strokeWidth="2"/>
+    <path d="M11 16l3 3 7-7" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+  </svg>
+)
+const ClipboardIcon = ({size=32,color='currentColor'}:{size?:number,color?:string}) => (
+  <svg width={size} height={size} viewBox="0 0 32 32" fill="none">
+    <rect x="6" y="6" width="20" height="22" rx="3" stroke={color} strokeWidth="2"/>
+    <path d="M12 6V4h8v2" stroke={color} strokeWidth="2" strokeLinecap="round"/>
+    <path d="M10 14h12M10 19h8" stroke={color} strokeWidth="2" strokeLinecap="round"/>
+  </svg>
+)
+const TimeIcon = ({size=32,color='currentColor'}:{size?:number,color?:string}) => (
+  <svg width={size} height={size} viewBox="0 0 32 32" fill="none">
+    <circle cx="16" cy="16" r="12" stroke={color} strokeWidth="2"/>
+    <path d="M16 10v6l4 3" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+  </svg>
+)
+
+const govFeatures: { title: string; desc: string; icon: React.ReactNode }[] = [
+  { title: 'Reputation-Based Voting', desc: 'One reputation point = one vote. Earned through verified work across any chain, not purchased with tokens. The more you contribute, the more your voice matters.', icon: <VoteIcon size={32} color="#00C896" /> },
+  { title: 'PoAW Verifiers as Governors', desc: 'Verifiers who run the middleware also govern it. They understand the system because they operate it daily — across every supported chain.', icon: <GovernIcon size={32} color="#5B4FFF" /> },
+  { title: 'Proposal Threshold', desc: 'Only agents with cross-chain reputation ≥ 80/100 can submit governance proposals. This ensures proposals come from active, trusted multi-chain participants.', icon: <ClipboardIcon size={32} color="#FB923C" /> },
+  { title: 'Time-Weighted Reputation', desc: 'Recent work weighs more than old work. You must stay active across chains to stay influential. No "retire and govern" dynamics.', icon: <TimeIcon size={32} color="#FF3366" /> },
 ];
 
 export default function RoadmapPage() {
