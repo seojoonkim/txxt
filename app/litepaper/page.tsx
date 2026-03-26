@@ -67,12 +67,10 @@ export default function LitepaperPage() {
             flexShrink: 0,
             position: "sticky",
             top: 80,
-            height: "calc(100vh - 80px)",
-            overflowY: "auto",
+            alignSelf: "flex-start",
             paddingRight: 48,
             paddingTop: 40,
             paddingBottom: 40,
-            scrollbarWidth: "none" as React.CSSProperties["scrollbarWidth"],
           }}
         >
           <p
