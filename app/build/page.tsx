@@ -147,8 +147,8 @@ export default function BuildPage() {
     <div style={{ background: '#FFFFFF', color: '#0D0D0D', fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
 
       {/* Hero */}
-      <section style={{ padding: 'clamp(80px, 10vw, 140px) 24px' }}>
-        <div style={{ maxWidth: 1300, margin: '0 auto' }}>
+      <section style={{ padding: 'clamp(80px, 10vw, 140px) 0' }}>
+        <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 24px' }}>
           <div style={{ fontSize: 13, letterSpacing: '0.15em', color: '#5B4FFF', fontFamily: mono, marginBottom: 24, textTransform: 'uppercase' }}>
             Build · Deploy · Earn
           </div>
@@ -165,8 +165,8 @@ export default function BuildPage() {
       <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(0,0,0,0.08), transparent)' }} />
 
       {/* Steps */}
-      <section style={{ padding: 'clamp(80px, 10vw, 140px) 24px' }}>
-        <div style={{ maxWidth: 1300, margin: '0 auto' }}>
+      <section style={{ padding: 'clamp(80px, 10vw, 140px) 0' }}>
+        <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 24px' }}>
           <div style={{ fontSize: 13, letterSpacing: '0.15em', color: 'rgba(0,0,0,0.4)', fontFamily: mono, marginBottom: 16, textTransform: 'uppercase' }}>
             Four Steps to Launch
           </div>
@@ -216,8 +216,8 @@ export default function BuildPage() {
       <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(0,0,0,0.08), transparent)' }} />
 
       {/* CLI & MCP */}
-      <section style={{ padding: 'clamp(80px, 10vw, 140px) 24px' }}>
-        <div style={{ maxWidth: 1300, margin: '0 auto' }}>
+      <section style={{ padding: 'clamp(80px, 10vw, 140px) 0' }}>
+        <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 24px' }}>
           <div style={{ fontSize: 13, letterSpacing: '0.15em', color: '#FB923C', fontFamily: mono, marginBottom: 16, textTransform: 'uppercase' }}>
             More Ways to Build
           </div>
@@ -302,7 +302,8 @@ $ txxt deploy ./my-agent --network mainnet`}</code>
       <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(0,0,0,0.08), transparent)' }} />
 
       {/* What You'll Build */}
-      <section style={{ padding: 'clamp(80px, 10vw, 140px) 24px', background: '#F7F7F7' }}>
+      <section style={{ padding: 'clamp(80px, 10vw, 140px) 0', background: '#F7F7F7' }}>
+        <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 24px' }}>
         <div style={{ maxWidth: 760, margin: '0 auto' }}>
           <div style={{ fontSize: 13, letterSpacing: '0.15em', color: 'rgba(0,0,0,0.4)', fontFamily: mono, marginBottom: 16, textTransform: 'uppercase' }}>
             What You&apos;ll Build
@@ -327,12 +328,14 @@ $ txxt deploy ./my-agent --network mainnet`}</code>
             ))}
           </div>
         </div>
+        </div>
       </section>
 
       <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(0,0,0,0.08), transparent)' }} />
 
       {/* FAQ */}
-      <section style={{ padding: 'clamp(80px, 10vw, 140px) 24px', background: '#13102A' }}>
+      <section style={{ padding: 'clamp(80px, 10vw, 140px) 0', background: '#13102A' }}>
+        <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 24px' }}>
         <div style={{ maxWidth: 760, margin: '0 auto' }}>
           <div style={{ fontSize: 13, letterSpacing: '0.15em', color: '#FB923C', fontFamily: mono, marginBottom: 16, textTransform: 'uppercase' }}>
             FAQ
@@ -368,13 +371,14 @@ $ txxt deploy ./my-agent --network mainnet`}</code>
             ))}
           </div>
         </div>
+        </div>
       </section>
 
       <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(0,0,0,0.08), transparent)' }} />
 
       {/* Resources */}
-      <section style={{ padding: 'clamp(80px, 10vw, 140px) 24px' }}>
-        <div style={{ maxWidth: 1300, margin: '0 auto' }}>
+      <section style={{ padding: 'clamp(80px, 10vw, 140px) 0' }}>
+        <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 24px' }}>
           <div style={{ fontSize: 13, letterSpacing: '0.15em', color: 'rgba(0,0,0,0.4)', fontFamily: mono, marginBottom: 16, textTransform: 'uppercase' }}>
             Resources
           </div>
@@ -401,7 +405,8 @@ $ txxt deploy ./my-agent --network mainnet`}</code>
       <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(0,0,0,0.08), transparent)' }} />
 
       {/* CTA */}
-      <section style={{ padding: 'clamp(80px, 10vw, 140px) 24px', textAlign: 'center' }}>
+      <section style={{ padding: 'clamp(80px, 10vw, 140px) 0', textAlign: 'center' }}>
+        <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 24px' }}>
         <div style={{ maxWidth: 520, margin: '0 auto' }}>
           <h2 style={{ fontSize: 'clamp(32px, 5vw, 56px)', fontWeight: 700, letterSpacing: '-0.02em', marginBottom: 20, lineHeight: 1.15 }}>
             Add txxt to your stack.
@@ -417,6 +422,7 @@ $ txxt deploy ./my-agent --network mainnet`}</code>
               Read the Protocol
             </Link>
           </div>
+        </div>
         </div>
       </section>
     </div>

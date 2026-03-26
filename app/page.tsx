@@ -631,7 +631,7 @@ export default function Home() {
               <div key={row.area} style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
                 {/* DIY */}
                 <div style={{ padding: '20px', borderRadius: 12, background: '#FAFAFA', border: '1px solid rgba(0,0,0,0.06)' }}>
-                  <div style={{ fontSize: 11, fontFamily: mono, color: row.color, fontWeight: 700, marginBottom: 10, letterSpacing: '0.08em', textTransform: 'uppercase' as const }}>{row.area}</div>
+                  <div style={{ fontSize: 11, fontFamily: mono, color: '#888888', fontWeight: 600, marginBottom: 10, letterSpacing: '0.08em', textTransform: 'uppercase' as const }}>{row.area}</div>
                   <div style={{ display: 'flex', gap: 8, alignItems: 'flex-start' }}>
                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style={{ flexShrink: 0, marginTop: 2 }}>
                       <circle cx="8" cy="8" r="7" fill="#FEE2E2"/>
@@ -642,7 +642,7 @@ export default function Home() {
                 </div>
                 {/* txxt */}
                 <div style={{ padding: '20px', borderRadius: 12, background: 'rgba(0,200,150,0.04)', border: '1px solid rgba(0,200,150,0.15)' }}>
-                  <div style={{ fontSize: 11, fontFamily: mono, color: row.color, fontWeight: 700, marginBottom: 10, letterSpacing: '0.08em', textTransform: 'uppercase' as const }}>{row.area}</div>
+                  <div style={{ fontSize: 11, fontFamily: mono, color: '#888888', fontWeight: 600, marginBottom: 10, letterSpacing: '0.08em', textTransform: 'uppercase' as const }}>{row.area}</div>
                   <div style={{ display: 'flex', gap: 8, alignItems: 'flex-start' }}>
                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style={{ flexShrink: 0, marginTop: 2 }}>
                       <circle cx="8" cy="8" r="7" fill="#D1FAE5"/>
