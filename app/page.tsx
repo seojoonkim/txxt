@@ -309,7 +309,7 @@ export default function Home() {
             <div className="txxt-logo" style={{
               fontSize: 'clamp(80px, 28vw, 200px)',
               fontWeight: 900,
-              letterSpacing: '-0.08em',
+              letterSpacing: '-0.14em',
               lineHeight: 0.9,
               color: '#00C896',
               fontFamily: mono,
