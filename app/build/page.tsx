@@ -374,7 +374,7 @@ $ txxt deploy ./my-agent --network mainnet`}</code>
 
       {/* Resources */}
       <section style={{ padding: 'clamp(80px, 10vw, 140px) 24px' }}>
-        <div style={{ maxWidth: 1400, margin: '0 auto' }}>
+        <div style={{ maxWidth: 1300, margin: '0 auto' }}>
           <div style={{ fontSize: 13, letterSpacing: '0.15em', color: 'rgba(0,0,0,0.4)', fontFamily: mono, marginBottom: 16, textTransform: 'uppercase' }}>
             Resources
           </div>

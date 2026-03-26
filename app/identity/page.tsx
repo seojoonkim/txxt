@@ -293,7 +293,7 @@ export default function IdentityPage() {
       {pillars.map((p, i) => (
         <div key={p.num}>
           <section style={{ padding: 'clamp(80px, 10vw, 140px) 24px', background: i % 2 === 0 ? '#0D0E1A' : '#0A0A16' }}>
-            <div style={{ maxWidth: 1400, margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(280px, 100%), 1fr))', gap: 48, alignItems: 'start' }}>
+            <div style={{ maxWidth: 1300, margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(280px, 100%), 1fr))', gap: 48, alignItems: 'start' }}>
               {/* Left */}
               <div>
                 <div style={{ marginBottom: 24 }}>{p.icon}</div>
