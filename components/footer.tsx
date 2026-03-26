@@ -56,9 +56,9 @@ export default function Footer() {
                 fontFamily: mono,
                 fontSize: 22, fontWeight: 900,
                 letterSpacing: '-0.04em',
-                color: '#00C896',
+                color: '#00D9A3',
                 textShadow: 'none',
-                WebkitTextStroke: '0.5px #00C896',
+                WebkitTextStroke: '0.5px #00D9A3',
               }}>
                 txxt
               </span>

@@ -62,9 +62,9 @@ export default function Nav() {
           <Link href="/" style={{ textDecoration: 'none' }} onClick={() => setOpen(false)}>
             <span style={{
               fontSize: 24, fontWeight: 900, letterSpacing: '-0.04em',
-              color: '#00C896', fontFamily: mono,
+              color: '#00D9A3', fontFamily: mono,
               textShadow: 'none',
-              WebkitTextStroke: '0.5px #00C896',
+              WebkitTextStroke: '0.5px #00D9A3',
             }}>txxt</span>
           </Link>
 
@@ -115,10 +115,10 @@ export default function Nav() {
           {isDesktop && (
             <Link href="/build" style={{
               fontSize: 14, padding: '10px 22px', borderRadius: 8,
-              background: '#00C896',
+              background: '#00D9A3',
               color: '#FFFFFF', fontWeight: 700, textDecoration: 'none',
               transition: 'all 0.2s ease',
-              boxShadow: '0 2px 8px rgba(0,200,150,0.25)',
+              boxShadow: '0 2px 8px rgba(0,217,163,0.25)',
             }}>Start Building</Link>
           )}
 
@@ -154,7 +154,7 @@ export default function Nav() {
           <Link href="/build" onClick={() => setOpen(false)} style={{
             display: 'block', textAlign: 'center', padding: '18px',
             borderRadius: 12,
-            background: '#00C896',
+            background: '#00D9A3',
             color: '#FFFFFF', fontWeight: 700, fontSize: 17, textDecoration: 'none',
             marginTop: 32,
           }}>Start Building</Link>
