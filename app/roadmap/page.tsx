@@ -87,7 +87,7 @@ const TimeIcon = ({size=32,color='currentColor'}:{size?:number,color?:string}) =
 )
 
 const govFeatures: { title: string; desc: string; icon: React.ReactNode }[] = [
-  { title: 'Reputation-Based Voting', desc: 'One reputation point = one vote. Earned through verified work across any chain, not purchased with tokens. The more you contribute, the more your voice matters.', icon: <VoteIcon size={32} color="#00C896" /> },
+  { title: 'Reputation-Based Voting', desc: 'One reputation point = one vote. Earned through verified work across any chain, not purchased with tokens. The more you contribute, the more your voice matters.', icon: <VoteIcon size={32} color="#00BF8A" /> },
   { title: 'PoAW Verifiers as Governors', desc: 'Verifiers who run the middleware also govern it. They understand the system because they operate it daily — across every supported chain.', icon: <GovernIcon size={32} color="#5B4FFF" /> },
   { title: 'Proposal Threshold', desc: 'Only agents with cross-chain reputation ≥ 80/100 can submit governance proposals. This ensures proposals come from active, trusted multi-chain participants.', icon: <ClipboardIcon size={32} color="#F59E0B" /> },
   { title: 'Time-Weighted Reputation', desc: 'Recent work weighs more than old work. You must stay active across chains to stay influential. No "retire and govern" dynamics.', icon: <TimeIcon size={32} color="#FF3366" /> },
@@ -109,7 +109,7 @@ export default function RoadmapPage() {
           <p style={{ fontSize: 'clamp(15px, 1.8vw, 18px)', color: '#555555', lineHeight: 1.75, maxWidth: 640 }}>
             The agent layer for every blockchain — shipped incrementally, governed transparently. Every milestone is public, every deadline is real, and governance belongs to the builders who use the middleware.
           </p>
-          <p style={{ fontSize: 'clamp(14px, 1.6vw, 16px)', color: '#00C896', fontFamily: mono, marginTop: 20, fontWeight: 600 }}>
+          <p style={{ fontSize: 'clamp(14px, 1.6vw, 16px)', color: '#00BF8A', fontFamily: mono, marginTop: 20, fontWeight: 600 }}>
             txxt doesn&apos;t replace your blockchain. It makes your blockchain agent-ready.
           </p>
         </div>
@@ -228,7 +228,7 @@ export default function RoadmapPage() {
             Token-free governance.<br />How?
           </h2>
           <p style={{ fontSize: 'clamp(15px, 1.8vw, 18px)', color: 'rgba(255,255,255,0.7)', lineHeight: 1.75, maxWidth: 640, marginBottom: 48 }}>
-            Most protocols govern with tokens — whoever buys the most controls the direction. txxt middleware is governed differently. Power comes from <span style={{ color: '#00C896' }}>verified cross-chain work</span>, not purchased tokens. Builders who use the middleware govern the middleware.
+            Most protocols govern with tokens — whoever buys the most controls the direction. txxt middleware is governed differently. Power comes from <span style={{ color: '#00BF8A' }}>verified cross-chain work</span>, not purchased tokens. Builders who use the middleware govern the middleware.
           </p>
 
           <div style={{
@@ -265,7 +265,7 @@ export default function RoadmapPage() {
             <div style={{ marginBottom: 8 }}><span style={{ color: '#5B4FFF' }}>proposal_threshold</span> = reputation {'≥'} 80 (across any chain)</div>
             <div style={{ marginBottom: 8 }}><span style={{ color: '#5B4FFF' }}>quorum</span> = 33% of active verifiers</div>
             <div style={{ paddingTop: 16, borderTop: '1px solid rgba(255,255,255,0.1)', marginTop: 16 }}>
-              <span style={{ color: '#00C896' }}>Result: governance by the builders, for the builders — chain-agnostic.</span>
+              <span style={{ color: '#00BF8A' }}>Result: governance by the builders, for the builders — chain-agnostic.</span>
             </div>
           </div>
         </div>
@@ -285,7 +285,7 @@ export default function RoadmapPage() {
             Every line on this roadmap is a promise. Join the builders making every blockchain agent-ready.
           </p>
           <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Link href="/build" style={{ padding: '14px 32px', borderRadius: 10, background: '#00C896', color: '#fff', fontWeight: 600, fontSize: 'clamp(13px, 2vw, 14px)', textDecoration: 'none' }}>
+            <Link href="/build" style={{ padding: '14px 32px', borderRadius: 10, background: '#00BF8A', color: '#fff', fontWeight: 600, fontSize: 'clamp(13px, 2vw, 14px)', textDecoration: 'none' }}>
               Start Building<ArrowRightIcon />
             </Link>
             <Link href="/ecosystem" style={{ padding: '14px 32px', borderRadius: 10, border: '1px solid rgba(0,0,0,0.15)', color: '#0D0D0D', fontSize: 'clamp(13px, 2vw, 14px)', textDecoration: 'none' }}>

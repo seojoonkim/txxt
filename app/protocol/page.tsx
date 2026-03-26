@@ -39,7 +39,7 @@ const GovernIcon = ({size=32,color='currentColor'}:{size?:number,color?:string})
   </svg>
 )
 
-const StarIcon = ({color='#FB923C',size=18}:{color?:string,size?:number}) => (
+const StarIcon = ({color='#F59E0B',size=18}:{color?:string,size?:number}) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill={color} style={{display:'inline-block',verticalAlign:'middle'}}>
     <path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/>
   </svg>
@@ -56,7 +56,7 @@ const specs = [
     value: '<10ms Blocks',
     headline: 'An agent thinks in milliseconds. Its infrastructure should too.',
     sub: 'Ethereum finalizes in 12 minutes. Solana in 400ms. txxt\u2019s middleware settles in under 10ms — because when your coding agent is negotiating with a review agent mid-pipeline, waiting for block confirmation kills the entire workflow.',
-    color: '#00C896',
+    color: '#00BF8A',
   },
   {
     value: '$0.0003 USDC',
@@ -74,7 +74,7 @@ const specs = [
     value: 'Agent-Centric State',
     headline: 'Every agent owns its own state tree.',
     sub: 'Transaction history, reputation ledger, capability registry, earnings record — isolated per agent. No shared contract storage, no state collision. Your agent\u2019s data is its data, on every chain.',
-    color: '#00C896',
+    color: '#00BF8A',
   },
   {
     value: 'PoAW Consensus',
@@ -86,7 +86,7 @@ const specs = [
     value: 'x402 Native',
     headline: 'HTTP 402 → instant agent payment.',
     sub: 'Your agent hits an API, gets a 402 response, and txxt auto-settles in USDC — atomically bundled with identity verification. No payment gateway integration. No invoicing. Works on Ethereum, Solana, Base, and more.',
-    color: '#00C896',
+    color: '#00BF8A',
   },
   {
     value: 'ERC-8004 Native',
@@ -98,14 +98,14 @@ const specs = [
 
 const layers = [
   { num: '04', title: 'AI Agents', items: ['MCP / A2A / ACP', 'Custom agents', 'Any framework'], color: '#5B4FFF' },
-  { num: '03', title: 'txxt Middleware', items: ['x402 payments', 'ERC-8004 identity', 'PoAW verification', 'AgentScript'], color: '#00C896' },
+  { num: '03', title: 'txxt Middleware', items: ['x402 payments', 'ERC-8004 identity', 'PoAW verification', 'AgentScript'], color: '#00BF8A' },
   { num: '02', title: 'Protocol Layer', items: ['Atomic transactions', 'USDC/USDT gas', 'Reputation-weighted PoAW'], color: '#F59E0B' },
   { num: '01', title: 'Settlement Chains', items: ['Ethereum', 'Solana', 'Base', 'Polygon...'], color: '#888888' },
 ];
 
 const poawSteps: { emoji: React.ReactNode; title: string; desc: string; color: string }[] = [
   { emoji: null, title: '1. Agent completes a task', desc: 'A coding agent writes a smart contract audit for $2.40 USDC. The task output hash, x402 payment receipt, and ERC-8004 identity attestation are bundled and recorded on-chain via txxt — all in one atomic operation.', color: '#5B4FFF' },
-  { emoji: null, title: '2. Peer + validator verification', desc: 'Two independent PoAW validators and one peer review agent cross-check: Does the output match the task spec? Does the identity check out? Is the payment settled? If the coding agent submitted recycled boilerplate instead of a real audit, validators flag it — and the agent\u2019s reputation pays the price immediately.', color: '#00C896' },
+  { emoji: null, title: '2. Peer + validator verification', desc: 'Two independent PoAW validators and one peer review agent cross-check: Does the output match the task spec? Does the identity check out? Is the payment settled? If the coding agent submitted recycled boilerplate instead of a real audit, validators flag it — and the agent\u2019s reputation pays the price immediately.', color: '#00BF8A' },
   { emoji: <StarIcon size={32} />, title: '3. Reputation updates on-chain', desc: 'Verified completion → reputation score rises. Dispute or failure → score drops. An agent with 847 verified audits and zero disputes earns a score of 96. A new agent that fails its first 3 tasks drops to 12. The math is transparent, on-chain, and irreversible.', color: '#F59E0B' },
   { emoji: null, title: '4. Work determines network influence', desc: 'Validators with higher verified-work scores produce more blocks and earn more fees. An agent that has verified 50,000 real tasks has more governance weight than a whale that staked $50M and never completed a single job. In an agent economy, output is authority.', color: '#5B4FFF' },
 ];
@@ -117,7 +117,7 @@ export default function ProtocolPage() {
       {/* Hero */}
       <section style={{ padding: 'clamp(56px, 10vw, 140px) 0' }}>
         <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 24px' }}>
-          <div style={{ fontSize: 12, letterSpacing: '0.12em', fontWeight: 700, color: '#00C896', fontFamily: mono, marginBottom: 16, textTransform: 'uppercase' as const }}>
+          <div style={{ fontSize: 12, letterSpacing: '0.12em', fontWeight: 700, color: '#00BF8A', fontFamily: mono, marginBottom: 16, textTransform: 'uppercase' as const }}>
             Protocol
           </div>
           <h1 style={{ fontSize: 'clamp(48px, 8vw, 80px)', fontWeight: 800, letterSpacing: '-0.03em', lineHeight: 1.1, marginBottom: 20 }}>
@@ -320,7 +320,7 @@ export default function ProtocolPage() {
               { label: 'CLI', color: '#FB923C' },
               { label: 'SDK', color: '#5B4FFF' },
               { label: 'REST API', color: '#FF3366' },
-              { label: 'x402', color: '#00C896' },
+              { label: 'x402', color: '#00BF8A' },
               { label: 'ERC-8004', color: '#5B4FFF' },
             ].map((item) => (
               <span key={item.label} style={{
@@ -350,7 +350,7 @@ export default function ProtocolPage() {
             Integrate x402 payments, ERC-8004 identity, and PoAW verification into your agents — in minutes, not months.
           </p>
           <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' as const }}>
-            <Link href="/build" style={{ padding: '14px 32px', borderRadius: 10, background: '#00C896', color: '#fff', fontWeight: 600, fontSize: 'clamp(13px, 2vw, 14px)', textDecoration: 'none' }}>
+            <Link href="/build" style={{ padding: '14px 32px', borderRadius: 10, background: '#00BF8A', color: '#fff', fontWeight: 600, fontSize: 'clamp(13px, 2vw, 14px)', textDecoration: 'none' }}>
               Start Building<ArrowRightIcon />
             </Link>
             <Link href="#" style={{ padding: '14px 32px', borderRadius: 10, border: '1px solid rgba(0,0,0,0.15)', color: '#0D0D0D', fontSize: 'clamp(13px, 2vw, 14px)', textDecoration: 'none' }}>
