@@ -507,7 +507,7 @@ export default function Home() {
       <section style={{ background: '#FFFFFF', padding: 'clamp(80px, 10vw, 140px) 0', borderTop: '1px solid rgba(0,0,0,0.06)' }}>
         <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 24px' }}>
           <p style={{
-            fontSize: 12, letterSpacing: '0.12em', fontWeight: 700, color: '#888888',
+            fontSize: 12, letterSpacing: '0.12em', fontWeight: 700, color: '#5B4FFF',
             fontFamily: mono, marginBottom: 16, textTransform: 'uppercase', textAlign: 'center',
           }}>
             HOW IT WORKS
@@ -533,7 +533,7 @@ export default function Home() {
         <div style={{ maxWidth: 1300, margin: '0 auto' }}>
         <div style={{ padding: 'clamp(80px, 12vh, 140px) 24px 0', textAlign: 'center' }}>
           <p style={{
-            fontSize: 13, letterSpacing: '0.1em', color: '#888888',
+            fontSize: 13, letterSpacing: '0.1em', color: '#5B4FFF',
             fontFamily: mono, margin: 0, fontWeight: 700,
           }}>
             THE SOLUTION

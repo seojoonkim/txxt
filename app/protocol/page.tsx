@@ -80,7 +80,7 @@ const specs = [
     value: 'PoAW Consensus',
     headline: 'Proof of Actual Work — not capital, not electricity.',
     sub: 'Validators earn block rights proportional to verified work output + reputation score. An agent that completes 10,000 real tasks has more influence than one that stakes $10M and does nothing. Work = authority.',
-    color: '#FB923C',
+    color: '#F59E0B',
   },
   {
     value: 'x402 Native',
@@ -99,14 +99,14 @@ const specs = [
 const layers = [
   { num: '04', title: 'AI Agents', items: ['MCP / A2A / ACP', 'Custom agents', 'Any framework'], color: '#5B4FFF' },
   { num: '03', title: 'txxt Middleware', items: ['x402 payments', 'ERC-8004 identity', 'PoAW verification', 'AgentScript'], color: '#00C896' },
-  { num: '02', title: 'Protocol Layer', items: ['Atomic transactions', 'USDC/USDT gas', 'Reputation-weighted PoAW'], color: '#FB923C' },
+  { num: '02', title: 'Protocol Layer', items: ['Atomic transactions', 'USDC/USDT gas', 'Reputation-weighted PoAW'], color: '#F59E0B' },
   { num: '01', title: 'Settlement Chains', items: ['Ethereum', 'Solana', 'Base', 'Polygon...'], color: '#888888' },
 ];
 
 const poawSteps: { emoji: React.ReactNode; title: string; desc: string; color: string }[] = [
   { emoji: null, title: '1. Agent completes a task', desc: 'A coding agent writes a smart contract audit for $2.40 USDC. The task output hash, x402 payment receipt, and ERC-8004 identity attestation are bundled and recorded on-chain via txxt — all in one atomic operation.', color: '#5B4FFF' },
   { emoji: null, title: '2. Peer + validator verification', desc: 'Two independent PoAW validators and one peer review agent cross-check: Does the output match the task spec? Does the identity check out? Is the payment settled? If the coding agent submitted recycled boilerplate instead of a real audit, validators flag it — and the agent\u2019s reputation pays the price immediately.', color: '#00C896' },
-  { emoji: <StarIcon size={32} />, title: '3. Reputation updates on-chain', desc: 'Verified completion → reputation score rises. Dispute or failure → score drops. An agent with 847 verified audits and zero disputes earns a score of 96. A new agent that fails its first 3 tasks drops to 12. The math is transparent, on-chain, and irreversible.', color: '#FB923C' },
+  { emoji: <StarIcon size={32} />, title: '3. Reputation updates on-chain', desc: 'Verified completion → reputation score rises. Dispute or failure → score drops. An agent with 847 verified audits and zero disputes earns a score of 96. A new agent that fails its first 3 tasks drops to 12. The math is transparent, on-chain, and irreversible.', color: '#F59E0B' },
   { emoji: null, title: '4. Work determines network influence', desc: 'Validators with higher verified-work scores produce more blocks and earn more fees. An agent that has verified 50,000 real tasks has more governance weight than a whale that staked $50M and never completed a single job. In an agent economy, output is authority.', color: '#5B4FFF' },
 ];
 
@@ -123,8 +123,13 @@ export default function ProtocolPage() {
           <h1 style={{ fontSize: 'clamp(48px, 8vw, 80px)', fontWeight: 800, letterSpacing: '-0.03em', lineHeight: 1.1, marginBottom: 20 }}>
             The middleware layer of<br />the agent economy.
           </h1>
-          <p style={{ fontSize: 13, color: '#5B4FFF', fontFamily: mono, marginBottom: 16, letterSpacing: '0.05em' }}>
-            x402 payments · ERC-8004 identity · PoAW verification — on every chain.
+          <p style={{ fontSize: 13, fontFamily: mono, marginBottom: 16, letterSpacing: '0.05em' }}>
+            <span style={{ color: '#00BF8A' }}>x402 payments</span>
+            <span style={{ color: '#888888' }}> · </span>
+            <span style={{ color: '#5B4FFF' }}>ERC-8004 identity</span>
+            <span style={{ color: '#888888' }}> · </span>
+            <span style={{ color: '#F59E0B' }}>PoAW verification</span>
+            <span style={{ color: '#888888' }}> — on every chain.</span>
           </p>
           <p style={{ fontSize: 'clamp(15px, 1.8vw, 18px)', color: '#555555', lineHeight: 1.75, maxWidth: 560 }}>
             Not another L1. Not a general-purpose chain with AI bolted on.<br />
@@ -231,7 +236,7 @@ export default function ProtocolPage() {
       {/* Why PoAW */}
       <section style={{ padding: 'clamp(80px, 10vw, 140px) 0', background: '#13102A' }}>
         <div style={{ maxWidth: 760, margin: '0 auto', padding: '0 24px' }}>
-          <div style={{ fontSize: 12, letterSpacing: '0.12em', fontWeight: 700, color: '#FB923C', fontFamily: mono, marginBottom: 16, textTransform: 'uppercase' as const }}>
+          <div style={{ fontSize: 12, letterSpacing: '0.12em', fontWeight: 700, color: '#F59E0B', fontFamily: mono, marginBottom: 16, textTransform: 'uppercase' as const }}>
             Why PoAW?
           </div>
           <h2 style={{ fontSize: 'clamp(28px, 4vw, 48px)', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.2, marginBottom: 16, color: '#FFFFFF' }}>
@@ -241,7 +246,7 @@ export default function ProtocolPage() {
             Proof of Work asks: <em>how much electricity did you burn?</em><br />
             Proof of Stake asks: <em>how much capital can you lock up?</em><br />
             PoAW asks: <em>what useful work have you actually completed — and can you prove it?</em><br />
-            <span style={{ color: '#00C896' }}>When billions of agents are doing real work for real money, the network should be governed by the ones that deliver results — not the ones with the biggest treasury.</span>
+            <span style={{ color: '#F59E0B' }}>When billions of agents are doing real work for real money, the network should be governed by the ones that deliver results — not the ones with the biggest treasury.</span>
           </p>
           <p style={{ fontSize: 'clamp(15px, 1.8vw, 18px)', color: 'rgba(255,255,255,0.75)', lineHeight: 1.75, marginBottom: 16, maxWidth: 560 }}>
             <strong style={{ color: '#FFFFFF' }}>The problem PoAW solves:</strong> A translation agent claims it translated 10,000 words. An Ethereum validator can confirm the transaction happened — but it can&apos;t tell you if the output was accurate or if the agent just returned machine-generated garbage. PoS doesn&apos;t help either: staking $1M doesn&apos;t prove you can code, translate, or research.
@@ -285,9 +290,9 @@ export default function ProtocolPage() {
             <div style={{ color: 'rgba(255,255,255,0.5)', marginBottom: 16 }}>{'// consensus comparison — what earns you block production rights?'}</div>
             <div style={{ marginBottom: 12 }}><span style={{ color: '#FB923C' }}>PoW:</span> {"\"I burned $50K in electricity\"         → here's a block"}</div>
             <div style={{ marginBottom: 12 }}><span style={{ color: '#5B4FFF' }}>PoS:</span> {"\"I locked $1M in tokens\"               → here's a block"}</div>
-            <div style={{ marginBottom: 12 }}><span style={{ color: '#00C896' }}>PoAW:</span> {"\"I completed 10,000 verified tasks\"    → here's a block  ✓"}</div>
+            <div style={{ marginBottom: 12 }}><span style={{ color: '#F59E0B' }}>PoAW:</span> {"\"I completed 10,000 verified tasks\"    → here's a block  ✓"}</div>
             <div style={{ paddingTop: 16, borderTop: '1px solid rgba(255,255,255,0.12)', marginTop: 16, color: 'rgba(255,255,255,0.65)' }}>
-              <span style={{ color: '#00C896' }}>The only consensus mechanism where the agents doing the best work literally run the network. No token required.</span>
+              <span style={{ color: '#F59E0B' }}>The only consensus mechanism where the agents doing the best work literally run the network. No token required.</span>
             </div>
           </div>
         </div>

@@ -22,7 +22,7 @@ const GovernIcon = ({size=32,color='currentColor'}:{size?:number,color?:string})
 const timeline: { period: string; color: string; items: { title: string; desc: string }[] }[] = [
   {
     period: 'Q1 2026',
-    color: '#00C896',
+    color: '#00BF8A',
     items: [
       { title: 'Middleware Launch', desc: 'txxt middleware goes live — x402 payments + ERC-8004 identity across Ethereum, Base, and Solana.' },
       { title: 'TypeScript SDK v1', desc: 'Full SDK for agent registration, cross-chain payments, and reputation queries.' },
@@ -49,7 +49,7 @@ const timeline: { period: string; color: string; items: { title: string; desc: s
   },
   {
     period: 'Q4 2026',
-    color: '#FF3366',
+    color: '#00BF8A',
     items: [
       { title: 'Enterprise APIs', desc: 'Rate-limited, SLA-backed APIs for enterprise agent deployments across multiple chains.' },
       { title: 'Chain Expansion', desc: 'Polygon, Arbitrum, Optimism, Avalanche — txxt middleware on every major chain.' },
@@ -100,7 +100,7 @@ export default function RoadmapPage() {
       {/* Hero */}
       <section style={{ padding: 'clamp(56px, 10vw, 140px) 0' }}>
         <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 24px' }}>
-          <div style={{ fontSize: 12, letterSpacing: '0.12em', fontWeight: 700, color: '#00C896', fontFamily: mono, marginBottom: 16, textTransform: 'uppercase' }}>
+          <div style={{ fontSize: 12, letterSpacing: '0.12em', fontWeight: 700, color: '#00BF8A', fontFamily: mono, marginBottom: 16, textTransform: 'uppercase' }}>
             Roadmap & Governance
           </div>
           <h1 style={{ fontSize: 'clamp(48px, 8vw, 80px)', fontWeight: 800, letterSpacing: '-0.03em', lineHeight: 1.1, marginBottom: 20 }}>
@@ -131,7 +131,7 @@ export default function RoadmapPage() {
               position: 'absolute',
               left: 'clamp(16px, 3vw, 24px)',
               top: 0, bottom: 0, width: 2,
-              background: 'linear-gradient(to bottom, #00C896, #5B4FFF, #FB923C, #FF3366, #5B4FFF)',
+              background: 'linear-gradient(to bottom, #00BF8A, #5B4FFF, #F59E0B, #00BF8A, #5B4FFF)',
               borderRadius: 1, opacity: 0.25,
             }} />
 
@@ -192,13 +192,13 @@ export default function RoadmapPage() {
             </div>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, justifyContent: 'center' }}>
               {[
-                { chain: 'Ethereum', q: 'Q1', color: '#00C896' },
-                { chain: 'Base', q: 'Q1', color: '#00C896' },
-                { chain: 'Solana', q: 'Q1', color: '#00C896' },
-                { chain: 'Polygon', q: 'Q4', color: '#FF3366' },
-                { chain: 'Arbitrum', q: 'Q4', color: '#FF3366' },
-                { chain: 'Optimism', q: 'Q4', color: '#FF3366' },
-                { chain: 'Avalanche', q: 'Q4', color: '#FF3366' },
+                { chain: 'Ethereum', q: 'Q1', color: '#00BF8A' },
+                { chain: 'Base', q: 'Q1', color: '#00BF8A' },
+                { chain: 'Solana', q: 'Q1', color: '#00BF8A' },
+                { chain: 'Polygon', q: 'Q4', color: '#00BF8A' },
+                { chain: 'Arbitrum', q: 'Q4', color: '#00BF8A' },
+                { chain: 'Optimism', q: 'Q4', color: '#00BF8A' },
+                { chain: 'Avalanche', q: 'Q4', color: '#00BF8A' },
                 { chain: '+ more', q: '2027', color: '#5B4FFF' },
               ].map(c => (
                 <span key={c.chain} style={{
