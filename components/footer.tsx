@@ -66,8 +66,8 @@ export default function Footer() {
                 fontSize: 22,
                 fontWeight: 900,
                 letterSpacing: '-0.04em',
-                color: '#00A878',
-                WebkitTextStroke: '0.5px #00A878',
+                color: '#00BF8A',
+                WebkitTextStroke: '0.5px #00BF8A',
               }}>
                 txxt
               </span>
