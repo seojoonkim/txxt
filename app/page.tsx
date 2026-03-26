@@ -67,15 +67,10 @@ function LayeredArchDiagram() {
   };
 
   const ArrowConnector = () => (
-    <div style={{ display: 'flex', justifyContent: 'center', padding: '12px 0' }}>
-      <svg width="24" height="36" viewBox="0 0 24 36" fill="none">
-        <path d="M12 0v12m0 12v12" stroke="#00C896" strokeWidth="2" strokeDasharray="4,3" />
-        <path d="M6 10l6 6 6-6" stroke="#00C896" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-        <path d="M6 26l6-6 6 6" stroke="#00C896" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-        <circle cx="12" cy="18" r="3" fill="#00C896" opacity="0.8">
-          <animate attributeName="cy" values="6;30;6" dur="2s" repeatCount="indefinite" />
-          <animate attributeName="opacity" values="0;1;0" dur="2s" repeatCount="indefinite" />
-        </circle>
+    <div style={{ display: 'flex', justifyContent: 'center', padding: '8px 0' }}>
+      <svg width="2" height="32" viewBox="0 0 2 32" fill="none">
+        <line x1="1" y1="0" x2="1" y2="24" stroke="#00C896" strokeWidth="1.5" strokeDasharray="4,3"/>
+        <path d="M-4 22L1 28L6 22" stroke="#00C896" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
       </svg>
     </div>
   );
