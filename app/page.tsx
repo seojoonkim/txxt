@@ -504,8 +504,8 @@ export default function Home() {
       </section>
 
       {/* ===== HOW IT WORKS — Layered Architecture ===== */}
-      <section style={{ background: '#FFFFFF', padding: 'clamp(80px, 10vw, 140px) 24px', borderTop: '1px solid rgba(0,0,0,0.06)' }}>
-        <div style={{ maxWidth: 1300, margin: '0 auto' }}>
+      <section style={{ background: '#FFFFFF', padding: 'clamp(80px, 10vw, 140px) 0', borderTop: '1px solid rgba(0,0,0,0.06)' }}>
+        <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 24px' }}>
           <p style={{
             fontSize: 12, letterSpacing: '0.12em', fontWeight: 700, color: '#00C896',
             fontFamily: mono, marginBottom: 16, textTransform: 'uppercase', textAlign: 'center',
@@ -1045,8 +1045,8 @@ const ethPayment = await PaymentChannel.create(
       </section>
 
       {/* ===== INTEGRATIONS ===== */}
-      <section style={{ background: '#FFFFFF', padding: 'clamp(80px, 10vw, 140px) 24px' }}>
-        <div style={{ maxWidth: 1300, margin: '0 auto' }}>
+      <section style={{ background: '#FFFFFF', padding: 'clamp(80px, 10vw, 140px) 0' }}>
+        <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 24px' }}>
           {/* Eyebrow */}
           <p style={{ fontSize: 12, letterSpacing: '0.12em', fontWeight: 700, color: '#5B4FFF', fontFamily: mono, marginBottom: 16, textTransform: 'uppercase' }}>
             INTEGRATIONS
