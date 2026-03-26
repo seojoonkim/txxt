@@ -235,65 +235,78 @@ export default function Home() {
 
             {/* Giant txxt logo — character animation */}
             <style>{`
-              @keyframes waveLeft {
-                0%, 100% { transform: rotate(0deg); }
-                20% { transform: rotate(-20deg); }
-                40% { transform: rotate(10deg); }
-                60% { transform: rotate(-15deg); }
-                80% { transform: rotate(5deg); }
+              @keyframes armLeft {
+                0%, 100% { transform: rotate(0deg) scaleY(1); }
+                25% { transform: rotate(-25deg) scaleY(0.88); }
+                50% { transform: rotate(-10deg) scaleY(1.06); }
+                75% { transform: rotate(-20deg) scaleY(0.94); }
               }
-              @keyframes waveRight {
-                0%, 100% { transform: rotate(0deg); }
-                20% { transform: rotate(20deg); }
-                40% { transform: rotate(-10deg); }
-                60% { transform: rotate(15deg); }
-                80% { transform: rotate(-5deg); }
+              @keyframes armRight {
+                0%, 100% { transform: rotate(0deg) scaleY(1); }
+                25% { transform: rotate(25deg) scaleY(0.88); }
+                50% { transform: rotate(10deg) scaleY(1.06); }
+                75% { transform: rotate(20deg) scaleY(0.94); }
               }
-              @keyframes blink {
-                0%, 90%, 100% { transform: scaleY(1); }
-                95% { transform: scaleY(0.1); }
+              @keyframes eyeLeft {
+                0%, 80%, 100% { transform: scaleX(1) scaleY(1); }
+                85% { transform: scaleX(0.8) scaleY(0.08); }
+                90% { transform: scaleX(1.12) scaleY(1.12); }
+                95% { transform: scaleX(1) scaleY(1); }
               }
-              @keyframes wink {
-                0%, 85%, 100% { transform: scaleY(1); }
-                90%, 95% { transform: scaleY(0.05); }
+              @keyframes eyeRight {
+                0%, 70%, 100% { transform: scaleX(1) scaleY(1); }
+                75% { transform: scaleX(0.9) scaleY(0.12); }
+                80% { transform: scaleX(1.08) scaleY(1.08); }
+                85% { transform: scaleX(1) scaleY(1); }
               }
               @keyframes bounceIn {
-                0% { transform: scale(0.3) translateY(40px); opacity: 0; }
-                50% { transform: scale(1.05) translateY(-10px); opacity: 1; }
-                70% { transform: scale(0.95) translateY(5px); }
-                100% { transform: scale(1) translateY(0); opacity: 1; }
+                0% { transform: scale(0.3); opacity: 0; }
+                50% { transform: scale(1.08); opacity: 1; }
+                70% { transform: scale(0.95); }
+                85% { transform: scale(1.02); }
+                100% { transform: scale(1); opacity: 1; }
+              }
+              @keyframes wobble {
+                0%, 100% { transform: scale(1) rotate(0deg); }
+                20% { transform: scale(1.04) rotate(-1.5deg); }
+                40% { transform: scale(0.97) rotate(1.5deg); }
+                60% { transform: scale(1.02) rotate(-0.8deg); }
+                80% { transform: scale(0.99) rotate(0.5deg); }
               }
               .txxt-logo {
-                animation: bounceIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+                animation: bounceIn 0.8s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+              }
+              .txxt-logo:hover {
+                animation: wobble 0.6s ease-in-out;
               }
               .txxt-t-left {
                 display: inline-block;
                 transform-origin: bottom center;
-                animation: waveLeft 3s ease-in-out infinite;
-                animation-delay: 0.5s;
+                animation: armLeft 2.8s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+                animation-delay: 0.4s;
               }
               .txxt-t-right {
                 display: inline-block;
                 transform-origin: bottom center;
-                animation: waveRight 3s ease-in-out infinite;
-                animation-delay: 1s;
+                animation: armRight 2.8s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+                animation-delay: 0.9s;
               }
               .txxt-x-left {
                 display: inline-block;
                 transform-origin: center;
-                animation: wink 4s ease-in-out infinite;
-                animation-delay: 1.5s;
+                animation: eyeLeft 4.5s ease-in-out infinite;
+                animation-delay: 1.2s;
               }
               .txxt-x-right {
                 display: inline-block;
                 transform-origin: center;
-                animation: blink 5s ease-in-out infinite;
-                animation-delay: 2s;
+                animation: eyeRight 5.5s ease-in-out infinite;
+                animation-delay: 2.2s;
               }
-              .txxt-logo:hover .txxt-t-left { animation-duration: 0.8s; }
-              .txxt-logo:hover .txxt-t-right { animation-duration: 0.8s; }
-              .txxt-logo:hover .txxt-x-left { animation: wink 1s ease-in-out infinite; }
-              .txxt-logo:hover .txxt-x-right { animation: wink 1.2s ease-in-out 0.2s infinite; }
+              .txxt-logo:hover .txxt-t-left { animation: armLeft 0.7s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite; }
+              .txxt-logo:hover .txxt-t-right { animation: armRight 0.7s cubic-bezier(0.45, 0.05, 0.55, 0.95) 0.1s infinite; }
+              .txxt-logo:hover .txxt-x-left { animation: eyeLeft 1.2s ease-in-out infinite; }
+              .txxt-logo:hover .txxt-x-right { animation: eyeRight 1.4s ease-in-out 0.2s infinite; }
             `}</style>
             <div className="txxt-logo" style={{
               fontSize: 'clamp(80px, 28vw, 200px)',
