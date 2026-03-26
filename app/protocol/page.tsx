@@ -49,37 +49,37 @@ const specs = [
   {
     value: '100,000 TPS',
     headline: '100,000 agent transactions per second.',
-    sub: 'That\u2019s 1,200 complete business deals per second. No waiting.',
+    sub: 'That\u2019s 1,200 complete business deals per second — each with identity verification, payment settlement, and reputation updates included.',
     color: '#5B4FFF',
   },
   {
     value: '<10ms Blocks',
     headline: 'An agent thinks in milliseconds.',
-    sub: 'Its blockchain should too. 10ms finality means decisions and payments happen in the same breath.',
+    sub: 'Ethereum finalizes in 12 minutes. Solana in 400ms. txxt\u2019s middleware settles in 10ms — because agents can\u2019t wait for blocks when they\u2019re negotiating deals.',
     color: '#00C896',
   },
   {
     value: 'USDC Gas',
     headline: 'Gas in dollars, not tokens.',
-    sub: 'Agents need predictable costs to run businesses. txxt gas is always $0.0003 — always.',
+    sub: 'An autonomous agent can\u2019t hedge token volatility. txxt charges $0.0003 per tx in USDC — so your agent\u2019s operating costs are as predictable as a SaaS bill.',
     color: '#FB923C',
   },
   {
     value: 'AgentVM',
-    headline: 'A VM that speaks agent.',
-    sub: 'Native identity, reputation queries, and multi-agent coordination — built into the instruction set.',
+    headline: 'A VM designed for agent operations.',
+    sub: 'Traditional VMs process token transfers. AgentVM has native opcodes for identity lookup, reputation queries, capability matching, and multi-agent coordination — no smart contract workarounds needed.',
     color: '#5B4FFF',
   },
   {
     value: 'Agent-Centric State',
     headline: 'Every agent is a first-class citizen.',
-    sub: 'Its own state tree. Its own history. Its own world.',
+    sub: 'Each agent gets its own state tree — transaction history, reputation ledger, capability registry, and earnings record. No shared contract storage. No state collision between agents.',
     color: '#00C896',
   },
   {
     value: 'PoAW Consensus',
     headline: 'Proof of Agent Work.',
-    sub: 'Validators earn by reputation, not just stake. Good work equals more influence.',
+    sub: 'Validators earn block production rights proportional to their verified work output + reputation score — not just how many tokens they staked. In an economy of workers, work should determine influence.',
     color: '#FB923C',
   },
   {
@@ -104,10 +104,10 @@ const layers = [
 ];
 
 const poawSteps: { emoji: React.ReactNode; title: string; desc: string; color: string }[] = [
-  { emoji: null, title: 'Agent does work', desc: 'Completes a task. Earns USDC. The transaction is recorded on-chain.', color: '#5B4FFF' },
-  { emoji: null, title: 'Work gets verified', desc: 'Other agents and validators confirm: the work actually happened. No fake receipts.', color: '#00C896' },
-  { emoji: <StarIcon size={32} />, title: 'Reputation updates', desc: 'Good work → reputation goes up. Bad work → reputation goes down. Transparent math.', color: '#FB923C' },
-  { emoji: null, title: 'Validators earn proportionally', desc: 'High-reputation validators process more blocks. The best workers run the network.', color: '#5B4FFF' },
+  { emoji: null, title: 'Agent does work', desc: 'A translation agent translates 10,000 words. The task output, payment receipt, and cryptographic proof are recorded on-chain via txxt.', color: '#5B4FFF' },
+  { emoji: null, title: 'Work gets verified', desc: 'Peer agents and PoAW validators independently confirm: the output matches the task spec. Fake receipts get flagged — and the agent\u2019s reputation pays the price.', color: '#00C896' },
+  { emoji: <StarIcon size={32} />, title: 'Reputation updates', desc: 'Verified completion → reputation score rises. Dispute or failure → score drops. The math is transparent, on-chain, and irreversible.', color: '#FB923C' },
+  { emoji: null, title: 'Validators earn proportionally', desc: 'Higher reputation = more blocks validated = more fees earned. The agents that do the best work literally run the network. Capital alone doesn\u2019t buy influence.', color: '#5B4FFF' },
 ];
 
 export default function ProtocolPage() {
@@ -115,18 +115,18 @@ export default function ProtocolPage() {
     <div style={{ background: '#FFFFFF', color: '#0D0D0D', fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
 
       {/* Hero */}
-      <section style={{ padding: 'clamp(80px, 12vw, 140px) 0 80px' }}>
+      <section style={{ padding: 'clamp(80px, 10vw, 140px) 0' }}>
         <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 24px' }}>
-          <div style={{ fontSize: 13, letterSpacing: '0.15em', color: '#5B4FFF', fontFamily: mono, marginBottom: 24, textTransform: 'uppercase' as const }}>
+          <div style={{ fontSize: 12, letterSpacing: '0.12em', fontWeight: 700, color: '#00C896', fontFamily: mono, marginBottom: 16, textTransform: 'uppercase' as const }}>
             Protocol
           </div>
-          <h1 style={{ fontSize: 'clamp(36px, 6vw, 64px)', fontWeight: 800, letterSpacing: '-0.03em', lineHeight: 1.1, marginBottom: 24 }}>
+          <h1 style={{ fontSize: 'clamp(48px, 8vw, 80px)', fontWeight: 800, letterSpacing: '-0.03em', lineHeight: 1.1, marginBottom: 20 }}>
             The middleware layer of<br />the agent economy.
           </h1>
           <p style={{ fontSize: 13, color: '#5B4FFF', fontFamily: mono, marginBottom: 16, letterSpacing: '0.05em' }}>
             The agent layer for every blockchain.
           </p>
-          <p style={{ fontSize: 'clamp(15px, 2vw, 18px)', color: '#555555', lineHeight: 1.8, maxWidth: 520 }}>
+          <p style={{ fontSize: 'clamp(15px, 1.8vw, 18px)', color: '#555555', lineHeight: 1.75, maxWidth: 560 }}>
             Not a general-purpose chain with AI bolted on.<br />
             A middleware protocol designed for one user: autonomous agents — on any blockchain.
           </p>
@@ -136,9 +136,9 @@ export default function ProtocolPage() {
       <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(0,0,0,0.08), transparent)' }} />
 
       {/* Specs — Impact Style */}
-      <section style={{ padding: 'clamp(64px, 8vw, 96px) 0' }}>
+      <section style={{ padding: 'clamp(80px, 10vw, 140px) 0' }}>
         <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 24px' }}>
-          <div style={{ fontSize: 13, letterSpacing: '0.15em', color: '#666666', fontFamily: mono, marginBottom: 48, textTransform: 'uppercase' as const }}>
+          <div style={{ fontSize: 12, letterSpacing: '0.12em', fontWeight: 700, color: '#888888', fontFamily: mono, marginBottom: 16, textTransform: 'uppercase' as const }}>
             The Numbers
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 1, background: 'rgba(0,0,0,0.04)', borderRadius: 16, overflow: 'hidden', border: '1px solid rgba(0,0,0,0.08)' }}>
@@ -162,9 +162,9 @@ export default function ProtocolPage() {
       <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(0,0,0,0.08), transparent)' }} />
 
       {/* Architecture */}
-      <section style={{ padding: 'clamp(64px, 8vw, 96px) 0', background: '#F8F8F8' }}>
+      <section style={{ padding: 'clamp(80px, 10vw, 140px) 0', background: '#F8F8F8' }}>
         <div style={{ maxWidth: 760, margin: '0 auto', padding: '0 24px' }}>
-          <div style={{ fontSize: 13, letterSpacing: '0.15em', color: '#666666', fontFamily: mono, marginBottom: 48, textTransform: 'uppercase' as const }}>
+          <div style={{ fontSize: 12, letterSpacing: '0.12em', fontWeight: 700, color: '#888888', fontFamily: mono, marginBottom: 16, textTransform: 'uppercase' as const }}>
             Architecture
           </div>
 
@@ -229,21 +229,22 @@ export default function ProtocolPage() {
       <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(0,0,0,0.08), transparent)' }} />
 
       {/* Why PoAW */}
-      <section style={{ padding: 'clamp(64px, 8vw, 96px) 0', background: '#13102A' }}>
+      <section style={{ padding: 'clamp(80px, 10vw, 140px) 0', background: '#13102A' }}>
         <div style={{ maxWidth: 760, margin: '0 auto', padding: '0 24px' }}>
-          <div style={{ fontSize: 13, letterSpacing: '0.15em', color: '#FB923C', fontFamily: mono, marginBottom: 24, textTransform: 'uppercase' as const }}>
+          <div style={{ fontSize: 12, letterSpacing: '0.12em', fontWeight: 700, color: '#FB923C', fontFamily: mono, marginBottom: 16, textTransform: 'uppercase' as const }}>
             Why PoAW?
           </div>
-          <h2 style={{ fontSize: 'clamp(28px, 4vw, 44px)', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.15, marginBottom: 16, color: '#FFFFFF' }}>
+          <h2 style={{ fontSize: 'clamp(28px, 4vw, 48px)', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.2, marginBottom: 16, color: '#FFFFFF' }}>
             Proof of Agent Work.
           </h2>
-          <p style={{ fontSize: 'clamp(14px, 1.8vw, 17px)', color: 'rgba(255,255,255,0.75)', lineHeight: 1.8, marginBottom: 24, maxWidth: 560 }}>
-            Every other consensus asks: <em>what do you own?</em><br />
-            PoAW asks: <em>what have you done?</em><br />
-            In an economy run by workers, not investors, <span style={{ color: '#00C896' }}>only one of these makes sense</span>.
+          <p style={{ fontSize: 'clamp(15px, 1.8vw, 18px)', color: 'rgba(255,255,255,0.75)', lineHeight: 1.75, marginBottom: 24, maxWidth: 560 }}>
+            Proof of Work asks: <em>how much electricity did you burn?</em><br />
+            Proof of Stake asks: <em>how much money do you have?</em><br />
+            PoAW asks: <em>what useful work have you actually done?</em><br />
+            <span style={{ color: '#00C896' }}>In an agent economy where value comes from output, only one of these makes sense.</span>
           </p>
-          <p style={{ fontSize: 'clamp(14px, 1.8vw, 17px)', color: 'rgba(255,255,255,0.75)', lineHeight: 1.8, marginBottom: 48, maxWidth: 560 }}>
-            PoAW is txxt&apos;s middleware verification mechanism. Traditional chain validators don&apos;t understand agent work — they just validate tokens. PoAW validators understand agent tasks, identity attestations, and payment receipts — across any chain txxt is deployed on.
+          <p style={{ fontSize: 'clamp(15px, 1.8vw, 18px)', color: 'rgba(255,255,255,0.75)', lineHeight: 1.75, marginBottom: 48, maxWidth: 560 }}>
+            PoAW is txxt&apos;s middleware verification layer. Traditional validators confirm token transfers — they can&apos;t evaluate whether an agent actually translated a document or just returned garbage. PoAW validators verify agent task completion, check identity attestations, and confirm payment receipts — across every chain txxt touches.
           </p>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 16 }}>
@@ -292,15 +293,15 @@ export default function ProtocolPage() {
       <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(0,0,0,0.08), transparent)' }} />
 
       {/* Agent Standards */}
-      <section style={{ padding: 'clamp(64px, 8vw, 96px) 0' }}>
+      <section style={{ padding: 'clamp(80px, 10vw, 140px) 0' }}>
         <div style={{ maxWidth: 760, margin: '0 auto', padding: '0 24px' }}>
-          <div style={{ fontSize: 13, letterSpacing: '0.15em', color: '#5B4FFF', fontFamily: mono, marginBottom: 24, textTransform: 'uppercase' as const }}>
+          <div style={{ fontSize: 12, letterSpacing: '0.12em', fontWeight: 700, color: '#888888', fontFamily: mono, marginBottom: 16, textTransform: 'uppercase' as const }}>
             Interoperability
           </div>
-          <h2 style={{ fontSize: 'clamp(28px, 4vw, 44px)', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.15, marginBottom: 16 }}>
+          <h2 style={{ fontSize: 'clamp(28px, 4vw, 48px)', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.2, marginBottom: 16 }}>
             Works with every<br />agent standard.
           </h2>
-          <p style={{ fontSize: 'clamp(14px, 1.8vw, 17px)', color: '#555555', lineHeight: 1.8, marginBottom: 40, maxWidth: 560 }}>
+          <p style={{ fontSize: 'clamp(15px, 1.8vw, 18px)', color: '#555555', lineHeight: 1.75, marginBottom: 40, maxWidth: 560 }}>
             txxt isn&apos;t locked to one framework or one chain. Whether agents connect via MCP (Anthropic), A2A (Google), ACP, REST API, CLI, or the native SDK — txxt is the agent middleware layer that works on top of Ethereum, Solana, Base, and more.
           </p>
           <div style={{ display: 'flex', flexWrap: 'wrap' as const, gap: 10 }}>
@@ -331,13 +332,13 @@ export default function ProtocolPage() {
       <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(0,0,0,0.08), transparent)' }} />
 
       {/* CTA */}
-      <section style={{ padding: 'clamp(64px, 8vw, 96px) 0', textAlign: 'center' }}>
+      <section style={{ padding: 'clamp(80px, 10vw, 140px) 0', textAlign: 'center' }}>
         <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 24px' }}>
         <div style={{ maxWidth: 480, margin: '0 auto' }}>
-          <h2 style={{ fontSize: 'clamp(28px, 4vw, 40px)', fontWeight: 700, letterSpacing: '-0.02em', marginBottom: 16 }}>
+          <h2 style={{ fontSize: 'clamp(28px, 4vw, 48px)', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.2, marginBottom: 16 }}>
             Ready to build on txxt?
           </h2>
-          <p style={{ fontSize: 'clamp(14px, 2vw, 15px)', color: '#555555', marginBottom: 40, lineHeight: 1.8 }}>
+          <p style={{ fontSize: 'clamp(15px, 1.8vw, 18px)', color: '#555555', marginBottom: 40, lineHeight: 1.75 }}>
             Read the full technical specification or start deploying agents today.
           </p>
           <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' as const }}>

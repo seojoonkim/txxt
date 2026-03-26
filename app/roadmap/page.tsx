@@ -98,12 +98,12 @@ export default function RoadmapPage() {
     <div style={{ background: '#FFFFFF', color: '#0D0D0D', fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
 
       {/* Hero */}
-      <section style={{ padding: 'clamp(80px, 12vw, 140px) 24px 80px' }}>
+      <section style={{ padding: 'clamp(80px, 10vw, 140px) 0' }}>
         <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 24px' }}>
-          <div style={{ fontSize: 13, letterSpacing: '0.15em', color: '#5B4FFF', fontFamily: mono, marginBottom: 24, textTransform: 'uppercase' }}>
+          <div style={{ fontSize: 12, letterSpacing: '0.12em', fontWeight: 700, color: '#00C896', fontFamily: mono, marginBottom: 16, textTransform: 'uppercase' }}>
             Roadmap & Governance
           </div>
-          <h1 style={{ fontSize: 'clamp(48px, 8vw, 96px)', fontWeight: 800, letterSpacing: '-0.04em', lineHeight: 1.0, marginBottom: 28 }}>
+          <h1 style={{ fontSize: 'clamp(48px, 8vw, 80px)', fontWeight: 800, letterSpacing: '-0.03em', lineHeight: 1.1, marginBottom: 20 }}>
             Where we&apos;re<br />going.
           </h1>
           <p style={{ fontSize: 'clamp(15px, 1.8vw, 18px)', color: '#555555', lineHeight: 1.75, maxWidth: 640 }}>
@@ -118,10 +118,10 @@ export default function RoadmapPage() {
       <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(0,0,0,0.08), transparent)' }} />
 
       {/* Timeline */}
-      <section style={{ padding: 'clamp(64px, 8vw, 96px) 16px', background: '#F8F8F8' }}>
+      <section style={{ padding: 'clamp(80px, 10vw, 140px) 0', background: '#F8F8F8' }}>
         <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 24px' }}>
         <div style={{ maxWidth: 900, margin: '0 auto' }}>
-          <div style={{ fontSize: 13, letterSpacing: '0.15em', color: '#666666', fontFamily: mono, marginBottom: 48, textTransform: 'uppercase' }}>
+          <div style={{ fontSize: 12, letterSpacing: '0.12em', fontWeight: 700, color: '#888888', fontFamily: mono, marginBottom: 48, textTransform: 'uppercase' }}>
             Timeline
           </div>
 
@@ -221,10 +221,10 @@ export default function RoadmapPage() {
       <section style={{ padding: 'clamp(64px, 8vw, 96px) 16px', background: '#13102A' }}>
         <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 24px' }}>
         <div style={{ maxWidth: 900, margin: '0 auto' }}>
-          <div style={{ fontSize: 13, letterSpacing: '0.15em', color: '#00C896', fontFamily: mono, marginBottom: 24, textTransform: 'uppercase' }}>
+          <div style={{ fontSize: 12, letterSpacing: '0.12em', fontWeight: 700, color: '#888888', fontFamily: mono, marginBottom: 16, textTransform: 'uppercase' }}>
             Governance
           </div>
-          <h2 style={{ fontSize: 'clamp(32px, 5vw, 56px)', fontWeight: 700, letterSpacing: '-0.03em', lineHeight: 1.1, marginBottom: 16, color: '#FFFFFF' }}>
+          <h2 style={{ fontSize: 'clamp(28px, 4vw, 48px)', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.2, marginBottom: 16, color: '#FFFFFF' }}>
             Token-free governance.<br />How?
           </h2>
           <p style={{ fontSize: 'clamp(15px, 1.8vw, 18px)', color: 'rgba(255,255,255,0.7)', lineHeight: 1.75, maxWidth: 640, marginBottom: 48 }}>
@@ -278,10 +278,10 @@ export default function RoadmapPage() {
       <section style={{ padding: 'clamp(64px, 8vw, 96px) 16px', textAlign: 'center' }}>
         <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 24px' }}>
         <div style={{ maxWidth: 480, margin: '0 auto' }}>
-          <h2 style={{ fontSize: 'clamp(28px, 4vw, 40px)', fontWeight: 700, letterSpacing: '-0.02em', marginBottom: 16 }}>
+          <h2 style={{ fontSize: 'clamp(28px, 4vw, 48px)', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.2, marginBottom: 16 }}>
             Build the agent layer with us.
           </h2>
-          <p style={{ fontSize: 'clamp(14px, 2vw, 15px)', color: '#555555', marginBottom: 40, lineHeight: 1.8 }}>
+          <p style={{ fontSize: 'clamp(15px, 1.8vw, 18px)', color: '#555555', marginBottom: 40, lineHeight: 1.75 }}>
             Every line on this roadmap is a promise. Join the builders making every blockchain agent-ready.
           </p>
           <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>

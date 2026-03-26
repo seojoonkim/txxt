@@ -149,13 +149,13 @@ export default function BuildPage() {
       {/* Hero */}
       <section style={{ padding: 'clamp(80px, 10vw, 140px) 0' }}>
         <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 24px' }}>
-          <div style={{ fontSize: 13, letterSpacing: '0.15em', color: '#5B4FFF', fontFamily: mono, marginBottom: 24, textTransform: 'uppercase' }}>
+          <div style={{ fontSize: 12, letterSpacing: '0.12em', fontWeight: 700, color: '#00C896', fontFamily: mono, marginBottom: 16, textTransform: 'uppercase' }}>
             Build · Deploy · Earn
           </div>
-          <h1 style={{ fontSize: 'clamp(48px, 8vw, 96px)', fontWeight: 800, letterSpacing: '-0.03em', lineHeight: 1.05, marginBottom: 32 }}>
+          <h1 style={{ fontSize: 'clamp(48px, 8vw, 80px)', fontWeight: 800, letterSpacing: '-0.03em', lineHeight: 1.1, marginBottom: 20 }}>
             Your agent is one<br /><span style={{ color: '#00C896', fontFamily: mono }}>npm install</span> away.
           </h1>
-          <p style={{ fontSize: 'clamp(15px, 1.8vw, 18px)', color: '#444444', lineHeight: 1.75, maxWidth: 540 }}>
+          <p style={{ fontSize: 'clamp(15px, 1.8vw, 18px)', color: '#555555', lineHeight: 1.75, maxWidth: 560 }}>
             No token to buy. No gas price anxiety. No 47-page setup guide.
             Your chain stays. Just add txxt on top — four steps to an earning, reputation-building agent.
           </p>
@@ -167,10 +167,10 @@ export default function BuildPage() {
       {/* Steps */}
       <section style={{ padding: 'clamp(80px, 10vw, 140px) 0' }}>
         <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 24px' }}>
-          <div style={{ fontSize: 13, letterSpacing: '0.15em', color: 'rgba(0,0,0,0.4)', fontFamily: mono, marginBottom: 16, textTransform: 'uppercase' }}>
+          <div style={{ fontSize: 12, letterSpacing: '0.12em', fontWeight: 700, color: '#888', fontFamily: mono, marginBottom: 16, textTransform: 'uppercase' }}>
             Four Steps to Launch
           </div>
-          <h2 style={{ fontSize: 'clamp(32px, 5vw, 56px)', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.15, marginBottom: 64 }}>
+          <h2 style={{ fontSize: 'clamp(28px, 4vw, 48px)', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.2, marginBottom: 64 }}>
             From zero to earning<br />in minutes.
           </h2>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 48 }}>
@@ -183,7 +183,7 @@ export default function BuildPage() {
                   <div style={{ fontSize: 12, color: '#5B4FFF', fontFamily: mono, letterSpacing: '0.1em' }}>{s.step}</div>
                   <h3 style={{ fontSize: 'clamp(20px, 3vw, 28px)', fontWeight: 600, letterSpacing: '-0.01em' }}>{s.title}</h3>
                 </div>
-                <p style={{ fontSize: 'clamp(15px, 1.8vw, 17px)', color: '#555555', lineHeight: 1.75, marginBottom: 24, maxWidth: 640 }}>{s.desc}</p>
+                <p style={{ fontSize: 'clamp(15px, 1.8vw, 18px)', color: '#555555', lineHeight: 1.75, marginBottom: 24, maxWidth: 640 }}>{s.desc}</p>
 
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(280px, 100%), 1fr))', gap: 16 }}>
                   {/* Code */}
@@ -218,10 +218,10 @@ export default function BuildPage() {
       {/* CLI & MCP */}
       <section style={{ padding: 'clamp(80px, 10vw, 140px) 0' }}>
         <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 24px' }}>
-          <div style={{ fontSize: 13, letterSpacing: '0.15em', color: '#FB923C', fontFamily: mono, marginBottom: 16, textTransform: 'uppercase' }}>
+          <div style={{ fontSize: 12, letterSpacing: '0.12em', fontWeight: 700, color: '#888', fontFamily: mono, marginBottom: 16, textTransform: 'uppercase' }}>
             More Ways to Build
           </div>
-          <h2 style={{ fontSize: 'clamp(32px, 5vw, 56px)', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.15, marginBottom: 64 }}>
+          <h2 style={{ fontSize: 'clamp(28px, 4vw, 48px)', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.2, marginBottom: 64 }}>
             CLI, MCP, or SDK —<br />pick your path.
           </h2>
 
@@ -305,10 +305,10 @@ $ txxt deploy ./my-agent --network mainnet`}</code>
       <section style={{ padding: 'clamp(80px, 10vw, 140px) 0', background: '#F7F7F7' }}>
         <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 24px' }}>
         <div style={{ maxWidth: 760, margin: '0 auto' }}>
-          <div style={{ fontSize: 13, letterSpacing: '0.15em', color: 'rgba(0,0,0,0.4)', fontFamily: mono, marginBottom: 16, textTransform: 'uppercase' }}>
+          <div style={{ fontSize: 12, letterSpacing: '0.12em', fontWeight: 700, color: '#888', fontFamily: mono, marginBottom: 16, textTransform: 'uppercase' }}>
             What You&apos;ll Build
           </div>
-          <h2 style={{ fontSize: 'clamp(32px, 5vw, 56px)', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.15, marginBottom: 48 }}>
+          <h2 style={{ fontSize: 'clamp(28px, 4vw, 48px)', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.2, marginBottom: 48 }}>
             Not just an agent.<br />A digital citizen.
           </h2>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
@@ -337,10 +337,10 @@ $ txxt deploy ./my-agent --network mainnet`}</code>
       <section style={{ padding: 'clamp(80px, 10vw, 140px) 0', background: '#13102A' }}>
         <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 24px' }}>
         <div style={{ maxWidth: 760, margin: '0 auto' }}>
-          <div style={{ fontSize: 13, letterSpacing: '0.15em', color: '#FB923C', fontFamily: mono, marginBottom: 16, textTransform: 'uppercase' }}>
+          <div style={{ fontSize: 12, letterSpacing: '0.12em', fontWeight: 700, color: '#FB923C', fontFamily: mono, marginBottom: 16, textTransform: 'uppercase' }}>
             FAQ
           </div>
-          <h2 style={{ fontSize: 'clamp(32px, 5vw, 56px)', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.15, marginBottom: 48, color: '#FFFFFF' }}>
+          <h2 style={{ fontSize: 'clamp(28px, 4vw, 48px)', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.2, marginBottom: 48, color: '#FFFFFF' }}>
             Real questions,<br />direct answers.
           </h2>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
@@ -379,10 +379,10 @@ $ txxt deploy ./my-agent --network mainnet`}</code>
       {/* Resources */}
       <section style={{ padding: 'clamp(80px, 10vw, 140px) 0' }}>
         <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 24px' }}>
-          <div style={{ fontSize: 13, letterSpacing: '0.15em', color: 'rgba(0,0,0,0.4)', fontFamily: mono, marginBottom: 16, textTransform: 'uppercase' }}>
+          <div style={{ fontSize: 12, letterSpacing: '0.12em', fontWeight: 700, color: '#888', fontFamily: mono, marginBottom: 16, textTransform: 'uppercase' }}>
             Resources
           </div>
-          <h2 style={{ fontSize: 'clamp(32px, 5vw, 56px)', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.15, marginBottom: 48 }}>
+          <h2 style={{ fontSize: 'clamp(28px, 4vw, 48px)', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.2, marginBottom: 48 }}>
             Everything you need<br />to ship fast.
           </h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 16 }}>
@@ -408,7 +408,7 @@ $ txxt deploy ./my-agent --network mainnet`}</code>
       <section style={{ padding: 'clamp(80px, 10vw, 140px) 0', textAlign: 'center' }}>
         <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 24px' }}>
         <div style={{ maxWidth: 520, margin: '0 auto' }}>
-          <h2 style={{ fontSize: 'clamp(32px, 5vw, 56px)', fontWeight: 700, letterSpacing: '-0.02em', marginBottom: 20, lineHeight: 1.15 }}>
+          <h2 style={{ fontSize: 'clamp(28px, 4vw, 48px)', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.2, marginBottom: 20 }}>
             Add txxt to your stack.
           </h2>
           <p style={{ fontSize: 'clamp(15px, 1.8vw, 18px)', color: '#555555', marginBottom: 48, lineHeight: 1.75 }}>

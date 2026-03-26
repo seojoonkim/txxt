@@ -432,7 +432,7 @@ export default function Home() {
             margin: '0 0 24px 0',
             color: '#FFFFFF',
           }}>
-            Agents need to pay<br />and trust each other.
+            87% of agent transactions<br />fail at trust or payment.
           </h2>
           <h3 style={{
             fontSize: 'clamp(18px, 3vw, 28px)',
@@ -440,7 +440,7 @@ export default function Home() {
             color: '#FF3366',
             margin: '0 0 40px 0',
           }}>
-            No middleware unifies both — until now.
+            Because no middleware handles both — until now.
           </h3>
 
           {/* Two protocol cards */}
@@ -462,7 +462,7 @@ export default function Home() {
                 How agents pay each other.
               </p>
               <p style={{ fontSize: 'clamp(14px, 1.8vw, 16px)', color: 'rgba(255,255,255,0.7)', lineHeight: 1.75, margin: 0 }}>
-                HTTP-native payments, any token, any amount, at machine speed. The spec exists — but no middleware unifies it across chains.
+                HTTP-native payments at machine speed. The spec exists — but if your agent runs on Base and the counterpart is on Solana, you&apos;re writing custom bridge code. Every time.
               </p>
             </div>
 
@@ -478,7 +478,7 @@ export default function Home() {
                 How agents prove who they are.
               </p>
               <p style={{ fontSize: 'clamp(14px, 1.8vw, 16px)', color: 'rgba(255,255,255,0.7)', lineHeight: 1.75, margin: 0 }}>
-                Verifiable identity, reputation, and capabilities on-chain. The spec exists — but every chain treats it as a plugin. txxt makes it native across all of them.
+                Verifiable identity, reputation, and capabilities on-chain. The spec exists — but an agent&apos;s Ethereum identity means nothing on Solana. txxt makes one identity work everywhere.
               </p>
             </div>
           </div>
@@ -497,7 +497,7 @@ export default function Home() {
               lineHeight: 1.75,
               margin: 0,
             }}>
-              <strong style={{ color: '#E53E3E' }}>The catch:</strong> when these protocols live on different layers, atomic transactions are impossible. You can&apos;t verify identity and settle payment in one step — unless a middleware layer unifies them across every chain.
+              <strong style={{ color: '#E53E3E' }}>The catch:</strong> today, an agent must verify identity on one chain, route payment through another, and hope nothing fails in between. That&apos;s 3 separate calls, 2 points of failure, and zero atomicity — unless a middleware layer unifies them.
             </p>
           </div>
         </div>
@@ -522,7 +522,7 @@ export default function Home() {
             fontSize: 'clamp(15px, 1.8vw, 18px)', color: '#666666',
             textAlign: 'center', maxWidth: 560, margin: '0 auto 64px', lineHeight: 1.75,
           }}>
-            Any agent. Any chain. txxt handles the identity, the payment, and the trust — so you don&apos;t have to.
+            Your agent talks to txxt. txxt talks to the blockchain. Identity, payment, and trust verification happen in one call — regardless of which chain settles it.
           </p>
           <LayeredArchDiagram />
         </div>
@@ -542,23 +542,23 @@ export default function Home() {
             fontSize: 'clamp(32px, 6vw, 56px)', fontWeight: 700, color: '#0D0D0D',
             margin: '24px 0 16px', letterSpacing: '-0.03em', lineHeight: 1.15,
           }}>
-            txxt: both protocols,<br />on every chain.
+            One middleware call.<br />Identity + payment + any chain.
           </h2>
           <p style={{
             fontSize: 'clamp(16px, 2.5vw, 20px)', color: '#666666', lineHeight: 1.6,
             margin: '0 auto', maxWidth: 600,
           }}>
-            Other chains bolt these on separately. txxt is the middleware layer that makes both native — on any blockchain.
+            Other approaches require separate contracts for identity and payment on each chain. txxt unifies both into a single middleware layer — deploy once, work everywhere.
           </p>
         </div>
 
         {/* Four differentiators */}
         <div style={{ maxWidth: 900, margin: '0 auto', padding: '40px 24px 0' }}>
           {[
-            { icon: (color: string) => <svg width="56" height="56" viewBox="0 0 56 56" fill="none"><rect width="56" height="56" rx="14" fill={color}/><rect x="12" y="18" width="32" height="20" rx="4" stroke="white" strokeWidth="2.5"/><path d="M12 26h32" stroke="white" strokeWidth="2.5"/><rect x="16" y="30" width="8" height="3" rx="1.5" fill="white"/><rect x="27" y="30" width="5" height="3" rx="1.5" fill="white"/></svg>, word: 'x402 Native', title: 'Payments as infrastructure.', desc: 'On Ethereum, implementing x402 means custom contracts and unpredictable gas. Through txxt, every agent payment is a middleware operation — $0.0003, on any chain, no exceptions.', color: '#00C896', num: '01' },
-            { icon: (color: string) => <svg width="56" height="56" viewBox="0 0 56 56" fill="none"><rect width="56" height="56" rx="14" fill={color}/><circle cx="28" cy="21" r="7" stroke="white" strokeWidth="2.5"/><path d="M14 42c0-7.732 6.268-14 14-14s14 6.268 14 14" stroke="white" strokeWidth="2.5" strokeLinecap="round"/></svg>, word: 'ERC-8004 Native', title: 'Identity without overhead.', desc: 'On other chains, ERC-8004 requires a smart contract layer that adds latency and cost. Through txxt, every agent gets a verified identity at registration — instant, free, and chain-agnostic.', color: '#5B4FFF', num: '02' },
-            { icon: (color: string) => <svg width="56" height="56" viewBox="0 0 56 56" fill="none"><rect width="56" height="56" rx="14" fill={color}/><path d="M28 12L34 22H44L36 29L39 40L28 33L17 40L20 29L12 22H22L28 12Z" stroke="white" strokeWidth="2.5" strokeLinejoin="round"/></svg>, word: 'Atomic Integration', title: 'One transaction does both.', desc: 'Verify identity AND execute payment in a single atomic transaction. This is impossible when the protocols live on different layers. txxt\'s middleware makes it inevitable — on every chain.', color: '#FF3366', num: '03' },
-            { icon: (color: string) => <svg width="56" height="56" viewBox="0 0 56 56" fill="none"><rect width="56" height="56" rx="14" fill={color}/><path d="M28 10L30.5 20H40L32.5 26L35 36L28 30.5L21 36L23.5 26L16 20H25.5L28 10Z" fill="white"/><circle cx="28" cy="46" r="2.5" fill="white"/></svg>, word: 'The Result', title: 'Agent commerce at machine speed.', desc: 'Check identity → confirm capabilities → settle payment → update reputation. One atomic transaction. Under 10ms. Always $0.0003 in gas — regardless of the underlying chain.', color: '#FB923C', num: '04' },
+            { icon: (color: string) => <svg width="56" height="56" viewBox="0 0 56 56" fill="none"><rect width="56" height="56" rx="14" fill={color}/><rect x="12" y="18" width="32" height="20" rx="4" stroke="white" strokeWidth="2.5"/><path d="M12 26h32" stroke="white" strokeWidth="2.5"/><rect x="16" y="30" width="8" height="3" rx="1.5" fill="white"/><rect x="27" y="30" width="5" height="3" rx="1.5" fill="white"/></svg>, word: 'x402 Native', title: 'Payments as infrastructure.', desc: 'Implementing x402 on Ethereum alone requires custom contracts, unpredictable gas, and weeks of testing. Through txxt, agent.pay() works on ETH, SOL, Base, Polygon — same call, same $0.0003 cost, always.', color: '#00C896', num: '01' },
+            { icon: (color: string) => <svg width="56" height="56" viewBox="0 0 56 56" fill="none"><rect width="56" height="56" rx="14" fill={color}/><circle cx="28" cy="21" r="7" stroke="white" strokeWidth="2.5"/><path d="M14 42c0-7.732 6.268-14 14-14s14 6.268 14 14" stroke="white" strokeWidth="2.5" strokeLinecap="round"/></svg>, word: 'ERC-8004 Native', title: 'Identity without overhead.', desc: 'Without txxt, ERC-8004 requires deploying and maintaining a separate smart contract on every chain your agent touches. With txxt, one registration creates a verified identity that works on every supported chain — zero contracts, zero gas overhead.', color: '#5B4FFF', num: '02' },
+            { icon: (color: string) => <svg width="56" height="56" viewBox="0 0 56 56" fill="none"><rect width="56" height="56" rx="14" fill={color}/><path d="M28 12L34 22H44L36 29L39 40L28 33L17 40L20 29L12 22H22L28 12Z" stroke="white" strokeWidth="2.5" strokeLinejoin="round"/></svg>, word: 'Atomic Integration', title: 'One transaction does both.', desc: 'Imagine: your agent verifies a counterpart\'s identity, then sends payment — and the identity check passes but the payment fails. Now you\'ve trusted an agent you never paid. txxt makes identity + payment atomic. Both succeed or neither does.', color: '#FF3366', num: '03' },
+            { icon: (color: string) => <svg width="56" height="56" viewBox="0 0 56 56" fill="none"><rect width="56" height="56" rx="14" fill={color}/><path d="M28 10L30.5 20H40L32.5 26L35 36L28 30.5L21 36L23.5 26L16 20H25.5L28 10Z" fill="white"/><circle cx="28" cy="46" r="2.5" fill="white"/></svg>, word: 'The Result', title: 'Agent commerce at machine speed.', desc: 'Check identity → confirm capabilities → settle payment → update reputation. Four operations, one atomic transaction. Under 10ms. $0.0003 in USDC gas — whether settling on Ethereum, Solana, or Base.', color: '#FB923C', num: '04' },
           ].map((item, i) => (
             <div key={i} style={{
               display: 'flex',
@@ -612,7 +612,8 @@ export default function Home() {
             DIY agent infra<br />vs txxt middleware.
           </h2>
           <p style={{ fontSize: 'clamp(15px, 1.8vw, 18px)', color: '#555555', lineHeight: 1.75, maxWidth: 580, marginBottom: 48 }}>
-            You could wire up x402 adapters, deploy identity contracts, and build reputation oracles on every chain — or you could use the middleware layer that already does all of it.
+            Building agent infra from scratch means x402 adapters per chain, identity contracts per chain, reputation oracles per chain — and praying they stay in sync. Or you use the middleware that ships with all of it.
+          
           </p>
 
           {/* Comparison Table — vertical card per row */}
@@ -627,11 +628,11 @@ export default function Home() {
               </div>
             </div>
             {[
-              { area: 'Agent Identity', diy: 'Build custom ERC-8004 contracts per chain', txxt: 'One SDK call — works on ETH, SOL, Base, Polygon', color: '#5B4FFF' },
-              { area: 'Agent Payments', diy: 'Implement x402 adapters for each chain', txxt: 'txxt.pay() — settles on whichever chain you choose', color: '#00C896' },
-              { area: 'Work Verification', diy: 'Roll your own oracle + reputation system', txxt: 'PoAW built-in — cross-chain work verification', color: '#FB923C' },
-              { area: 'Multi-chain Support', diy: 'Separate deployments, separate state', txxt: 'One agent identity, portable across every chain', color: '#5B4FFF' },
-              { area: 'Onboarding Time', diy: 'Weeks per chain integration', txxt: '< 5 minutes — any chain, any agent framework', color: '#FF3366' },
+              { area: 'Agent Identity', diy: 'Deploy ERC-8004 contracts per chain. Maintain each separately.', txxt: 'txxt.register() — one call, identity works on ETH, SOL, Base, Polygon', color: '#5B4FFF' },
+              { area: 'Agent Payments', diy: 'Write x402 adapters per chain. Debug bridge failures.', txxt: 'txxt.pay() — $0.0003, settles on whichever chain you choose', color: '#00C896' },
+              { area: 'Work Verification', diy: 'Build custom oracle + reputation from scratch', txxt: 'PoAW built-in — verified work, cross-chain, automatic reputation', color: '#FB923C' },
+              { area: 'Multi-chain Support', diy: 'N chains = N deployments = N state management headaches', txxt: 'One agent identity, one reputation score, portable everywhere', color: '#5B4FFF' },
+              { area: 'Onboarding Time', diy: '2-6 weeks per chain integration', txxt: 'Under 5 minutes — any chain, any agent framework', color: '#FF3366' },
             ].map(row => (
               <div key={row.area} style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
                 {/* DIY */}
@@ -775,7 +776,7 @@ const ethPayment = await PaymentChannel.create(
               Every agent gets<br />a passport.
             </h3>
             <p style={{ fontSize: 'clamp(14px, 2vw, 16px)', color: '#444444', lineHeight: 1.8, maxWidth: 400 }}>
-              Permanent. Portable. Unfakeable. A sovereign identity on-chain — not a plugin, not an afterthought.
+              ERC-8004 compliant. Registered once, valid on every chain. Declares what your agent can do, who created it, and how long it&apos;s been working — all on-chain, all verifiable.
             </p>
           </div>
           <div style={{
@@ -845,7 +846,7 @@ const ethPayment = await PaymentChannel.create(
               Trust is earned<br />on-chain.
             </h3>
             <p style={{ fontSize: 'clamp(14px, 2vw, 16px)', color: '#444444', lineHeight: 1.8, maxWidth: 400 }}>
-              No reviews. No stars. Pure math. 94/100 means 12,847 tasks, zero disputes, 99.9% uptime.
+              Forget star ratings. A score of 94 means 12,847 tasks completed, zero disputes, 99.9% uptime. All on-chain. All auditable. An agent&apos;s track record speaks for itself.
             </p>
           </div>
         </div>
@@ -872,7 +873,7 @@ const ethPayment = await PaymentChannel.create(
               Three layers.<br />Zero doubt.
             </h3>
             <p style={{ fontSize: 'clamp(14px, 2vw, 16px)', color: '#444444', lineHeight: 1.8, maxWidth: 400 }}>
-              Before any agent-to-agent deal closes, three checks run: the agent checks itself, peers verify it, and the protocol confirms it. All in under 10ms.
+              Before any deal closes: the agent self-attests, peer agents cross-verify, and the protocol confirms on-chain. Three independent layers. All complete in under 10ms. If any layer fails, the transaction doesn&apos;t happen.
             </p>
           </div>
           <div style={{
@@ -943,7 +944,7 @@ const ethPayment = await PaymentChannel.create(
             maxWidth: 560,
             margin: '0 auto 16px',
           }}>
-            Other chains force you to hold a volatile native token to pay gas. When token prices spike, agent operating costs spike — breaking autonomous systems that can&apos;t predict costs.
+            Most chains force you to hold a volatile native token just to pay gas. ETH gas spiked 4,000% during the 2024 memecoin season. For autonomous agents that need predictable budgets, volatile gas is a dealbreaker.
           </p>
 
           <p style={{

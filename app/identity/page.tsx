@@ -132,20 +132,18 @@ export default function IdentityPage() {
       {/* Hero */}
       <section style={{ padding: 'clamp(80px, 10vw, 140px) 0' }}>
         <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 24px' }}>
-          <div style={{ fontSize: 13, letterSpacing: '0.15em', color: '#5B4FFF', fontFamily: mono, marginBottom: 24, textTransform: 'uppercase' }}>
+          <div style={{ fontSize: 12, letterSpacing: '0.12em', fontWeight: 700, color: '#00C896', fontFamily: mono, marginBottom: 16, textTransform: 'uppercase' }}>
             ERC-8004 · Identity · Reputation · Validation
           </div>
-          <h1 style={{ fontSize: 'clamp(48px, 8vw, 96px)', fontWeight: 800, letterSpacing: '-0.03em', lineHeight: 1.05, marginBottom: 32 }}>
+          <h1 style={{ fontSize: 'clamp(48px, 8vw, 80px)', fontWeight: 800, letterSpacing: '-0.03em', lineHeight: 1.1, marginBottom: 20 }}>
             Agent identity<br /><em style={{ fontStyle: 'normal', color: '#5B4FFF' }}>is</em> trust.
           </h1>
-          <p style={{ fontSize: 'clamp(15px, 1.8vw, 18px)', color: '#444444', lineHeight: 1.75, maxWidth: 580 }}>
-            Every chain treats ERC-8004 as a plugin. txxt treats it as middleware infrastructure — chain-agnostic and universal.
-            The moment your agent registers through txxt, it gets a fully ERC-8004-compliant
-            identity that works across Ethereum, Solana, Base, and any supported chain — no separate contract, no extra gas, no waiting.
+          <p style={{ fontSize: 'clamp(15px, 1.8vw, 18px)', color: '#555555', lineHeight: 1.75, maxWidth: 560 }}>
+            Without identity, an agent is just a wallet address. Would you wire $10,000 to a wallet you can&apos;t verify? Neither would another agent.
+            txxt treats ERC-8004 as middleware infrastructure — one registration creates a verified identity that works on Ethereum, Solana, Base, and every supported chain. No separate contracts. No extra gas.
           </p>
-          <p style={{ fontSize: 'clamp(15px, 1.8vw, 18px)', color: '#444444', lineHeight: 1.75, maxWidth: 580, marginTop: 20 }}>
-            From that moment, every agent on any chain can verify it through the txxt middleware. That verification
-            is what makes trust possible — and trust is what makes economic activity possible, regardless of the underlying blockchain.
+          <p style={{ fontSize: 'clamp(15px, 1.8vw, 18px)', color: '#555555', lineHeight: 1.75, maxWidth: 560, marginTop: 20 }}>
+            From that moment, any agent on any chain can look up your agent&apos;s capabilities, track record, and creator — in milliseconds. That&apos;s what turns anonymous wallets into trusted business partners.
           </p>
         </div>
       </section>
@@ -171,10 +169,10 @@ export default function IdentityPage() {
       {/* Agent Profile Card */}
       <section style={{ padding: 'clamp(80px, 10vw, 140px) 0', background: '#F7F7F7' }}>
         <div style={{ maxWidth: 760, margin: '0 auto', textAlign: 'center', padding: '0 24px' }}>
-          <div style={{ fontSize: 13, letterSpacing: '0.15em', color: 'rgba(0,0,0,0.4)', fontFamily: mono, marginBottom: 16, textTransform: 'uppercase' }}>
+          <div style={{ fontSize: 12, letterSpacing: '0.12em', fontWeight: 700, color: '#888888', fontFamily: mono, marginBottom: 16, textTransform: 'uppercase' }}>
             Agent Profile Card
           </div>
-          <p style={{ fontSize: 'clamp(15px, 1.8vw, 18px)', color: '#444444', lineHeight: 1.75, marginBottom: 48, maxWidth: 560, margin: '0 auto 48px' }}>
+          <p style={{ fontSize: 'clamp(15px, 1.8vw, 18px)', color: '#555555', lineHeight: 1.75, marginBottom: 48, maxWidth: 560, margin: '0 auto 48px' }}>
             This is what identity looks like on txxt. Every registered agent carries this — 
             publicly verifiable, permanently on-chain, queryable by any agent in the network.
           </p>
@@ -245,10 +243,10 @@ export default function IdentityPage() {
       <section style={{ padding: 'clamp(80px, 10vw, 140px) 0' }}>
         <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 24px' }}>
         <div style={{ maxWidth: 900, margin: '0 auto' }}>
-          <div style={{ fontSize: 13, letterSpacing: '0.15em', color: 'rgba(0,0,0,0.4)', fontFamily: mono, marginBottom: 16, textTransform: 'uppercase' }}>
+          <div style={{ fontSize: 12, letterSpacing: '0.12em', fontWeight: 700, color: '#888888', fontFamily: mono, marginBottom: 16, textTransform: 'uppercase' }}>
             The Difference Identity Makes
           </div>
-          <h2 style={{ fontSize: 'clamp(32px, 5vw, 56px)', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.15, marginBottom: 48 }}>
+          <h2 style={{ fontSize: 'clamp(28px, 4vw, 48px)', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.2, marginBottom: 16 }}>
             Without it, agents are strangers.<br />With it, they&apos;re colleagues.
           </h2>
 
@@ -307,10 +305,10 @@ export default function IdentityPage() {
                 <div style={{ fontSize: 12, letterSpacing: '0.12em', color: '#A78BFA', fontFamily: mono, marginBottom: 20 }}>
                   {p.label}
                 </div>
-                <h2 style={{ fontSize: 'clamp(24px, 3.5vw, 40px)', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.2, marginBottom: 20, color: '#FFFFFF' }}>
+                <h2 style={{ fontSize: 'clamp(28px, 4vw, 48px)', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.2, marginBottom: 16, color: '#FFFFFF' }}>
                   {p.title}
                 </h2>
-                <p style={{ fontSize: 'clamp(15px, 1.8vw, 17px)', color: 'rgba(255,255,255,0.8)', lineHeight: 1.75 }}>{p.desc}</p>
+                <p style={{ fontSize: 'clamp(15px, 1.8vw, 18px)', color: 'rgba(255,255,255,0.8)', lineHeight: 1.75 }}>{p.desc}</p>
               </div>
               {/* Right: Code */}
               <div style={{ borderRadius: 12, border: '1px solid rgba(255,255,255,0.1)', background: '#0A0C1E', overflow: 'hidden' }}>
@@ -333,10 +331,10 @@ export default function IdentityPage() {
       <section style={{ padding: 'clamp(80px, 10vw, 140px) 0', background: '#F7F7F7' }}>
         <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 24px' }}>
         <div style={{ maxWidth: 900, margin: '0 auto' }}>
-          <div style={{ fontSize: 13, letterSpacing: '0.15em', color: 'rgba(0,0,0,0.4)', fontFamily: mono, marginBottom: 16, textTransform: 'uppercase' }}>
+          <div style={{ fontSize: 12, letterSpacing: '0.12em', fontWeight: 700, color: '#888888', fontFamily: mono, marginBottom: 16, textTransform: 'uppercase' }}>
             Why ERC-8004
           </div>
-          <h2 style={{ fontSize: 'clamp(32px, 5vw, 56px)', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.15, marginBottom: 32 }}>
+          <h2 style={{ fontSize: 'clamp(28px, 4vw, 48px)', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.2, marginBottom: 16 }}>
             The standard that makes<br />agent economies possible.
           </h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(260px, 100%), 1fr))', gap: 24 }}>
@@ -362,7 +360,7 @@ export default function IdentityPage() {
       <section style={{ padding: 'clamp(80px, 10vw, 140px) 0', textAlign: 'center' }}>
         <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 24px' }}>
         <div style={{ maxWidth: 520, margin: '0 auto' }}>
-          <h2 style={{ fontSize: 'clamp(32px, 5vw, 56px)', fontWeight: 700, letterSpacing: '-0.02em', marginBottom: 20, lineHeight: 1.15 }}>
+          <h2 style={{ fontSize: 'clamp(28px, 4vw, 48px)', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.2, marginBottom: 16 }}>
             Give your agent an identity.
           </h2>
           <p style={{ fontSize: 'clamp(15px, 1.8vw, 18px)', color: '#555555', marginBottom: 48, lineHeight: 1.75 }}>
