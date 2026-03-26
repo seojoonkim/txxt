@@ -115,8 +115,8 @@ export default function ProtocolPage() {
     <div style={{ background: '#FFFFFF', color: '#0D0D0D', fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
 
       {/* Hero */}
-      <section style={{ padding: 'clamp(80px, 12vw, 140px) 24px 80px' }}>
-        <div style={{ maxWidth: 1300, margin: '0 auto' }}>
+      <section style={{ padding: 'clamp(80px, 12vw, 140px) 0 80px' }}>
+        <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 24px' }}>
           <div style={{ fontSize: 13, letterSpacing: '0.15em', color: '#5B4FFF', fontFamily: mono, marginBottom: 24, textTransform: 'uppercase' as const }}>
             Protocol
           </div>
@@ -136,34 +136,34 @@ export default function ProtocolPage() {
       <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(0,0,0,0.08), transparent)' }} />
 
       {/* Specs — Impact Style */}
-      <section style={{ padding: 'clamp(64px, 8vw, 96px) 16px' }}>
-        <div style={{ maxWidth: 1300, margin: '0 auto' }}>
-        <div style={{ fontSize: 13, letterSpacing: '0.15em', color: '#666666', fontFamily: mono, marginBottom: 48, textTransform: 'uppercase' as const }}>
-          The Numbers
-        </div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 1, background: 'rgba(0,0,0,0.04)', borderRadius: 16, overflow: 'hidden', border: '1px solid rgba(0,0,0,0.08)' }}>
-          {specs.map((s) => (
-            <div key={s.value} style={{ padding: 'clamp(28px, 4vw, 40px) clamp(24px, 3vw, 36px)', background: '#FFFFFF' }}>
-              <div style={{ fontSize: 'clamp(28px, 4vw, 42px)', fontWeight: 800, letterSpacing: '-0.03em', color: s.color, fontFamily: mono, marginBottom: 16, lineHeight: 1.1 }}>
-                {s.value}
+      <section style={{ padding: 'clamp(64px, 8vw, 96px) 0' }}>
+        <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 24px' }}>
+          <div style={{ fontSize: 13, letterSpacing: '0.15em', color: '#666666', fontFamily: mono, marginBottom: 48, textTransform: 'uppercase' as const }}>
+            The Numbers
+          </div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 1, background: 'rgba(0,0,0,0.04)', borderRadius: 16, overflow: 'hidden', border: '1px solid rgba(0,0,0,0.08)' }}>
+            {specs.map((s) => (
+              <div key={s.value} style={{ padding: 'clamp(28px, 4vw, 40px) clamp(24px, 3vw, 36px)', background: '#FFFFFF' }}>
+                <div style={{ fontSize: 'clamp(28px, 4vw, 42px)', fontWeight: 800, letterSpacing: '-0.03em', color: s.color, fontFamily: mono, marginBottom: 16, lineHeight: 1.1 }}>
+                  {s.value}
+                </div>
+                <div style={{ fontSize: 'clamp(16px, 2vw, 20px)', fontWeight: 600, letterSpacing: '-0.01em', marginBottom: 8, lineHeight: 1.3, color: '#0D0D0D' }}>
+                  {s.headline}
+                </div>
+                <p style={{ fontSize: 'clamp(13px, 1.8vw, 15px)', color: '#555555', lineHeight: 1.75, fontStyle: 'italic' }}>
+                  {s.sub}
+                </p>
               </div>
-              <div style={{ fontSize: 'clamp(16px, 2vw, 20px)', fontWeight: 600, letterSpacing: '-0.01em', marginBottom: 8, lineHeight: 1.3, color: '#0D0D0D' }}>
-                {s.headline}
-              </div>
-              <p style={{ fontSize: 'clamp(13px, 1.8vw, 15px)', color: '#555555', lineHeight: 1.75, fontStyle: 'italic' }}>
-                {s.sub}
-              </p>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
         </div>
       </section>
 
       <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(0,0,0,0.08), transparent)' }} />
 
       {/* Architecture */}
-      <section style={{ padding: 'clamp(64px, 8vw, 96px) 16px', background: '#F8F8F8' }}>
-        <div style={{ maxWidth: 760, margin: '0 auto' }}>
+      <section style={{ padding: 'clamp(64px, 8vw, 96px) 0', background: '#F8F8F8' }}>
+        <div style={{ maxWidth: 760, margin: '0 auto', padding: '0 24px' }}>
           <div style={{ fontSize: 13, letterSpacing: '0.15em', color: '#666666', fontFamily: mono, marginBottom: 48, textTransform: 'uppercase' as const }}>
             Architecture
           </div>
@@ -229,8 +229,8 @@ export default function ProtocolPage() {
       <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(0,0,0,0.08), transparent)' }} />
 
       {/* Why PoAW */}
-      <section style={{ padding: 'clamp(64px, 8vw, 96px) 16px', background: '#13102A' }}>
-        <div style={{ maxWidth: 760, margin: '0 auto' }}>
+      <section style={{ padding: 'clamp(64px, 8vw, 96px) 0', background: '#13102A' }}>
+        <div style={{ maxWidth: 760, margin: '0 auto', padding: '0 24px' }}>
           <div style={{ fontSize: 13, letterSpacing: '0.15em', color: '#FB923C', fontFamily: mono, marginBottom: 24, textTransform: 'uppercase' as const }}>
             Why PoAW?
           </div>
@@ -292,8 +292,8 @@ export default function ProtocolPage() {
       <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(0,0,0,0.08), transparent)' }} />
 
       {/* Agent Standards */}
-      <section style={{ padding: 'clamp(64px, 8vw, 96px) 16px' }}>
-        <div style={{ maxWidth: 760, margin: '0 auto' }}>
+      <section style={{ padding: 'clamp(64px, 8vw, 96px) 0' }}>
+        <div style={{ maxWidth: 760, margin: '0 auto', padding: '0 24px' }}>
           <div style={{ fontSize: 13, letterSpacing: '0.15em', color: '#5B4FFF', fontFamily: mono, marginBottom: 24, textTransform: 'uppercase' as const }}>
             Interoperability
           </div>
@@ -331,8 +331,8 @@ export default function ProtocolPage() {
       <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(0,0,0,0.08), transparent)' }} />
 
       {/* CTA */}
-      <section style={{ padding: 'clamp(64px, 8vw, 96px) 16px', textAlign: 'center' }}>
-        <div style={{ maxWidth: 480, margin: '0 auto' }}>
+      <section style={{ padding: 'clamp(64px, 8vw, 96px) 0', textAlign: 'center' }}>
+        <div style={{ maxWidth: 480, margin: '0 auto', padding: '0 24px' }}>
           <h2 style={{ fontSize: 'clamp(28px, 4vw, 40px)', fontWeight: 700, letterSpacing: '-0.02em', marginBottom: 16 }}>
             Ready to build on txxt?
           </h2>

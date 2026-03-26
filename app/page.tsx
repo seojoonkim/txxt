@@ -647,9 +647,8 @@ export default function Home() {
                 <div style={{ padding: '20px', borderRadius: 12, background: '#FAFAFA', border: '1px solid rgba(0,0,0,0.06)' }}>
                   <div style={{ fontSize: 11, fontFamily: mono, color: '#888888', fontWeight: 600, marginBottom: 10, letterSpacing: '0.08em', textTransform: 'uppercase' as const }}>{row.area}</div>
                   <div style={{ display: 'flex', gap: 8, alignItems: 'flex-start' }}>
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style={{ flexShrink: 0, marginTop: 2 }}>
-                      <circle cx="8" cy="8" r="7" fill="#FEE2E2"/>
-                      <path d="M5 5l6 6M11 5l-6 6" stroke="#EF4444" strokeWidth="1.5" strokeLinecap="round"/>
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style={{ flexShrink: 0, marginTop: 3 }}>
+                      <path d="M3 3l8 8M11 3l-8 8" stroke="#EF4444" strokeWidth="1.8" strokeLinecap="round"/>
                     </svg>
                     <span style={{ fontSize: 'clamp(13px, 1.5vw, 14px)', color: '#777', lineHeight: 1.6 }}>{row.diy}</span>
                   </div>
@@ -658,9 +657,8 @@ export default function Home() {
                 <div style={{ padding: '20px', borderRadius: 12, background: 'rgba(0,200,150,0.04)', border: '1px solid rgba(0,200,150,0.15)' }}>
                   <div style={{ fontSize: 11, fontFamily: mono, color: '#888888', fontWeight: 600, marginBottom: 10, letterSpacing: '0.08em', textTransform: 'uppercase' as const }}>{row.area}</div>
                   <div style={{ display: 'flex', gap: 8, alignItems: 'flex-start' }}>
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style={{ flexShrink: 0, marginTop: 2 }}>
-                      <circle cx="8" cy="8" r="7" fill="#D1FAE5"/>
-                      <path d="M4.5 8l2.5 2.5 4.5-5" stroke="#00C896" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style={{ flexShrink: 0, marginTop: 3 }}>
+                      <path d="M2 7l3.5 3.5 6.5-7" stroke="#00C896" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
                     <span style={{ fontSize: 'clamp(13px, 1.5vw, 14px)', color: '#1a1a1a', lineHeight: 1.6, fontWeight: 500 }}>{row.txxt}</span>
                   </div>
