@@ -291,39 +291,40 @@ export default function Home() {
               }}>Docs</Link>
             </div>
 
-            <div style={{
-              display: 'flex', gap: 'clamp(12px, 4vw, 32px)', justifyContent: 'center', flexWrap: 'nowrap',
-              marginTop: 40, paddingTop: 32,
-              borderTop: '1px solid rgba(0,0,0,0.06)',
-            }}>
-              {[
-                { value: '<10ms', label: 'Latency' },
-                { value: '$0.0003', label: 'Per tx' },
-                { value: '5+', label: 'Chains' },
-                { value: '100%', label: 'USDC Gas' },
-              ].map(({ value, label }) => (
-                <div key={label} style={{ textAlign: 'center', flex: '1 1 0', minWidth: 0 }}>
-                  <div style={{ fontSize: 'clamp(14px, 3.5vw, 26px)', fontWeight: 800, color: '#00C896', fontFamily: mono, whiteSpace: 'nowrap' }}>{value}</div>
-                  <div style={{ fontSize: 'clamp(9px, 2vw, 12px)', color: '#888', letterSpacing: '0.06em', marginTop: 4, whiteSpace: 'nowrap' }}>{label}</div>
-                </div>
-              ))}
-            </div>
           </div>
         </div>
 
-        {/* Right video panel */}
+        {/* Right video panel + stat bar */}
         <div className="hero-right" style={{
           flex: '0 0 50%',
           maxWidth: '50%',
           overflow: 'hidden',
           display: 'flex',
+          flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
-          borderBottomLeftRadius: 40,
           padding: '40px 24px',
         }}>
           <video src="/hero-video.mp4" autoPlay loop muted playsInline
             style={{ width: '100%', maxWidth: 520, height: 'auto', objectFit: 'contain', display: 'block' }} />
+          {/* Stat bar — below video */}
+          <div style={{
+            display: 'flex', gap: 'clamp(12px, 3vw, 28px)', justifyContent: 'center', flexWrap: 'nowrap',
+            marginTop: 28, paddingTop: 24, width: '100%',
+            borderTop: '1px solid rgba(0,0,0,0.06)',
+          }}>
+            {[
+              { value: '<10ms', label: 'Latency' },
+              { value: '$0.0003', label: 'Per tx' },
+              { value: '5+', label: 'Chains' },
+              { value: '100%', label: 'USDC Gas' },
+            ].map(({ value, label }) => (
+              <div key={label} style={{ textAlign: 'center', flex: '1 1 0', minWidth: 0 }}>
+                <div style={{ fontSize: 'clamp(13px, 2.5vw, 22px)', fontWeight: 800, color: '#00C896', fontFamily: mono, whiteSpace: 'nowrap' }}>{value}</div>
+                <div style={{ fontSize: 'clamp(9px, 1.5vw, 11px)', color: '#888', letterSpacing: '0.06em', marginTop: 4, whiteSpace: 'nowrap' }}>{label}</div>
+              </div>
+            ))}
+          </div>
         </div>
 
         </div>
