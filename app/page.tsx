@@ -233,8 +233,69 @@ export default function Home() {
               <span style={{ color: '#00C896' }}>The agent economy runs on <strong>txxt</strong>.</span>
             </p>
 
-            {/* Giant txxt logo */}
-            <div style={{
+            {/* Giant txxt logo — character animation */}
+            <style>{`
+              @keyframes waveLeft {
+                0%, 100% { transform: rotate(0deg); }
+                20% { transform: rotate(-20deg); }
+                40% { transform: rotate(10deg); }
+                60% { transform: rotate(-15deg); }
+                80% { transform: rotate(5deg); }
+              }
+              @keyframes waveRight {
+                0%, 100% { transform: rotate(0deg); }
+                20% { transform: rotate(20deg); }
+                40% { transform: rotate(-10deg); }
+                60% { transform: rotate(15deg); }
+                80% { transform: rotate(-5deg); }
+              }
+              @keyframes blink {
+                0%, 90%, 100% { transform: scaleY(1); }
+                95% { transform: scaleY(0.1); }
+              }
+              @keyframes wink {
+                0%, 85%, 100% { transform: scaleY(1); }
+                90%, 95% { transform: scaleY(0.05); }
+              }
+              @keyframes bounceIn {
+                0% { transform: scale(0.3) translateY(40px); opacity: 0; }
+                50% { transform: scale(1.05) translateY(-10px); opacity: 1; }
+                70% { transform: scale(0.95) translateY(5px); }
+                100% { transform: scale(1) translateY(0); opacity: 1; }
+              }
+              .txxt-logo {
+                animation: bounceIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+              }
+              .txxt-t-left {
+                display: inline-block;
+                transform-origin: bottom center;
+                animation: waveLeft 3s ease-in-out infinite;
+                animation-delay: 0.5s;
+              }
+              .txxt-t-right {
+                display: inline-block;
+                transform-origin: bottom center;
+                animation: waveRight 3s ease-in-out infinite;
+                animation-delay: 1s;
+              }
+              .txxt-x-left {
+                display: inline-block;
+                transform-origin: center;
+                animation: wink 4s ease-in-out infinite;
+                animation-delay: 1.5s;
+              }
+              .txxt-x-right {
+                display: inline-block;
+                transform-origin: center;
+                animation: blink 5s ease-in-out infinite;
+                animation-delay: 2s;
+              }
+              .txxt-logo:hover .txxt-t-left { animation-duration: 0.8s; }
+              .txxt-logo:hover .txxt-t-right { animation-duration: 0.8s; }
+              .txxt-logo:hover .txxt-x-left { animation: wink 1s ease-in-out infinite; }
+              .txxt-logo:hover .txxt-x-right { animation: wink 1.2s ease-in-out 0.2s infinite; }
+            `}</style>
+            <div className="txxt-logo" style={{
               fontSize: 'clamp(80px, 28vw, 200px)',
               fontWeight: 900,
               letterSpacing: '-0.04em',
@@ -242,8 +303,15 @@ export default function Home() {
               color: '#00C896',
               fontFamily: mono,
               marginBottom: 20,
+              display: 'inline-flex',
+              alignItems: 'baseline',
+              cursor: 'default',
+              userSelect: 'none',
             }}>
-              txxt
+              <span className="txxt-t-left">t</span>
+              <span className="txxt-x-left">x</span>
+              <span className="txxt-x-right">x</span>
+              <span className="txxt-t-right">t</span>
             </div>
 
             {/* Sub */}
@@ -494,7 +562,7 @@ export default function Home() {
               borderBottom: i < 3 ? '1px solid rgba(0,0,0,0.06)' : 'none',
               alignItems: 'flex-start',
             }}>
-              <div style={{ flexShrink: 0 }}>
+              <div style={{ flexShrink: 0, marginTop: 24 }}>
                 {item.icon(item.color)}
               </div>
               <div style={{ flex: 1 }}>
