@@ -52,41 +52,44 @@ export default function LitepaperPage() {
     <div style={{ background: "#FFFFFF", minHeight: "100vh" }}>
       <div
         style={{
-          display: "flex",
-          maxWidth: 1060,
+          maxWidth: 1300,
           margin: "0 auto",
           padding: "0 24px",
         }}
         className="litepaper-layout"
       >
+        <div style={{ display: "flex", gap: 0, alignItems: "flex-start" }}>
         {/* ─── TOC ─── */}
         <nav
           className="litepaper-toc"
           style={{
+            width: 280,
+            flexShrink: 0,
             position: "sticky",
             top: 80,
-            width: 220,
-            flexShrink: 0,
-            alignSelf: "flex-start",
-            paddingRight: 40,
-            paddingTop: 60,
+            height: "calc(100vh - 80px)",
+            overflowY: "auto",
+            paddingRight: 48,
+            paddingTop: 40,
+            paddingBottom: 40,
+            scrollbarWidth: "none" as React.CSSProperties["scrollbarWidth"],
           }}
         >
           <p
             style={{
               fontSize: 11,
-              letterSpacing: "0.12em",
+              letterSpacing: "0.15em",
               fontWeight: 700,
-              color: "#888",
+              color: "#BBBBBB",
               fontFamily: mono,
-              marginBottom: 20,
+              marginBottom: 28,
               textTransform: "uppercase",
-              margin: "0 0 20px 0",
+              margin: "0 0 28px 0",
             }}
           >
             Contents
           </p>
-          {sections.map(({ id, label }) => (
+          {sections.map(({ id, num, label }) => (
             <div
               key={id}
               onClick={() => scrollTo(id)}
@@ -96,35 +99,45 @@ export default function LitepaperPage() {
               }}
               onMouseLeave={(e) => {
                 if (activeSection !== id)
-                  (e.currentTarget as HTMLElement).style.color = "#999";
+                  (e.currentTarget as HTMLElement).style.color = "#AAAAAA";
               }}
               style={{
-                fontSize: 13,
-                lineHeight: 2,
+                fontSize: 15,
+                lineHeight: 2.2,
                 cursor: "pointer",
-                color: activeSection === id ? "#00C896" : "#999",
+                color: activeSection === id ? "#00C896" : "#AAAAAA",
                 fontWeight: activeSection === id ? 600 : 400,
                 borderLeft:
                   activeSection === id
                     ? "2px solid #00C896"
                     : "2px solid transparent",
-                paddingLeft: 12,
+                paddingLeft: 14,
+                paddingTop: 2,
+                paddingBottom: 2,
                 transition: "all 0.2s ease",
                 fontFamily: sans,
+                display: "flex",
+                alignItems: "center",
               }}
             >
+              <span style={{ fontSize: 11, color: "#CCCCCC", marginRight: 8, fontFamily: mono, flexShrink: 0 }}>{num}.</span>
               {label}
             </div>
           ))}
         </nav>
 
+        {/* ─── Vertical Divider ─── */}
+        <div style={{ width: 1, background: "rgba(0,0,0,0.06)", flexShrink: 0, alignSelf: "stretch" }} />
+
         {/* ─── Main Content ─── */}
         <article
           className="litepaper-content"
           style={{
-            maxWidth: 680,
             flex: 1,
-            padding: "60px 0 120px",
+            minWidth: 0,
+            paddingLeft: 64,
+            paddingTop: 40,
+            paddingBottom: 80,
             fontFamily: sans,
             color: "#333",
             fontSize: 16,
@@ -835,15 +848,15 @@ export default function LitepaperPage() {
             </p>
           </div>
         </article>
+        </div>
       </div>
 
       {/* Responsive styles */}
       <style>{`
+        .litepaper-toc::-webkit-scrollbar { display: none; }
         @media (max-width: 1024px) {
           .litepaper-toc { display: none !important; }
-          .litepaper-layout { justify-content: center !important; }
           .litepaper-content {
-            max-width: 720px !important;
             padding-left: 24px !important;
             padding-right: 24px !important;
           }
