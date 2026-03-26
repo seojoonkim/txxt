@@ -236,28 +236,22 @@ export default function Home() {
             {/* Giant txxt logo — character animation */}
             <style>{`
               @keyframes armLeft {
-                0%, 100% { transform: rotate(0deg) scaleY(1); }
-                25% { transform: rotate(-10deg) scaleY(0.94); }
-                50% { transform: rotate(-4deg) scaleY(1.03); }
-                75% { transform: rotate(-8deg) scaleY(0.97); }
+                0%, 100% { transform: rotate(-3deg); }
+                50% { transform: rotate(7deg); }
               }
               @keyframes armRight {
-                0%, 100% { transform: rotate(0deg) scaleY(1); }
-                25% { transform: rotate(10deg) scaleY(0.94); }
-                50% { transform: rotate(4deg) scaleY(1.03); }
-                75% { transform: rotate(8deg) scaleY(0.97); }
+                0%, 100% { transform: rotate(3deg); }
+                50% { transform: rotate(-7deg); }
               }
               @keyframes eyeLeft {
-                0%, 80%, 100% { transform: scaleX(1) scaleY(1); }
-                85% { transform: scaleX(0.8) scaleY(0.08); }
-                90% { transform: scaleX(1.12) scaleY(1.12); }
-                95% { transform: scaleX(1) scaleY(1); }
+                0%, 75%, 100% { transform: scaleY(1); }
+                85% { transform: scaleY(0.5); }
+                90% { transform: scaleY(1); }
               }
               @keyframes eyeRight {
-                0%, 70%, 100% { transform: scaleX(1) scaleY(1); }
-                75% { transform: scaleX(0.9) scaleY(0.12); }
-                80% { transform: scaleX(1.08) scaleY(1.08); }
-                85% { transform: scaleX(1) scaleY(1); }
+                0%, 65%, 100% { transform: scaleY(1); }
+                75% { transform: scaleY(0.5); }
+                80% { transform: scaleY(1); }
               }
               @keyframes bounceIn {
                 0% { transform: scale(0.3); opacity: 0; }

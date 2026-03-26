@@ -154,13 +154,15 @@ export default function IdentityPage() {
 
       {/* Identity = Trust Banner */}
       <section style={{ padding: 'clamp(48px, 6vw, 80px) 0', background: 'linear-gradient(135deg, #0D0E1A, #13102A)' }}>
-        <div style={{ maxWidth: 900, margin: '0 auto', textAlign: 'center', padding: '0 24px' }}>
+        <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 24px' }}>
+        <div style={{ maxWidth: 900, margin: '0 auto', textAlign: 'center' }}>
           <p style={{ fontSize: 'clamp(20px, 3vw, 28px)', fontWeight: 600, color: 'rgba(255,255,255,0.92)', lineHeight: 1.6, marginBottom: 16 }}>
             "Pseudonymous wallets can transact. Only agents with identity can <em style={{ color: '#00C896', fontStyle: 'normal' }}>be trusted</em>."
           </p>
           <p style={{ fontSize: 'clamp(13px, 1.8vw, 15px)', color: 'rgba(255,255,255,0.8)', fontFamily: mono }}>
             — ERC-8004 design rationale
           </p>
+        </div>
         </div>
       </section>
 
@@ -241,7 +243,8 @@ export default function IdentityPage() {
 
       {/* Without vs With */}
       <section style={{ padding: 'clamp(80px, 10vw, 140px) 0' }}>
-        <div style={{ maxWidth: 900, margin: '0 auto', padding: '0 24px' }}>
+        <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 24px' }}>
+        <div style={{ maxWidth: 900, margin: '0 auto' }}>
           <div style={{ fontSize: 13, letterSpacing: '0.15em', color: 'rgba(0,0,0,0.4)', fontFamily: mono, marginBottom: 16, textTransform: 'uppercase' }}>
             The Difference Identity Makes
           </div>
@@ -285,6 +288,7 @@ export default function IdentityPage() {
             ))}
           </div>
         </div>
+        </div>
       </section>
 
       <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(0,0,0,0.08), transparent)' }} />
@@ -327,7 +331,8 @@ export default function IdentityPage() {
 
       {/* Why ERC-8004 matters */}
       <section style={{ padding: 'clamp(80px, 10vw, 140px) 0', background: '#F7F7F7' }}>
-        <div style={{ maxWidth: 900, margin: '0 auto', padding: '0 24px' }}>
+        <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 24px' }}>
+        <div style={{ maxWidth: 900, margin: '0 auto' }}>
           <div style={{ fontSize: 13, letterSpacing: '0.15em', color: 'rgba(0,0,0,0.4)', fontFamily: mono, marginBottom: 16, textTransform: 'uppercase' }}>
             Why ERC-8004
           </div>
@@ -348,13 +353,15 @@ export default function IdentityPage() {
             ))}
           </div>
         </div>
+        </div>
       </section>
 
       <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(0,0,0,0.08), transparent)' }} />
 
       {/* CTA */}
       <section style={{ padding: 'clamp(80px, 10vw, 140px) 0', textAlign: 'center' }}>
-        <div style={{ maxWidth: 520, margin: '0 auto', padding: '0 24px' }}>
+        <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 24px' }}>
+        <div style={{ maxWidth: 520, margin: '0 auto' }}>
           <h2 style={{ fontSize: 'clamp(32px, 5vw, 56px)', fontWeight: 700, letterSpacing: '-0.02em', marginBottom: 20, lineHeight: 1.15 }}>
             Give your agent an identity.
           </h2>
@@ -364,6 +371,7 @@ export default function IdentityPage() {
           <Link href="/build" style={{ padding: '16px 40px', borderRadius: 12, background: '#00C896', color: '#fff', fontWeight: 700, fontSize: 'clamp(14px, 1.8vw, 16px)', textDecoration: 'none', display: 'inline-flex', alignItems: 'center' }}>
             Start Building<ArrowRightIcon color="#fff" size={18} />
           </Link>
+        </div>
         </div>
       </section>
     </div>

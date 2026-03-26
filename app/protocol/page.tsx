@@ -332,7 +332,8 @@ export default function ProtocolPage() {
 
       {/* CTA */}
       <section style={{ padding: 'clamp(64px, 8vw, 96px) 0', textAlign: 'center' }}>
-        <div style={{ maxWidth: 480, margin: '0 auto', padding: '0 24px' }}>
+        <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 24px' }}>
+        <div style={{ maxWidth: 480, margin: '0 auto' }}>
           <h2 style={{ fontSize: 'clamp(28px, 4vw, 40px)', fontWeight: 700, letterSpacing: '-0.02em', marginBottom: 16 }}>
             Ready to build on txxt?
           </h2>
@@ -347,6 +348,7 @@ export default function ProtocolPage() {
               Read Whitepaper
             </Link>
           </div>
+        </div>
         </div>
       </section>
     </div>
