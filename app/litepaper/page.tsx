@@ -149,10 +149,10 @@ export default function LitepaperPage() {
           <header style={{ marginBottom: 56, textAlign: "center" }}>
             <h1
               style={{
-                fontSize: 42,
+                fontSize: "clamp(48px, 7vw, 80px)",
                 fontWeight: 700,
                 color: "#0D0D0D",
-                lineHeight: 1.15,
+                lineHeight: 1.1,
                 marginBottom: 10,
                 letterSpacing: "-0.03em",
               }}
@@ -912,12 +912,12 @@ function SectionBlock({
         </span>
         <h2
           style={{
-            fontSize: 28,
+            fontSize: "clamp(28px, 3.5vw, 42px)",
             fontWeight: 700,
             color: "#0D0D0D",
             letterSpacing: "-0.02em",
             margin: 0,
-            lineHeight: 1.3,
+            lineHeight: 1.25,
           }}
         >
           {title}
