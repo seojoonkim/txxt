@@ -6,18 +6,10 @@ import { useState, useEffect, useRef } from 'react';
 const mono = "var(--font-fira), 'Courier New', monospace";
 
 const links = [
-  {
-    href: '/protocol',
-    label: 'Protocol',
-    children: [
-      { href: '/protocol', label: 'Overview' },
-      { href: '/poaw', label: 'PoAW' },
-      { href: '/identity', label: 'Identity' },
-    ],
-  },
+  { href: '/protocol', label: 'Protocol' },
+  { href: '/identity', label: 'Identity' },
   { href: '/build', label: 'Build' },
   { href: '/ecosystem', label: 'Ecosystem' },
-  { href: '/roadmap', label: 'Roadmap' },
   { href: '/litepaper', label: 'Litepaper' },
 ];
 
