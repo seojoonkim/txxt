@@ -275,7 +275,7 @@ export default function RoadmapPage() {
       <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(91,79,255,0.3), transparent)' }} />
 
       {/* CTA */}
-      <section style={{ padding: 'clamp(64px, 8vw, 96px) 16px', textAlign: 'center' }}>
+      <section style={{ padding: 'clamp(80px, 10vw, 140px) 0', textAlign: 'center' }}>
         <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 24px' }}>
         <div style={{ maxWidth: 480, margin: '0 auto' }}>
           <h2 style={{ fontSize: 'clamp(28px, 4vw, 48px)', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.2, marginBottom: 16 }}>

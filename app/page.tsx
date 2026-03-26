@@ -89,7 +89,7 @@ function LayeredArchDiagram() {
           color: '#888', fontFamily: mono, margin: '0 0 14px',
           textTransform: 'uppercase', textAlign: 'center',
         }}>
-          AI Agents Layer
+          AI Agents — Request Layer
         </p>
         <div style={{ display: 'flex', flexWrap: 'wrap' as const, gap: 8, justifyContent: 'center' }}>
           {agents.map(a => (
@@ -151,7 +151,7 @@ function LayeredArchDiagram() {
           fontSize: 12, color: 'rgba(0,0,0,0.4)', fontFamily: mono,
           margin: '14px 0 0', lineHeight: 1.6, textAlign: 'center',
         }}>
-          Identity + Payment + Validation → one atomic transaction, any chain
+          x402 payment + ERC-8004 identity + PoAW verification → one atomic call, routed to any chain
         </p>
       </div>
 
@@ -473,12 +473,12 @@ export default function Home() {
               background: 'rgba(91,79,255,0.08)',
               textAlign: 'left' as const,
             }}>
-              <div style={{ fontSize: 13, fontFamily: mono, fontWeight: 700, color: '#5B4FFF', letterSpacing: '0.08em', marginBottom: 12 }}>ERC-8004 STANDARD</div>
+              <div style={{ fontSize: 13, fontFamily: mono, fontWeight: 700, color: '#5B4FFF', letterSpacing: '0.08em', marginBottom: 12 }}>ERC-8004 STANDARD — IDENTITY</div>
               <p style={{ fontSize: 'clamp(15px, 2vw, 18px)', fontWeight: 600, color: '#FFFFFF', margin: '0 0 8px', lineHeight: 1.3 }}>
-                How agents prove who they are.
+                Agents have no verifiable identity.
               </p>
               <p style={{ fontSize: 'clamp(14px, 1.8vw, 16px)', color: 'rgba(255,255,255,0.7)', lineHeight: 1.75, margin: 0 }}>
-                Verifiable identity, reputation, and capabilities on-chain. The spec exists — but an agent&apos;s Ethereum identity means nothing on Solana. txxt makes one identity work everywhere.
+                A wallet address isn&apos;t an identity. ERC-8004 gives agents on-chain credentials — capabilities, reputation, owner provenance — but it&apos;s Ethereum-only. Deploy on Solana? New contract. Base? Another. Each chain is a siloed identity that can&apos;t be verified anywhere else.
               </p>
             </div>
           </div>
@@ -497,7 +497,7 @@ export default function Home() {
               lineHeight: 1.75,
               margin: 0,
             }}>
-              <strong style={{ color: '#E53E3E' }}>The catch:</strong> today, an agent must verify identity on one chain, route payment through another, and hope nothing fails in between. That&apos;s 3 separate calls, 2 points of failure, and zero atomicity — unless a middleware layer unifies them.
+              <strong style={{ color: '#E53E3E' }}>The missing piece:</strong> payment (x402), identity (ERC-8004), and work verification (PoAW) are three separate standards on three separate layers. Without middleware to unify them, an agent checks identity on Ethereum, routes payment on Base, and hopes neither fails — 3 calls, 2 failure points, zero atomicity. That&apos;s not infrastructure. That&apos;s duct tape.
             </p>
           </div>
         </div>
@@ -522,7 +522,7 @@ export default function Home() {
             fontSize: 'clamp(15px, 1.8vw, 18px)', color: '#666666',
             textAlign: 'center', maxWidth: 560, margin: '0 auto 64px', lineHeight: 1.75,
           }}>
-            Your agent talks to txxt. txxt talks to the blockchain. Identity, payment, and trust verification happen in one call — regardless of which chain settles it.
+            Your agent makes one API call. txxt resolves identity (ERC-8004), routes payment (x402), and verifies work (PoAW) — then settles on whichever chain you choose. No chain-specific code. No bridge logic.
           </p>
           <LayeredArchDiagram />
         </div>

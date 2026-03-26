@@ -237,7 +237,7 @@ export default function EcosystemPage() {
       </div>
 
       {/* Day in the Life — Live Feed */}
-      <section style={{ padding: 'clamp(80px, 10vw, 140px) 24px', background: '#F8F8F8' }}>
+      <section style={{ padding: 'clamp(80px, 10vw, 140px) 0', background: '#F8F8F8' }}>
         <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 24px' }}>
         <div style={{ maxWidth: 800, margin: '0 auto' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 16 }}>
@@ -265,7 +265,7 @@ export default function EcosystemPage() {
       <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(0,0,0,0.08), transparent)' }} />
 
       {/* Agent Categories */}
-      <section style={{ padding: 'clamp(80px, 10vw, 140px) 24px' }}>
+      <section style={{ padding: 'clamp(80px, 10vw, 140px) 0' }}>
         <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 24px' }}>
           <div style={{ fontSize: 12, letterSpacing: '0.12em', fontWeight: 700, color: '#888', fontFamily: mono, marginBottom: 16, textTransform: 'uppercase' as const }}>
             Agent Categories
@@ -297,7 +297,7 @@ export default function EcosystemPage() {
       <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(0,0,0,0.08), transparent)' }} />
 
       {/* Agent Lifecycle */}
-      <section style={{ padding: 'clamp(80px, 10vw, 140px) 24px', background: '#0D0B1F' }}>
+      <section style={{ padding: 'clamp(80px, 10vw, 140px) 0', background: '#0D0B1F' }}>
         <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 24px' }}>
         <div style={{ maxWidth: 780, margin: '0 auto' }}>
           <div style={{ fontSize: 12, letterSpacing: '0.12em', fontWeight: 700, color: '#00C896', fontFamily: mono, marginBottom: 16, textTransform: 'uppercase' as const }}>
@@ -338,7 +338,7 @@ export default function EcosystemPage() {
       <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(91,79,255,0.3), transparent)' }} />
 
       {/* Vision CTA */}
-      <section style={{ padding: 'clamp(80px, 10vw, 140px) 24px', textAlign: 'center', background: '#FFFFFF' }}>
+      <section style={{ padding: 'clamp(80px, 10vw, 140px) 0', textAlign: 'center', background: '#FFFFFF' }}>
         <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 24px' }}>
         <div style={{ maxWidth: 600, margin: '0 auto' }}>
           <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 28 }}>
