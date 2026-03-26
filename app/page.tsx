@@ -87,11 +87,11 @@ function LayeredArchDiagram() {
         <p style={{
           fontSize: 11, letterSpacing: '0.14em', fontWeight: 700,
           color: '#888', fontFamily: mono, margin: '0 0 14px',
-          textTransform: 'uppercase',
+          textTransform: 'uppercase', textAlign: 'center',
         }}>
           AI Agents Layer
         </p>
-        <div style={{ display: 'flex', flexWrap: 'wrap' as const, gap: 8 }}>
+        <div style={{ display: 'flex', flexWrap: 'wrap' as const, gap: 8, justifyContent: 'center' }}>
           {agents.map(a => (
             <span key={a.label} style={{
               ...pillBase,
@@ -120,7 +120,7 @@ function LayeredArchDiagram() {
         padding: 'clamp(24px, 3.5vw, 40px)',
         position: 'relative',
       }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 16 }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 16, justifyContent: 'center' }}>
           <span style={{
             fontSize: 'clamp(18px, 2.5vw, 24px)', fontWeight: 900,
             color: '#00C896', fontFamily: mono,
@@ -134,7 +134,7 @@ function LayeredArchDiagram() {
             Middleware Layer
           </span>
         </div>
-        <div style={{ display: 'flex', flexWrap: 'wrap' as const, gap: 8 }}>
+        <div style={{ display: 'flex', flexWrap: 'wrap' as const, gap: 8, justifyContent: 'center' }}>
           {protocols.map(p => (
             <span key={p.label} style={{
               ...pillBase,
@@ -149,7 +149,7 @@ function LayeredArchDiagram() {
         </div>
         <p style={{
           fontSize: 12, color: 'rgba(0,0,0,0.4)', fontFamily: mono,
-          margin: '14px 0 0', lineHeight: 1.6,
+          margin: '14px 0 0', lineHeight: 1.6, textAlign: 'center',
         }}>
           Identity + Payment + Validation → one atomic transaction, any chain
         </p>
@@ -167,11 +167,11 @@ function LayeredArchDiagram() {
         <p style={{
           fontSize: 11, letterSpacing: '0.14em', fontWeight: 700,
           color: '#888', fontFamily: mono, margin: '0 0 14px',
-          textTransform: 'uppercase',
+          textTransform: 'uppercase', textAlign: 'center',
         }}>
           Settlement Chains
         </p>
-        <div style={{ display: 'flex', flexWrap: 'wrap' as const, gap: 8 }}>
+        <div style={{ display: 'flex', flexWrap: 'wrap' as const, gap: 8, justifyContent: 'center' }}>
           {chains.map(c => (
             <span key={c.label} style={{
               ...pillBase,
