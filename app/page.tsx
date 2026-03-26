@@ -304,10 +304,7 @@ export default function Home() {
                 animation: eyeRight 5.5s ease-in-out infinite;
                 animation-delay: 2.2s;
               }
-              .txxt-logo:hover .txxt-t-left { animation: armLeft 0.7s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite; }
-              .txxt-logo:hover .txxt-t-right { animation: armRight 0.7s cubic-bezier(0.45, 0.05, 0.55, 0.95) 0.1s infinite; }
-              .txxt-logo:hover .txxt-x-left { animation: eyeLeft 1.2s ease-in-out infinite; }
-              .txxt-logo:hover .txxt-x-right { animation: eyeRight 1.4s ease-in-out 0.2s infinite; }
+              
             `}</style>
             <div className="txxt-logo" style={{
               fontSize: 'clamp(80px, 28vw, 200px)',

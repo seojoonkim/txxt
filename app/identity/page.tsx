@@ -130,8 +130,8 @@ export default function IdentityPage() {
     <div style={{ background: '#FFFFFF', color: '#0D0D0D', fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
 
       {/* Hero */}
-      <section style={{ padding: 'clamp(80px, 10vw, 140px) 24px' }}>
-        <div style={{ maxWidth: 1300, margin: '0 auto' }}>
+      <section style={{ padding: 'clamp(80px, 10vw, 140px) 0' }}>
+        <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 24px' }}>
           <div style={{ fontSize: 13, letterSpacing: '0.15em', color: '#5B4FFF', fontFamily: mono, marginBottom: 24, textTransform: 'uppercase' }}>
             ERC-8004 · Identity · Reputation · Validation
           </div>
@@ -153,8 +153,8 @@ export default function IdentityPage() {
       <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(0,0,0,0.08), transparent)' }} />
 
       {/* Identity = Trust Banner */}
-      <section style={{ padding: 'clamp(48px, 6vw, 80px) 24px', background: 'linear-gradient(135deg, #0D0E1A, #13102A)' }}>
-        <div style={{ maxWidth: 900, margin: '0 auto', textAlign: 'center' }}>
+      <section style={{ padding: 'clamp(48px, 6vw, 80px) 0', background: 'linear-gradient(135deg, #0D0E1A, #13102A)' }}>
+        <div style={{ maxWidth: 900, margin: '0 auto', textAlign: 'center', padding: '0 24px' }}>
           <p style={{ fontSize: 'clamp(20px, 3vw, 28px)', fontWeight: 600, color: 'rgba(255,255,255,0.92)', lineHeight: 1.6, marginBottom: 16 }}>
             "Pseudonymous wallets can transact. Only agents with identity can <em style={{ color: '#00C896', fontStyle: 'normal' }}>be trusted</em>."
           </p>
@@ -167,8 +167,8 @@ export default function IdentityPage() {
       <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(0,0,0,0.08), transparent)' }} />
 
       {/* Agent Profile Card */}
-      <section style={{ padding: 'clamp(80px, 10vw, 140px) 24px', background: '#F7F7F7' }}>
-        <div style={{ maxWidth: 760, margin: '0 auto', textAlign: 'center' }}>
+      <section style={{ padding: 'clamp(80px, 10vw, 140px) 0', background: '#F7F7F7' }}>
+        <div style={{ maxWidth: 760, margin: '0 auto', textAlign: 'center', padding: '0 24px' }}>
           <div style={{ fontSize: 13, letterSpacing: '0.15em', color: 'rgba(0,0,0,0.4)', fontFamily: mono, marginBottom: 16, textTransform: 'uppercase' }}>
             Agent Profile Card
           </div>
@@ -240,8 +240,8 @@ export default function IdentityPage() {
       <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(0,0,0,0.08), transparent)' }} />
 
       {/* Without vs With */}
-      <section style={{ padding: 'clamp(80px, 10vw, 140px) 24px' }}>
-        <div style={{ maxWidth: 900, margin: '0 auto' }}>
+      <section style={{ padding: 'clamp(80px, 10vw, 140px) 0' }}>
+        <div style={{ maxWidth: 900, margin: '0 auto', padding: '0 24px' }}>
           <div style={{ fontSize: 13, letterSpacing: '0.15em', color: 'rgba(0,0,0,0.4)', fontFamily: mono, marginBottom: 16, textTransform: 'uppercase' }}>
             The Difference Identity Makes
           </div>
@@ -292,8 +292,8 @@ export default function IdentityPage() {
       {/* Three Pillars */}
       {pillars.map((p, i) => (
         <div key={p.num}>
-          <section style={{ padding: 'clamp(80px, 10vw, 140px) 24px', background: i % 2 === 0 ? '#0D0E1A' : '#0A0A16' }}>
-            <div style={{ maxWidth: 1300, margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(280px, 100%), 1fr))', gap: 48, alignItems: 'start' }}>
+          <section style={{ padding: 'clamp(80px, 10vw, 140px) 0', background: i % 2 === 0 ? '#0D0E1A' : '#0A0A16' }}>
+            <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 24px', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(280px, 100%), 1fr))', gap: 48, alignItems: 'start' }}>
               {/* Left */}
               <div>
                 <div style={{ marginBottom: 24 }}>{p.icon}</div>
@@ -326,8 +326,8 @@ export default function IdentityPage() {
       <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(0,0,0,0.08), transparent)' }} />
 
       {/* Why ERC-8004 matters */}
-      <section style={{ padding: 'clamp(80px, 10vw, 140px) 24px', background: '#F7F7F7' }}>
-        <div style={{ maxWidth: 900, margin: '0 auto' }}>
+      <section style={{ padding: 'clamp(80px, 10vw, 140px) 0', background: '#F7F7F7' }}>
+        <div style={{ maxWidth: 900, margin: '0 auto', padding: '0 24px' }}>
           <div style={{ fontSize: 13, letterSpacing: '0.15em', color: 'rgba(0,0,0,0.4)', fontFamily: mono, marginBottom: 16, textTransform: 'uppercase' }}>
             Why ERC-8004
           </div>
@@ -353,8 +353,8 @@ export default function IdentityPage() {
       <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(0,0,0,0.08), transparent)' }} />
 
       {/* CTA */}
-      <section style={{ padding: 'clamp(80px, 10vw, 140px) 24px', textAlign: 'center' }}>
-        <div style={{ maxWidth: 520, margin: '0 auto' }}>
+      <section style={{ padding: 'clamp(80px, 10vw, 140px) 0', textAlign: 'center' }}>
+        <div style={{ maxWidth: 520, margin: '0 auto', padding: '0 24px' }}>
           <h2 style={{ fontSize: 'clamp(32px, 5vw, 56px)', fontWeight: 700, letterSpacing: '-0.02em', marginBottom: 20, lineHeight: 1.15 }}>
             Give your agent an identity.
           </h2>
