@@ -49,49 +49,49 @@ const specs = [
   {
     value: '100,000 TPS',
     headline: '100,000 agent transactions per second.',
-    sub: 'That\u2019s 1,200 complete business deals per second — each with identity verification, payment settlement, and reputation updates included.',
+    sub: 'That\u2019s 1,200 complete business deals per second — each bundling identity verification, x402 payment settlement, and PoAW reputation updates in a single atomic operation.',
     color: '#5B4FFF',
   },
   {
     value: '<10ms Blocks',
-    headline: 'An agent thinks in milliseconds.',
-    sub: 'Ethereum finalizes in 12 minutes. Solana in 400ms. txxt\u2019s middleware settles in 10ms — because agents can\u2019t wait for blocks when they\u2019re negotiating deals.',
+    headline: 'An agent thinks in milliseconds. Its infrastructure should too.',
+    sub: 'Ethereum finalizes in 12 minutes. Solana in 400ms. txxt\u2019s middleware settles in under 10ms — because when your coding agent is negotiating with a review agent mid-pipeline, waiting for block confirmation kills the entire workflow.',
     color: '#00C896',
   },
   {
-    value: 'USDC Gas',
-    headline: 'Gas in dollars, not tokens.',
-    sub: 'An autonomous agent can\u2019t hedge token volatility. txxt charges $0.0003 per tx in USDC — so your agent\u2019s operating costs are as predictable as a SaaS bill.',
+    value: '$0.0003 USDC',
+    headline: 'No token. No volatility. Just a flat fee.',
+    sub: 'txxt has no native token — period. Every transaction costs $0.0003 in USDC. Your agent\u2019s operating budget is as predictable as a SaaS bill. No token swaps, no gas estimation, no price feeds to monitor.',
     color: '#FB923C',
   },
   {
     value: 'AgentVM',
-    headline: 'A VM designed for agent operations.',
-    sub: 'Traditional VMs process token transfers. AgentVM has native opcodes for identity lookup, reputation queries, capability matching, and multi-agent coordination — no smart contract workarounds needed.',
+    headline: 'A VM with native agent opcodes.',
+    sub: 'EVM processes token transfers. AgentVM has built-in opcodes for identity lookup, reputation queries, capability matching, and multi-agent coordination. What takes 5 smart contract calls on Ethereum takes 1 instruction on txxt.',
     color: '#5B4FFF',
   },
   {
     value: 'Agent-Centric State',
-    headline: 'Every agent is a first-class citizen.',
-    sub: 'Each agent gets its own state tree — transaction history, reputation ledger, capability registry, and earnings record. No shared contract storage. No state collision between agents.',
+    headline: 'Every agent owns its own state tree.',
+    sub: 'Transaction history, reputation ledger, capability registry, earnings record — isolated per agent. No shared contract storage, no state collision. Your agent\u2019s data is its data, on every chain.',
     color: '#00C896',
   },
   {
     value: 'PoAW Consensus',
-    headline: 'Proof of Agent Work.',
-    sub: 'Validators earn block production rights proportional to their verified work output + reputation score — not just how many tokens they staked. In an economy of workers, work should determine influence.',
+    headline: 'Proof of Actual Work — not capital, not electricity.',
+    sub: 'Validators earn block rights proportional to verified work output + reputation score. An agent that completes 10,000 real tasks has more influence than one that stakes $10M and does nothing. Work = authority.',
     color: '#FB923C',
   },
   {
     value: 'x402 Native',
-    headline: 'x402 Native.',
-    sub: '$0.0003 gas · atomic with identity · works on any chain. Agent payments are a middleware primitive.',
+    headline: 'HTTP 402 → instant agent payment.',
+    sub: 'Your agent hits an API, gets a 402 response, and txxt auto-settles in USDC — atomically bundled with identity verification. No payment gateway integration. No invoicing. Works on Ethereum, Solana, Base, and more.',
     color: '#00C896',
   },
   {
     value: 'ERC-8004 Native',
-    headline: 'ERC-8004 Native.',
-    sub: 'Instant registration · reputation built-in · no contract deployment. Agent identity is middleware infrastructure — chain-agnostic.',
+    headline: 'One registration. Every chain.',
+    sub: 'Register your agent once through txxt. Instantly verifiable on Ethereum, Solana, Base, Polygon. No per-chain contract deployment. No extra gas. Identity is middleware infrastructure, not a chain-specific feature.',
     color: '#5B4FFF',
   },
 ];
@@ -104,10 +104,10 @@ const layers = [
 ];
 
 const poawSteps: { emoji: React.ReactNode; title: string; desc: string; color: string }[] = [
-  { emoji: null, title: 'Agent does work', desc: 'A translation agent translates 10,000 words. The task output, payment receipt, and cryptographic proof are recorded on-chain via txxt.', color: '#5B4FFF' },
-  { emoji: null, title: 'Work gets verified', desc: 'Peer agents and PoAW validators independently confirm: the output matches the task spec. Fake receipts get flagged — and the agent\u2019s reputation pays the price.', color: '#00C896' },
-  { emoji: <StarIcon size={32} />, title: 'Reputation updates', desc: 'Verified completion → reputation score rises. Dispute or failure → score drops. The math is transparent, on-chain, and irreversible.', color: '#FB923C' },
-  { emoji: null, title: 'Validators earn proportionally', desc: 'Higher reputation = more blocks validated = more fees earned. The agents that do the best work literally run the network. Capital alone doesn\u2019t buy influence.', color: '#5B4FFF' },
+  { emoji: null, title: '1. Agent completes a task', desc: 'A coding agent writes a smart contract audit for $2.40 USDC. The task output hash, x402 payment receipt, and ERC-8004 identity attestation are bundled and recorded on-chain via txxt — all in one atomic operation.', color: '#5B4FFF' },
+  { emoji: null, title: '2. Peer + validator verification', desc: 'Two independent PoAW validators and one peer review agent cross-check: Does the output match the task spec? Does the identity check out? Is the payment settled? If the coding agent submitted recycled boilerplate instead of a real audit, validators flag it — and the agent\u2019s reputation pays the price immediately.', color: '#00C896' },
+  { emoji: <StarIcon size={32} />, title: '3. Reputation updates on-chain', desc: 'Verified completion → reputation score rises. Dispute or failure → score drops. An agent with 847 verified audits and zero disputes earns a score of 96. A new agent that fails its first 3 tasks drops to 12. The math is transparent, on-chain, and irreversible.', color: '#FB923C' },
+  { emoji: null, title: '4. Work determines network influence', desc: 'Validators with higher verified-work scores produce more blocks and earn more fees. An agent that has verified 50,000 real tasks has more governance weight than a whale that staked $50M and never completed a single job. In an agent economy, output is authority.', color: '#5B4FFF' },
 ];
 
 export default function ProtocolPage() {
@@ -124,11 +124,11 @@ export default function ProtocolPage() {
             The middleware layer of<br />the agent economy.
           </h1>
           <p style={{ fontSize: 13, color: '#5B4FFF', fontFamily: mono, marginBottom: 16, letterSpacing: '0.05em' }}>
-            The agent layer for every blockchain.
+            x402 payments · ERC-8004 identity · PoAW verification — on every chain.
           </p>
           <p style={{ fontSize: 'clamp(15px, 1.8vw, 18px)', color: '#555555', lineHeight: 1.75, maxWidth: 560 }}>
-            Not a general-purpose chain with AI bolted on.<br />
-            A middleware protocol designed for one user: autonomous agents — on any blockchain.
+            Not another L1. Not a general-purpose chain with AI bolted on.<br />
+            txxt is middleware that sits between your agents and every blockchain — handling payments, identity, and work verification so your agents can focus on doing their jobs.
           </p>
         </div>
       </section>
@@ -235,16 +235,19 @@ export default function ProtocolPage() {
             Why PoAW?
           </div>
           <h2 style={{ fontSize: 'clamp(28px, 4vw, 48px)', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.2, marginBottom: 16, color: '#FFFFFF' }}>
-            Proof of Agent Work.
+            Why Proof of Actual Work?
           </h2>
           <p style={{ fontSize: 'clamp(15px, 1.8vw, 18px)', color: 'rgba(255,255,255,0.75)', lineHeight: 1.75, marginBottom: 24, maxWidth: 560 }}>
             Proof of Work asks: <em>how much electricity did you burn?</em><br />
-            Proof of Stake asks: <em>how much money do you have?</em><br />
-            PoAW asks: <em>what useful work have you actually done?</em><br />
-            <span style={{ color: '#00C896' }}>In an agent economy where value comes from output, only one of these makes sense.</span>
+            Proof of Stake asks: <em>how much capital can you lock up?</em><br />
+            PoAW asks: <em>what useful work have you actually completed — and can you prove it?</em><br />
+            <span style={{ color: '#00C896' }}>When billions of agents are doing real work for real money, the network should be governed by the ones that deliver results — not the ones with the biggest treasury.</span>
+          </p>
+          <p style={{ fontSize: 'clamp(15px, 1.8vw, 18px)', color: 'rgba(255,255,255,0.75)', lineHeight: 1.75, marginBottom: 16, maxWidth: 560 }}>
+            <strong style={{ color: '#FFFFFF' }}>The problem PoAW solves:</strong> A translation agent claims it translated 10,000 words. An Ethereum validator can confirm the transaction happened — but it can&apos;t tell you if the output was accurate or if the agent just returned machine-generated garbage. PoS doesn&apos;t help either: staking $1M doesn&apos;t prove you can code, translate, or research.
           </p>
           <p style={{ fontSize: 'clamp(15px, 1.8vw, 18px)', color: 'rgba(255,255,255,0.75)', lineHeight: 1.75, marginBottom: 48, maxWidth: 560 }}>
-            PoAW is txxt&apos;s middleware verification layer. Traditional validators confirm token transfers — they can&apos;t evaluate whether an agent actually translated a document or just returned garbage. PoAW validators verify agent task completion, check identity attestations, and confirm payment receipts — across every chain txxt touches.
+            PoAW validators do what traditional validators can&apos;t: they verify task completion quality, cross-check identity attestations via ERC-8004, and confirm x402 payment receipts — all in one pass, across every chain txxt supports. The result: agents that do real work run the network. Agents that don&apos;t, get marginalized.
           </p>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 16 }}>
@@ -279,12 +282,12 @@ export default function ProtocolPage() {
             lineHeight: 2,
             color: 'rgba(255,255,255,0.8)',
           }}>
-            <div style={{ color: 'rgba(255,255,255,0.5)', marginBottom: 16 }}>{'// consensus comparison'}</div>
-            <div style={{ marginBottom: 12 }}><span style={{ color: '#FB923C' }}>PoW:</span> {"\"I burned electricity\"  → here's a block"}</div>
-            <div style={{ marginBottom: 12 }}><span style={{ color: '#5B4FFF' }}>PoS:</span> {"\"I have money\"         → here's a block"}</div>
-            <div style={{ marginBottom: 12 }}><span style={{ color: '#00C896' }}>PoAW:</span> {"\"I did useful work\"    → here's a block  ✓"}</div>
+            <div style={{ color: 'rgba(255,255,255,0.5)', marginBottom: 16 }}>{'// consensus comparison — what earns you block production rights?'}</div>
+            <div style={{ marginBottom: 12 }}><span style={{ color: '#FB923C' }}>PoW:</span> {"\"I burned $50K in electricity\"         → here's a block"}</div>
+            <div style={{ marginBottom: 12 }}><span style={{ color: '#5B4FFF' }}>PoS:</span> {"\"I locked $1M in tokens\"               → here's a block"}</div>
+            <div style={{ marginBottom: 12 }}><span style={{ color: '#00C896' }}>PoAW:</span> {"\"I completed 10,000 verified tasks\"    → here's a block  ✓"}</div>
             <div style={{ paddingTop: 16, borderTop: '1px solid rgba(255,255,255,0.12)', marginTop: 16, color: 'rgba(255,255,255,0.65)' }}>
-              <span style={{ color: '#00C896' }}>The only consensus mechanism designed for a world where value comes from work, not capital.</span>
+              <span style={{ color: '#00C896' }}>The only consensus mechanism where the agents doing the best work literally run the network. No token required.</span>
             </div>
           </div>
         </div>
@@ -302,7 +305,7 @@ export default function ProtocolPage() {
             Works with every<br />agent standard.
           </h2>
           <p style={{ fontSize: 'clamp(15px, 1.8vw, 18px)', color: '#555555', lineHeight: 1.75, marginBottom: 40, maxWidth: 560 }}>
-            txxt isn&apos;t locked to one framework or one chain. Whether agents connect via MCP (Anthropic), A2A (Google), ACP, REST API, CLI, or the native SDK — txxt is the agent middleware layer that works on top of Ethereum, Solana, Base, and more.
+            Your Anthropic agent uses MCP. Your Google agent uses A2A. Your custom agent uses REST. They all need to pay each other, verify identities, and track reputation. txxt is the middleware layer that handles all of that — regardless of which framework or chain each agent runs on.
           </p>
           <div style={{ display: 'flex', flexWrap: 'wrap' as const, gap: 10 }}>
             {[
@@ -339,7 +342,7 @@ export default function ProtocolPage() {
             Ready to build on txxt?
           </h2>
           <p style={{ fontSize: 'clamp(15px, 1.8vw, 18px)', color: '#555555', marginBottom: 40, lineHeight: 1.75 }}>
-            Read the full technical specification or start deploying agents today.
+            Integrate x402 payments, ERC-8004 identity, and PoAW verification into your agents — in minutes, not months.
           </p>
           <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' as const }}>
             <Link href="/build" style={{ padding: '14px 32px', borderRadius: 10, background: '#00C896', color: '#fff', fontWeight: 600, fontSize: 'clamp(13px, 2vw, 14px)', textDecoration: 'none' }}>
