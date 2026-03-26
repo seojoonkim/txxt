@@ -1058,31 +1058,7 @@ const ethPayment = await PaymentChannel.create(
             </svg>
           </div>
 
-          {/* Supported Chains */}
-          <div style={{ textAlign: 'center', marginBottom: 64 }}>
-            <p style={{ fontSize: 13, letterSpacing: '0.12em', fontWeight: 700, color: '#888', fontFamily: mono, marginBottom: 24, textTransform: 'uppercase' }}>
-              WORKS ON TOP OF
-            </p>
-            <div style={{ display: 'flex', gap: 24, justifyContent: 'center', flexWrap: 'wrap' as const }}>
-              {[
-                { name: 'Ethereum', color: '#627EEA' },
-                { name: 'Solana', color: '#9945FF' },
-                { name: 'Base', color: '#0052FF' },
-                { name: 'Polygon', color: '#8247E5' },
-                { name: 'Arbitrum', color: '#28A0F0' },
-                { name: 'More →', color: '#888' },
-              ].map(chain => (
-                <div key={chain.name} style={{
-                  padding: '10px 20px', borderRadius: 10,
-                  border: `1px solid ${chain.color}33`,
-                  background: `${chain.color}08`,
-                  fontSize: 14, fontWeight: 600, color: chain.color, fontFamily: mono,
-                }}>
-                  {chain.name}
-                </div>
-              ))}
-            </div>
-          </div>
+
 
           {/* 프로토콜 설명 그리드 */}
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 16 }}>
