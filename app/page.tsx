@@ -727,22 +727,12 @@ const ethPayment = await PaymentChannel.create(
                 <span style={{ fontSize: 13, fontFamily: mono, fontWeight: 700, color: '#00C896' }}>txxt Middleware</span>
                 <span style={{ fontSize: 11, fontFamily: mono, color: '#00C896', fontWeight: 600 }}>5 lines · any chain</span>
               </div>
-              <div style={{ padding: 20, fontFamily: mono, fontSize: 'clamp(11px, 1.2vw, 13px)', lineHeight: 2, background: '#FFFFFF', overflow: 'auto' }}>
-                <div style={{ color: '#94A3B8' }}>{'// txxt middleware: one layer for everything'}</div>
+              <div style={{ padding: '28px 20px', fontFamily: mono, fontSize: 'clamp(12px, 1.3vw, 14px)', lineHeight: 2.4, background: '#FFFFFF', overflow: 'auto' }}>
                 <div><span style={{ color: '#5B4FFF' }}>import</span>{' '}<span style={{ color: '#0D0D0D' }}>{'{ txxt }'}</span>{' '}<span style={{ color: '#5B4FFF' }}>from</span>{' '}<span style={{ color: '#00C896' }}>{`'@txxt/sdk'`}</span>;</div>
-                <div>&nbsp;</div>
-                <div><span style={{ color: '#5B4FFF' }}>const</span>{' '}<span style={{ color: '#FB923C', fontWeight: 600 }}>agent</span>{' = '}<span style={{ color: '#0D0D0D' }}>txxt</span>.<span style={{ color: '#00C896', fontWeight: 600 }}>connect</span>{'({'}</div>
-                <div>&nbsp;&nbsp;<span style={{ color: '#0D0D0D' }}>apiKey</span>: <span style={{ color: '#00C896' }}>API_KEY</span>,</div>
-                <div>&nbsp;&nbsp;<span style={{ color: '#0D0D0D' }}>chains</span>: [<span style={{ color: '#00C896' }}>{`'ethereum'`}</span>, <span style={{ color: '#00C896' }}>{`'solana'`}</span>, <span style={{ color: '#00C896' }}>{`'base'`}</span>]</div>
-                <div>{'});'}</div>
-                <div>&nbsp;</div>
-                <div style={{ color: '#94A3B8' }}>{'// Identity — works on every chain'}</div>
+                <div><span style={{ color: '#5B4FFF' }}>const</span>{' '}<span style={{ color: '#FB923C', fontWeight: 600 }}>agent</span>{' = '}<span style={{ color: '#0D0D0D' }}>txxt</span>.<span style={{ color: '#00C896', fontWeight: 600 }}>connect</span>{'({ apiKey, chains: ['}<span style={{ color: '#00C896' }}>{`'eth'`}</span>{', '}<span style={{ color: '#00C896' }}>{`'sol'`}</span>{', '}<span style={{ color: '#00C896' }}>{`'base'`}</span>{'] });'}</div>
                 <div><span style={{ color: '#5B4FFF' }}>await</span>{' '}agent.<span style={{ color: '#00C896', fontWeight: 600 }}>register</span>{'({ capabilities: ['}<span style={{ color: '#00C896' }}>{`'translate'`}</span>{'] });'}</div>
-                <div>&nbsp;</div>
-                <div style={{ color: '#94A3B8' }}>{'// Payments — settles wherever you want'}</div>
                 <div><span style={{ color: '#5B4FFF' }}>await</span>{' '}agent.<span style={{ color: '#00C896', fontWeight: 600 }}>pay</span>{'(url, '}<span style={{ color: '#00C896' }}>{`'$0.01'`}</span>{', { chain: '}<span style={{ color: '#00C896' }}>{`'base'`}</span>{' });'}</div>
-                <div>&nbsp;</div>
-                <div style={{ color: '#94A3B8' }}>{'// Done. One identity. Any chain. Any framework.'}</div>
+                <div><span style={{ color: '#94A3B8' }}>{'// done. identity + payment. any chain.'}</span></div>
               </div>
               <div style={{
                 padding: '16px 20px', background: 'rgba(0,200,150,0.04)',
