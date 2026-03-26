@@ -546,22 +546,16 @@ export default function Home() {
             You could wire up x402 adapters, deploy identity contracts, and build reputation oracles on every chain — or you could use the middleware layer that already does all of it.
           </p>
 
-          {/* Comparison Table */}
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(min(300px, 100%), 1fr))',
-            gap: 1,
-            background: 'rgba(0,0,0,0.04)',
-            borderRadius: 16,
-            overflow: 'hidden',
-            border: '1px solid rgba(0,0,0,0.08)',
-            marginBottom: 64,
-          }}>
-            <div style={{ padding: '16px 20px', background: '#F5F5F5', fontFamily: mono, fontSize: 12, fontWeight: 700, color: '#666666', letterSpacing: '0.08em', textTransform: 'uppercase' as const }}>
-              DIY Approach
-            </div>
-            <div style={{ padding: '16px 20px', background: 'rgba(0,200,150,0.06)', fontFamily: mono, fontSize: 12, fontWeight: 700, color: '#00C896', letterSpacing: '0.08em', textTransform: 'uppercase' as const }}>
-              With txxt
+          {/* Comparison Table — vertical card per row */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 12, marginBottom: 64 }}>
+            {/* Header */}
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
+              <div style={{ padding: '12px 20px', borderRadius: 10, background: '#F5F5F5', fontFamily: mono, fontSize: 11, fontWeight: 700, color: '#888', letterSpacing: '0.1em', textTransform: 'uppercase' as const }}>
+                DIY Approach
+              </div>
+              <div style={{ padding: '12px 20px', borderRadius: 10, background: 'rgba(0,200,150,0.08)', fontFamily: mono, fontSize: 11, fontWeight: 700, color: '#00C896', letterSpacing: '0.1em', textTransform: 'uppercase' as const }}>
+                With txxt
+              </div>
             </div>
             {[
               { area: 'Agent Identity', diy: 'Build custom ERC-8004 contracts per chain', txxt: 'One SDK call — works on ETH, SOL, Base, Polygon', color: '#5B4FFF' },
@@ -570,20 +564,30 @@ export default function Home() {
               { area: 'Multi-chain Support', diy: 'Separate deployments, separate state', txxt: 'One agent identity, portable across every chain', color: '#5B4FFF' },
               { area: 'Onboarding Time', diy: 'Weeks per chain integration', txxt: '< 5 minutes — any chain, any agent framework', color: '#FF3366' },
             ].map(row => (
-              <>
-                <div key={`diy-${row.area}`} style={{ padding: '20px', background: '#FFFFFF' }}>
-                  <div style={{ fontSize: 12, fontFamily: mono, color: row.color, fontWeight: 600, marginBottom: 6, letterSpacing: '0.05em' }}>{row.area}</div>
-                  <div style={{ fontSize: 'clamp(13px, 1.5vw, 15px)', color: '#777777', lineHeight: 1.65 }}>
-                    <span style={{ color: '#FF3366', marginRight: 6 }}>✗</span>{row.diy}
+              <div key={row.area} style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
+                {/* DIY */}
+                <div style={{ padding: '20px', borderRadius: 12, background: '#FAFAFA', border: '1px solid rgba(0,0,0,0.06)' }}>
+                  <div style={{ fontSize: 11, fontFamily: mono, color: row.color, fontWeight: 700, marginBottom: 10, letterSpacing: '0.08em', textTransform: 'uppercase' as const }}>{row.area}</div>
+                  <div style={{ display: 'flex', gap: 8, alignItems: 'flex-start' }}>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style={{ flexShrink: 0, marginTop: 2 }}>
+                      <circle cx="8" cy="8" r="7" fill="#FEE2E2"/>
+                      <path d="M5 5l6 6M11 5l-6 6" stroke="#EF4444" strokeWidth="1.5" strokeLinecap="round"/>
+                    </svg>
+                    <span style={{ fontSize: 'clamp(13px, 1.5vw, 14px)', color: '#777', lineHeight: 1.6 }}>{row.diy}</span>
                   </div>
                 </div>
-                <div key={`txxt-${row.area}`} style={{ padding: '20px', background: 'rgba(0,200,150,0.02)' }}>
-                  <div style={{ fontSize: 12, fontFamily: mono, color: row.color, fontWeight: 600, marginBottom: 6, letterSpacing: '0.05em' }}>{row.area}</div>
-                  <div style={{ fontSize: 'clamp(13px, 1.5vw, 15px)', color: '#333333', lineHeight: 1.65, fontWeight: 500 }}>
-                    <span style={{ color: '#00C896', marginRight: 6 }}>✓</span>{row.txxt}
+                {/* txxt */}
+                <div style={{ padding: '20px', borderRadius: 12, background: 'rgba(0,200,150,0.04)', border: '1px solid rgba(0,200,150,0.15)' }}>
+                  <div style={{ fontSize: 11, fontFamily: mono, color: row.color, fontWeight: 700, marginBottom: 10, letterSpacing: '0.08em', textTransform: 'uppercase' as const }}>{row.area}</div>
+                  <div style={{ display: 'flex', gap: 8, alignItems: 'flex-start' }}>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style={{ flexShrink: 0, marginTop: 2 }}>
+                      <circle cx="8" cy="8" r="7" fill="#D1FAE5"/>
+                      <path d="M4.5 8l2.5 2.5 4.5-5" stroke="#00C896" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                    <span style={{ fontSize: 'clamp(13px, 1.5vw, 14px)', color: '#1a1a1a', lineHeight: 1.6, fontWeight: 500 }}>{row.txxt}</span>
                   </div>
                 </div>
-              </>
+              </div>
             ))}
           </div>
 
