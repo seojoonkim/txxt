@@ -50,6 +50,9 @@ export default function LitepaperPage() {
 
   return (
     <div style={{ background: "#FFFFFF", minHeight: "100vh" }}>
+      <style>{`
+        body, main { overflow-x: visible !important; }
+      `}</style>
       <div
         style={{
           maxWidth: 1300,
