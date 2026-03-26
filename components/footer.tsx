@@ -2,109 +2,137 @@ import Link from 'next/link';
 
 const mono = "var(--font-fira), 'Courier New', monospace";
 
-const footerLinks: Record<string, { label: string; href: string }[]> = {
-  Protocol: [
-    { label: 'Overview', href: '/protocol' },
-    { label: 'Consensus', href: '#' },
-    { label: 'Gas Model', href: '#' },
-    { label: 'Roadmap', href: '#' },
-  ],
-  Identity: [
-    { label: 'Agent ID', href: '/identity' },
-    { label: 'Reputation', href: '/identity' },
-    { label: 'Validation', href: '/identity' },
-    { label: 'Standards', href: '#' },
-  ],
-  Developers: [
-    { label: 'Get Started', href: '/build' },
-    { label: 'Documentation', href: '#' },
-    { label: 'AgentScript', href: '#' },
-    { label: 'SDKs', href: '#' },
-  ],
-  Community: [
-    { label: 'GitHub', href: '#' },
-    { label: 'Discord', href: '#' },
-    { label: 'Twitter', href: '#' },
-    { label: 'Blog', href: '#' },
-  ],
+const navLinks = [
+  { label: 'Protocol',  href: '/protocol' },
+  { label: 'Identity',  href: '/identity' },
+  { label: 'Build',     href: '/build' },
+  { label: 'Ecosystem', href: '/ecosystem' },
+  { label: 'Litepaper', href: '/litepaper' },
+];
+
+const resourceLinks = [
+  { label: 'Docs',    href: '#' },
+  { label: 'GitHub',  href: 'https://github.com' },
+  { label: 'Discord', href: '#' },
+  { label: 'Blog',    href: '#' },
+];
+
+const groupTitleStyle: React.CSSProperties = {
+  fontSize: 11,
+  fontWeight: 600,
+  letterSpacing: '0.1em',
+  color: '#888',
+  textTransform: 'uppercase',
+  marginBottom: 20,
+};
+
+const linkStyle: React.CSSProperties = {
+  fontSize: 14,
+  color: '#999',
+  textDecoration: 'none',
+  display: 'block',
 };
 
 export default function Footer() {
   return (
     <footer style={{
-      borderTop: '1px solid rgba(255,255,255,0.1)',
+      borderTop: '1px solid rgba(255,255,255,0.08)',
       background: '#0A0A0A',
     }}>
+      <style>{`
+        .footer-link:hover { color: #E8E8E8 !important; }
+      `}</style>
+
       <div style={{
         maxWidth: 1300,
         margin: '0 auto',
         padding: '64px 24px 48px',
-        boxSizing: 'border-box' as const,
+        boxSizing: 'border-box',
       }}>
 
         {/* 상단: 로고 + 링크 그리드 */}
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))',
+          gridTemplateColumns: '1fr 1fr 1fr',
           gap: 40,
           marginBottom: 64,
         }}>
+
           {/* 로고 + 설명 */}
           <div>
             <div style={{ marginBottom: 16 }}>
               <span style={{
                 fontFamily: mono,
-                fontSize: 22, fontWeight: 900,
+                fontSize: 22,
+                fontWeight: 900,
                 letterSpacing: '-0.04em',
-                color: '#00D9A3',
-                textShadow: 'none',
-                WebkitTextStroke: '0.5px #00D9A3',
+                color: '#00A878',
+                WebkitTextStroke: '0.5px #00A878',
               }}>
                 txxt
               </span>
             </div>
-            <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.35)', lineHeight: 1.7, maxWidth: 200, marginBottom: 12 }}>
+            <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.35)', lineHeight: 1.7, maxWidth: 200 }}>
               The agent middleware layer for every blockchain.
             </p>
-
           </div>
 
-          {/* 링크 컬럼들 */}
-          {Object.entries(footerLinks).map(([title, links]) => (
-            <div key={title}>
-              <h4 style={{ fontSize: 13, fontWeight: 600, color: '#FFFFFF', marginBottom: 20, letterSpacing: '0.05em' }}>
-                {title}
-              </h4>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-                {links.map((link) => (
-                  <Link
-                    key={link.label}
-                    href={link.href}
-                    style={{ fontSize: 13, color: 'rgba(255,255,255,0.5)', textDecoration: 'none' }}
-                  >
-                    {link.label}
-                  </Link>
-                ))}
-              </div>
+          {/* Navigate */}
+          <div>
+            <h4 style={groupTitleStyle}>Navigate</h4>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+              {navLinks.map((link) => (
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  className="footer-link"
+                  style={linkStyle}
+                >
+                  {link.label}
+                </Link>
+              ))}
             </div>
-          ))}
+          </div>
+
+          {/* Resources */}
+          <div>
+            <h4 style={groupTitleStyle}>Resources</h4>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+              {resourceLinks.map((link) => (
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  className="footer-link"
+                  style={linkStyle}
+                  target={link.href.startsWith('http') ? '_blank' : undefined}
+                  rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+
         </div>
 
         {/* 하단 바 */}
         <div style={{
-          borderTop: '1px solid rgba(255,255,255,0.1)',
+          borderTop: '1px solid rgba(255,255,255,0.08)',
           paddingTop: 28,
           display: 'flex',
-          flexDirection: 'column',
-          gap: 12,
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          flexWrap: 'wrap',
+          gap: 8,
         }}>
-          <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.35)' }}>
+          <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.3)' }}>
             © 2026 txxt. Agent-Native Infrastructure.
           </p>
-          <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.3)', fontFamily: mono }}>
+          <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.2)', fontFamily: mono }}>
             The agent layer for every blockchain.
           </p>
         </div>
+
       </div>
     </footer>
   );
