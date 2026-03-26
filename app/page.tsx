@@ -1356,7 +1356,7 @@ const ethPayment = await PaymentChannel.create(
 
       {/* ===== FINAL CTA ===== */}
       <section style={{
-        padding: 'clamp(120px, 22vh, 280px) 24px',
+        padding: 'clamp(120px, 22vh, 280px) 0',
         textAlign: 'center',
         position: 'relative',
         background: '#FFFFFF',
@@ -1367,7 +1367,7 @@ const ethPayment = await PaymentChannel.create(
           background: 'radial-gradient(ellipse 50% 50% at 50% 50%, rgba(167,139,250,0.05) 0%, transparent 70%)',
         }} />
 
-        <div style={{ maxWidth: 1300, margin: '0 auto', position: 'relative', zIndex: 1 }}>
+        <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 24px', position: 'relative', zIndex: 1 }}>
           <h2 style={{
             fontSize: 'clamp(28px, 6vw, 64px)',
             fontWeight: 700,
