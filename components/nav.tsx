@@ -6,19 +6,19 @@ import { useState, useEffect, useRef } from 'react';
 const mono = "var(--font-fira), 'Courier New', monospace";
 
 const links = [
-  { href: '/protocol', label: 'Protocol' },
-  { href: '/identity', label: 'Identity' },
-  { href: '/ecosystem', label: 'Ecosystem' },
-  { href: '/build', label: 'Build' },
   {
-    href: '#',
-    label: 'More',
+    href: '/protocol',
+    label: 'Protocol',
     children: [
+      { href: '/protocol', label: 'Overview' },
       { href: '/poaw', label: 'PoAW' },
-      { href: '/roadmap', label: 'Roadmap' },
-      { href: '#', label: 'Docs' },
+      { href: '/identity', label: 'Identity' },
     ],
   },
+  { href: '/build', label: 'Build' },
+  { href: '/ecosystem', label: 'Ecosystem' },
+  { href: '/roadmap', label: 'Roadmap' },
+  { href: '/litepaper', label: 'Litepaper' },
 ];
 
 type NavLink = { href: string; label: string; children?: { href: string; label: string }[] };
