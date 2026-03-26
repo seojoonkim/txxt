@@ -7,8 +7,7 @@ const sections = [
   { id: "problem", label: "The Problem" },
   { id: "solution", label: "The Solution" },
   { id: "architecture", label: "Architecture" },
-  { id: "integration", label: "Agent Integration Layer" },
-  { id: "agentscript", label: "AgentScript" },
+  { id: "integration", label: "Integration Layer" },
   { id: "tokenless", label: "Tokenless Economics" },
   { id: "governance", label: "Governance" },
   { id: "roadmap", label: "Roadmap" },
@@ -119,7 +118,7 @@ export default function LitepaperPage() {
         <header style={{ marginBottom: 48, textAlign: "center" }}>
           <h1
             style={{
-              fontSize: 48,
+              fontSize: 40,
               fontWeight: 700,
               color: "#0D0D0D",
               lineHeight: 1.2,
@@ -130,292 +129,265 @@ export default function LitepaperPage() {
             txxt Litepaper
           </h1>
           <p style={{ fontSize: 20, color: "#666", fontWeight: 400, marginBottom: 24 }}>
-            The Settlement Layer for Agent Commerce
+            The Agent Middleware Layer
           </p>
           <p style={{ fontSize: 13, color: "#999" }}>
-            Version 0.1 &middot; March 2026 &middot; txxt Labs
+            Version 0.2 &middot; March 2026 &middot; txxt Labs
           </p>
         </header>
 
         <Divider />
 
-        {/* Abstract */}
+        {/* ──────────── Abstract ──────────── */}
         <Section id="abstract" title="Abstract">
           <p>
-            The next wave of the internet is not built by humans alone. Autonomous AI agents are
-            emerging as economic actors — discovering services, negotiating prices, executing
-            transactions, and delivering value without human intervention. Yet the infrastructure
-            to support this agent economy does not exist. There is no standard for how agents pay
-            each other, no protocol for verifiable agent identity, and no settlement layer
-            optimized for machine-to-machine commerce.
+            Autonomous AI agents are becoming economic actors — discovering services, negotiating
+            prices, executing transactions, and delivering value without human intervention. Yet
+            no standard middleware exists for agents to pay each other, verify identity, or settle
+            work across chains.
           </p>
           <p>
-            <strong>txxt</strong> is a purpose-built agent middleware layer designed from the ground up
-            for agent commerce — working on top of Ethereum, Solana, Base, and any supported chain. It natively integrates the{" "}
-            <strong>x402 payment protocol</strong> for HTTP-native micropayments and the{" "}
-            <strong>ERC-8004 standard</strong> for on-chain agent identity and reputation. txxt is
-            tokenless — there is no native token, no speculation, no ICO. Gas fees are fixed at
-            $0.0003 in USDC, making costs deterministic and predictable for autonomous systems.
-            Consensus is achieved through <strong>Proof of Actual Work (PoAW)</strong>, where
-            validators earn the right to produce blocks by performing verifiable, useful computation
-            for the network.
+            <strong>txxt is not a new blockchain.</strong> It is the middleware that makes any
+            blockchain agent-ready. Sitting on top of Ethereum, Solana, Base, Polygon, and any
+            supported chain, txxt provides three critical primitives as a unified middleware layer:{" "}
+            <strong>x402</strong> for HTTP-native agent payments,{" "}
+            <strong>ERC-8004</strong> for on-chain agent identity and reputation, and{" "}
+            <strong>Proof of Actual Work (PoAW)</strong> for consensus grounded in verifiable
+            computation. txxt is tokenless — gas fees are fixed at $0.0003 in USDC. No native
+            token, no speculation, no ICO. Just infrastructure.
           </p>
-          <p>
-            txxt is not a general-purpose chain. It is middleware infrastructure — the agent layer where
-            agents transact, build reputation, and prove their work, regardless of which blockchain they settle on.
-          </p>
+          <Callout>
+            txxt is not a new blockchain. It is the middleware that makes any blockchain
+            agent-ready.
+          </Callout>
         </Section>
 
         <Divider />
 
-        {/* The Problem */}
+        {/* ──────────── The Problem ──────────── */}
         <Section id="problem" title="1. The Problem">
           <p>
-            The agent economy is growing at an extraordinary pace. Major AI labs are shipping
-            autonomous agents that can browse the web, write code, manage workflows, and interact
-            with external APIs. Enterprises are deploying agent swarms for customer service,
-            financial analysis, supply chain optimization, and software development. The market for
-            AI agents is projected to exceed $100 billion by 2028.
+            The agent economy is growing at an extraordinary pace. Major AI labs ship autonomous
+            agents that browse the web, write code, manage workflows, and interact with external
+            APIs. The market for AI agents is projected to exceed $100 billion by 2028. But the
+            infrastructure has not kept up. Three critical gaps remain:
           </p>
-          <p>But the infrastructure has not kept up. Three critical gaps remain:</p>
 
           <H3>1.1 No Payment Rails for Agents</H3>
           <p>
-            When Agent A needs to pay Agent B for a service, there is no standard protocol. Today's
-            options are fragmented: credit card APIs require human KYC, crypto payments require
-            wallet management and token bridging, and most agent frameworks simply ignore payment
-            entirely. The result is that agents cannot participate in commerce without human
-            intermediation at every transaction boundary.
+            When Agent A needs to pay Agent B for a service, there is no standard protocol.
+            Credit card APIs require human KYC. Crypto payments require wallet management and
+            token bridging. Most agent frameworks simply ignore payment entirely. Agents cannot
+            participate in commerce without human intermediation at every transaction boundary.
           </p>
 
           <H3>1.2 No Verifiable Agent Identity</H3>
           <p>
             How does an agent know whether another agent is trustworthy? There is no on-chain
             identity standard for AI agents. Agents cannot present verifiable credentials, build
-            portable reputation, or prove their track record. This forces every agent interaction
-            to start from zero trust, making complex multi-agent workflows fragile and unreliable.
+            portable reputation, or prove their track record. Every agent interaction starts from
+            zero trust, making complex multi-agent workflows fragile and unreliable.
           </p>
 
-          <H3>1.3 No Settlement Infrastructure</H3>
+          <H3>1.3 No Cross-Chain Settlement</H3>
           <p>
-            Existing blockchains are designed for human users. They optimize for DeFi, NFTs, and
-            speculative trading — not for high-frequency, low-value, machine-to-machine
-            transactions. Gas fees are unpredictable. Transaction finality is slow. The UX assumes
-            a human is present to approve, sign, and confirm. None of this works for autonomous
-            agents that need to execute thousands of microtransactions per hour without human
-            oversight.
+            Existing blockchains are designed for human users — optimized for DeFi, NFTs, and
+            speculative trading. Gas fees are unpredictable. Transaction finality is slow. The UX
+            assumes a human is present to approve, sign, and confirm. Agents operating across
+            Ethereum, Solana, Base, and Polygon have no way to atomically settle work across
+            chains. None of this works for autonomous agents executing thousands of
+            microtransactions per hour.
           </p>
 
           <Callout>
-            The agent economy has the demand. What it lacks is the infrastructure — a settlement
-            layer purpose-built for machines that pay, identify, and trust each other.
+            The agent economy has the demand. What it lacks is a middleware layer — one that
+            bridges payments, identity, and settlement across every chain agents already use.
           </Callout>
         </Section>
 
         <Divider />
 
-        {/* The Solution */}
-        <Section id="solution" title="2. The Solution">
+        {/* ──────────── The Solution ──────────── */}
+        <Section id="solution" title="2. The Solution: txxt Middleware">
           <p>
-            txxt addresses these gaps with a single, integrated approach: an agent middleware protocol
-            that natively embeds the two most critical primitives for agent commerce —{" "}
-            <strong>payments</strong> and <strong>identity</strong> — directly into the middleware
-            layer, working on top of any blockchain.
+            txxt is not another L1. It is a <strong>middleware layer</strong> that sits between AI
+            agents and the blockchains they transact on, providing three missing primitives as
+            native protocol operations.
           </p>
 
-          <H3>x402: HTTP-Native Agent Payments</H3>
+          {/* Architecture Diagram */}
+          <div
+            style={{
+              background: "#F8F8F8",
+              borderRadius: 8,
+              padding: "24px 28px",
+              margin: "24px 0",
+              fontFamily: "var(--font-fira), monospace",
+              fontSize: 13,
+              lineHeight: 1.7,
+              color: "#333",
+              border: "1px solid #E8E8E8",
+              overflowX: "auto",
+            }}
+          >
+            <div style={{ color: "#999", marginBottom: 12 }}>// txxt middleware stack</div>
+            <div style={{ borderBottom: "1px solid #DDD", paddingBottom: 10, marginBottom: 10 }}>
+              <span style={{ color: "#7C3AED", fontWeight: 600 }}>Layer 3</span>
+              {"  "}AI Agents (MCP / A2A / ACP / CLI / SDK / REST)
+            </div>
+            <div style={{ borderBottom: "1px solid #DDD", paddingBottom: 10, marginBottom: 10 }}>
+              <span style={{ color: "#00C896", fontWeight: 600 }}>Layer 2</span>
+              {"  "}txxt Middleware
+              <div style={{ paddingLeft: 20, marginTop: 4, fontSize: 12, color: "#555" }}>
+                x402 Payment &middot; ERC-8004 Identity &middot; PoAW Consensus &middot; AgentScript
+              </div>
+            </div>
+            <div>
+              <span style={{ color: "#7C3AED", fontWeight: 600 }}>Layer 1</span>
+              {"  "}ETH &middot; SOL &middot; Base &middot; Polygon &middot; Arbitrum &middot; ...
+            </div>
+          </div>
+
           <p>
-            The <strong>x402 protocol</strong> extends HTTP with a native payment layer. When an
-            agent requests a paid resource, the server responds with HTTP status{" "}
+            Agents interact with txxt through their preferred protocol — MCP, A2A, ACP, CLI, SDK,
+            or plain REST. txxt handles payment, identity, and verification, then settles on
+            whichever L1 the agent or its operator has chosen. The agent never needs to know which
+            chain it is settling on. The middleware abstracts it away.
+          </p>
+
+          <H3>Why Middleware, Not a Chain?</H3>
+          <ul style={{ paddingLeft: 24, marginBottom: 16 }}>
+            <li>
+              <strong>No cold-start problem.</strong> txxt inherits the security, liquidity, and
+              ecosystem of existing L1s. No need to bootstrap a new validator set or bridge assets
+              from scratch.
+            </li>
+            <li>
+              <strong>Chain-agnostic.</strong> Agents on Ethereum, Solana, Base, or Polygon all
+              use the same txxt middleware. One integration, every chain.
+            </li>
+            <li>
+              <strong>Composable.</strong> txxt doesn't replace existing DeFi, NFT, or DAO
+              infrastructure. It adds the agent layer on top.
+            </li>
+            <li>
+              <strong>Upgradable.</strong> Middleware can evolve independently of L1 consensus.
+              New agent protocols can be added without hard forks on the base layer.
+            </li>
+          </ul>
+        </Section>
+
+        <Divider />
+
+        {/* ──────────── Architecture ──────────── */}
+        <Section id="architecture" title="3. Architecture">
+          <H3>3.1 x402 Payment Layer</H3>
+          <p>
+            The <strong>x402 protocol</strong> extends HTTP with a native payment layer for
+            agents. When an agent requests a paid resource, the server responds with HTTP status{" "}
             <Code>402 Payment Required</Code> along with payment terms (amount, currency,
             recipient). The requesting agent constructs a payment proof, attaches it to the next
-            request, and the server verifies the payment on-chain before delivering the resource.
+            request, and the middleware verifies the payment before delivering the resource.
             No APIs. No OAuth. No human in the loop.
           </p>
           <p>
-            On txxt, x402 is not a smart contract — it is a <strong>native protocol operation</strong>.
-            Payment verification happens at the consensus layer, making x402 transactions faster,
-            cheaper, and more reliable than any smart-contract-based alternative.
-          </p>
-
-          <H3>ERC-8004: On-Chain Agent Identity &amp; Reputation</H3>
-          <p>
-            The <strong>ERC-8004 standard</strong> defines a universal identity primitive for AI
-            agents. Each agent registered on txxt receives a soulbound identity token containing:
-          </p>
-          <ul style={{ paddingLeft: 24, marginBottom: 16 }}>
-            <li>A unique agent identifier (DID-compatible)</li>
-            <li>Operator information (the human or organization behind the agent)</li>
-            <li>Capability declarations (what the agent can do)</li>
-            <li>A reputation score derived from on-chain transaction history</li>
-            <li>Service endpoints for discovery and communication</li>
-          </ul>
-          <p>
-            On txxt, ERC-8004 identities are <strong>first-class chain objects</strong>, not smart
-            contract state. Identity lookups are O(1) operations at the protocol level, enabling
-            agents to verify each other's credentials in milliseconds.
-          </p>
-
-          <Callout>
-            x402 answers "how do agents pay?" ERC-8004 answers "how do agents trust?" txxt
-            answers both — natively, at the protocol layer.
-          </Callout>
-        </Section>
-
-        <Divider />
-
-        {/* Architecture */}
-        <Section id="architecture" title="3. Architecture">
-          <H3>3.1 Middleware Design: Tokenless, Fixed-Cost</H3>
-          <p>
-            txxt is a tokenless blockchain. There is no native token. All gas fees are denominated
-            in <strong>USDC</strong> at a fixed rate of <strong>$0.0003 per transaction</strong>.
-            This design choice is fundamental to txxt's mission:
-          </p>
-          <ul style={{ paddingLeft: 24, marginBottom: 16 }}>
-            <li>
-              <strong>Deterministic costs.</strong> Agents can calculate exact transaction costs
-              before execution. No gas auctions, no fee spikes, no MEV.
-            </li>
-            <li>
-              <strong>No speculation.</strong> Without a native token, there is no incentive for
-              speculative trading. The chain exists purely as infrastructure.
-            </li>
-            <li>
-              <strong>Stablecoin-native.</strong> USDC is the unit of account for the agent economy.
-              Agents earn, spend, and settle in dollars — not in volatile tokens.
-            </li>
-            <li>
-              <strong>Regulatory clarity.</strong> No token launch means no securities concerns, no
-              airdrops, no tokenomics debates. txxt is infrastructure, like TCP/IP.
-            </li>
-          </ul>
-
-          <H3>3.2 x402 Native Integration</H3>
-          <p>
-            x402 payment operations are implemented as <strong>native transaction types</strong> on
-            txxt, alongside standard transfer and contract operations. The protocol defines three
-            core x402 operations:
+            txxt implements three core x402 operations as <strong>native middleware
+            operations</strong>:
           </p>
           <ol style={{ paddingLeft: 24, marginBottom: 16 }}>
             <li>
-              <strong>PaymentOffer</strong> — A server declares payment terms for a resource
-              (amount, currency, expiry, resource hash).
+              <strong>PaymentOffer</strong> — A server declares payment terms for a resource.
             </li>
             <li>
-              <strong>PaymentProof</strong> — A client agent constructs and submits proof of payment
-              that references the offer.
+              <strong>PaymentProof</strong> — A client agent constructs and submits proof of
+              payment referencing the offer.
             </li>
             <li>
-              <strong>PaymentSettle</strong> — The network verifies the proof and atomically
-              settles the payment, updating both agent balances and reputation scores.
+              <strong>PaymentSettle</strong> — The middleware verifies the proof and atomically
+              settles the payment on the underlying chain, updating both agent balances and
+              reputation scores.
             </li>
           </ol>
           <p>
             Settlement finality is under 400ms. Failed payments are automatically refunded. The
             entire flow — offer, proof, settle — happens within a single HTTP request-response
-            cycle from the agent's perspective.
+            cycle from the agent's perspective, regardless of which L1 the settlement lands on.
           </p>
 
-          <H3>3.3 ERC-8004 Native Integration</H3>
+          <H3>3.2 ERC-8004 Identity Layer</H3>
           <p>
-            Agent identities on txxt are stored in a dedicated <strong>Identity Trie</strong> — a
-            protocol-level data structure separate from the account state trie. This enables:
+            The <strong>ERC-8004 standard</strong> defines a universal identity primitive for AI
+            agents. Each agent registered through txxt receives a soulbound identity token
+            containing:
           </p>
           <ul style={{ paddingLeft: 24, marginBottom: 16 }}>
-            <li>
-              <strong>O(1) identity lookups</strong> without smart contract invocation
-            </li>
-            <li>
-              <strong>Atomic reputation updates</strong> on every settled transaction
-            </li>
-            <li>
-              <strong>Cross-chain identity portability</strong> via Merkle proof exports
-            </li>
-            <li>
-              <strong>Identity revocation</strong> by the registered operator
-            </li>
+            <li>A unique agent identifier (DID-compatible)</li>
+            <li>Operator information (the human or organization behind the agent)</li>
+            <li>Capability declarations (what the agent can do)</li>
+            <li>A reputation score derived from cross-chain transaction history</li>
+            <li>Service endpoints for discovery and communication</li>
           </ul>
           <p>
+            Because txxt is middleware, an agent's ERC-8004 identity is{" "}
+            <strong>portable across chains</strong>. An agent that builds reputation on Ethereum
+            carries that same reputation when transacting on Solana or Base. Identity lookups are
+            O(1) at the middleware level, enabling agents to verify each other's credentials in
+            milliseconds.
+          </p>
+          <p>
             Reputation is computed from three signals: transaction volume (how much work the agent
-            has settled), success rate (what percentage of transactions completed without disputes),
-            and longevity (how long the agent has been active on-chain).
+            has settled), success rate (what percentage of transactions completed without
+            disputes), and longevity (how long the agent has been active).
           </p>
 
-          <H3>3.4 Proof of Actual Work (PoAW) Consensus</H3>
+          <H3>3.3 Proof of Actual Work (PoAW) Consensus</H3>
           <p>
-            txxt replaces Proof of Stake with <strong>Proof of Actual Work (PoAW)</strong> — a
-            novel consensus mechanism where validators earn block production rights by performing
-            verifiable, useful computation.
-          </p>
-          <p>
-            In each epoch, the network distributes computational tasks to validator candidates.
-            These tasks are drawn from real workloads submitted by the network's agent ecosystem:
-            model inference verification, data validation, payment proof checking, and identity
-            credential verification. Validators that complete tasks correctly and within the time
-            bound are eligible for the next block production round.
-          </p>
-          <p>
-            PoAW ensures that every unit of energy spent on consensus directly contributes to the
-            network's utility. There is no wasted computation. The work is the consensus.
-          </p>
-        </Section>
-
-        <Divider />
-
-        {/* Agent Integration Layer */}
-        <Section id="integration" title="4. Agent Integration Layer">
-          <p>
-            txxt is designed to meet agents where they are. The Agent Integration Layer provides
-            native support for every major agent communication protocol:
+            txxt replaces traditional consensus with{" "}
+            <strong>Proof of Actual Work (PoAW)</strong> — a mechanism where validators earn the
+            right to participate by performing verifiable, useful computation for the network.
           </p>
 
           <table style={{ width: "100%", borderCollapse: "collapse", margin: "24px 0", fontSize: 14 }}>
             <thead>
               <tr style={{ borderBottom: "2px solid #E5E5E5" }}>
-                <th style={{ textAlign: "left", padding: "10px 12px", fontWeight: 600, color: "#0D0D0D" }}>Protocol</th>
-                <th style={{ textAlign: "left", padding: "10px 12px", fontWeight: 600, color: "#0D0D0D" }}>Purpose</th>
-                <th style={{ textAlign: "left", padding: "10px 12px", fontWeight: 600, color: "#0D0D0D" }}>txxt Support</th>
+                <th style={{ textAlign: "left", padding: "10px 12px", fontWeight: 600, color: "#0D0D0D" }}>Property</th>
+                <th style={{ textAlign: "left", padding: "10px 12px", fontWeight: 600, color: "#0D0D0D" }}>PoW</th>
+                <th style={{ textAlign: "left", padding: "10px 12px", fontWeight: 600, color: "#0D0D0D" }}>PoS</th>
+                <th style={{ textAlign: "left", padding: "10px 12px", fontWeight: 600, color: "#00C896" }}>PoAW</th>
               </tr>
             </thead>
             <tbody>
-              {[
-                ["MCP", "Model Context Protocol", "Native tool server — agents access chain via MCP tools"],
-                ["A2A", "Agent-to-Agent Protocol", "Built-in agent discovery and task delegation"],
-                ["ACP", "Agent Commerce Protocol", "x402 + ERC-8004 combined commerce flow"],
-                ["CLI", "Command Line Interface", "Full-featured txxt CLI for scripting and automation"],
-                ["SDK", "Software Dev Kit", "TypeScript, Python, Rust SDKs with ergonomic APIs"],
-                ["REST", "HTTP API", "Standard REST endpoints for all chain operations"],
-              ].map(([protocol, purpose, support], i) => (
+              {([
+                ["Work type", "Hash puzzles", "Capital lockup", "Useful computation"],
+                ["Energy waste", "Massive", "Minimal", "Zero — work is the product"],
+                ["Barrier", "Hardware cost", "Capital cost", "Skill + compute"],
+                ["Sybil resistance", "Hash rate", "Stake amount", "Verified task completion"],
+                ["Value creation", "None (puzzles)", "None (staking)", "Real work for agents"],
+              ] as const).map(([prop, pow, pos, poaw], i) => (
                 <tr key={i} style={{ borderBottom: "1px solid #F0F0F0" }}>
-                  <td style={{ padding: "10px 12px", fontWeight: 500 }}>
-                    <Code>{protocol}</Code>
-                  </td>
-                  <td style={{ padding: "10px 12px", color: "#555" }}>{purpose}</td>
-                  <td style={{ padding: "10px 12px", color: "#555" }}>{support}</td>
+                  <td style={{ padding: "10px 12px", fontWeight: 500 }}>{prop}</td>
+                  <td style={{ padding: "10px 12px", color: "#555" }}>{pow}</td>
+                  <td style={{ padding: "10px 12px", color: "#555" }}>{pos}</td>
+                  <td style={{ padding: "10px 12px", color: "#00C896", fontWeight: 500 }}>{poaw}</td>
                 </tr>
               ))}
             </tbody>
           </table>
 
           <p>
-            The integration layer is designed so that any agent — regardless of its framework
-            (LangChain, CrewAI, AutoGen, custom) — can interact with txxt through the protocol it
-            already speaks. There is no txxt-specific SDK requirement. If your agent can make HTTP
-            requests, it can use txxt.
+            In each epoch, the network distributes computational tasks to validator candidates:
+            model inference verification, data validation, payment proof checking, and identity
+            credential verification. Validators that complete tasks correctly and within the time
+            bound are eligible for the next block production round. Every unit of energy spent on
+            consensus directly contributes to the network's utility.
           </p>
-        </Section>
 
-        <Divider />
-
-        {/* AgentScript */}
-        <Section id="agentscript" title="5. AgentScript">
+          <H3>3.4 AgentScript</H3>
           <p>
-            <strong>AgentScript</strong> is a domain-specific language designed for programming
-            agent behaviors on txxt. While general-purpose smart contract languages (Solidity,
-            Move, Rust) are optimized for DeFi and token operations, AgentScript is optimized for
-            the primitives that matter in agent commerce: <em>payments, identity checks, task
-            delegation, and conditional workflows</em>.
+            <strong>AgentScript</strong> is a domain-specific language for programming agent
+            behaviors on txxt. While Solidity and Move optimize for DeFi and token operations,
+            AgentScript is optimized for the primitives that matter in agent commerce:{" "}
+            <em>payments, identity checks, task delegation, and conditional workflows</em>.
           </p>
 
           <div
@@ -432,13 +404,16 @@ export default function LitepaperPage() {
               overflowX: "auto",
             }}
           >
-            <div style={{ color: "#999", marginBottom: 8 }}>// AgentScript example: paid API endpoint</div>
+            <div style={{ color: "#999", marginBottom: 8 }}>// AgentScript: paid API endpoint on any chain</div>
             <div>
               <span style={{ color: "#7C3AED" }}>agent</span>{" "}
               <span style={{ color: "#0D0D0D", fontWeight: 600 }}>DataProvider</span> {"{"}
             </div>
             <div style={{ paddingLeft: 20 }}>
               <span style={{ color: "#7C3AED" }}>identity</span>: ERC8004(reputation {">"}= 0.8)
+            </div>
+            <div style={{ paddingLeft: 20 }}>
+              <span style={{ color: "#7C3AED" }}>settle</span>: [&quot;base&quot;, &quot;ethereum&quot;, &quot;polygon&quot;]
             </div>
             <div style={{ paddingLeft: 20, marginTop: 8 }}>
               <span style={{ color: "#7C3AED" }}>endpoint</span> /api/market-data {"{"}
@@ -456,50 +431,161 @@ export default function LitepaperPage() {
             <div>{"}"}</div>
           </div>
 
-          <p>Key features of AgentScript include:</p>
+          <p>Key features:</p>
           <ul style={{ paddingLeft: 24, marginBottom: 16 }}>
             <li>
               <strong>Payment primitives</strong> — x402 payment requirements are first-class
-              language constructs, not library calls.
+              language constructs.
             </li>
             <li>
-              <strong>Identity-aware</strong> — Agent reputation and identity checks are built into
-              the type system. You cannot deploy an endpoint without specifying identity requirements.
+              <strong>Identity-aware</strong> — Reputation and identity checks are built into
+              the type system.
             </li>
             <li>
-              <strong>Deterministic execution</strong> — AgentScript programs are pure functions
-              with no side effects beyond chain state. Execution cost is computed at compile time.
+              <strong>Chain-agnostic settlement</strong> — The <Code>settle</Code> directive
+              specifies which L1s the agent accepts for settlement.
             </li>
             <li>
-              <strong>Human-readable</strong> — Designed for AI agents that generate code. The
-              syntax is minimal and unambiguous, reducing LLM generation errors.
+              <strong>Human-readable</strong> — Designed for AI agents that generate code.
+              Minimal, unambiguous syntax reduces LLM generation errors.
             </li>
           </ul>
+
+          <H3>3.5 Multi-Chain Adapters</H3>
           <p>
-            AgentScript compiles to txxt bytecode and runs on the txxt Virtual Machine (TVM). The
-            TVM is optimized for agent-specific operations, providing dedicated opcodes for payment
-            verification, identity lookup, and reputation queries.
+            txxt connects to underlying blockchains through a standardized adapter interface.
+            Each adapter handles chain-specific operations — transaction submission, finality
+            confirmation, USDC balance management, and Merkle proof generation — while exposing
+            a unified API to the middleware layer.
+          </p>
+
+          <table style={{ width: "100%", borderCollapse: "collapse", margin: "24px 0", fontSize: 14 }}>
+            <thead>
+              <tr style={{ borderBottom: "2px solid #E5E5E5" }}>
+                <th style={{ textAlign: "left", padding: "10px 12px", fontWeight: 600, color: "#0D0D0D" }}>Chain</th>
+                <th style={{ textAlign: "left", padding: "10px 12px", fontWeight: 600, color: "#0D0D0D" }}>Status</th>
+                <th style={{ textAlign: "left", padding: "10px 12px", fontWeight: 600, color: "#0D0D0D" }}>Settlement</th>
+              </tr>
+            </thead>
+            <tbody>
+              {([
+                ["Ethereum", "Launch", "Native USDC"],
+                ["Base", "Launch", "Native USDC"],
+                ["Polygon", "Launch", "Native USDC"],
+                ["Solana", "Q2 2026", "SPL USDC"],
+                ["Arbitrum", "Q3 2026", "Native USDC"],
+              ] as const).map(([chain, status, settlement], i) => (
+                <tr key={i} style={{ borderBottom: "1px solid #F0F0F0" }}>
+                  <td style={{ padding: "10px 12px", fontWeight: 500 }}>{chain}</td>
+                  <td style={{ padding: "10px 12px", color: status === "Launch" ? "#00C896" : "#555" }}>
+                    {status}
+                  </td>
+                  <td style={{ padding: "10px 12px", color: "#555" }}>{settlement}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          <p>
+            New chains are added by implementing the adapter interface. The middleware layer
+            handles routing, so agents never interact with chain-specific APIs directly.
           </p>
         </Section>
 
         <Divider />
 
-        {/* Tokenless Economics */}
-        <Section id="tokenless" title="6. Tokenless Economics">
-          <H3>6.1 Why No Token?</H3>
+        {/* ──────────── Integration Layer ──────────── */}
+        <Section id="integration" title="4. Integration Layer">
+          <p>
+            txxt meets agents where they are. The integration layer provides native support for
+            every major agent communication protocol — no txxt-specific SDK required:
+          </p>
+
+          <table style={{ width: "100%", borderCollapse: "collapse", margin: "24px 0", fontSize: 14 }}>
+            <thead>
+              <tr style={{ borderBottom: "2px solid #E5E5E5" }}>
+                <th style={{ textAlign: "left", padding: "10px 12px", fontWeight: 600, color: "#0D0D0D" }}>Protocol</th>
+                <th style={{ textAlign: "left", padding: "10px 12px", fontWeight: 600, color: "#0D0D0D" }}>Purpose</th>
+                <th style={{ textAlign: "left", padding: "10px 12px", fontWeight: 600, color: "#0D0D0D" }}>txxt Support</th>
+              </tr>
+            </thead>
+            <tbody>
+              {[
+                ["MCP", "Model Context Protocol", "Native tool server — agents access txxt via MCP tools"],
+                ["A2A", "Agent-to-Agent Protocol", "Built-in agent discovery, task delegation, and x402 settlement"],
+                ["ACP", "Agent Commerce Protocol", "x402 + ERC-8004 combined commerce flow"],
+                ["CLI", "Command Line Interface", "Full-featured txxt CLI for scripting and automation"],
+                ["SDK", "@txxt/sdk", "TypeScript, Python, Rust SDKs with ergonomic APIs"],
+                ["REST", "HTTP API", "Standard REST endpoints for all middleware operations"],
+              ].map(([protocol, purpose, support], i) => (
+                <tr key={i} style={{ borderBottom: "1px solid #F0F0F0" }}>
+                  <td style={{ padding: "10px 12px", fontWeight: 500 }}>
+                    <Code>{protocol}</Code>
+                  </td>
+                  <td style={{ padding: "10px 12px", color: "#555" }}>{purpose}</td>
+                  <td style={{ padding: "10px 12px", color: "#555" }}>{support}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+
+          <p>
+            Any agent — regardless of framework (LangChain, CrewAI, AutoGen, OpenAI Agents SDK,
+            custom) — can interact with txxt through the protocol it already speaks. If your
+            agent can make HTTP requests, it can use txxt.
+          </p>
+
+          <div
+            style={{
+              background: "#F8F8F8",
+              borderRadius: 8,
+              padding: "20px 24px",
+              margin: "24px 0",
+              fontFamily: "var(--font-fira), monospace",
+              fontSize: 13,
+              lineHeight: 1.8,
+              color: "#333",
+              border: "1px solid #E8E8E8",
+              overflowX: "auto",
+            }}
+          >
+            <div style={{ color: "#999", marginBottom: 8 }}>// @txxt/sdk — 3 lines to pay an agent</div>
+            <div>
+              <span style={{ color: "#7C3AED" }}>import</span> {"{"} txxt {"}"}{" "}
+              <span style={{ color: "#7C3AED" }}>from</span>{" "}
+              <span style={{ color: "#00C896" }}>&quot;@txxt/sdk&quot;</span>;
+            </div>
+            <div style={{ marginTop: 8 }}>
+              <span style={{ color: "#7C3AED" }}>const</span> result ={" "}
+              <span style={{ color: "#7C3AED" }}>await</span> txxt.pay({"{"}
+            </div>
+            <div style={{ paddingLeft: 20 }}>
+              to: <span style={{ color: "#00C896" }}>&quot;agent:data-provider.eth&quot;</span>,
+            </div>
+            <div style={{ paddingLeft: 20 }}>
+              amount: <span style={{ color: "#00C896" }}>0.001</span>,
+            </div>
+            <div style={{ paddingLeft: 20 }}>
+              chain: <span style={{ color: "#00C896" }}>&quot;base&quot;</span>,
+            </div>
+            <div>{"}"});</div>
+          </div>
+        </Section>
+
+        <Divider />
+
+        {/* ──────────── Tokenless Economics ──────────── */}
+        <Section id="tokenless" title="5. Tokenless Economics">
+          <H3>5.1 Why No Token?</H3>
           <p>
             Most blockchain protocols launch with a native token. The token serves as gas payment,
-            staking collateral, and governance weight. It also serves as a speculative asset — and
-            this is where the incentive misalignment begins.
+            staking collateral, and governance weight — but also as a speculative asset. When a
+            chain has a native token, the success of the token becomes conflated with the success
+            of the network. Development priorities shift toward &ldquo;number go up&rdquo;
+            narratives. The community optimizes for token price, not utility. This dynamic is
+            incompatible with infrastructure.
           </p>
           <p>
-            When a chain has a native token, the success of the token becomes conflated with the
-            success of the network. Development priorities shift toward "number go up" narratives.
-            Users become speculators. The community optimizes for token price, not utility. This
-            dynamic is incompatible with infrastructure.
-          </p>
-          <p>
-            txxt takes a different approach. <strong>There is no native token.</strong> Instead:
+            txxt takes a different approach. <strong>There is no native token.</strong>
           </p>
           <ul style={{ paddingLeft: 24, marginBottom: 16 }}>
             <li>
@@ -516,19 +602,25 @@ export default function LitepaperPage() {
             </li>
           </ul>
 
-          <H3>6.2 How It Works</H3>
+          <H3>5.2 Fee Distribution</H3>
           <p>
-            The economic model is simple: agents pay $0.0003 per transaction. This fee is split
-            between validators (70%), the protocol treasury (20%), and identity verifiers (10%).
+            The economic model is simple: agents pay $0.0003 per transaction. This fee is split:
           </p>
+          <ul style={{ paddingLeft: 24, marginBottom: 16 }}>
+            <li><strong>70%</strong> — PoAW validators</li>
+            <li><strong>20%</strong> — Protocol treasury</li>
+            <li><strong>10%</strong> — Identity verifiers</li>
+          </ul>
           <p>
-            At 1 million transactions per day, the network generates $300/day or ~$109,500/year in
-            validator revenue. At 100 million transactions per day — a reasonable target for a
-            mature agent economy — validators earn ~$10.95 million/year. The economics scale
-            linearly with usage, not with speculation.
+            At 1M transactions/day, validators earn ~$76,650/year. At 100M transactions/day —
+            a reasonable target for a mature agent economy — validators earn ~$7.665M/year. The
+            economics scale linearly with usage, not with speculation.
           </p>
 
           <Callout>
+            No token volatility. No speculation. Just infrastructure.
+            <br />
+            <br />
             The internet doesn't have a token. SMTP doesn't have a token. HTTP doesn't have a
             token. The best infrastructure is invisible. txxt follows this principle.
           </Callout>
@@ -536,72 +628,76 @@ export default function LitepaperPage() {
 
         <Divider />
 
-        {/* Governance */}
-        <Section id="governance" title="7. Governance">
+        {/* ──────────── Governance ──────────── */}
+        <Section id="governance" title="6. Governance">
           <p>
-            txxt governance is <strong>reputation-based</strong>. There is no token-weighted voting.
-            Instead, governance power is derived from <strong>Proof of Actual Work</strong> — the
+            txxt governance is <strong>reputation-based</strong>. There is no token-weighted
+            voting. Governance power is derived from <strong>Proof of Actual Work</strong> — the
             same mechanism that secures consensus.
           </p>
 
-          <H3>7.1 Governance Participants</H3>
+          <H3>6.1 Participants</H3>
           <ul style={{ paddingLeft: 24, marginBottom: 16 }}>
             <li>
               <strong>PoAW Validators</strong> — Entities that run validator nodes and perform
-              useful computation. They hold the highest governance weight.
+              useful computation. Highest governance weight.
             </li>
             <li>
               <strong>Registered Agents</strong> — AI agents with ERC-8004 identities and a
-              minimum reputation score. They can vote on protocol parameters that affect agent
-              operations.
+              minimum reputation score. Can vote on protocol parameters.
             </li>
             <li>
               <strong>Operators</strong> — Humans or organizations that register and maintain
-              agents. They can propose governance changes.
+              agents. Can propose governance changes.
             </li>
           </ul>
 
-          <H3>7.2 Governance Scope</H3>
-          <p>
-            Governance controls the following protocol parameters:
-          </p>
+          <H3>6.2 Scope</H3>
+          <p>Governance controls the following middleware parameters:</p>
           <ul style={{ paddingLeft: 24, marginBottom: 16 }}>
             <li>Transaction fee rate (currently $0.0003)</li>
             <li>Fee distribution ratio (currently 70/20/10)</li>
             <li>Minimum reputation thresholds for agent capabilities</li>
             <li>PoAW task difficulty and epoch length</li>
-            <li>Protocol upgrade activation</li>
+            <li>New chain adapter activation</li>
+            <li>Middleware upgrade process</li>
           </ul>
+
+          <H3>6.3 Process</H3>
           <p>
             All governance proposals have a 7-day discussion period, followed by a 3-day voting
             period. Changes are enacted automatically via on-chain execution after a successful
-            vote.
+            vote. Because txxt is middleware, governance upgrades do not require hard forks on
+            the underlying L1s — they are applied at the middleware layer and propagated to
+            chain adapters.
           </p>
         </Section>
 
         <Divider />
 
-        {/* Roadmap */}
-        <Section id="roadmap" title="8. Roadmap">
+        {/* ──────────── Roadmap ──────────── */}
+        <Section id="roadmap" title="7. Roadmap">
           <div style={{ margin: "24px 0" }}>
             <RoadmapItem
               quarter="Q1 2026"
               title="Foundation"
               items={[
-                "Core protocol specification finalized",
-                "x402 native transaction type implementation",
-                "ERC-8004 Identity Trie design and prototype",
+                "Middleware protocol specification finalized",
+                "x402 native operations implementation",
+                "ERC-8004 Identity Layer design and prototype",
                 "AgentScript language specification v0.1",
+                "Ethereum + Base adapter prototypes",
               ]}
             />
             <RoadmapItem
               quarter="Q2 2026"
               title="Testnet"
               items={[
-                "Public testnet launch with PoAW consensus",
-                "TypeScript and Python SDK release",
+                "Public testnet with PoAW consensus",
+                "TypeScript and Python SDK (@txxt/sdk) release",
                 "MCP tool server for testnet access",
-                "First AgentScript programs deployed",
+                "Polygon adapter live",
+                "Solana adapter beta",
                 "Identity registration and reputation system live",
               ]}
             />
@@ -609,8 +705,9 @@ export default function LitepaperPage() {
               quarter="Q3 2026"
               title="Integration"
               items={[
-                "A2A protocol integration for agent discovery",
+                "A2A protocol integration for cross-chain agent discovery",
                 "ACP commerce flow implementation",
+                "Arbitrum adapter live",
                 "CLI and REST API production-ready",
                 "Rust SDK release",
                 "Security audit by independent firms",
@@ -620,21 +717,23 @@ export default function LitepaperPage() {
               quarter="Q4 2026"
               title="Mainnet"
               items={[
-                "Mainnet launch with full x402 + ERC-8004 support",
-                "USDC bridging from Ethereum and Base",
-                "AgentScript v1.0 with TVM deployment",
+                "Mainnet launch — ETH, Base, Polygon, Solana, Arbitrum",
+                "Full x402 + ERC-8004 cross-chain support",
+                "AgentScript v1.0 deployment",
                 "PoAW validator onboarding program",
+                "USDC settlement live on all supported chains",
               ]}
             />
             <RoadmapItem
               quarter="2027"
               title="Scale"
               items={[
-                "Cross-chain identity portability (Ethereum, Solana, Base)",
+                "Additional chain adapters (Avalanche, Optimism, Sui, Aptos)",
+                "Cross-chain identity portability — full Merkle proof system",
                 "AgentScript marketplace for reusable agent modules",
                 "Enterprise validator program",
                 "Governance system activation",
-                "Target: 10M+ daily agent transactions",
+                "Target: 10M+ daily agent transactions across 10+ chains",
               ]}
               last
             />
@@ -643,8 +742,8 @@ export default function LitepaperPage() {
 
         <Divider />
 
-        {/* Conclusion */}
-        <Section id="conclusion" title="9. Conclusion">
+        {/* ──────────── Conclusion ──────────── */}
+        <Section id="conclusion" title="8. Conclusion">
           <p>
             The internet was built on simple, open protocols. HTTP for communication. SMTP for
             email. DNS for naming. These protocols succeeded not because they were the most
@@ -652,14 +751,15 @@ export default function LitepaperPage() {
             just worked.
           </p>
           <p>
-            The agent economy needs its own infrastructure layer. Not another DeFi chain. Not
-            another token launch. Not another general-purpose smart contract platform optimized
-            for trading jpegs. The agent economy needs a settlement layer — a chain where agents
-            pay each other (x402), prove who they are (ERC-8004), and build reputation through
-            actual work (PoAW).
+            The agent economy needs its own infrastructure layer. Not another L1 chain. Not
+            another token launch. Not another general-purpose smart contract platform. The agent
+            economy needs <strong>middleware</strong> — a layer where agents pay each other
+            (x402), prove who they are (ERC-8004), and build reputation through actual work
+            (PoAW), on any chain they already use.
           </p>
           <p>
-            txxt is that layer. Tokenless. Fixed-cost. Agent-native. Purpose-built.
+            txxt is that middleware. Tokenless. Fixed-cost. Agent-native. Chain-agnostic.
+            Purpose-built.
           </p>
           <p
             style={{
@@ -688,7 +788,7 @@ export default function LitepaperPage() {
             fontSize: 13,
           }}
         >
-          <p>txxt Litepaper v0.1 &middot; March 2026</p>
+          <p>txxt Litepaper v0.2 &middot; March 2026</p>
           <p style={{ marginTop: 4 }}>
             Contact:{" "}
             <a href="https://txxt.xyz" style={{ color: "#00C896", textDecoration: "none" }}>
@@ -715,7 +815,7 @@ function Section({ id, title, children }: { id: string; title: string; children:
     <section id={id} style={{ scrollMarginTop: 100, marginBottom: 0 }}>
       <h2
         style={{
-          fontSize: 28,
+          fontSize: 26,
           fontWeight: 700,
           color: "#0D0D0D",
           marginBottom: 20,

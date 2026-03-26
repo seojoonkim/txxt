@@ -196,7 +196,7 @@ export default function Home() {
 
       {/* ===== HERO — Split layout ===== */}
       <section style={{
-        background: 'radial-gradient(ellipse at 50% 0%, rgba(0,200,150,0.06) 0%, #FFFFFF 60%)',
+        background: '#FFFFFF',
         overflow: 'hidden',
       }}>
         <div style={{ maxWidth: 1300, margin: '0 auto', display: 'flex', alignItems: 'stretch' }} className="hero-inner">
