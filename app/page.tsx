@@ -237,15 +237,15 @@ export default function Home() {
             <style>{`
               @keyframes armLeft {
                 0%, 100% { transform: rotate(0deg) scaleY(1); }
-                25% { transform: rotate(-25deg) scaleY(0.88); }
-                50% { transform: rotate(-10deg) scaleY(1.06); }
-                75% { transform: rotate(-20deg) scaleY(0.94); }
+                25% { transform: rotate(-10deg) scaleY(0.94); }
+                50% { transform: rotate(-4deg) scaleY(1.03); }
+                75% { transform: rotate(-8deg) scaleY(0.97); }
               }
               @keyframes armRight {
                 0%, 100% { transform: rotate(0deg) scaleY(1); }
-                25% { transform: rotate(25deg) scaleY(0.88); }
-                50% { transform: rotate(10deg) scaleY(1.06); }
-                75% { transform: rotate(20deg) scaleY(0.94); }
+                25% { transform: rotate(10deg) scaleY(0.94); }
+                50% { transform: rotate(4deg) scaleY(1.03); }
+                75% { transform: rotate(8deg) scaleY(0.97); }
               }
               @keyframes eyeLeft {
                 0%, 80%, 100% { transform: scaleX(1) scaleY(1); }
@@ -309,7 +309,7 @@ export default function Home() {
             <div className="txxt-logo" style={{
               fontSize: 'clamp(80px, 28vw, 200px)',
               fontWeight: 900,
-              letterSpacing: '-0.14em',
+              letterSpacing: '-0.04em',
               lineHeight: 0.9,
               color: '#00C896',
               fontFamily: mono,
