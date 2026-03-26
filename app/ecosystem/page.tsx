@@ -201,7 +201,7 @@ export default function EcosystemPage() {
     <div style={{ background: '#FFFFFF', color: '#0D0D0D', fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
 
       {/* Hero */}
-      <section style={{ padding: 'clamp(80px, 10vw, 140px) 0' }}>
+      <section style={{ padding: 'clamp(56px, 10vw, 140px) 0' }}>
         <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 24px' }}>
           <div style={{ fontSize: 12, letterSpacing: '0.12em', fontWeight: 700, color: '#00C896', fontFamily: mono, marginBottom: 16, textTransform: 'uppercase' as const }}>
             Ecosystem

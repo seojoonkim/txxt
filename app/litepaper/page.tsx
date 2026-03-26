@@ -137,7 +137,7 @@ export default function LitepaperPage() {
             flex: 1,
             minWidth: 0,
             paddingLeft: 64,
-            paddingTop: 40,
+            paddingTop: 28,
             paddingBottom: 80,
             fontFamily: sans,
             color: "#333",
