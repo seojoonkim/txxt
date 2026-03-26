@@ -1,6 +1,38 @@
+import React from 'react';
 import Link from 'next/link';
 
 const mono = "var(--font-fira), 'Courier New', monospace";
+
+const AgentIcon = ({size=32,color='currentColor'}:{size?:number,color?:string}) => (
+  <svg width={size} height={size} viewBox="0 0 32 32" fill="none">
+    <rect x="8" y="12" width="16" height="14" rx="3" stroke={color} strokeWidth="2"/>
+    <circle cx="12" cy="18" r="2" fill={color}/>
+    <circle cx="20" cy="18" r="2" fill={color}/>
+    <path d="M13 23h6" stroke={color} strokeWidth="2" strokeLinecap="round"/>
+    <path d="M16 12V7" stroke={color} strokeWidth="2" strokeLinecap="round"/>
+    <circle cx="16" cy="6" r="1.5" fill={color}/>
+    <path d="M8 16H5M27 16h-3" stroke={color} strokeWidth="2" strokeLinecap="round"/>
+  </svg>
+)
+const ChartIcon = ({size=32,color='currentColor'}:{size?:number,color?:string}) => (
+  <svg width={size} height={size} viewBox="0 0 32 32" fill="none">
+    <path d="M4 26h24" stroke={color} strokeWidth="2" strokeLinecap="round"/>
+    <path d="M8 20v6" stroke={color} strokeWidth="3" strokeLinecap="round"/>
+    <path d="M14 14v12" stroke={color} strokeWidth="3" strokeLinecap="round"/>
+    <path d="M20 8v18" stroke={color} strokeWidth="3" strokeLinecap="round"/>
+    <path d="M26 4v22" stroke={color} strokeWidth="3" strokeLinecap="round"/>
+  </svg>
+)
+const GovernIcon = ({size=32,color='currentColor'}:{size?:number,color?:string}) => (
+  <svg width={size} height={size} viewBox="0 0 32 32" fill="none">
+    <path d="M4 28h24" stroke={color} strokeWidth="2" strokeLinecap="round"/>
+    <path d="M6 28V16" stroke={color} strokeWidth="2" strokeLinecap="round"/>
+    <path d="M26 28V16" stroke={color} strokeWidth="2" strokeLinecap="round"/>
+    <path d="M11 28V18h4v10" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+    <path d="M17 28V18h4v10" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+    <path d="M3 16l13-10 13 10" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+  </svg>
+)
 
 const StarIcon = ({color='#FB923C',size=18}:{color?:string,size?:number}) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill={color} style={{display:'inline-block',verticalAlign:'middle'}}>
@@ -66,11 +98,11 @@ const layers = [
   { num: '01', title: 'Settlement Chains', items: ['Ethereum', 'Solana', 'Base', 'Polygon...'], color: '#888888' },
 ];
 
-const poawSteps: { emoji: React.ReactNode; title: string; desc: string }[] = [
-  { emoji: '🤖', title: 'Agent does work', desc: 'Completes a task. Earns USDC. The transaction is recorded on-chain.' },
-  { emoji: '📊', title: 'Work gets verified', desc: 'Other agents and validators confirm: the work actually happened. No fake receipts.' },
-  { emoji: <StarIcon size={32} />, title: 'Reputation updates', desc: 'Good work → reputation goes up. Bad work → reputation goes down. Transparent math.' },
-  { emoji: '🏛️', title: 'Validators earn proportionally', desc: 'High-reputation validators process more blocks. The best workers run the network.' },
+const poawSteps: { emoji: React.ReactNode; title: string; desc: string; color: string }[] = [
+  { emoji: null, title: 'Agent does work', desc: 'Completes a task. Earns USDC. The transaction is recorded on-chain.', color: '#5B4FFF' },
+  { emoji: null, title: 'Work gets verified', desc: 'Other agents and validators confirm: the work actually happened. No fake receipts.', color: '#00C896' },
+  { emoji: <StarIcon size={32} />, title: 'Reputation updates', desc: 'Good work → reputation goes up. Bad work → reputation goes down. Transparent math.', color: '#FB923C' },
+  { emoji: null, title: 'Validators earn proportionally', desc: 'High-reputation validators process more blocks. The best workers run the network.', color: '#5B4FFF' },
 ];
 
 export default function ProtocolPage() {
@@ -217,7 +249,12 @@ export default function ProtocolPage() {
                 border: '1px solid rgba(255,255,255,0.12)',
                 background: 'rgba(255,255,255,0.05)',
               }}>
-                <div style={{ fontSize: 32, marginBottom: 16 }}>{step.emoji}</div>
+                <div style={{ fontSize: 32, marginBottom: 16 }}>
+                  {i === 0 ? <AgentIcon size={32} color={step.color} /> :
+                   i === 1 ? <ChartIcon size={32} color={step.color} /> :
+                   i === 3 ? <GovernIcon size={32} color={step.color} /> :
+                   step.emoji}
+                </div>
                 <div style={{ fontSize: 16, fontWeight: 600, marginBottom: 8, color: '#FFFFFF' }}>{step.title}</div>
                 <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.75)', lineHeight: 1.75 }}>{step.desc}</p>
               </div>

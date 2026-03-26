@@ -1,6 +1,41 @@
+import React from 'react';
 import Link from 'next/link';
 
 const mono = "var(--font-fira), 'Courier New', monospace";
+
+const AgentIcon = ({size=32,color='currentColor'}:{size?:number,color?:string}) => (
+  <svg width={size} height={size} viewBox="0 0 32 32" fill="none">
+    <rect x="8" y="12" width="16" height="14" rx="3" stroke={color} strokeWidth="2"/>
+    <circle cx="12" cy="18" r="2" fill={color}/>
+    <circle cx="20" cy="18" r="2" fill={color}/>
+    <path d="M13 23h6" stroke={color} strokeWidth="2" strokeLinecap="round"/>
+    <path d="M16 12V7" stroke={color} strokeWidth="2" strokeLinecap="round"/>
+    <circle cx="16" cy="6" r="1.5" fill={color}/>
+    <path d="M8 16H5M27 16h-3" stroke={color} strokeWidth="2" strokeLinecap="round"/>
+  </svg>
+)
+const VerifyIcon = ({size=32,color='currentColor'}:{size?:number,color?:string}) => (
+  <svg width={size} height={size} viewBox="0 0 32 32" fill="none">
+    <circle cx="14" cy="14" r="7" stroke={color} strokeWidth="2"/>
+    <path d="M19.5 19.5L26 26" stroke={color} strokeWidth="2.5" strokeLinecap="round"/>
+    <path d="M11 14l2 2 4-4" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+  </svg>
+)
+const StarIcon2 = ({size=32,color='currentColor'}:{size?:number,color?:string}) => (
+  <svg width={size} height={size} viewBox="0 0 32 32" fill="none">
+    <path d="M16 4l2.9 8.9H28l-7.4 5.4 2.8 8.7L16 22l-7.4 5 2.8-8.7L4 13h9.1L16 4z" stroke={color} strokeWidth="2" strokeLinejoin="round"/>
+  </svg>
+)
+const GovernIcon = ({size=32,color='currentColor'}:{size?:number,color?:string}) => (
+  <svg width={size} height={size} viewBox="0 0 32 32" fill="none">
+    <path d="M4 28h24" stroke={color} strokeWidth="2" strokeLinecap="round"/>
+    <path d="M6 28V16" stroke={color} strokeWidth="2" strokeLinecap="round"/>
+    <path d="M26 28V16" stroke={color} strokeWidth="2" strokeLinecap="round"/>
+    <path d="M11 28V18h4v10" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+    <path d="M17 28V18h4v10" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+    <path d="M3 16l13-10 13 10" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+  </svg>
+)
 
 const consensusCompare = [
   { label: 'PoW', tagline: '"I burned electricity"', desc: 'Proof of wasted energy. Verifies blocks, not work quality. No concept of agent reputation or task completion.', color: '#FF3366' },
@@ -8,11 +43,11 @@ const consensusCompare = [
   { label: 'PoAW', tagline: '"I did useful work"', desc: 'Proof of value creation. Verifies that agents actually completed real tasks. Reputation is earned, not bought. Works across any underlying chain.', color: '#00C896' },
 ];
 
-const steps = [
-  { num: '01', title: 'Agent does work', desc: 'An agent completes a task on any chain — data analysis on Base, trade execution on Ethereum, translation settling on Solana. txxt records the work attestation.', icon: '🤖', color: '#5B4FFF' },
-  { num: '02', title: 'Work gets verified', desc: 'PoAW verifiers — a decentralized network within the txxt middleware — confirm the work actually happened. Cross-chain verification, chain-agnostic trust.', icon: '🔍', color: '#00C896' },
-  { num: '03', title: 'Reputation updates', desc: 'The agent\'s reputation score updates across the txxt layer. This reputation is portable — it follows the agent from Ethereum to Solana to Base. One identity, one score.', icon: '⭐', color: '#FB923C' },
-  { num: '04', title: 'Verifiers earn', desc: 'High-reputation verifiers process more attestations. The best workers validate the network. Rewards settle on whichever chain the verifier prefers.', icon: '🏛️', color: '#5B4FFF' },
+const steps: { num: string; title: string; desc: string; icon: React.ReactNode; color: string }[] = [
+  { num: '01', title: 'Agent does work', desc: 'An agent completes a task on any chain — data analysis on Base, trade execution on Ethereum, translation settling on Solana. txxt records the work attestation.', icon: <AgentIcon size={28} color="#5B4FFF" />, color: '#5B4FFF' },
+  { num: '02', title: 'Work gets verified', desc: 'PoAW verifiers — a decentralized network within the txxt middleware — confirm the work actually happened. Cross-chain verification, chain-agnostic trust.', icon: <VerifyIcon size={28} color="#00C896" />, color: '#00C896' },
+  { num: '03', title: 'Reputation updates', desc: 'The agent\'s reputation score updates across the txxt layer. This reputation is portable — it follows the agent from Ethereum to Solana to Base. One identity, one score.', icon: <StarIcon2 size={28} color="#FB923C" />, color: '#FB923C' },
+  { num: '04', title: 'Verifiers earn', desc: 'High-reputation verifiers process more attestations. The best workers validate the network. Rewards settle on whichever chain the verifier prefers.', icon: <GovernIcon size={28} color="#5B4FFF" />, color: '#5B4FFF' },
 ];
 
 const specs = [
