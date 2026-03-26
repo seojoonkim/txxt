@@ -432,7 +432,7 @@ export default function Home() {
             margin: '0 0 24px 0',
             color: '#FFFFFF',
           }}>
-            87% of agent transactions<br />fail at trust or payment.
+            Blockchains have no agent layer.<br />So agents can&apos;t transact.
           </h2>
           <h3 style={{
             fontSize: 'clamp(18px, 3vw, 28px)',
@@ -440,7 +440,7 @@ export default function Home() {
             color: '#FF3366',
             margin: '0 0 40px 0',
           }}>
-            Because no middleware handles both — until now.
+            No native payment protocol. No machine-readable identity. No work verification. Three missing primitives — one middleware to fix all of them.
           </h3>
 
           {/* Two protocol cards */}
@@ -457,12 +457,12 @@ export default function Home() {
               background: 'rgba(0,200,150,0.08)',
               textAlign: 'left' as const,
             }}>
-              <div style={{ fontSize: 13, fontFamily: mono, fontWeight: 700, color: '#00C896', letterSpacing: '0.08em', marginBottom: 12 }}>x402 PROTOCOL</div>
+              <div style={{ fontSize: 13, fontFamily: mono, fontWeight: 700, color: '#00C896', letterSpacing: '0.08em', marginBottom: 12 }}>x402 PROTOCOL — PAYMENT</div>
               <p style={{ fontSize: 'clamp(15px, 2vw, 18px)', fontWeight: 600, color: '#FFFFFF', margin: '0 0 8px', lineHeight: 1.3 }}>
-                How agents pay each other.
+                Agents have no way to pay each other.
               </p>
               <p style={{ fontSize: 'clamp(14px, 1.8vw, 16px)', color: 'rgba(255,255,255,0.7)', lineHeight: 1.75, margin: 0 }}>
-                HTTP-native payments at machine speed. The spec exists — but if your agent runs on Base and the counterpart is on Solana, you&apos;re writing custom bridge code. Every time.
+                HTTP has status codes for everything — except payment. x402 fixes that, but the spec alone doesn&apos;t solve cross-chain. Your Base agent can&apos;t pay a Solana agent without custom bridge code, chain-specific USDC routing, and manual gas estimation. Every chain pair = new integration.
               </p>
             </div>
 

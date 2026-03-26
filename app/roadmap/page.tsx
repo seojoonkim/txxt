@@ -218,7 +218,7 @@ export default function RoadmapPage() {
       <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(0,0,0,0.08), transparent)' }} />
 
       {/* Governance */}
-      <section style={{ padding: 'clamp(64px, 8vw, 96px) 16px', background: '#13102A' }}>
+      <section style={{ padding: 'clamp(80px, 10vw, 140px) 0', background: '#13102A' }}>
         <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 24px' }}>
         <div style={{ maxWidth: 900, margin: '0 auto' }}>
           <div style={{ fontSize: 12, letterSpacing: '0.12em', fontWeight: 700, color: '#888888', fontFamily: mono, marginBottom: 16, textTransform: 'uppercase' }}>
