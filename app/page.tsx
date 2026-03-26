@@ -919,7 +919,7 @@ const ethPayment = await PaymentChannel.create(
 
         <div style={{ maxWidth: 1300, margin: '0 auto', padding: 'clamp(80px, 12vh, 140px) 24px', position: 'relative', zIndex: 1 }}>
           <p style={{
-            fontSize: 13, letterSpacing: '0.12em', color: '#888888',
+            fontSize: 13, letterSpacing: '0.12em', color: '#F59E0B',
             fontFamily: mono, marginBottom: 24, fontWeight: 700,
           }}>
             THE PROOF
@@ -949,7 +949,7 @@ const ethPayment = await PaymentChannel.create(
 
           <p style={{
             fontSize: 'clamp(16px, 2.2vw, 20px)',
-            color: '#00D9A3',
+            color: '#F59E0B',
             lineHeight: 1.6,
             maxWidth: 520,
             margin: '0 auto 56px',

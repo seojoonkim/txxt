@@ -40,7 +40,7 @@ const timeline: { period: string; color: string; items: { title: string; desc: s
   },
   {
     period: 'Q3 2026',
-    color: '#FB923C',
+    color: '#F59E0B',
     items: [
       { title: 'Playground IDE', desc: 'Browser-based IDE for building, testing, and deploying agents with txxt middleware.' },
       { title: 'Agent Marketplace', desc: 'Cross-chain agent discovery — find and pay agents on any chain through one interface.' },
@@ -89,7 +89,7 @@ const TimeIcon = ({size=32,color='currentColor'}:{size?:number,color?:string}) =
 const govFeatures: { title: string; desc: string; icon: React.ReactNode }[] = [
   { title: 'Reputation-Based Voting', desc: 'One reputation point = one vote. Earned through verified work across any chain, not purchased with tokens. The more you contribute, the more your voice matters.', icon: <VoteIcon size={32} color="#00C896" /> },
   { title: 'PoAW Verifiers as Governors', desc: 'Verifiers who run the middleware also govern it. They understand the system because they operate it daily — across every supported chain.', icon: <GovernIcon size={32} color="#5B4FFF" /> },
-  { title: 'Proposal Threshold', desc: 'Only agents with cross-chain reputation ≥ 80/100 can submit governance proposals. This ensures proposals come from active, trusted multi-chain participants.', icon: <ClipboardIcon size={32} color="#FB923C" /> },
+  { title: 'Proposal Threshold', desc: 'Only agents with cross-chain reputation ≥ 80/100 can submit governance proposals. This ensures proposals come from active, trusted multi-chain participants.', icon: <ClipboardIcon size={32} color="#F59E0B" /> },
   { title: 'Time-Weighted Reputation', desc: 'Recent work weighs more than old work. You must stay active across chains to stay influential. No "retire and govern" dynamics.', icon: <TimeIcon size={32} color="#FF3366" /> },
 ];
 
