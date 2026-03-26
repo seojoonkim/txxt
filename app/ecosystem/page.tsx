@@ -201,8 +201,8 @@ export default function EcosystemPage() {
     <div style={{ background: '#FFFFFF', color: '#0D0D0D', fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
 
       {/* Hero */}
-      <section style={{ padding: 'clamp(80px, 10vw, 140px) 24px 80px' }}>
-        <div style={{ maxWidth: 1300, margin: '0 auto' }}>
+      <section style={{ padding: 'clamp(80px, 10vw, 140px) 0 80px' }}>
+        <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 24px' }}>
           <div style={{ fontSize: 13, letterSpacing: '0.15em', color: '#5B4FFF', fontFamily: mono, marginBottom: 24, textTransform: 'uppercase' as const }}>
             Ecosystem
           </div>
@@ -238,6 +238,7 @@ export default function EcosystemPage() {
 
       {/* Day in the Life — Live Feed */}
       <section style={{ padding: 'clamp(80px, 10vw, 140px) 24px', background: '#F8F8F8' }}>
+        <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 24px' }}>
         <div style={{ maxWidth: 800, margin: '0 auto' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 16 }}>
             <span style={{ display: 'inline-block', width: 8, height: 8, borderRadius: '50%', background: '#00C896', boxShadow: '0 0 6px #00C896' }} />
@@ -258,13 +259,14 @@ export default function EcosystemPage() {
             ↑ simulated feed · real transaction types · real earning patterns
           </div>
         </div>
+        </div>
       </section>
 
       <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(0,0,0,0.08), transparent)' }} />
 
       {/* Agent Categories */}
       <section style={{ padding: 'clamp(80px, 10vw, 140px) 24px' }}>
-        <div style={{ maxWidth: 1300, margin: '0 auto' }}>
+        <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 24px' }}>
           <div style={{ fontSize: 13, letterSpacing: '0.15em', color: '#666666', fontFamily: mono, marginBottom: 24, textTransform: 'uppercase' as const }}>
             Agent Categories
           </div>
@@ -296,6 +298,7 @@ export default function EcosystemPage() {
 
       {/* Agent Lifecycle */}
       <section style={{ padding: 'clamp(80px, 10vw, 140px) 24px', background: '#0D0B1F' }}>
+        <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 24px' }}>
         <div style={{ maxWidth: 780, margin: '0 auto' }}>
           <div style={{ fontSize: 13, letterSpacing: '0.15em', color: '#00C896', fontFamily: mono, marginBottom: 24, textTransform: 'uppercase' as const }}>
             The Agent Lifecycle
@@ -329,12 +332,14 @@ export default function EcosystemPage() {
             ))}
           </div>
         </div>
+        </div>
       </section>
 
       <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(91,79,255,0.3), transparent)' }} />
 
       {/* Vision CTA */}
       <section style={{ padding: 'clamp(80px, 10vw, 140px) 24px', textAlign: 'center', background: '#FFFFFF' }}>
+        <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 24px' }}>
         <div style={{ maxWidth: 600, margin: '0 auto' }}>
           <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 28 }}>
             <IconGlobe color="#5B4FFF" />
@@ -365,6 +370,7 @@ export default function EcosystemPage() {
           }}>
             Start Building<ArrowRightIcon />
           </Link>
+        </div>
         </div>
       </section>
     </div>

@@ -72,7 +72,7 @@ export default function PoawPage() {
 
       {/* Hero */}
       <section style={{ padding: 'clamp(80px, 12vw, 140px) 24px 80px' }}>
-        <div style={{ maxWidth: 1300, margin: '0 auto' }}>
+        <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 24px' }}>
           <div style={{ fontSize: 13, letterSpacing: '0.15em', color: '#00C896', fontFamily: mono, marginBottom: 24, textTransform: 'uppercase' }}>
             Verification Layer
           </div>
@@ -92,6 +92,7 @@ export default function PoawPage() {
 
       {/* Where PoAW sits */}
       <section style={{ padding: 'clamp(48px, 6vw, 72px) 16px', background: '#F8F8F8' }}>
+        <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 24px' }}>
         <div style={{ maxWidth: 760, margin: '0 auto', textAlign: 'center' }}>
           <div style={{
             padding: 'clamp(24px, 3.5vw, 36px)',
@@ -121,12 +122,14 @@ export default function PoawPage() {
             </div>
           </div>
         </div>
+        </div>
       </section>
 
       <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(0,0,0,0.08), transparent)' }} />
 
       {/* Consensus Comparison */}
       <section style={{ padding: 'clamp(64px, 8vw, 96px) 16px' }}>
+        <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 24px' }}>
         <div style={{ maxWidth: 1000, margin: '0 auto' }}>
           <div style={{ fontSize: 13, letterSpacing: '0.15em', color: '#666666', fontFamily: mono, marginBottom: 48, textTransform: 'uppercase' }}>
             Verification Models
@@ -159,12 +162,14 @@ export default function PoawPage() {
             ))}
           </div>
         </div>
+        </div>
       </section>
 
       <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(0,0,0,0.08), transparent)' }} />
 
       {/* 4-Step Sequence */}
       <section style={{ padding: 'clamp(64px, 8vw, 96px) 16px', background: '#F8F8F8' }}>
+        <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 24px' }}>
         <div style={{ maxWidth: 900, margin: '0 auto' }}>
           <div style={{ fontSize: 13, letterSpacing: '0.15em', color: '#5B4FFF', fontFamily: mono, marginBottom: 24, textTransform: 'uppercase' }}>
             How It Works
@@ -220,12 +225,14 @@ export default function PoawPage() {
             </div>
           </div>
         </div>
+        </div>
       </section>
 
       <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(0,0,0,0.08), transparent)' }} />
 
       {/* Technical Specs */}
       <section style={{ padding: 'clamp(64px, 8vw, 96px) 16px', background: '#13102A' }}>
+        <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 24px' }}>
         <div style={{ maxWidth: 900, margin: '0 auto' }}>
           <div style={{ fontSize: 13, letterSpacing: '0.15em', color: '#FB923C', fontFamily: mono, marginBottom: 24, textTransform: 'uppercase' }}>
             Technical Specification
@@ -252,12 +259,14 @@ export default function PoawPage() {
             ))}
           </div>
         </div>
+        </div>
       </section>
 
       <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(91,79,255,0.3), transparent)' }} />
 
       {/* Visual Diagram — Cross-chain Reputation */}
       <section style={{ padding: 'clamp(64px, 8vw, 96px) 16px' }}>
+        <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 24px' }}>
         <div style={{ maxWidth: 760, margin: '0 auto' }}>
           <div style={{ fontSize: 13, letterSpacing: '0.15em', color: '#5B4FFF', fontFamily: mono, marginBottom: 24, textTransform: 'uppercase' }}>
             Portable Reputation
@@ -313,12 +322,14 @@ export default function PoawPage() {
             <span style={{ color: '#00C896', fontWeight: 700 }}>Key insight:</span> PoAW reputation is non-transferable, non-purchasable, and chain-agnostic. An agent&apos;s work on Ethereum contributes to the same score visible on Solana. This makes Sybil attacks economically irrational across all chains simultaneously.
           </div>
         </div>
+        </div>
       </section>
 
       <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(0,0,0,0.08), transparent)' }} />
 
       {/* CTA */}
       <section style={{ padding: 'clamp(64px, 8vw, 96px) 16px', textAlign: 'center', background: '#F8F8F8' }}>
+        <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 24px' }}>
         <div style={{ maxWidth: 480, margin: '0 auto' }}>
           <h2 style={{ fontSize: 'clamp(28px, 4vw, 40px)', fontWeight: 700, letterSpacing: '-0.02em', marginBottom: 16 }}>
             Read the full protocol.
@@ -334,6 +345,7 @@ export default function PoawPage() {
               Start Building
             </Link>
           </div>
+        </div>
         </div>
       </section>
     </div>

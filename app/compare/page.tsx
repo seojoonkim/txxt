@@ -59,7 +59,7 @@ export default function ComparePage() {
 
       {/* Hero */}
       <section style={{ padding: 'clamp(80px, 12vw, 140px) 24px 80px' }}>
-        <div style={{ maxWidth: 1300, margin: '0 auto' }}>
+        <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 24px' }}>
           <div style={{ fontSize: 13, letterSpacing: '0.15em', color: '#FF3366', fontFamily: mono, marginBottom: 24, textTransform: 'uppercase' }}>
             Compare
           </div>
@@ -79,6 +79,7 @@ export default function ComparePage() {
 
       {/* Architecture Diagram */}
       <section style={{ padding: 'clamp(64px, 8vw, 96px) 16px', background: '#F8F8F8' }}>
+        <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 24px' }}>
         <div style={{ maxWidth: 800, margin: '0 auto' }}>
           <div style={{ fontSize: 13, letterSpacing: '0.15em', color: '#666666', fontFamily: mono, marginBottom: 48, textTransform: 'uppercase' }}>
             Where txxt sits
@@ -149,12 +150,14 @@ export default function ComparePage() {
             txxt = the missing layer between AI agents and blockchains
           </div>
         </div>
+        </div>
       </section>
 
       <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(0,0,0,0.08), transparent)' }} />
 
       {/* DIY vs txxt Table */}
       <section style={{ padding: 'clamp(64px, 8vw, 96px) 16px' }}>
+        <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 24px' }}>
         <div style={{ maxWidth: 1000, margin: '0 auto' }}>
           <div style={{ fontSize: 13, letterSpacing: '0.15em', color: '#5B4FFF', fontFamily: mono, marginBottom: 24, textTransform: 'uppercase' }}>
             Side by Side
@@ -198,12 +201,14 @@ export default function ComparePage() {
             ))}
           </div>
         </div>
+        </div>
       </section>
 
       <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(0,0,0,0.08), transparent)' }} />
 
       {/* Code Comparison */}
       <section style={{ padding: 'clamp(64px, 8vw, 96px) 16px', background: '#F8F8F8' }}>
+        <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 24px' }}>
         <div style={{ maxWidth: 1000, margin: '0 auto' }}>
           <div style={{ fontSize: 13, letterSpacing: '0.15em', color: '#FB923C', fontFamily: mono, marginBottom: 24, textTransform: 'uppercase' }}>
             Code Comparison
@@ -260,12 +265,14 @@ export default function ComparePage() {
             </div>
           </div>
         </div>
+        </div>
       </section>
 
       <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(0,0,0,0.08), transparent)' }} />
 
       {/* Bottom Line */}
       <section style={{ padding: 'clamp(64px, 8vw, 96px) 16px' }}>
+        <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 24px' }}>
         <div style={{ maxWidth: 760, margin: '0 auto' }}>
           <div style={{ fontSize: 13, letterSpacing: '0.15em', color: '#666666', fontFamily: mono, marginBottom: 48, textTransform: 'uppercase' }}>
             The Bottom Line
@@ -286,12 +293,14 @@ export default function ComparePage() {
             </div>
           </div>
         </div>
+        </div>
       </section>
 
       <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(0,0,0,0.08), transparent)' }} />
 
       {/* CTA */}
       <section style={{ padding: 'clamp(64px, 8vw, 96px) 16px', textAlign: 'center' }}>
+        <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 24px' }}>
         <div style={{ maxWidth: 480, margin: '0 auto' }}>
           <h2 style={{ fontSize: 'clamp(28px, 4vw, 40px)', fontWeight: 700, letterSpacing: '-0.02em', marginBottom: 16 }}>
             Make your chain agent-ready.
@@ -307,6 +316,7 @@ export default function ComparePage() {
               Explore Protocol
             </Link>
           </div>
+        </div>
         </div>
       </section>
     </div>

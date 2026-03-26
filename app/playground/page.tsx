@@ -118,8 +118,8 @@ export default function PlaygroundPage() {
     <div style={{ background: '#FFFFFF', color: '#0D0D0D', fontFamily: 'Inter, system-ui, sans-serif', overflowX: 'hidden' }}>
 
       {/* Hero */}
-      <section style={{ background: '#FFFFFF', padding: 'clamp(80px,10vw,140px) 24px clamp(40px,5vw,60px)' }}>
-        <div style={{ maxWidth: 1300, margin: '0 auto', textAlign: 'center' }}>
+      <section style={{ background: '#FFFFFF', padding: 'clamp(80px,10vw,140px) 0 clamp(40px,5vw,60px)' }}>
+        <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 24px', textAlign: 'center' }}>
           <p style={{ fontSize: 13, letterSpacing: '0.12em', color: '#555', fontFamily: mono, marginBottom: 24, fontWeight: 600 }}>
             INTERACTIVE PLAYGROUND
           </p>
@@ -136,8 +136,8 @@ export default function PlaygroundPage() {
       </section>
 
       {/* Presets */}
-      <section style={{ background: '#FFFFFF', padding: '0 24px 32px' }}>
-        <div style={{ maxWidth: 1300, margin: '0 auto', display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
+      <section style={{ background: '#FFFFFF', padding: '0 0 32px' }}>
+        <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 24px', display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
           {presets.map((p, i) => (
             <button
               key={p.label}
@@ -156,8 +156,8 @@ export default function PlaygroundPage() {
       </section>
 
       {/* Editor + Output */}
-      <section style={{ background: '#F8F8F8', padding: 'clamp(40px,5vw,80px) 24px' }}>
-        <div style={{ maxWidth: 1300, margin: '0 auto' }}>
+      <section style={{ background: '#F8F8F8', padding: 'clamp(40px,5vw,80px) 0' }}>
+        <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 24px' }}>
           <div className="playground-split" style={{ display: 'flex', gap: 24, minHeight: 400 }}>
             {/* Code Editor */}
             <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
@@ -229,7 +229,8 @@ export default function PlaygroundPage() {
       </section>
 
       {/* CTA */}
-      <section style={{ background: '#FFFFFF', padding: 'clamp(60px,8vw,120px) 24px', textAlign: 'center' }}>
+      <section style={{ background: '#FFFFFF', padding: 'clamp(60px,8vw,120px) 0', textAlign: 'center' }}>
+        <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 24px' }}>
         <div style={{ maxWidth: 700, margin: '0 auto' }}>
           <h2 style={{
             fontSize: 'clamp(32px,5vw,56px)', fontWeight: 700, letterSpacing: '-0.02em',
@@ -247,6 +248,7 @@ export default function PlaygroundPage() {
           }}>
             Start Building →
           </Link>
+        </div>
         </div>
       </section>
     </div>

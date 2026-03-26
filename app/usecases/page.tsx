@@ -66,8 +66,8 @@ export default function UsecasesPage() {
     <div style={{ background: '#FFFFFF', color: '#0D0D0D', fontFamily: 'Inter, system-ui, sans-serif', overflowX: 'hidden' }}>
 
       {/* Hero */}
-      <section style={{ background: '#FFFFFF', padding: 'clamp(80px,10vw,140px) 24px clamp(40px,5vw,60px)' }}>
-        <div style={{ maxWidth: 1300, margin: '0 auto', textAlign: 'center' }}>
+      <section style={{ background: '#FFFFFF', padding: 'clamp(80px,10vw,140px) 0 clamp(40px,5vw,60px)' }}>
+        <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 24px', textAlign: 'center' }}>
           <p style={{ fontSize: 13, letterSpacing: '0.12em', color: '#555', fontFamily: mono, marginBottom: 24, fontWeight: 600 }}>
             COMPOSABILITY SHOWCASE
           </p>
@@ -84,8 +84,8 @@ export default function UsecasesPage() {
       </section>
 
       {/* Cards Grid */}
-      <section style={{ background: '#F8F8F8', padding: 'clamp(60px,8vw,100px) 24px' }}>
-        <div style={{ maxWidth: 1300, margin: '0 auto' }}>
+      <section style={{ background: '#F8F8F8', padding: 'clamp(60px,8vw,100px) 0' }}>
+        <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 24px' }}>
           <div className="usecases-grid" style={{
             display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(380px, 1fr))',
             gap: 28,
@@ -155,7 +155,8 @@ export default function UsecasesPage() {
       </section>
 
       {/* CTA */}
-      <section style={{ background: '#FFFFFF', padding: 'clamp(60px,8vw,120px) 24px', textAlign: 'center' }}>
+      <section style={{ background: '#FFFFFF', padding: 'clamp(60px,8vw,120px) 0', textAlign: 'center' }}>
+        <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 24px' }}>
         <div style={{ maxWidth: 700, margin: '0 auto' }}>
           <h2 style={{
             fontSize: 'clamp(32px,5vw,56px)', fontWeight: 700, letterSpacing: '-0.02em',
@@ -173,6 +174,7 @@ export default function UsecasesPage() {
           }}>
             Start Building →
           </Link>
+        </div>
         </div>
       </section>
     </div>
