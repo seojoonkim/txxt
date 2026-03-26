@@ -277,7 +277,8 @@ export default function Home() {
                 animation: bounceIn 0.8s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
               }
               .txxt-logo:hover {
-                animation: wobble 0.6s ease-in-out;
+                transform: scale(1.04);
+                transition: transform 0.2s ease;
               }
               .txxt-t-left {
                 display: inline-block;
@@ -311,7 +312,7 @@ export default function Home() {
             <div className="txxt-logo" style={{
               fontSize: 'clamp(80px, 28vw, 200px)',
               fontWeight: 900,
-              letterSpacing: '-0.04em',
+              letterSpacing: '-0.08em',
               lineHeight: 0.9,
               color: '#00C896',
               fontFamily: mono,
