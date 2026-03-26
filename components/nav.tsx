@@ -53,20 +53,18 @@ export default function Nav() {
 
   return (
     <>
-      {/* Floating nav wrapper */}
+      {/* Top-fixed full-width nav */}
       <div style={{
         position: 'fixed', top: 0, left: 0, right: 0, zIndex: 100,
-        padding: '4px 16px 0',
+        background: 'rgba(255,255,255,0.85)',
+        backdropFilter: 'blur(16px)',
+        WebkitBackdropFilter: 'blur(16px)',
+        borderBottom: '1px solid rgba(0,0,0,0.07)',
       }}>
         <nav style={{
           maxWidth: 1300, margin: '0 auto',
-          background: 'rgba(255,255,255,0.97)',
-          backdropFilter: 'blur(20px)',
-          WebkitBackdropFilter: 'blur(20px)',
-          borderRadius: 14,
-          border: '1px solid rgba(0,0,0,0.08)',
-          boxShadow: '0 2px 20px rgba(0,0,0,0.08)',
-          padding: '14px 28px',
+          padding: '0 24px',
+          height: 56,
           display: 'flex', alignItems: 'center', justifyContent: 'space-between',
         }}>
           <Link href="/" style={{ textDecoration: 'none' }} onClick={() => setOpen(false)}>
