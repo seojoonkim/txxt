@@ -4,8 +4,8 @@
   --bg: #FFFFFF;
   --bg-2: #F8F8F8;
   --bg-3: #F0F0F0;
-  --accent: #00D9A3;
-  --accent2: #00D9A3;
+  --accent: #00A878;
+  --accent2: #00A878;
   --accent3: #F59E0B;
   --amber: #F59E0B;
   --amber-dim: rgba(245, 158, 11, 0.08);
@@ -17,7 +17,7 @@
   --text-muted: #555555;
   --text-dim: #666666;
   --border: rgba(0,0,0,0.08);
-  --border-accent: rgba(0,217,163,0.2);
+  --border-accent: rgba(0,168,120,0.2);
 }
 
 * {
