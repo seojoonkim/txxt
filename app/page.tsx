@@ -742,7 +742,7 @@ const ethPayment = await PaymentChannel.create(
         <div style={{ maxWidth: 1300, margin: '0 auto' }}>
         <div style={{ padding: '80px 24px 0', textAlign: 'center' }}>
           <p style={{
-            fontSize: 13, letterSpacing: '0.1em', color: '#888888',
+            fontSize: 13, letterSpacing: '0.1em', color: '#5B4FFF',
             fontFamily: mono, marginBottom: 20, fontWeight: 700,
           }}>
             HOW IT WORKS
@@ -1058,96 +1058,105 @@ const ethPayment = await PaymentChannel.create(
             Whether you&apos;re building with MCP, A2A, CLI, or raw SDK — txxt is the agent layer underneath. One middleware. Every protocol. Every chain.
           </p>
 
-          {/* 연동 다이어그램 — 중앙 txxt 허브 + 주변 프로토콜 */}
-          <div style={{ position: 'relative', maxWidth: 700, margin: '0 auto 64px', aspectRatio: '1', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            {/* 중앙 txxt 노드 */}
-            <div style={{
-              position: 'absolute', zIndex: 2,
-              width: 120, height: 120, borderRadius: '50%',
-              background: '#00BF8A', display: 'flex', alignItems: 'center', justifyContent: 'center',
-              boxShadow: '0 0 40px rgba(0,191,138,0.3)',
-            }}>
-              <span style={{ fontSize: 24, fontWeight: 900, color: '#fff', fontFamily: mono }}>txxt</span>
-            </div>
+          {/* 좌우 분할 — 다이어그램 + 카드 그리드 */}
+          <style>{`
+            .integrations-split { display: flex; gap: 48px; align-items: center; }
+            @media (max-width: 768px) {
+              .integrations-split { flex-direction: column !important; }
+              .integrations-diagram { max-width: 480px !important; width: 100% !important; flex: 0 0 auto !important; }
+              .integrations-cards { grid-template-columns: 1fr !important; }
+            }
+          `}</style>
+          <div className="integrations-split">
+            {/* 왼쪽 — 다이어그램 */}
+            <div className="integrations-diagram" style={{ flex: '0 0 45%', position: 'relative', aspectRatio: '1', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              {/* 중앙 txxt 노드 */}
+              <div style={{
+                position: 'absolute', zIndex: 2,
+                width: 120, height: 120, borderRadius: '50%',
+                background: '#00BF8A', display: 'flex', alignItems: 'center', justifyContent: 'center',
+                boxShadow: '0 0 40px rgba(0,191,138,0.3)',
+              }}>
+                <span style={{ fontSize: 24, fontWeight: 900, color: '#fff', fontFamily: mono }}>txxt</span>
+              </div>
 
-            {/* 주변 프로토콜 노드 8개 */}
-            {[
-              { label: 'MCP', color: '#FF6B35', angle: 0, desc: 'Anthropic' },
-              { label: 'A2A', color: '#4285F4', angle: 45, desc: 'Google' },
-              { label: 'ACP', color: '#10A37F', angle: 90, desc: 'OpenAI' },
-              { label: 'x402', color: '#00BF8A', angle: 135, desc: 'Payments' },
-              { label: 'SDK', color: '#5B4FFF', angle: 180, desc: '@txxt/sdk' },
-              { label: 'CLI', color: '#00BF8A', angle: 225, desc: 'Terminal' },
-              { label: 'REST', color: '#5B4FFF', angle: 270, desc: 'Universal' },
-              { label: 'ERC-8004', color: '#5B4FFF', angle: 315, desc: 'Identity' },
-            ].map(({ label, color, angle, desc }) => {
-              const rad = (angle * Math.PI) / 180;
-              const r = 260;
-              const x = 50 + (r / 7) * Math.cos(rad);
-              const y = 50 + (r / 7) * Math.sin(rad);
-              return (
-                <div key={label} style={{
-                  position: 'absolute',
-                  left: `${x}%`, top: `${y}%`,
-                  transform: 'translate(-50%, -50%)',
-                  textAlign: 'center',
-                }}>
-                  <div style={{
-                    width: 92, height: 92, borderRadius: '50%',
-                    background: '#FFFFFF', border: `2.5px solid ${color}`,
-                    display: 'flex', flexDirection: 'column' as const, alignItems: 'center', justifyContent: 'center',
-                    boxShadow: `0 4px 20px ${color}30, 0 0 0 6px #FFFFFF`,
-                    position: 'relative', zIndex: 3,
-                  }}>
-                    <span style={{ fontSize: 13, fontWeight: 800, color, fontFamily: mono }}>{label}</span>
-                    <span style={{ fontSize: 11, color: '#666', marginTop: 3 }}>{desc}</span>
-                  </div>
-                </div>
-              );
-            })}
-
-            {/* 연결선 SVG */}
-            <svg style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', zIndex: 1 }} viewBox="0 0 100 100">
-              {[0, 45, 90, 135, 180, 225, 270, 315].map((angle) => {
+              {/* 주변 프로토콜 노드 8개 */}
+              {[
+                { label: 'MCP', color: '#FF6B35', angle: 0, desc: 'Anthropic' },
+                { label: 'A2A', color: '#4285F4', angle: 45, desc: 'Google' },
+                { label: 'ACP', color: '#10A37F', angle: 90, desc: 'OpenAI' },
+                { label: 'x402', color: '#00BF8A', angle: 135, desc: 'Payments' },
+                { label: 'SDK', color: '#5B4FFF', angle: 180, desc: '@txxt/sdk' },
+                { label: 'CLI', color: '#F59E0B', angle: 225, desc: 'Terminal' },
+                { label: 'REST', color: '#5B4FFF', angle: 270, desc: 'Universal' },
+                { label: 'ERC-8004', color: '#5B4FFF', angle: 315, desc: 'Identity' },
+              ].map(({ label, color, angle, desc }) => {
                 const rad = (angle * Math.PI) / 180;
-                const r = 37;
-                const x2 = 50 + r * Math.cos(rad);
-                const y2 = 50 + r * Math.sin(rad);
+                const r = 260;
+                const x = 50 + (r / 7) * Math.cos(rad);
+                const y = 50 + (r / 7) * Math.sin(rad);
                 return (
-                  <line key={angle} x1="50" y1="50" x2={x2} y2={y2}
-                    stroke="rgba(0,191,138,0.2)" strokeWidth="0.5" strokeDasharray="2,2" />
+                  <div key={label} style={{
+                    position: 'absolute',
+                    left: `${x}%`, top: `${y}%`,
+                    transform: 'translate(-50%, -50%)',
+                    textAlign: 'center',
+                  }}>
+                    <div style={{
+                      width: 92, height: 92, borderRadius: '50%',
+                      background: '#FFFFFF', border: `2.5px solid ${color}`,
+                      display: 'flex', flexDirection: 'column' as const, alignItems: 'center', justifyContent: 'center',
+                      boxShadow: `0 4px 20px ${color}30, 0 0 0 6px #FFFFFF`,
+                      position: 'relative', zIndex: 3,
+                    }}>
+                      <span style={{ fontSize: 13, fontWeight: 800, color, fontFamily: mono }}>{label}</span>
+                      <span style={{ fontSize: 11, color: '#666', marginTop: 3 }}>{desc}</span>
+                    </div>
+                  </div>
                 );
               })}
-            </svg>
-          </div>
 
+              {/* 연결선 SVG */}
+              <svg style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', zIndex: 1 }} viewBox="0 0 100 100">
+                {[0, 45, 90, 135, 180, 225, 270, 315].map((angle) => {
+                  const rad = (angle * Math.PI) / 180;
+                  const r = 37;
+                  const x2 = 50 + r * Math.cos(rad);
+                  const y2 = 50 + r * Math.sin(rad);
+                  return (
+                    <line key={angle} x1="50" y1="50" x2={x2} y2={y2}
+                      stroke="rgba(0,191,138,0.2)" strokeWidth="0.5" strokeDasharray="2,2" />
+                  );
+                })}
+              </svg>
+            </div>
 
-
-          {/* 프로토콜 설명 그리드 */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 16 }}>
-            {[
-              { label: 'MCP', fullName: 'Model Context Protocol', by: 'Anthropic', desc: 'AI assistants like Claude connect directly to txxt as a tool. Register agents, send payments, verify identity — all from natural language.', color: '#FF6B35' },
-              { label: 'A2A', fullName: 'Agent-to-Agent Protocol', by: 'Google', desc: 'Agents discover and communicate with other agents on txxt. Native handshakes, capability negotiation, and task delegation.', color: '#4285F4' },
-              { label: 'ACP', fullName: 'Agent Communication Protocol', by: 'OpenAI', desc: 'Standardized agent messaging over txxt. Agents exchange structured tasks, results, and payment receipts through a shared protocol.', color: '#10A37F' },
-              { label: 'ERC-8004', fullName: 'Agent Identity Standard', by: 'Built-in', desc: 'On-chain identity for every agent — portable across chains. One registration. Reputation follows the agent everywhere.', color: '#5B4FFF' },
-              { label: 'x402', fullName: 'Agent Payment Protocol', by: 'Built-in', desc: 'HTTP-native payment protocol for agents. Pay per call, per result, or per task — settled on any chain for $0.0003.', color: '#00BF8A' },
-              { label: 'CLI', fullName: 'Command Line Interface', by: 'txxt', desc: 'Deploy and manage agents from your terminal. txxt register, txxt pay, txxt identity — the fastest path from idea to deployed agent.', color: '#00BF8A' },
-              { label: 'SDK', fullName: '@txxt/sdk', by: 'txxt', desc: 'TypeScript-first SDK with full x402 and ERC-8004 support. One package. Every protocol. Python SDK coming Q2.', color: '#5B4FFF' },
-              { label: 'REST', fullName: 'Universal REST API', by: 'txxt', desc: 'HTTP endpoints for any language or platform. If you can make an HTTP request, you can build on txxt.', color: '#5B4FFF' },
-            ].map((item) => (
-              <div key={item.label} style={{
-                padding: 28, borderRadius: 16,
-                background: '#F8F8F8',
-                border: '1px solid rgba(0,0,0,0.06)',
-              }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 12 }}>
-                  <span style={{ fontSize: 13, fontWeight: 800, color: item.color, fontFamily: mono }}>{item.label}</span>
-                  <span style={{ fontSize: 11, color: '#888', letterSpacing: '0.05em' }}>{item.by}</span>
+            {/* 오른쪽 — 8카드 그리드 */}
+            <div className="integrations-cards" style={{ flex: 1, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
+              {[
+                { label: 'MCP', fullName: 'Model Context Protocol', by: 'Anthropic', desc: 'AI assistants connect to txxt as a tool. Register, pay, verify — from natural language.', color: '#FF6B35' },
+                { label: 'A2A', fullName: 'Agent-to-Agent Protocol', by: 'Google', desc: 'Agents discover and communicate with each other on txxt. Native handshakes and task delegation.', color: '#4285F4' },
+                { label: 'ACP', fullName: 'Agent Communication Protocol', by: 'OpenAI', desc: 'Agents exchange structured tasks and payment receipts through a shared protocol.', color: '#10A37F' },
+                { label: 'ERC-8004', fullName: 'Agent Identity Standard', by: 'Built-in', desc: 'On-chain identity, portable across chains. One registration. Reputation follows everywhere.', color: '#5B4FFF' },
+                { label: 'x402', fullName: 'Agent Payment Protocol', by: 'Built-in', desc: 'HTTP-native agent payment. Per call, per result, per task — settled for $0.0003.', color: '#00BF8A' },
+                { label: 'CLI', fullName: 'Command Line Interface', by: 'txxt', desc: 'Deploy and manage agents from your terminal. The fastest path to a deployed agent.', color: '#F59E0B' },
+                { label: 'SDK', fullName: '@txxt/sdk', by: 'txxt', desc: 'TypeScript-first SDK with full x402 and ERC-8004 support. Python SDK coming Q2.', color: '#5B4FFF' },
+                { label: 'REST', fullName: 'Universal REST API', by: 'txxt', desc: 'HTTP endpoints for any language. If you can make an HTTP request, you can build on txxt.', color: '#5B4FFF' },
+              ].map((item) => (
+                <div key={item.label} style={{
+                  padding: '20px 24px', borderRadius: 16,
+                  background: '#F8F8F8',
+                  border: '1px solid rgba(0,0,0,0.06)',
+                }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 8 }}>
+                    <span style={{ fontSize: 13, fontWeight: 800, color: item.color, fontFamily: mono }}>{item.label}</span>
+                    <span style={{ fontSize: 11, color: '#888', letterSpacing: '0.05em' }}>{item.by}</span>
+                  </div>
+                  <div style={{ fontSize: 12, fontWeight: 600, color: '#0D0D0D', marginBottom: 6 }}>{item.fullName}</div>
+                  <p style={{ fontSize: 13, color: '#555', lineHeight: 1.6, margin: 0 }}>{item.desc}</p>
                 </div>
-                <div style={{ fontSize: 13, fontWeight: 600, color: '#0D0D0D', marginBottom: 8 }}>{item.fullName}</div>
-                <p style={{ fontSize: 14, color: '#555', lineHeight: 1.7, margin: 0 }}>{item.desc}</p>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -1193,7 +1202,7 @@ const ethPayment = await PaymentChannel.create(
         <div style={{ maxWidth: 720, margin: '0 auto' }}>
           <div style={{ marginBottom: 56 }}>
             <p style={{
-              fontSize: 13, letterSpacing: '0.1em', color: '#888888',
+              fontSize: 13, letterSpacing: '0.1em', color: '#5B4FFF',
               fontFamily: mono, marginBottom: 16, fontWeight: 700,
             }}>
               AGENTSCRIPT
