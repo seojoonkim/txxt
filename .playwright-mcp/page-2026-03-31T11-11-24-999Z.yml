@@ -1,0 +1,502 @@
+- generic [active] [ref=e1]:
+  - alert [ref=e527]: txxt — The Agent Layer for Every Blockchain
+  - navigation [ref=e529]:
+    - link "txxt" [ref=e530] [cursor=pointer]:
+      - /url: /en
+    - generic [ref=e531]:
+      - link "Protocol" [ref=e532] [cursor=pointer]:
+        - /url: /en/protocol
+      - link "Identity" [ref=e533] [cursor=pointer]:
+        - /url: /en/identity
+      - link "Build" [ref=e534] [cursor=pointer]:
+        - /url: /en/build
+      - link "Ecosystem" [ref=e535] [cursor=pointer]:
+        - /url: /en/ecosystem
+      - link "Litepaper" [ref=e536] [cursor=pointer]:
+        - /url: /en/litepaper
+    - generic [ref=e537]:
+      - generic [ref=e538]:
+        - link "🇰🇷 한국어" [ref=e539] [cursor=pointer]:
+          - /url: /ko
+        - link "🇬🇧 English" [ref=e540] [cursor=pointer]:
+          - /url: /en
+      - link "Start Building" [ref=e541] [cursor=pointer]:
+        - /url: /en/build
+  - main [ref=e542]:
+    - generic [ref=e543]:
+      - generic [ref=e545]:
+        - generic [ref=e547]:
+          - paragraph [ref=e548]:
+            - text: The internet runs on txt.
+            - generic [ref=e549]:
+              - text: The agent economy runs on
+              - strong [ref=e550]: txxt
+              - text: .
+          - generic [ref=e551]:
+            - generic [ref=e552]: t
+            - generic [ref=e553]: x
+            - generic [ref=e554]: x
+            - generic [ref=e555]: t
+          - paragraph [ref=e556]: txxt is the middleware that makes any blockchain agent-ready. x402 payments. ERC-8004 identity. Works on top of Ethereum, Solana, Base, and more.
+          - generic [ref=e557]:
+            - link "Build" [ref=e558] [cursor=pointer]:
+              - /url: /en/build
+            - link "Protocol" [ref=e559] [cursor=pointer]:
+              - /url: /en/protocol
+            - link "Docs" [ref=e560] [cursor=pointer]:
+              - /url: https://docs.txxt.network
+        - generic [ref=e563]:
+          - generic [ref=e564]:
+            - generic [ref=e565]: <10ms
+            - generic [ref=e566]: Latency
+          - generic [ref=e567]:
+            - generic [ref=e568]: $0.0003
+            - generic [ref=e569]: Per tx
+          - generic [ref=e570]:
+            - generic [ref=e571]: 5+
+            - generic [ref=e572]: Chains
+          - generic [ref=e573]:
+            - generic [ref=e574]: 100%
+            - generic [ref=e575]: USDC Gas
+      - generic [ref=e577]:
+        - paragraph [ref=e578]: THE PROBLEM
+        - heading "Blockchains have no agent layer. So agents can't transact." [level=2] [ref=e579]:
+          - text: Blockchains have no agent layer.
+          - text: So agents can't transact.
+        - heading "No native payment protocol. No machine-readable identity. No work verification. Three missing primitives — one middleware to fix all of them." [level=3] [ref=e580]
+        - generic [ref=e581]:
+          - generic [ref=e582]:
+            - generic [ref=e583]: x402 PROTOCOL — PAYMENT
+            - paragraph [ref=e584]: Agents have no way to pay each other.
+            - paragraph [ref=e585]: HTTP has status codes for everything — except payment. x402 fixes that, but the spec alone doesn't solve cross-chain. Your Base agent can't pay a Solana agent without custom bridge code, chain-specific USDC routing, and manual gas estimation. Every chain pair = new integration.
+          - generic [ref=e586]:
+            - generic [ref=e587]: ERC-8004 STANDARD — IDENTITY
+            - paragraph [ref=e588]: Agents have no verifiable identity.
+            - paragraph [ref=e589]: A wallet address isn't an identity. ERC-8004 gives agents on-chain credentials — capabilities, reputation, owner provenance — but it's Ethereum-only. Deploy on Solana? New contract. Base? Another. Each chain is a siloed identity that can't be verified anywhere else.
+        - paragraph [ref=e591]:
+          - strong [ref=e592]: "The missing piece:"
+          - text: payment (x402), identity (ERC-8004), and work verification (PoAW) are three separate standards on three separate layers. Without middleware to unify them, an agent checks identity on Ethereum, routes payment on Base, and hopes neither fails — 3 calls, 2 failure points, zero atomicity. That's not infrastructure. That's duct tape.
+      - generic [ref=e594]:
+        - paragraph [ref=e595]: HOW IT WORKS
+        - heading "txxt sits between agents and blockchains." [level=2] [ref=e596]:
+          - text: txxt sits between
+          - text: agents and blockchains.
+        - paragraph [ref=e597]: Your agent makes one API call. txxt resolves identity (ERC-8004), routes payment (x402), and verifies work (PoAW) — then settles on whichever chain you choose. No chain-specific code. No bridge logic.
+        - generic [ref=e598]:
+          - generic [ref=e599]:
+            - paragraph [ref=e600]: AI Agents — Request Layer
+            - generic [ref=e601]:
+              - generic [ref=e602]: TravelBot
+              - generic [ref=e604]: TradeAgent
+              - generic [ref=e606]: DataBot
+              - generic [ref=e608]: LegalAI
+              - generic [ref=e610]: SearchAgent
+          - img [ref=e613]
+          - generic [ref=e615]:
+            - generic [ref=e616]:
+              - generic [ref=e617]: txxt
+              - generic [ref=e618]: Middleware Layer
+            - generic [ref=e619]:
+              - generic [ref=e620]: x402 Payments
+              - generic [ref=e621]: ERC-8004 Identity
+              - generic [ref=e622]: PoAW Validation
+            - paragraph [ref=e623]: x402 payment + ERC-8004 identity + PoAW verification → one atomic call, routed to any chain
+          - img [ref=e625]
+          - generic [ref=e627]:
+            - paragraph [ref=e628]: Settlement Chains
+            - generic [ref=e629]:
+              - generic [ref=e630]: Ethereum
+              - generic [ref=e631]: Solana
+              - generic [ref=e632]: Base
+              - generic [ref=e633]: Polygon
+              - generic [ref=e634]: Arbitrum
+      - generic [ref=e636]:
+        - generic [ref=e637]:
+          - paragraph [ref=e638]: THE SOLUTION
+          - heading "One middleware call. Identity + payment + any chain." [level=2] [ref=e639]:
+            - text: One middleware call.
+            - text: Identity + payment + any chain.
+          - paragraph [ref=e640]: Other approaches require separate contracts for identity and payment on each chain. txxt unifies both into a single middleware layer — deploy once, work everywhere.
+        - generic [ref=e641]:
+          - generic [ref=e642]:
+            - img [ref=e644]
+            - generic [ref=e649]:
+              - generic [ref=e650]: x402 Native
+              - heading "Payments as infrastructure." [level=3] [ref=e651]
+              - paragraph [ref=e652]: Implementing x402 on Ethereum alone requires custom contracts, unpredictable gas, and weeks of testing. Through txxt, agent.pay() works on ETH, SOL, Base, Polygon — same call, same $0.0003 cost, always.
+          - generic [ref=e653]:
+            - img [ref=e655]
+            - generic [ref=e659]:
+              - generic [ref=e660]: ERC-8004 Native
+              - heading "Identity without overhead." [level=3] [ref=e661]
+              - paragraph [ref=e662]: Without txxt, ERC-8004 requires deploying and maintaining a separate smart contract on every chain your agent touches. With txxt, one registration creates a verified identity that works on every supported chain — zero contracts, zero gas overhead.
+          - generic [ref=e663]:
+            - img [ref=e665]
+            - generic [ref=e668]:
+              - generic [ref=e669]: Atomic Integration
+              - heading "One transaction does both." [level=3] [ref=e670]
+              - paragraph [ref=e671]: "Imagine: your agent verifies a counterpart's identity, then sends payment — and the identity check passes but the payment fails. Now you've trusted an agent you never paid. txxt makes identity + payment atomic. Both succeed or neither does."
+          - generic [ref=e672]:
+            - img [ref=e674]
+            - generic [ref=e678]:
+              - generic [ref=e679]: The Result
+              - heading "Agent commerce at machine speed." [level=3] [ref=e680]
+              - paragraph [ref=e681]: Check identity → confirm capabilities → settle payment → update reputation. Four operations, one atomic transaction. Under 10ms. $0.0003 in USDC gas — whether settling on Ethereum, Solana, or Base.
+        - paragraph [ref=e683]: “x402 tells agents how to pay. ERC-8004 tells agents who to trust. txxt is the middleware layer where both work natively — on every blockchain.”
+      - generic [ref=e685]:
+        - paragraph [ref=e686]: WHY TXXT
+        - heading "DIY agent infra vs txxt middleware." [level=2] [ref=e687]:
+          - text: DIY agent infra
+          - text: vs txxt middleware.
+        - paragraph [ref=e688]: Building it yourself means integrating 6+ protocols (x402, ERC-8004, PoAW, bridge SDKs, gas oracles, chain RPCs), writing adapters for every chain, and rewriting them when specs change. Or you use the middleware that ships with all of it.
+        - generic [ref=e689]:
+          - generic [ref=e690]:
+            - generic [ref=e691]: DIY Approach
+            - generic [ref=e692]: With txxt
+          - generic [ref=e693]:
+            - generic [ref=e694]:
+              - generic [ref=e695]: Agent Identity
+              - generic [ref=e696]:
+                - img [ref=e697]
+                - generic [ref=e699]: Deploy ERC-8004 contract per chain. 5 chains = 5 contracts, 5 ABIs, 5 gas configs to maintain.
+            - generic [ref=e700]:
+              - generic [ref=e701]: Agent Identity
+              - generic [ref=e702]:
+                - img [ref=e703]
+                - generic [ref=e705]: txxt.register() — one call, identity works on ETH, SOL, Base, Polygon
+          - generic [ref=e706]:
+            - generic [ref=e707]:
+              - generic [ref=e708]: Agent Payments
+              - generic [ref=e709]:
+                - img [ref=e710]
+                - generic [ref=e712]: Write x402 adapter per chain + bridge SDK + USDC routing. Rewrite when specs update.
+            - generic [ref=e713]:
+              - generic [ref=e714]: Agent Payments
+              - generic [ref=e715]:
+                - img [ref=e716]
+                - generic [ref=e718]: txxt.pay() — $0.0003 fixed, settles on whichever chain you choose
+          - generic [ref=e719]:
+            - generic [ref=e720]:
+              - generic [ref=e721]: Work Verification
+              - generic [ref=e722]:
+                - img [ref=e723]
+                - generic [ref=e725]: Build custom oracle, reputation aggregator, and dispute resolution from scratch.
+            - generic [ref=e726]:
+              - generic [ref=e727]: Work Verification
+              - generic [ref=e728]:
+                - img [ref=e729]
+                - generic [ref=e731]: PoAW built-in — self-attest, peer-verify, protocol-confirm. Automatic reputation.
+          - generic [ref=e732]:
+            - generic [ref=e733]:
+              - generic [ref=e734]: Multi-chain Support
+              - generic [ref=e735]:
+                - img [ref=e736]
+                - generic [ref=e738]: N chains = N deployments. Identity on ETH can't verify on SOL. State never syncs.
+            - generic [ref=e739]:
+              - generic [ref=e740]: Multi-chain Support
+              - generic [ref=e741]:
+                - img [ref=e742]
+                - generic [ref=e744]: One agent identity, one reputation score, portable across every supported chain
+          - generic [ref=e745]:
+            - generic [ref=e746]:
+              - generic [ref=e747]: Onboarding Time
+              - generic [ref=e748]:
+                - img [ref=e749]
+                - generic [ref=e751]: 2-6 weeks per chain. Add a new chain? Start over from scratch.
+            - generic [ref=e752]:
+              - generic [ref=e753]: Onboarding Time
+              - generic [ref=e754]:
+                - img [ref=e755]
+                - generic [ref=e757]: Under 5 minutes — any chain, any agent framework. New chains auto-supported.
+        - generic [ref=e758]:
+          - paragraph [ref=e759]: Code Comparison
+          - heading "100+ lines of glue code vs 5 lines." [level=3] [ref=e760]:
+            - text: 100+ lines of glue code
+            - text: vs 5 lines.
+        - generic [ref=e761]:
+          - generic [ref=e762]:
+            - generic [ref=e763]:
+              - generic [ref=e764]: DIY Multi-chain
+              - generic [ref=e765]: ~100+ lines per chain
+            - generic [ref=e766]: "// DIY: agent payments across chains import { ethers } from 'ethers'; import { Connection } from '@solana/web3.js'; import { PaymentChannel } from './custom-x402-adapter'; import { IdentityRegistry } from './custom-erc8004'; // 1. Deploy identity on Ethereum const ethIdentity = await IdentityRegistry.deploy( ethProvider, agentMetadata ); // 2. Deploy identity on Solana (different SDK!) const solIdentity = await createSolanaIdentity( connection, agentKeypair, metadata ); // 3. Build payment channel per chain const ethPayment = await PaymentChannel.create( ethProvider, USDC_ETH, recipient ); // 4. Route payments based on chain // 5. Sync identity across chains // ... 100+ lines of glue code per chain"
+          - generic [ref=e767]:
+            - generic [ref=e768]:
+              - generic [ref=e769]: txxt Middleware
+              - generic [ref=e770]: 5 lines · any chain
+            - generic [ref=e771]:
+              - generic [ref=e772]: "import { txxt } from '@txxt/sdk';"
+              - generic [ref=e773]: "const agent = txxt.connect({ apiKey, chains: ['eth', 'sol', 'base'] });"
+              - generic [ref=e774]: "await agent.register({ capabilities: ['translate'] });"
+              - generic [ref=e775]: "await agent.pay(url, '$0.01', { chain: 'base' });"
+              - generic [ref=e776]: // done. identity + payment. any chain.
+            - generic [ref=e777]: One identity. One payment layer. Any chain underneath.
+      - generic [ref=e779]:
+        - generic [ref=e780]:
+          - paragraph [ref=e781]: HOW IT WORKS
+          - heading "Three pillars. Zero compromise." [level=2] [ref=e782]:
+            - text: Three pillars.
+            - text: Zero compromise.
+        - generic [ref=e783]:
+          - generic [ref=e784]:
+            - generic [ref=e785]: "01"
+            - paragraph [ref=e786]: IDENTITY
+            - heading "Every agent gets a passport." [level=3] [ref=e787]:
+              - text: Every agent gets
+              - text: a passport.
+            - paragraph [ref=e788]: ERC-8004 compliant. Registered once, valid on every chain. Declares what your agent can do, who created it, and how long it's been working — all on-chain, all verifiable.
+          - code [ref=e791]: "txxt.identity.register({ name: \"TravelBot\", capabilities: [\"search\", \"book\"], owner: \"0x1a2b...3c4d\" })"
+        - generic [ref=e792]:
+          - code [ref=e795]: "const score = await txxt .reputation.get(agentId) // { score: 94, // txCount: 12847, // disputes: 0, // uptime: 99.9 }"
+          - generic [ref=e796]:
+            - generic [ref=e797]: "02"
+            - paragraph [ref=e798]: REPUTATION
+            - heading "Trust is earned on-chain." [level=3] [ref=e799]:
+              - text: Trust is earned
+              - text: on-chain.
+            - paragraph [ref=e800]: Forget star ratings. A score of 94 means 12,847 tasks completed, zero disputes, 99.9% uptime. All on-chain. All auditable. An agent's track record speaks for itself.
+        - generic [ref=e801]:
+          - generic [ref=e802]:
+            - generic [ref=e803]: "03"
+            - paragraph [ref=e804]: VALIDATION
+            - heading "Three layers. Zero doubt." [level=3] [ref=e805]:
+              - text: Three layers.
+              - text: Zero doubt.
+            - paragraph [ref=e806]: "Before any deal closes: the agent self-attests, peer agents cross-verify, and the protocol confirms on-chain. Three independent layers. All complete in under 10ms. If any layer fails, the transaction doesn't happen."
+          - code [ref=e809]: "txxt.validate({ agent: agentId, layers: [ \"self\", \"peer\", \"protocol\" ] }) // ✓ triple-verified"
+      - generic [ref=e811]:
+        - paragraph [ref=e812]: THE PROOF
+        - heading "No token. Stable gas." [level=2] [ref=e813]:
+          - text: No token.
+          - text: Stable gas.
+        - paragraph [ref=e814]: Most chains force you to hold a volatile native token just to pay gas. ETH gas spiked 4,000% during the 2024 memecoin season. For autonomous agents that need predictable budgets, volatile gas is a dealbreaker.
+        - paragraph [ref=e815]: "txxt gas: USDC/USDT. $0.0003 per tx. Always."
+        - generic [ref=e816]:
+          - paragraph [ref=e817]: GAS COST SIMULATOR
+          - slider [ref=e818]: "10000"
+          - paragraph [ref=e819]:
+            - text: At
+            - strong [ref=e820]: 10,000
+            - text: "transactions/month:"
+          - generic [ref=e821]:
+            - generic [ref=e822]:
+              - generic [ref=e823]: Others
+              - generic [ref=e824]: $500.00
+            - generic [ref=e825]:
+              - generic [ref=e826]: txxt
+              - generic [ref=e827]: $3.00
+          - paragraph [ref=e828]: "You save: $497.00"
+        - generic [ref=e830]:
+          - generic [ref=e831]:
+            - generic [ref=e833]: Others
+            - generic [ref=e834]: txxt
+          - generic [ref=e835]:
+            - generic [ref=e836]: Gas fees
+            - generic [ref=e837]:
+              - img [ref=e838]
+              - text: Volatile tokens
+            - generic [ref=e840]:
+              - img [ref=e841]
+              - text: USDC stable
+          - generic [ref=e843]:
+            - generic [ref=e844]: Cost
+            - generic [ref=e845]:
+              - img [ref=e846]
+              - text: Can spike 100×
+            - generic [ref=e848]:
+              - img [ref=e849]
+              - text: Always $0.0003
+          - generic [ref=e851]:
+            - generic [ref=e852]: x402
+            - generic [ref=e853]:
+              - img [ref=e854]
+              - text: Custom contracts
+            - generic [ref=e856]:
+              - img [ref=e857]
+              - text: Native middleware
+          - generic [ref=e859]:
+            - generic [ref=e860]: ERC-8004
+            - generic [ref=e861]:
+              - img [ref=e862]
+              - text: Plugin/Contract
+            - generic [ref=e864]:
+              - img [ref=e865]
+              - text: Native middleware
+          - generic [ref=e867]:
+            - generic [ref=e868]: Atomic ID+pay
+            - generic [ref=e869]:
+              - img [ref=e870]
+              - text: Impossible
+            - generic [ref=e872]:
+              - img [ref=e873]
+              - text: Yes, <10ms
+          - generic [ref=e875]:
+            - generic [ref=e876]: Governance
+            - generic [ref=e877]:
+              - img [ref=e878]
+              - text: Token theater
+            - generic [ref=e880]:
+              - img [ref=e881]
+              - text: Pure utility
+      - generic [ref=e884]:
+        - paragraph [ref=e885]: INTEGRATIONS
+        - heading "txxt speaks every agent language." [level=2] [ref=e886]:
+          - text: txxt speaks every
+          - text: agent language.
+        - paragraph [ref=e887]: Whether you're building with MCP, A2A, CLI, or raw SDK — txxt is the agent layer underneath. One middleware. Every protocol. Every chain.
+        - generic [ref=e888]:
+          - generic [ref=e889]:
+            - generic [ref=e891]: txxt
+            - generic [ref=e893]:
+              - generic [ref=e894]: MCP
+              - generic [ref=e895]: Anthropic
+            - generic [ref=e897]:
+              - generic [ref=e898]: A2A
+              - generic [ref=e899]: Google
+            - generic [ref=e901]:
+              - generic [ref=e902]: ACP
+              - generic [ref=e903]: OpenAI
+            - generic [ref=e905]:
+              - generic [ref=e906]: x402
+              - generic [ref=e907]: Payments
+            - generic [ref=e909]:
+              - generic [ref=e910]: SDK
+              - generic [ref=e911]: "@txxt/sdk"
+            - generic [ref=e913]:
+              - generic [ref=e914]: CLI
+              - generic [ref=e915]: Terminal
+            - generic [ref=e917]:
+              - generic [ref=e918]: REST
+              - generic [ref=e919]: Universal
+            - generic [ref=e921]:
+              - generic [ref=e922]: ERC-8004
+              - generic [ref=e923]: Identity
+            - img [ref=e924]
+          - generic [ref=e929]:
+            - generic [ref=e930]:
+              - generic [ref=e931]:
+                - generic [ref=e932]: MCP
+                - generic [ref=e933]: Anthropic
+              - generic [ref=e934]: Model Context Protocol
+              - paragraph [ref=e935]: AI assistants connect to txxt as a tool. Register, pay, verify — from natural language.
+            - generic [ref=e936]:
+              - generic [ref=e937]:
+                - generic [ref=e938]: A2A
+                - generic [ref=e939]: Google
+              - generic [ref=e940]: Agent-to-Agent Protocol
+              - paragraph [ref=e941]: Agents discover and communicate with each other on txxt. Native handshakes and task delegation.
+            - generic [ref=e942]:
+              - generic [ref=e943]:
+                - generic [ref=e944]: ACP
+                - generic [ref=e945]: OpenAI
+              - generic [ref=e946]: Agent Communication Protocol
+              - paragraph [ref=e947]: Agents exchange structured tasks and payment receipts through a shared protocol.
+            - generic [ref=e948]:
+              - generic [ref=e949]:
+                - generic [ref=e950]: ERC-8004
+                - generic [ref=e951]: Built-in
+              - generic [ref=e952]: Agent Identity Standard
+              - paragraph [ref=e953]: On-chain identity, portable across chains. One registration. Reputation follows everywhere.
+            - generic [ref=e954]:
+              - generic [ref=e955]:
+                - generic [ref=e956]: x402
+                - generic [ref=e957]: Built-in
+              - generic [ref=e958]: Agent Payment Protocol
+              - paragraph [ref=e959]: HTTP-native agent payment. Per call, per result, per task — settled for $0.0003.
+            - generic [ref=e960]:
+              - generic [ref=e961]:
+                - generic [ref=e962]: CLI
+                - generic [ref=e963]: txxt
+              - generic [ref=e964]: Command Line Interface
+              - paragraph [ref=e965]: Deploy and manage agents from your terminal. The fastest path to a deployed agent.
+            - generic [ref=e966]:
+              - generic [ref=e967]:
+                - generic [ref=e968]: SDK
+                - generic [ref=e969]: txxt
+              - generic [ref=e970]: "@txxt/sdk"
+              - paragraph [ref=e971]: TypeScript-first SDK with full x402 and ERC-8004 support. Python SDK coming Q2.
+            - generic [ref=e972]:
+              - generic [ref=e973]:
+                - generic [ref=e974]: REST
+                - generic [ref=e975]: txxt
+              - generic [ref=e976]: Universal REST API
+              - paragraph [ref=e977]: HTTP endpoints for any language. If you can make an HTTP request, you can build on txxt.
+      - generic [ref=e978]:
+        - paragraph [ref=e979]: BUILT WITH
+        - generic [ref=e980]:
+          - generic [ref=e981]:
+            - generic [ref=e982]: Ethereum
+            - generic [ref=e983]: Solana
+            - generic [ref=e984]: Base
+            - generic [ref=e985]: Polygon
+            - generic [ref=e986]: Arbitrum
+            - generic [ref=e987]: MCP
+            - generic [ref=e988]: A2A
+            - generic [ref=e989]: x402
+            - generic [ref=e990]: ERC-8004
+            - generic [ref=e991]: USDC
+            - generic [ref=e992]: PoAW
+          - generic [ref=e993]:
+            - generic [ref=e994]: Ethereum
+            - generic [ref=e995]: Solana
+            - generic [ref=e996]: Base
+            - generic [ref=e997]: Polygon
+            - generic [ref=e998]: Arbitrum
+            - generic [ref=e999]: MCP
+            - generic [ref=e1000]: A2A
+            - generic [ref=e1001]: x402
+            - generic [ref=e1002]: ERC-8004
+            - generic [ref=e1003]: USDC
+            - generic [ref=e1004]: PoAW
+      - generic [ref=e1007]:
+        - generic [ref=e1008]:
+          - paragraph [ref=e1009]: AGENTSCRIPT
+          - heading "Code for agents, by agents." [level=2] [ref=e1010]:
+            - text: Code for agents,
+            - text: by agents.
+          - paragraph [ref=e1011]: AgentScript is the native language of txxt. Discover, verify, pay, and update reputation — all first-class operations in one coherent syntax.
+          - paragraph [ref=e1012]: x402 + ERC-8004 = native primitives. Not plugins. Not imports.
+        - generic [ref=e1013]:
+          - generic [ref=e1014]:
+            - generic [ref=e1019]: travel_planner.agent
+            - button "Copy" [ref=e1020] [cursor=pointer]
+          - code [ref=e1023]: "agent TravelPlanner { // ERC-8004: on-chain identity auto-registered identity: \"txxt:0x1a2b...verified\" reputation_minimum: 80 // ERC-8004 score gate task hire_flight_agent(destination) { // ERC-8004: verify counterpart identity let agent = discover({ capability: \"flight_search\", min_reputation: 85 // ERC-8004 check }) // x402: atomic payment — same tx as identity check let result = delegate(agent, search(destination), { payment: \"0.004 USDC\" // x402 native gas: \"0.0003 USDC\" // always fixed }) // x402 receipt + ERC-8004 reputation update rate(agent, score: 95, proof: result.receipt) } }"
+      - generic [ref=e1025]:
+        - heading "The agent layer for every blockchain." [level=2] [ref=e1026]:
+          - text: The agent layer for
+          - text: every blockchain.
+        - paragraph [ref=e1027]: txxt doesn't replace your blockchain. It makes your blockchain agent-ready.
+        - link "Start Building" [ref=e1028] [cursor=pointer]:
+          - /url: /en/build
+  - contentinfo [ref=e1029]:
+    - generic [ref=e1030]:
+      - generic [ref=e1031]:
+        - generic [ref=e1032]:
+          - generic [ref=e1033]: txxt
+          - paragraph [ref=e1034]: The agent middleware layer for every blockchain.
+        - generic [ref=e1035]:
+          - heading "Navigate" [level=4] [ref=e1036]
+          - generic [ref=e1037]:
+            - link "Protocol" [ref=e1038] [cursor=pointer]:
+              - /url: /en/protocol
+            - link "Identity" [ref=e1039] [cursor=pointer]:
+              - /url: /en/identity
+            - link "Build" [ref=e1040] [cursor=pointer]:
+              - /url: /en/build
+            - link "Ecosystem" [ref=e1041] [cursor=pointer]:
+              - /url: /en/ecosystem
+            - link "Litepaper" [ref=e1042] [cursor=pointer]:
+              - /url: /en/litepaper
+        - generic [ref=e1043]:
+          - heading "Resources" [level=4] [ref=e1044]
+          - generic [ref=e1045]:
+            - link "Docs" [ref=e1046] [cursor=pointer]:
+              - /url: "#"
+            - link "GitHub" [ref=e1047] [cursor=pointer]:
+              - /url: https://github.com
+            - link "Discord" [ref=e1048] [cursor=pointer]:
+              - /url: "#"
+            - link "Blog" [ref=e1049] [cursor=pointer]:
+              - /url: "#"
+      - generic [ref=e1050]:
+        - paragraph [ref=e1051]: © 2026 txxt. Agent-Native Infrastructure.
+        - paragraph [ref=e1052]: The agent layer for every blockchain.

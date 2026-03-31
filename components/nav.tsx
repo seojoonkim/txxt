@@ -1,25 +1,34 @@
 'use client';
 
-import Link from 'next/link';
-import { useState, useEffect, useRef } from 'react';
+import {Link, usePathname} from '@/i18n/navigation';
+import {useLocale, useTranslations} from 'next-intl';
+import {useEffect, useRef, useState} from 'react';
 
 const mono = "var(--font-fira), 'Courier New', monospace";
-
-const links = [
-  { href: '/protocol', label: 'Protocol' },
-  { href: '/identity', label: 'Identity' },
-  { href: '/build', label: 'Build' },
-  { href: '/ecosystem', label: 'Ecosystem' },
-  { href: '/litepaper', label: 'Litepaper' },
-];
 
 type NavLink = { href: string; label: string; children?: { href: string; label: string }[] };
 
 export default function Nav() {
+  const t = useTranslations('nav');
+  const locale = useLocale();
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [isDesktop, setIsDesktop] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+
+  const links: NavLink[] = [
+    {href: '/protocol', label: t('links.protocol')},
+    {href: '/identity', label: t('links.identity')},
+    {href: '/build', label: t('links.build')},
+    {href: '/ecosystem', label: t('links.ecosystem')},
+    {href: '/litepaper', label: t('links.litepaper')},
+  ];
+
+  const localeLinks = [
+    {locale: 'ko' as const, label: '🇰🇷 한국어'},
+    {locale: 'en' as const, label: '🇬🇧 English'},
+  ];
 
   useEffect(() => {
     const check = () => setIsDesktop(window.innerWidth >= 1024);
@@ -70,7 +79,7 @@ export default function Nav() {
 
           {isDesktop && (
             <div style={{ display: 'flex', alignItems: 'center', gap: 28 }}>
-              {(links as NavLink[]).map(l => l.children ? (
+              {links.map(l => l.children ? (
                 <div key={l.label} ref={dropdownRef} style={{ position: 'relative' }}>
                   <button
                     onClick={() => setDropdownOpen(!dropdownOpen)}
@@ -113,13 +122,42 @@ export default function Nav() {
           )}
 
           {isDesktop && (
-            <Link href="/build" style={{
-              fontSize: 14, padding: '10px 22px', borderRadius: 8,
-              background: '#00BF8A',
-              color: '#FFFFFF', fontWeight: 700, textDecoration: 'none',
-              transition: 'all 0.2s ease',
-              boxShadow: '0 2px 8px rgba(0,191,138,0.25)',
-            }}>Start Building</Link>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                {localeLinks.map((item) => {
+                  const isActive = locale === item.locale;
+
+                  return (
+                    <Link
+                      key={item.locale}
+                      href={pathname}
+                      locale={item.locale}
+                      style={{
+                        fontSize: 12,
+                        padding: '8px 10px',
+                        borderRadius: 999,
+                        border: `1px solid ${isActive ? 'rgba(0,191,138,0.28)' : 'rgba(0,0,0,0.08)'}`,
+                        background: isActive ? 'rgba(0,191,138,0.08)' : 'rgba(255,255,255,0.82)',
+                        color: isActive ? '#00BF8A' : '#555555',
+                        fontWeight: 700,
+                        textDecoration: 'none',
+                        whiteSpace: 'nowrap',
+                        transition: 'all 0.2s ease',
+                      }}
+                    >
+                      {item.label}
+                    </Link>
+                  );
+                })}
+              </div>
+              <Link href="/build" style={{
+                fontSize: 14, padding: '10px 22px', borderRadius: 8,
+                background: '#00BF8A',
+                color: '#FFFFFF', fontWeight: 700, textDecoration: 'none',
+                transition: 'all 0.2s ease',
+                boxShadow: '0 2px 8px rgba(0,191,138,0.25)',
+              }}>{t('cta')}</Link>
+            </div>
           )}
 
           {!isDesktop && (
@@ -143,7 +181,7 @@ export default function Nav() {
           padding: '80px 32px 48px',
         }}>
           <div style={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
-            {(links as NavLink[]).flatMap(l => l.children ? l.children : [l]).map((l, i, arr) => (
+            {links.flatMap(l => l.children ? l.children : [l]).map((l, i, arr) => (
               <Link key={l.label} href={l.href} onClick={() => setOpen(false)} style={{
                 fontSize: 28, fontWeight: 700, color: 'rgba(0,0,0,0.8)',
                 textDecoration: 'none', padding: '16px 0',
@@ -151,13 +189,42 @@ export default function Nav() {
               }}>{l.label}</Link>
             ))}
           </div>
+          <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginTop: 24 }}>
+            {localeLinks.map((item) => {
+              const isActive = locale === item.locale;
+
+              return (
+                <Link
+                  key={item.locale}
+                  href={pathname}
+                  locale={item.locale}
+                  onClick={() => setOpen(false)}
+                  style={{
+                    flex: 1,
+                    minWidth: 140,
+                    textAlign: 'center',
+                    padding: '14px 16px',
+                    borderRadius: 12,
+                    border: `1px solid ${isActive ? 'rgba(0,191,138,0.28)' : 'rgba(0,0,0,0.08)'}`,
+                    background: isActive ? 'rgba(0,191,138,0.08)' : '#FFFFFF',
+                    color: isActive ? '#00BF8A' : '#555555',
+                    fontWeight: 700,
+                    fontSize: 15,
+                    textDecoration: 'none',
+                  }}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
+          </div>
           <Link href="/build" onClick={() => setOpen(false)} style={{
             display: 'block', textAlign: 'center', padding: '18px',
             borderRadius: 12,
             background: '#00BF8A',
             color: '#FFFFFF', fontWeight: 700, fontSize: 17, textDecoration: 'none',
             marginTop: 32,
-          }}>Start Building</Link>
+          }}>{t('cta')}</Link>
         </div>
       )}
     </>

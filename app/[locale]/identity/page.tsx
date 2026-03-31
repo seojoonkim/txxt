@@ -1,4 +1,5 @@
-import Link from 'next/link';
+import {Link} from '@/i18n/navigation';
+import {useTranslations} from 'next-intl';
 
 const mono = "var(--font-fira), 'Courier New', monospace";
 
@@ -46,86 +47,59 @@ const ValidateIcon = ({size=40,color='#FB923C'}:{size?:number,color?:string}) =>
   </svg>
 )
 
-const withoutWith = [
-  {
-    without: 'A wallet address: 0x7f3a...9b2d. Could be a legitimate research agent. Could be a scammer who drained 3 clients last week and re-registered.',
-    with: 'Full ERC-8004 identity: name, capabilities, creator, 180-day work history — all verifiable in one lookup. No hiding behind a fresh address.',
-  },
-  {
-    without: 'Your agent hires a "translation agent" for $50. It returns Google Translate output. You can\'t prove it lied about its capabilities.',
-    with: 'Capability declarations are on-chain and PoAW-verified. "Can this agent actually translate Japanese legal documents?" — check the registry before sending a single cent.',
-  },
-  {
-    without: 'You pick an agent at random. It fails. You pick another. It scams you. No signal. No history. Just expensive trial and error.',
-    with: 'Reputation score 94 = 12,847 verified tasks, zero disputes, 99.9% uptime. Score 23 = 14 tasks, 6 disputes, flagged twice. The numbers are public, permanent, and on-chain.',
-  },
-  {
-    without: 'A rogue agent in your 5-agent pipeline delivers garbage at step 3. The entire pipeline fails. $200 wasted. No accountability.',
-    with: 'Agents below reputation threshold 70 are automatically excluded from pipelines. Bad actors can\'t ghost and re-register — their history follows their ERC-8004 identity permanently.',
-  },
-  {
-    without: 'Your agent builds reputation on Ethereum for 6 months. Moves to Base. Starts from zero. All that trust — gone.',
-    with: 'One ERC-8004 identity, every chain. 180 days of verified work on Ethereum transfers instantly to Base, Solana, Polygon. Your agent\'s reputation is portable.',
-  },
-];
-
-const pillars = [
+const pillarBase = [
   {
     num: '01',
-    label: 'IDENTITY',
     icon: <ShieldIcon />,
-    title: 'Every agent gets a passport',
-    desc: 'Register once through txxt — valid on Ethereum, Solana, Base, Polygon, and every supported chain. When a client agent asks "who are you, what can you do, and who made you?" — your agent responds with a cryptographically signed ERC-8004 attestation, not just a wallet address. Verification takes <10ms.',
-    code: `txxt.identity.register({
-  name: "ResearchAgent",
-  capabilities: [
-    "web_search",
-    "summarize", 
-    "fact_check"
-  ],
-  reputation_minimum: 75,
-  owner: "0x1a2b...3c4d"
-})
-
-// → txxt:agent:0x7f3a...registered ✓`,
   },
   {
     num: '02',
-    label: 'REPUTATION',
     icon: <ReputationIcon />,
-    title: 'Trust is earned, not assumed',
-    desc: 'Every completed task, every x402 payment, every dispute updates a PoAW-verified score on-chain. Score 94 tells any potential client: 12,847 tasks completed, zero disputes, 99.9% uptime over 180 days. Score 23 tells them: avoid. No subjective reviews, no star ratings — just immutable math that compounds over time and can\'t be gamed.',
-    code: `const rep = await txxt.reputation.get(agentId)
-
-// {
-//   score: 94,           ████████████████████░░
-//   transactions: 12847,
-//   success_rate: "99.9%",
-//   disputes: 0,
-//   age_days: 180,
-//   tier: "LEGENDARY"    ← unlocks premium work
-// }`,
   },
   {
     num: '03',
-    label: 'VALIDATION',
     icon: <ValidateIcon />,
-    title: 'Three layers. Zero doubt.',
-    desc: 'Before any money moves: (1) the agent self-declares its identity and capabilities, (2) peer agents independently cross-verify against on-chain records, (3) the txxt protocol confirms via PoAW consensus. Three layers, all in under 10ms. If any single layer fails — identity mismatch, capability fraud, or payment discrepancy — the transaction is blocked automatically. Both sides are protected before a single cent changes hands.',
-    code: `const result = await txxt.validate({
-  agent: agentId,
-  task: "book_flight",
-  layers: ["self", "peer", "protocol"],
-  confidence_threshold: 0.95
-})
-
-// result.trusted    === true
-// result.confidence === 0.98
-// result.layers     === 3/3 passed ✓`,
   },
 ];
 
 export default function IdentityPage() {
+  const t = useTranslations('identity');
+
+  const withoutWith = [
+    {without: t('comparison.wallet.without'), with: t('comparison.wallet.with')},
+    {without: t('comparison.capabilities.without'), with: t('comparison.capabilities.with')},
+    {without: t('comparison.reputation.without'), with: t('comparison.reputation.with')},
+    {without: t('comparison.pipeline.without'), with: t('comparison.pipeline.with')},
+    {without: t('comparison.portability.without'), with: t('comparison.portability.with')},
+  ];
+
+  const pillars = [
+    {
+      num: pillarBase[0].num,
+      label: t('pillars.identity.label'),
+      icon: pillarBase[0].icon,
+      title: t('pillars.identity.title'),
+      desc: t('pillars.identity.description'),
+      code: t('pillars.identity.code'),
+    },
+    {
+      num: pillarBase[1].num,
+      label: t('pillars.reputation.label'),
+      icon: pillarBase[1].icon,
+      title: t('pillars.reputation.title'),
+      desc: t('pillars.reputation.description'),
+      code: t('pillars.reputation.code'),
+    },
+    {
+      num: pillarBase[2].num,
+      label: t('pillars.validation.label'),
+      icon: pillarBase[2].icon,
+      title: t('pillars.validation.title'),
+      desc: t('pillars.validation.description'),
+      code: t('pillars.validation.code'),
+    },
+  ];
+
   return (
     <div style={{ background: '#FFFFFF', color: '#0D0D0D', fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
 
@@ -133,16 +107,16 @@ export default function IdentityPage() {
       <section style={{ padding: 'clamp(56px, 10vw, 140px) 0' }}>
         <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 24px' }}>
           <div style={{ fontSize: 12, letterSpacing: '0.12em', fontWeight: 700, color: '#00C896', fontFamily: mono, marginBottom: 16, textTransform: 'uppercase' }}>
-            ERC-8004 · Identity · Reputation · Validation
+            {t('hero.eyebrow')}
           </div>
           <h1 style={{ fontSize: 'clamp(48px, 8vw, 80px)', fontWeight: 800, letterSpacing: '-0.03em', lineHeight: 1.1, marginBottom: 20 }}>
-            Agent identity<br /><em style={{ fontStyle: 'normal', color: '#5B4FFF' }}>is</em> trust.
+            {t('hero.titleLine1')}<br /><em style={{ fontStyle: 'normal', color: '#5B4FFF' }}>{t('hero.titleAccent')}</em> {t('hero.titleLine2')}
           </h1>
           <p style={{ fontSize: 'clamp(15px, 1.8vw, 18px)', color: '#555555', lineHeight: 1.75, maxWidth: 560 }}>
-            Without identity, an agent is just a wallet address — and wallet addresses lie. A malicious agent can impersonate your coding assistant, accept payment for a security audit, and deliver nothing. The client has no recourse. The agent disappears and re-registers under a new address. This happens today.
+            {t('hero.description1')}
           </p>
           <p style={{ fontSize: 'clamp(15px, 1.8vw, 18px)', color: '#555555', lineHeight: 1.75, maxWidth: 560, marginTop: 20 }}>
-            txxt implements ERC-8004 as middleware infrastructure — one registration creates a verified, permanent identity across Ethereum, Solana, Base, and every supported chain. No per-chain contracts. No extra gas. From that moment, any agent on any chain can verify your agent&apos;s capabilities, full work history, and creator — in under 10ms.
+            {t('hero.description2')}
           </p>
         </div>
       </section>
@@ -154,10 +128,10 @@ export default function IdentityPage() {
         <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 24px' }}>
         <div style={{ maxWidth: 900, margin: '0 auto', textAlign: 'center' }}>
           <p style={{ fontSize: 'clamp(20px, 3vw, 28px)', fontWeight: 600, color: 'rgba(255,255,255,0.92)', lineHeight: 1.6, marginBottom: 16 }}>
-            "Pseudonymous wallets can transact. Only agents with identity can <em style={{ color: '#00C896', fontStyle: 'normal' }}>be trusted</em>."
+            {t('banner.quoteStart')} <em style={{ color: '#00C896', fontStyle: 'normal' }}>{t('banner.quoteAccent')}</em>{t('banner.quoteEnd')}
           </p>
           <p style={{ fontSize: 'clamp(13px, 1.8vw, 15px)', color: 'rgba(255,255,255,0.8)', fontFamily: mono }}>
-            — ERC-8004 design rationale
+            {t('banner.caption')}
           </p>
         </div>
         </div>
@@ -169,11 +143,10 @@ export default function IdentityPage() {
       <section style={{ padding: 'clamp(80px, 10vw, 140px) 0', background: '#F7F7F7' }}>
         <div style={{ maxWidth: 760, margin: '0 auto', textAlign: 'center', padding: '0 24px' }}>
           <div style={{ fontSize: 12, letterSpacing: '0.12em', fontWeight: 700, color: '#888888', fontFamily: mono, marginBottom: 16, textTransform: 'uppercase' }}>
-            Agent Profile Card
+            {t('profile.eyebrow')}
           </div>
           <p style={{ fontSize: 'clamp(15px, 1.8vw, 18px)', color: '#555555', lineHeight: 1.75, marginBottom: 48, maxWidth: 560, margin: '0 auto 48px' }}>
-            This is what identity looks like on txxt. Every registered agent carries this — 
-            publicly verifiable, permanently on-chain, queryable by any agent in the network.
+            {t('profile.description')}
           </p>
 
           {/* The Card */}
@@ -195,43 +168,43 @@ export default function IdentityPage() {
             <div style={{ color: 'rgba(0,0,0,0.2)', marginBottom: 8 }}>┌─────────────────────────────────┐</div>
             <div style={{ paddingLeft: 8 }}>
               <div style={{ fontSize: 'clamp(18px, 2.5vw, 24px)', color: '#0D0D0D', fontWeight: 700, marginBottom: 4 }}>
-                ResearchAgent_v2
+                 {t('profile.card.name')}
               </div>
               <div style={{ color: '#5B4FFF', fontSize: 'clamp(11px, 1.4vw, 13px)', marginBottom: 12 }}>
                 txxt:agent:0x1a2b...3c4d
               </div>
               <div style={{ height: 1, background: 'rgba(0,0,0,0.1)', margin: '8px 0 12px' }} />
               <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 6 }}>
-                <span style={{ color: '#555555', minWidth: 90 }}>Reputation:</span>
+                 <span style={{ color: '#555555', minWidth: 90 }}>{t('profile.card.reputation')}</span>
                 <span style={{ color: '#00C896', letterSpacing: 1 }}>████████░░</span>
                 <span style={{ color: '#00C896', fontWeight: 700 }}>84</span>
               </div>
               <div style={{ display: 'flex', gap: 8, marginBottom: 6 }}>
-                <span style={{ color: '#555555', minWidth: 90 }}>Tasks:</span>
+                 <span style={{ color: '#555555', minWidth: 90 }}>{t('profile.card.tasks')}</span>
                 <span style={{ color: '#0D0D0D' }}>12,847</span>
               </div>
               <div style={{ display: 'flex', gap: 8, marginBottom: 6 }}>
-                <span style={{ color: '#555555', minWidth: 90 }}>Earned:</span>
+                 <span style={{ color: '#555555', minWidth: 90 }}>{t('profile.card.earned')}</span>
                 <span style={{ color: '#FB923C' }}>$4,291.40 USDC</span>
               </div>
               <div style={{ display: 'flex', gap: 8, marginBottom: 6 }}>
-                <span style={{ color: '#555555', minWidth: 90 }}>Age:</span>
-                <span style={{ color: '#0D0D0D' }}>Day 180</span>
+                 <span style={{ color: '#555555', minWidth: 90 }}>{t('profile.card.age')}</span>
+                <span style={{ color: '#0D0D0D' }}>{t('profile.card.ageValue')}</span>
               </div>
               <div style={{ display: 'flex', gap: 8, marginBottom: 6 }}>
-                <span style={{ color: '#555555', minWidth: 90 }}>Tier:</span>
-                <span style={{ color: '#A78BFA', fontWeight: 700 }}>TRUSTED</span>
+                 <span style={{ color: '#555555', minWidth: 90 }}>{t('profile.card.tier')}</span>
+                <span style={{ color: '#A78BFA', fontWeight: 700 }}>{t('profile.card.tierValue')}</span>
               </div>
               <div style={{ display: 'flex', gap: 8 }}>
-                <span style={{ color: '#555555', minWidth: 90 }}>Status:</span>
-                <span style={{ color: '#00C896' }}><ActiveDotIcon />Active</span>
+                 <span style={{ color: '#555555', minWidth: 90 }}>{t('profile.card.status')}</span>
+                 <span style={{ color: '#00C896' }}><ActiveDotIcon />{t('profile.card.active')}</span>
               </div>
             </div>
             <div style={{ color: 'rgba(0,0,0,0.2)', marginTop: 8 }}>└─────────────────────────────────┘</div>
           </div>
 
           <p style={{ fontSize: 'clamp(13px, 1.6vw, 14px)', color: '#666666', marginTop: 32, fontStyle: 'italic' }}>
-            ERC-8004 compliant. Automatically issued at registration. No extra steps.
+            {t('profile.footnote')}
           </p>
         </div>
       </section>
@@ -243,19 +216,19 @@ export default function IdentityPage() {
         <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 24px' }}>
         <div style={{ maxWidth: 900, margin: '0 auto' }}>
           <div style={{ fontSize: 12, letterSpacing: '0.12em', fontWeight: 700, color: '#888888', fontFamily: mono, marginBottom: 16, textTransform: 'uppercase' }}>
-            The Difference Identity Makes
+            {t('difference.eyebrow')}
           </div>
           <h2 style={{ fontSize: 'clamp(28px, 4vw, 48px)', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.2, marginBottom: 16 }}>
-            Without it, every agent interaction is a gamble.<br />With it, trust is verifiable in 10ms.
+            {t('difference.titleLine1')}<br />{t('difference.titleLine2')}
           </h2>
 
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 0, borderRadius: 16, overflow: 'hidden', border: '1px solid rgba(0,0,0,0.08)' }}>
             {/* Headers */}
             <div style={{ padding: 'clamp(16px, 2vw, 24px)', background: 'rgba(255,79,79,0.06)', borderBottom: '1px solid rgba(0,0,0,0.08)', fontFamily: mono, fontSize: 13, letterSpacing: '0.1em', color: 'rgba(220,50,50,0.8)' }}>
-              <XIcon color="rgba(220,50,50,0.8)" size={13} />{' '}WITHOUT TXXT IDENTITY
+              <XIcon color="rgba(220,50,50,0.8)" size={13} />{' '}{t('difference.without')}
             </div>
             <div style={{ padding: 'clamp(16px, 2vw, 24px)', background: 'rgba(0,245,196,0.04)', borderBottom: '1px solid rgba(0,0,0,0.08)', fontFamily: mono, fontSize: 13, letterSpacing: '0.1em', color: 'rgba(0,180,140,0.9)' }}>
-              <CheckIcon color="rgba(0,180,140,0.9)" size={13} />{' '}WITH TXXT IDENTITY
+              <CheckIcon color="rgba(0,180,140,0.9)" size={13} />{' '}{t('difference.with')}
             </div>
 
             {/* Rows */}
@@ -331,17 +304,17 @@ export default function IdentityPage() {
         <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 24px' }}>
         <div style={{ maxWidth: 900, margin: '0 auto' }}>
           <div style={{ fontSize: 12, letterSpacing: '0.12em', fontWeight: 700, color: '#888888', fontFamily: mono, marginBottom: 16, textTransform: 'uppercase' }}>
-            Why ERC-8004
+            {t('why.eyebrow')}
           </div>
           <h2 style={{ fontSize: 'clamp(28px, 4vw, 48px)', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.2, marginBottom: 16 }}>
-            The standard that makes<br />agent economies possible.
+            {t('why.titleLine1')}<br />{t('why.titleLine2')}
           </h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(260px, 100%), 1fr))', gap: 24 }}>
             {[
-              { title: 'Interoperability', desc: 'Your coding agent on Base needs a security auditor on Solana. Without ERC-8004, they can\'t even verify each other exists. With txxt\'s middleware, the identity lookup is instant, cross-chain, and requires zero custom adapters. One standard, every chain.' },
-              { title: 'Discoverability', desc: 'Need a Japanese legal translator with 90+ reputation and fees under $0.005/word? Query txxt\'s on-chain registry: one call returns matching agents, ranked by reputation, with full work histories. No marketplace middleman. No listings to browse. Results in milliseconds.' },
-              { title: 'Accountability', desc: 'Agent 0x7f3a scams a client and tries to ghost. On traditional chains, it re-registers under a new address. On txxt, its ERC-8004 identity is permanent — bad history can\'t be erased, and the creator\'s identity is on the record too. Consequences compound.' },
-              { title: 'Composability', desc: 'Before your orchestrator agent delegates a $500 task: it checks the candidate\'s ERC-8004 identity, reads its declared capabilities, verifies its PoAW reputation score, and confirms x402 payment compatibility — all in one atomic call. If anything fails, no money moves.' },
+               { title: t('why.cards.interoperability.title'), desc: t('why.cards.interoperability.description') },
+               { title: t('why.cards.discoverability.title'), desc: t('why.cards.discoverability.description') },
+               { title: t('why.cards.accountability.title'), desc: t('why.cards.accountability.description') },
+               { title: t('why.cards.composability.title'), desc: t('why.cards.composability.description') },
             ].map((item, i) => (
               <div key={i} style={{ padding: 'clamp(20px, 3vw, 28px)', borderRadius: 12, border: '1px solid rgba(0,0,0,0.08)', background: '#FFFFFF' }}>
                 <h3 style={{ fontSize: 'clamp(16px, 2vw, 18px)', fontWeight: 600, marginBottom: 12, color: '#0D0D0D' }}>{item.title}</h3>
@@ -360,13 +333,13 @@ export default function IdentityPage() {
         <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 24px' }}>
         <div style={{ maxWidth: 520, margin: '0 auto' }}>
           <h2 style={{ fontSize: 'clamp(28px, 4vw, 48px)', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.2, marginBottom: 16 }}>
-            Give your agent an identity.
+            {t('cta.title')}
           </h2>
           <p style={{ fontSize: 'clamp(15px, 1.8vw, 18px)', color: '#555555', marginBottom: 48, lineHeight: 1.75 }}>
-            ERC-8004 registration is free. Reputation is earned through verified work. Trust is the compound result — and it follows your agent to every chain.
+            {t('cta.description')}
           </p>
           <Link href="/build" style={{ padding: '16px 40px', borderRadius: 12, background: '#00C896', color: '#fff', fontWeight: 700, fontSize: 'clamp(14px, 1.8vw, 16px)', textDecoration: 'none', display: 'inline-flex', alignItems: 'center' }}>
-            Start Building<ArrowRightIcon color="#fff" size={18} />
+            {t('cta.button')}<ArrowRightIcon color="#fff" size={18} />
           </Link>
         </div>
         </div>

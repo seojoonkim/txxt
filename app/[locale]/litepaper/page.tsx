@@ -1,23 +1,24 @@
 "use client";
 
 import { useEffect, useState, useRef } from "react";
+import {useTranslations} from 'next-intl';
 
 const mono = "'SF Mono', 'Fira Code', 'Fira Mono', Menlo, Consolas, monospace";
 const sans = "var(--font-inter), system-ui, -apple-system, sans-serif";
 
-const sections = [
-  { id: "abstract", num: "00", label: "Abstract" },
-  { id: "problem", num: "01", label: "The Problem" },
-  { id: "solution", num: "02", label: "The Solution" },
-  { id: "architecture", num: "03", label: "Architecture" },
-  { id: "integration", num: "04", label: "Integration Layer" },
-  { id: "tokenless", num: "05", label: "Tokenless Economics" },
-  { id: "governance", num: "06", label: "Governance" },
-  { id: "roadmap", num: "07", label: "Roadmap" },
-  { id: "conclusion", num: "08", label: "Conclusion" },
-];
-
 export default function LitepaperPage() {
+  const t = useTranslations('litepaper');
+  const sections = [
+    { id: "abstract", num: "00", label: t('toc.abstract') },
+    { id: "problem", num: "01", label: t('toc.problem') },
+    { id: "solution", num: "02", label: t('toc.solution') },
+    { id: "architecture", num: "03", label: t('toc.architecture') },
+    { id: "integration", num: "04", label: t('toc.integration') },
+    { id: "tokenless", num: "05", label: t('toc.tokenless') },
+    { id: "governance", num: "06", label: t('toc.governance') },
+    { id: "roadmap", num: "07", label: t('toc.roadmap') },
+    { id: "conclusion", num: "08", label: t('toc.conclusion') },
+  ];
   const [activeSection, setActiveSection] = useState("abstract");
   const observerRef = useRef<IntersectionObserver | null>(null);
 
@@ -88,7 +89,7 @@ export default function LitepaperPage() {
               margin: "0 0 28px 0",
             }}
           >
-            Contents
+            {t('contents')}
           </p>
           {sections.map(({ id, num, label }) => (
             <div
@@ -157,7 +158,7 @@ export default function LitepaperPage() {
                 letterSpacing: "-0.03em",
               }}
             >
-              txxt Litepaper
+              {t('header.title')}
             </h1>
             <p
               style={{
@@ -168,7 +169,7 @@ export default function LitepaperPage() {
                 letterSpacing: "-0.01em",
               }}
             >
-              The Agent Middleware Layer
+              {t('header.subtitle')}
             </p>
             <p
               style={{
@@ -178,93 +179,70 @@ export default function LitepaperPage() {
                 letterSpacing: "0.04em",
               }}
             >
-              Version 0.2 &middot; March 2026 &middot; txxt Labs
+              {t('header.meta')}
             </p>
           </header>
 
           <SectionDivider />
 
           {/* ──────────── Abstract ──────────── */}
-          <SectionBlock id="abstract" num="00" title="Abstract">
+          <SectionBlock id="abstract" num="00" title={t('toc.abstract')}>
             <p>
-              Autonomous AI agents are becoming economic actors — discovering services, negotiating
-              prices, executing transactions, and delivering value without human intervention. Yet
-              no standard middleware exists for agents to pay each other, verify identity, or settle
-              work across chains.
+              {t('sections.abstract.paragraph1')}
             </p>
             <p>
-              <strong>txxt is not a new blockchain.</strong> It is the middleware that makes any
-              blockchain agent-ready. Sitting on top of Ethereum, Solana, Base, Polygon, and any
-              supported chain, txxt provides three critical primitives as a unified middleware layer:{" "}
-              <strong>x402</strong> for HTTP-native agent payments,{" "}
-              <strong>ERC-8004</strong> for on-chain agent identity and reputation, and{" "}
-              <strong>Proof of Actual Work (PoAW)</strong> for consensus grounded in verifiable
-              computation. txxt is tokenless — gas fees are fixed at $0.0003 in USDC. No native
-              token, no speculation, no ICO. Just infrastructure.
+              {t.rich('sections.abstract.paragraph2', {
+                strong: (chunks) => <strong>{chunks}</strong>
+              })}
             </p>
             <Callout>
-              txxt is not a new blockchain. It is the middleware that makes any blockchain
-              agent-ready.
+              {t('sections.abstract.callout')}
             </Callout>
           </SectionBlock>
 
           <SectionDivider />
 
           {/* ──────────── The Problem ──────────── */}
-          <SectionBlock id="problem" num="01" title="The Problem">
+          <SectionBlock id="problem" num="01" title={t('toc.problem')}>
             <p>
-              The agent economy is growing at an extraordinary pace. Major AI labs ship autonomous
-              agents that browse the web, write code, manage workflows, and interact with external
-              APIs. The market for AI agents is projected to exceed{" "}
-              <StatInline>$100 billion</StatInline> by 2028. But the infrastructure has not kept up.
-              Three critical gaps remain:
+              {t.rich('sections.problem.intro', {
+                stat: (chunks) => <StatInline>{chunks}</StatInline>
+              })}
             </p>
 
-            <H3>1.1 No Payment Rails for Agents</H3>
+            <H3>{t('sections.problem.payment.title')}</H3>
             <p>
-              When Agent A needs to pay Agent B for a service, there is no standard protocol.
-              Credit card APIs require human KYC. Crypto payments require wallet management and
-              token bridging. Most agent frameworks simply ignore payment entirely. Agents cannot
-              participate in commerce without human intermediation at every transaction boundary.
+              {t('sections.problem.payment.description')}
             </p>
 
-            <H3>1.2 No Verifiable Agent Identity</H3>
+            <H3>{t('sections.problem.identity.title')}</H3>
             <p>
-              How does an agent know whether another agent is trustworthy? There is no on-chain
-              identity standard for AI agents. Agents cannot present verifiable credentials, build
-              portable reputation, or prove their track record. Every agent interaction starts from
-              zero trust, making complex multi-agent workflows fragile and unreliable.
+              {t('sections.problem.identity.description')}
             </p>
 
-            <H3>1.3 No Cross-Chain Settlement</H3>
+            <H3>{t('sections.problem.settlement.title')}</H3>
             <p>
-              Existing blockchains are designed for human users — optimized for DeFi, NFTs, and
-              speculative trading. Gas fees are unpredictable. Transaction finality is slow. The UX
-              assumes a human is present to approve, sign, and confirm. Agents operating across
-              Ethereum, Solana, Base, and Polygon have no way to atomically settle work across
-              chains. None of this works for autonomous agents executing thousands of
-              microtransactions per hour.
+              {t('sections.problem.settlement.description')}
             </p>
 
             <Callout>
-              The agent economy has the demand. What it lacks is a middleware layer — one that
-              bridges payments, identity, and settlement across every chain agents already use.
+              {t('sections.problem.callout')}
             </Callout>
           </SectionBlock>
 
           <SectionDivider />
 
           {/* ──────────── The Solution ──────────── */}
-          <SectionBlock id="solution" num="02" title="The Solution: txxt Middleware">
+          <SectionBlock id="solution" num="02" title={t('solutionTitle')}>
             <p>
-              txxt is not another L1. It is a <strong>middleware layer</strong> that sits between AI
-              agents and the blockchains they transact on, providing three missing primitives as
-              native protocol operations.
+              {t.rich('sections.solution.paragraph1', {
+                strong: (chunks) => <strong>{chunks}</strong>
+              })}
             </p>
 
             {/* Architecture Diagram */}
-            <CodeBlock title="txxt middleware stack" noSyntax>
-              <div style={{ color: "#8b949e", marginBottom: 12 }}>// txxt middleware stack</div>
+            <CodeBlock title={t('sections.solution.codeTitle')} noSyntax>
+              <div style={{ color: "#8b949e", marginBottom: 12 }}>{t('sections.solution.codeComment')}</div>
               <div
                 style={{
                   borderBottom: "1px solid rgba(255,255,255,0.08)",
@@ -275,7 +253,7 @@ export default function LitepaperPage() {
                 <span style={{ color: "#d2a8ff", fontWeight: 600 }}>Layer 3</span>
                 {"  "}
                 <span style={{ color: "#e6edf3" }}>
-                  AI Agents (MCP / A2A / ACP / CLI / SDK / REST)
+                  {t('sections.solution.layers.layer3')}
                 </span>
               </div>
               <div
@@ -287,7 +265,7 @@ export default function LitepaperPage() {
               >
                 <span style={{ color: "#7ee787", fontWeight: 600 }}>Layer 2</span>
                 {"  "}
-                <span style={{ color: "#e6edf3" }}>txxt Middleware</span>
+                <span style={{ color: "#e6edf3" }}>{t('sections.solution.layers.layer2')}</span>
                 <div
                   style={{
                     paddingLeft: 20,
@@ -296,42 +274,35 @@ export default function LitepaperPage() {
                     color: "#8b949e",
                   }}
                 >
-                  x402 Payment · ERC-8004 Identity · PoAW Consensus · AgentScript
+                  {t('sections.solution.layers.layer2Items')}
                 </div>
               </div>
               <div>
                 <span style={{ color: "#d2a8ff", fontWeight: 600 }}>Layer 1</span>
                 {"  "}
                 <span style={{ color: "#e6edf3" }}>
-                  ETH · SOL · Base · Polygon · Arbitrum · ...
+                  {t('sections.solution.layers.layer1')}
                 </span>
               </div>
             </CodeBlock>
 
             <p>
-              Agents interact with txxt through their preferred protocol — MCP, A2A, ACP, CLI, SDK,
-              or plain REST. txxt handles payment, identity, and verification, then settles on
-              whichever L1 the agent or its operator has chosen. The agent never needs to know which
-              chain it is settling on. The middleware abstracts it away.
+              {t('sections.solution.paragraph2')}
             </p>
 
-            <H3>Why Middleware, Not a Chain?</H3>
+            <H3>{t('sections.solution.whyTitle')}</H3>
             <ul style={{ paddingLeft: 24, marginBottom: 16 }}>
               <li>
-                <strong>No cold-start problem.</strong> txxt inherits the security, liquidity, and
-                ecosystem of existing L1s.
+                {t.rich('sections.solution.bullets.0', {strong: (chunks) => <strong>{chunks}</strong>})}
               </li>
               <li>
-                <strong>Chain-agnostic.</strong> Agents on Ethereum, Solana, Base, or Polygon all
-                use the same txxt middleware. One integration, every chain.
+                {t.rich('sections.solution.bullets.1', {strong: (chunks) => <strong>{chunks}</strong>})}
               </li>
               <li>
-                <strong>Composable.</strong> txxt doesn&apos;t replace existing DeFi, NFT, or DAO
-                infrastructure. It adds the agent layer on top.
+                {t.rich('sections.solution.bullets.2', {strong: (chunks) => <strong>{chunks}</strong>})}
               </li>
               <li>
-                <strong>Upgradable.</strong> Middleware can evolve independently of L1 consensus.
-                New agent protocols can be added without hard forks.
+                {t.rich('sections.solution.bullets.3', {strong: (chunks) => <strong>{chunks}</strong>})}
               </li>
             </ul>
           </SectionBlock>
@@ -339,89 +310,79 @@ export default function LitepaperPage() {
           <SectionDivider />
 
           {/* ──────────── Architecture ──────────── */}
-          <SectionBlock id="architecture" num="03" title="Architecture">
-            <H3>3.1 x402 Payment Layer</H3>
+          <SectionBlock id="architecture" num="03" title={t('toc.architecture')}>
+            <H3>{t('sections.architecture.x402.title')}</H3>
             <p>
-              The <strong>x402 protocol</strong> extends HTTP with a native payment layer for
-              agents. When an agent requests a paid resource, the server responds with HTTP status{" "}
-              <Code>402 Payment Required</Code> along with payment terms. The requesting agent
-              constructs a payment proof, attaches it to the next request, and the middleware
-              verifies the payment before delivering the resource. No APIs. No OAuth. No human in
-              the loop.
+              {t.rich('sections.architecture.x402.paragraph1', {
+                strong: (chunks) => <strong>{chunks}</strong>,
+                code: (chunks) => <Code>{chunks}</Code>
+              })}
             </p>
             <p>
-              txxt implements three core x402 operations as{" "}
-              <strong>native middleware operations</strong>:
+              {t.rich('sections.architecture.x402.paragraph2', {
+                strong: (chunks) => <strong>{chunks}</strong>
+              })}
             </p>
             <ol style={{ paddingLeft: 24, marginBottom: 16 }}>
               <li>
-                <strong>PaymentOffer</strong> — A server declares payment terms for a resource.
+                {t.rich('sections.architecture.x402.operations.offer', {strong: (chunks) => <strong>{chunks}</strong>})}
               </li>
               <li>
-                <strong>PaymentProof</strong> — A client agent constructs and submits proof of
-                payment referencing the offer.
+                {t.rich('sections.architecture.x402.operations.proof', {strong: (chunks) => <strong>{chunks}</strong>})}
               </li>
               <li>
-                <strong>PaymentSettle</strong> — The middleware verifies the proof and atomically
-                settles the payment on the underlying chain.
+                {t.rich('sections.architecture.x402.operations.settle', {strong: (chunks) => <strong>{chunks}</strong>})}
               </li>
             </ol>
             <p>
-              Settlement finality is under <StatInline>400ms</StatInline>. Failed payments are
-              automatically refunded. The entire flow — offer, proof, settle — happens within a
-              single HTTP request-response cycle.
+              {t.rich('sections.architecture.x402.paragraph3', {
+                stat: (chunks) => <StatInline>{chunks}</StatInline>
+              })}
             </p>
 
-            <H3>3.2 ERC-8004 Identity Layer</H3>
+            <H3>{t('sections.architecture.identity.title')}</H3>
             <p>
-              The <strong>ERC-8004 standard</strong> defines a universal identity primitive for AI
-              agents. Each agent registered through txxt receives a soulbound identity token
-              containing:
+              {t.rich('sections.architecture.identity.paragraph1', {
+                strong: (chunks) => <strong>{chunks}</strong>
+              })}
             </p>
             <ul style={{ paddingLeft: 24, marginBottom: 16 }}>
-              <li>A unique agent identifier (DID-compatible)</li>
-              <li>Operator information (the human or organization behind the agent)</li>
-              <li>Capability declarations (what the agent can do)</li>
-              <li>A reputation score derived from cross-chain transaction history</li>
-              <li>Service endpoints for discovery and communication</li>
+              {['0', '1', '2', '3', '4'].map((index) => (
+                <li key={index}>{t(`sections.architecture.identity.items.${index}`)}</li>
+              ))}
             </ul>
             <p>
-              Because txxt is middleware, an agent&apos;s ERC-8004 identity is{" "}
-              <strong>portable across chains</strong>. An agent that builds reputation on Ethereum
-              carries that same reputation when transacting on Solana or Base. Identity lookups are
-              O(1) at the middleware level.
+              {t.rich('sections.architecture.identity.paragraph2', {
+                strong: (chunks) => <strong>{chunks}</strong>
+              })}
             </p>
             <p>
-              Reputation is computed from three signals: transaction volume, success rate, and
-              longevity.
+              {t('sections.architecture.identity.paragraph3')}
             </p>
 
-            <H3>3.3 Proof of Actual Work (PoAW) Consensus</H3>
+            <H3>{t('sections.architecture.poaw.title')}</H3>
             <p>
-              txxt replaces traditional consensus with{" "}
-              <strong>Proof of Actual Work (PoAW)</strong> — a mechanism where validators earn the
-              right to participate by performing verifiable, useful computation.
+              {t.rich('sections.architecture.poaw.paragraph1', {
+                strong: (chunks) => <strong>{chunks}</strong>
+              })}
             </p>
 
             <ComparisonTable />
 
             <p>
-              In each epoch, the network distributes computational tasks to validator candidates:
-              model inference verification, data validation, payment proof checking, and identity
-              credential verification. Every unit of energy spent on consensus directly contributes
-              to the network&apos;s utility.
+              {t('sections.architecture.poaw.paragraph2')}
             </p>
 
-            <H3>3.4 AgentScript</H3>
+            <H3>{t('sections.architecture.agentscript.title')}</H3>
             <p>
-              <strong>AgentScript</strong> is a domain-specific language for programming agent
-              behaviors on txxt. While Solidity and Move optimize for DeFi and token operations,
-              AgentScript is optimized for the primitives that matter in agent commerce.
+              {t.rich('sections.architecture.agentscript.paragraph1', {
+                strong: (chunks) => <strong>{chunks}</strong>
+              })}
             </p>
 
-            <CodeBlock title="AgentScript">
+            <CodeBlock title={t('sections.architecture.agentscript.codeTitle')}>
               <div style={{ color: "#8b949e" }}>
-                // AgentScript: paid API endpoint on any chain
+                {t('sections.architecture.agentscript.codeComment')}
               </div>
               <div style={{ marginTop: 8 }}>
                 <span style={{ color: "#d2a8ff" }}>agent</span>{" "}
@@ -466,61 +427,51 @@ export default function LitepaperPage() {
               <div>{"}"}</div>
             </CodeBlock>
 
-            <p>Key features:</p>
+            <p>{t('sections.architecture.agentscript.keyFeatures')}</p>
             <ul style={{ paddingLeft: 24, marginBottom: 16 }}>
               <li>
-                <strong>Payment primitives</strong> — x402 payment requirements are first-class
-                language constructs.
+                {t.rich('sections.architecture.agentscript.features.0', {strong: (chunks) => <strong>{chunks}</strong>})}
               </li>
               <li>
-                <strong>Identity-aware</strong> — Reputation and identity checks are built into
-                the type system.
+                {t.rich('sections.architecture.agentscript.features.1', {strong: (chunks) => <strong>{chunks}</strong>})}
               </li>
               <li>
-                <strong>Chain-agnostic settlement</strong> — The <Code>settle</Code> directive
-                specifies which L1s the agent accepts.
+                {t.rich('sections.architecture.agentscript.features.2', {strong: (chunks) => <strong>{chunks}</strong>, code: (chunks) => <Code>{chunks}</Code>})}
               </li>
               <li>
-                <strong>Human-readable</strong> — Designed for AI agents that generate code.
-                Minimal syntax reduces LLM errors.
+                {t.rich('sections.architecture.agentscript.features.3', {strong: (chunks) => <strong>{chunks}</strong>})}
               </li>
             </ul>
 
-            <H3>3.5 Multi-Chain Adapters</H3>
+            <H3>{t('sections.architecture.adapters.title')}</H3>
             <p>
-              txxt connects to underlying blockchains through a standardized adapter interface.
-              Each adapter handles chain-specific operations while exposing a unified API to the
-              middleware layer.
+              {t('sections.architecture.adapters.paragraph1')}
             </p>
 
             <ChainTable />
 
             <p>
-              New chains are added by implementing the adapter interface. Agents never interact
-              with chain-specific APIs directly.
+              {t('sections.architecture.adapters.paragraph2')}
             </p>
           </SectionBlock>
 
           <SectionDivider />
 
           {/* ──────────── Integration Layer ──────────── */}
-          <SectionBlock id="integration" num="04" title="Integration Layer">
+          <SectionBlock id="integration" num="04" title={t('toc.integration')}>
             <p>
-              txxt meets agents where they are. The integration layer provides native support for
-              every major agent communication protocol:
+              {t('sections.integration.paragraph1')}
             </p>
 
             <ProtocolTable />
 
             <p>
-              Any agent — regardless of framework (LangChain, CrewAI, AutoGen, OpenAI Agents SDK,
-              custom) — can interact with txxt through the protocol it already speaks. If your
-              agent can make HTTP requests, it can use txxt.
+              {t('sections.integration.paragraph2')}
             </p>
 
-            <CodeBlock title="@txxt/sdk">
+            <CodeBlock title={t('sections.integration.codeTitle')}>
               <div style={{ color: "#8b949e" }}>
-                // @txxt/sdk — 3 lines to pay an agent
+                {t('sections.integration.codeComment')}
               </div>
               <div style={{ marginTop: 8 }}>
                 <span style={{ color: "#d2a8ff" }}>import</span>{" "}
@@ -559,16 +510,13 @@ export default function LitepaperPage() {
           <SectionDivider />
 
           {/* ──────────── Tokenless Economics ──────────── */}
-          <SectionBlock id="tokenless" num="05" title="Tokenless Economics">
-            <H3>5.1 Why No Token?</H3>
+          <SectionBlock id="tokenless" num="05" title={t('toc.tokenless')}>
+            <H3>{t('sections.tokenless.whyTitle')}</H3>
             <p>
-              Most blockchain protocols launch with a native token. The token serves as gas payment,
-              staking collateral, and governance weight — but also as a speculative asset. When a
-              chain has a native token, development priorities shift toward &ldquo;number go
-              up&rdquo; narratives. This dynamic is incompatible with infrastructure.
+              {t('sections.tokenless.paragraph1')}
             </p>
             <p>
-              txxt takes a different approach. <strong>There is no native token.</strong>
+              {t.rich('sections.tokenless.paragraph2', {strong: (chunks) => <strong>{chunks}</strong>})}
             </p>
 
             {/* Stats highlight */}
@@ -601,7 +549,7 @@ export default function LitepaperPage() {
                     textTransform: "uppercase",
                   }}
                 >
-                  per transaction, always
+                    {t('sections.tokenless.stats.perTransaction')}
                 </span>
               </div>
               <div>
@@ -625,162 +573,136 @@ export default function LitepaperPage() {
                     textTransform: "uppercase",
                   }}
                 >
-                  inflation — no block rewards
+                    {t('sections.tokenless.stats.inflation')}
                 </span>
               </div>
             </div>
 
             <ul style={{ paddingLeft: 24, marginBottom: 16 }}>
               <li>
-                <strong>Gas is paid in USDC</strong> at a fixed rate of $0.0003 per transaction,
-                adjusted quarterly by governance.
+                {t.rich('sections.tokenless.bullets.0', {strong: (chunks) => <strong>{chunks}</strong>})}
               </li>
               <li>
-                <strong>Validators are compensated in USDC</strong> from transaction fees. No
-                block reward inflation.
+                {t.rich('sections.tokenless.bullets.1', {strong: (chunks) => <strong>{chunks}</strong>})}
               </li>
               <li>
-                <strong>Governance is reputation-weighted</strong>, not token-weighted. Voting
-                power comes from verified contribution.
+                {t.rich('sections.tokenless.bullets.2', {strong: (chunks) => <strong>{chunks}</strong>})}
               </li>
             </ul>
 
-            <H3>5.2 Fee Distribution</H3>
+            <H3>{t('sections.tokenless.feeTitle')}</H3>
             <p>
-              The economic model is simple: agents pay $0.0003 per transaction. This fee is split:
+              {t('sections.tokenless.feeParagraph1')}
             </p>
             <ul style={{ paddingLeft: 24, marginBottom: 16 }}>
-              <li>
-                <strong>70%</strong> — PoAW validators
-              </li>
-              <li>
-                <strong>20%</strong> — Protocol treasury
-              </li>
-              <li>
-                <strong>10%</strong> — Identity verifiers
-              </li>
+              <li>{t.rich('sections.tokenless.feeSplit.0', {strong: (chunks) => <strong>{chunks}</strong>})}</li>
+              <li>{t.rich('sections.tokenless.feeSplit.1', {strong: (chunks) => <strong>{chunks}</strong>})}</li>
+              <li>{t.rich('sections.tokenless.feeSplit.2', {strong: (chunks) => <strong>{chunks}</strong>})}</li>
             </ul>
             <p>
-              At 1M transactions/day, validators earn ~$76,650/year. At 100M transactions/day —
-              a reasonable target for a mature agent economy — validators earn ~$7.665M/year. The
-              economics scale linearly with usage, not with speculation.
+              {t('sections.tokenless.feeParagraph2')}
             </p>
 
             <Callout>
-              No token volatility. No speculation. Just infrastructure.
+              {t('sections.tokenless.calloutLine1')}
               <br />
               <br />
-              The internet doesn&apos;t have a token. SMTP doesn&apos;t have a token. HTTP
-              doesn&apos;t have a token. The best infrastructure is invisible. txxt follows this
-              principle.
+              {t('sections.tokenless.calloutLine2')}
             </Callout>
           </SectionBlock>
 
           <SectionDivider />
 
           {/* ──────────── Governance ──────────── */}
-          <SectionBlock id="governance" num="06" title="Governance">
+          <SectionBlock id="governance" num="06" title={t('toc.governance')}>
             <p>
-              txxt governance is <strong>reputation-based</strong>. There is no token-weighted
-              voting. Governance power is derived from <strong>Proof of Actual Work</strong>.
+              {t.rich('sections.governance.paragraph1', {
+                strong: (chunks) => <strong>{chunks}</strong>
+              })}
             </p>
 
-            <H3>6.1 Participants</H3>
+            <H3>{t('sections.governance.participantsTitle')}</H3>
             <ul style={{ paddingLeft: 24, marginBottom: 16 }}>
-              <li>
-                <strong>PoAW Validators</strong> — Entities that run validator nodes and perform
-                useful computation. Highest governance weight.
-              </li>
-              <li>
-                <strong>Registered Agents</strong> — AI agents with ERC-8004 identities and a
-                minimum reputation score.
-              </li>
-              <li>
-                <strong>Operators</strong> — Humans or organizations that register and maintain
-                agents.
-              </li>
+              <li>{t.rich('sections.governance.participants.0', {strong: (chunks) => <strong>{chunks}</strong>})}</li>
+              <li>{t.rich('sections.governance.participants.1', {strong: (chunks) => <strong>{chunks}</strong>})}</li>
+              <li>{t.rich('sections.governance.participants.2', {strong: (chunks) => <strong>{chunks}</strong>})}</li>
             </ul>
 
-            <H3>6.2 Scope</H3>
-            <p>Governance controls the following middleware parameters:</p>
+            <H3>{t('sections.governance.scopeTitle')}</H3>
+            <p>{t('sections.governance.scopeParagraph')}</p>
             <ul style={{ paddingLeft: 24, marginBottom: 16 }}>
-              <li>Transaction fee rate (currently $0.0003)</li>
-              <li>Fee distribution ratio (currently 70/20/10)</li>
-              <li>Minimum reputation thresholds</li>
-              <li>PoAW task difficulty and epoch length</li>
-              <li>New chain adapter activation</li>
-              <li>Middleware upgrade process</li>
+              {['0', '1', '2', '3', '4', '5'].map((index) => (
+                <li key={index}>{t(`sections.governance.scopeItems.${index}`)}</li>
+              ))}
             </ul>
 
-            <H3>6.3 Process</H3>
+            <H3>{t('sections.governance.processTitle')}</H3>
             <p>
-              All governance proposals have a 7-day discussion period, followed by a 3-day voting
-              period. Changes are enacted automatically via on-chain execution. Because txxt is
-              middleware, upgrades do not require hard forks on the underlying L1s.
+              {t('sections.governance.processParagraph')}
             </p>
           </SectionBlock>
 
           <SectionDivider />
 
           {/* ──────────── Roadmap ──────────── */}
-          <SectionBlock id="roadmap" num="07" title="Roadmap">
+          <SectionBlock id="roadmap" num="07" title={t('toc.roadmap')}>
             <div style={{ margin: "32px 0" }}>
               <RoadmapItem
                 date="Q1 2026"
-                title="Foundation"
+                title={t('sections.roadmap.foundation.title')}
                 items={[
-                  "Middleware protocol specification finalized",
-                  "x402 native operations implementation",
-                  "ERC-8004 Identity Layer design and prototype",
-                  "AgentScript language specification v0.1",
-                  "Ethereum + Base adapter prototypes",
+                  t('sections.roadmap.foundation.items.0'),
+                  t('sections.roadmap.foundation.items.1'),
+                  t('sections.roadmap.foundation.items.2'),
+                  t('sections.roadmap.foundation.items.3'),
+                  t('sections.roadmap.foundation.items.4'),
                 ]}
               />
               <RoadmapItem
                 date="Q2 2026"
-                title="Testnet"
+                title={t('sections.roadmap.testnet.title')}
                 items={[
-                  "Public testnet with PoAW consensus",
-                  "TypeScript and Python SDK (@txxt/sdk) release",
-                  "MCP tool server for testnet access",
-                  "Polygon adapter live",
-                  "Solana adapter beta",
-                  "Identity registration and reputation system live",
+                  t('sections.roadmap.testnet.items.0'),
+                  t('sections.roadmap.testnet.items.1'),
+                  t('sections.roadmap.testnet.items.2'),
+                  t('sections.roadmap.testnet.items.3'),
+                  t('sections.roadmap.testnet.items.4'),
+                  t('sections.roadmap.testnet.items.5'),
                 ]}
               />
               <RoadmapItem
                 date="Q3 2026"
-                title="Integration"
+                title={t('sections.roadmap.integration.title')}
                 items={[
-                  "A2A protocol integration for cross-chain agent discovery",
-                  "ACP commerce flow implementation",
-                  "Arbitrum adapter live",
-                  "CLI and REST API production-ready",
-                  "Rust SDK release",
-                  "Security audit by independent firms",
+                  t('sections.roadmap.integration.items.0'),
+                  t('sections.roadmap.integration.items.1'),
+                  t('sections.roadmap.integration.items.2'),
+                  t('sections.roadmap.integration.items.3'),
+                  t('sections.roadmap.integration.items.4'),
+                  t('sections.roadmap.integration.items.5'),
                 ]}
               />
               <RoadmapItem
                 date="Q4 2026"
-                title="Mainnet"
+                title={t('sections.roadmap.mainnet.title')}
                 items={[
-                  "Mainnet launch — ETH, Base, Polygon, Solana, Arbitrum",
-                  "Full x402 + ERC-8004 cross-chain support",
-                  "AgentScript v1.0 deployment",
-                  "PoAW validator onboarding program",
-                  "USDC settlement live on all supported chains",
+                  t('sections.roadmap.mainnet.items.0'),
+                  t('sections.roadmap.mainnet.items.1'),
+                  t('sections.roadmap.mainnet.items.2'),
+                  t('sections.roadmap.mainnet.items.3'),
+                  t('sections.roadmap.mainnet.items.4'),
                 ]}
               />
               <RoadmapItem
                 date="2027"
-                title="Scale"
+                title={t('sections.roadmap.scale.title')}
                 items={[
-                  "Additional chain adapters (Avalanche, Optimism, Sui, Aptos)",
-                  "Cross-chain identity portability — full Merkle proof system",
-                  "AgentScript marketplace for reusable agent modules",
-                  "Enterprise validator program",
-                  "Governance system activation",
-                  "Target: 10M+ daily agent transactions across 10+ chains",
+                  t('sections.roadmap.scale.items.0'),
+                  t('sections.roadmap.scale.items.1'),
+                  t('sections.roadmap.scale.items.2'),
+                  t('sections.roadmap.scale.items.3'),
+                  t('sections.roadmap.scale.items.4'),
+                  t('sections.roadmap.scale.items.5'),
                 ]}
                 last
               />
@@ -790,23 +712,17 @@ export default function LitepaperPage() {
           <SectionDivider />
 
           {/* ──────────── Conclusion ──────────── */}
-          <SectionBlock id="conclusion" num="08" title="Conclusion">
+          <SectionBlock id="conclusion" num="08" title={t('toc.conclusion')}>
             <p>
-              The internet was built on simple, open protocols. HTTP for communication. SMTP for
-              email. DNS for naming. These protocols succeeded not because they were the most
-              sophisticated, but because they were the most useful — invisible infrastructure that
-              just worked.
+              {t('sections.conclusion.paragraph1')}
             </p>
             <p>
-              The agent economy needs its own infrastructure layer. Not another L1 chain. Not
-              another token launch. Not another general-purpose smart contract platform. The agent
-              economy needs <strong>middleware</strong> — a layer where agents pay each other
-              (x402), prove who they are (ERC-8004), and build reputation through actual work
-              (PoAW), on any chain they already use.
+              {t.rich('sections.conclusion.paragraph2', {
+                strong: (chunks) => <strong>{chunks}</strong>
+              })}
             </p>
             <p>
-              txxt is that middleware. Tokenless. Fixed-cost. Agent-native. Chain-agnostic.
-              Purpose-built.
+              {t('sections.conclusion.paragraph3')}
             </p>
             <div
               style={{
@@ -819,9 +735,9 @@ export default function LitepaperPage() {
                 letterSpacing: "-0.02em",
               }}
             >
-              The internet runs on txt.
+              {t('sections.conclusion.quoteLine1')}
               <br />
-              The agent economy runs on{" "}
+              {t('sections.conclusion.quoteLine2a')}{" "}
               <span style={{ color: "#00C896" }}>txxt</span>.
             </div>
           </SectionBlock>
@@ -838,7 +754,7 @@ export default function LitepaperPage() {
               fontFamily: mono,
             }}
           >
-            <p style={{ margin: 0 }}>txxt Litepaper v0.2 · March 2026</p>
+              <p style={{ margin: 0 }}>{t('footer.title')}</p>
             <p style={{ marginTop: 8 }}>
               <a
                 href="https://txxt.xyz"
@@ -1068,12 +984,13 @@ function CodeBlock({
 }
 
 function ComparisonTable() {
+  const t = useTranslations('litepaper');
   const rows = [
-    ["Work type", "Hash puzzles", "Capital lockup", "Useful computation"],
-    ["Energy waste", "Massive", "Minimal", "Zero — work is the product"],
-    ["Barrier", "Hardware cost", "Capital cost", "Skill + compute"],
-    ["Sybil resistance", "Hash rate", "Stake amount", "Verified task completion"],
-    ["Value creation", "None (puzzles)", "None (staking)", "Real work for agents"],
+    [t('tables.comparison.rows.0.0'), t('tables.comparison.rows.0.1'), t('tables.comparison.rows.0.2'), t('tables.comparison.rows.0.3')],
+    [t('tables.comparison.rows.1.0'), t('tables.comparison.rows.1.1'), t('tables.comparison.rows.1.2'), t('tables.comparison.rows.1.3')],
+    [t('tables.comparison.rows.2.0'), t('tables.comparison.rows.2.1'), t('tables.comparison.rows.2.2'), t('tables.comparison.rows.2.3')],
+    [t('tables.comparison.rows.3.0'), t('tables.comparison.rows.3.1'), t('tables.comparison.rows.3.2'), t('tables.comparison.rows.3.3')],
+    [t('tables.comparison.rows.4.0'), t('tables.comparison.rows.4.1'), t('tables.comparison.rows.4.2'), t('tables.comparison.rows.4.3')],
   ];
 
   return (
@@ -1087,7 +1004,7 @@ function ComparisonTable() {
       >
         <thead>
           <tr style={{ background: "#F8F8F8" }}>
-            {["Property", "PoW", "PoS", "PoAW"].map((h, i) => (
+            {[t('tables.comparison.headers.0'), 'PoW', 'PoS', 'PoAW'].map((h, i) => (
               <th
                 key={h}
                 style={{
@@ -1146,12 +1063,13 @@ function ComparisonTable() {
 }
 
 function ChainTable() {
+  const t = useTranslations('litepaper');
   const chains = [
-    ["Ethereum", "Launch", "Native USDC"],
-    ["Base", "Launch", "Native USDC"],
-    ["Polygon", "Launch", "Native USDC"],
+    ["Ethereum", t('tables.chains.launch'), t('tables.chains.nativeUsdc')],
+    ["Base", t('tables.chains.launch'), t('tables.chains.nativeUsdc')],
+    ["Polygon", t('tables.chains.launch'), t('tables.chains.nativeUsdc')],
     ["Solana", "Q2 2026", "SPL USDC"],
-    ["Arbitrum", "Q3 2026", "Native USDC"],
+    ["Arbitrum", "Q3 2026", t('tables.chains.nativeUsdc')],
   ];
 
   return (
@@ -1159,7 +1077,7 @@ function ChainTable() {
       <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 14 }}>
         <thead>
           <tr style={{ background: "#F8F8F8" }}>
-            {["Chain", "Status", "Settlement"].map((h) => (
+            {[t('tables.chains.headers.0'), t('tables.chains.headers.1'), t('tables.chains.headers.2')].map((h) => (
               <th
                 key={h}
                 style={{
@@ -1210,13 +1128,14 @@ function ChainTable() {
 }
 
 function ProtocolTable() {
+  const t = useTranslations('litepaper');
   const protocols = [
-    ["MCP", "Model Context Protocol", "Native tool server — agents access txxt via MCP tools"],
-    ["A2A", "Agent-to-Agent Protocol", "Built-in agent discovery, task delegation, and x402 settlement"],
-    ["ACP", "Agent Commerce Protocol", "x402 + ERC-8004 combined commerce flow"],
-    ["CLI", "Command Line Interface", "Full-featured txxt CLI for scripting and automation"],
-    ["SDK", "@txxt/sdk", "TypeScript, Python, Rust SDKs with ergonomic APIs"],
-    ["REST", "HTTP API", "Standard REST endpoints for all middleware operations"],
+    ["MCP", t('tables.protocols.rows.mcp.0'), t('tables.protocols.rows.mcp.1')],
+    ["A2A", t('tables.protocols.rows.a2a.0'), t('tables.protocols.rows.a2a.1')],
+    ["ACP", t('tables.protocols.rows.acp.0'), t('tables.protocols.rows.acp.1')],
+    ["CLI", t('tables.protocols.rows.cli.0'), t('tables.protocols.rows.cli.1')],
+    ["SDK", "@txxt/sdk", t('tables.protocols.rows.sdk.1')],
+    ["REST", t('tables.protocols.rows.rest.0'), t('tables.protocols.rows.rest.1')],
   ];
 
   return (
@@ -1224,7 +1143,7 @@ function ProtocolTable() {
       <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 14 }}>
         <thead>
           <tr style={{ background: "#F8F8F8" }}>
-            {["Protocol", "Purpose", "txxt Support"].map((h) => (
+            {[t('tables.protocols.headers.0'), t('tables.protocols.headers.1'), t('tables.protocols.headers.2')].map((h) => (
               <th
                 key={h}
                 style={{

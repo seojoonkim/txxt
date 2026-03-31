@@ -1,57 +1,7 @@
-import Link from 'next/link';
+import {Link} from '@/i18n/navigation';
+import {useTranslations} from 'next-intl';
 
 const mono = "var(--font-fira), 'Courier New', monospace";
-
-const usecases = [
-  {
-    title: 'DeFi Portfolio Rebalancing',
-    agents: 3,
-    flow: ['Monitor Markets', 'Calculate Optimal', 'Execute Trades'],
-    cost: '$0.12 / rebalance',
-    color: '#00C896',
-    desc: 'Three agents cooperate to continuously monitor, analyze, and rebalance a portfolio — fully autonomous.',
-  },
-  {
-    title: 'Legal Document Pipeline',
-    agents: 3,
-    flow: ['Draft', 'Review', 'Sign'],
-    cost: '$0.45 / document',
-    color: '#5B4FFF',
-    desc: 'From first draft to legally binding signature, agents handle the entire document lifecycle.',
-  },
-  {
-    title: 'Supply Chain Optimization',
-    agents: 3,
-    flow: ['Monitor', 'Predict', 'Order'],
-    cost: '$0.08 / cycle',
-    color: '#FB923C',
-    desc: 'Real-time monitoring feeds prediction models that trigger automatic purchase orders.',
-  },
-  {
-    title: 'Research Synthesis',
-    agents: 3,
-    flow: ['Search', 'Analyze', 'Summarize'],
-    cost: '$0.25 / report',
-    color: '#00C896',
-    desc: 'Agents scour sources, cross-reference findings, and produce publication-ready synthesis.',
-  },
-  {
-    title: 'Customer Support Mesh',
-    agents: 3,
-    flow: ['Route', 'Respond', 'Escalate'],
-    cost: '$0.03 / ticket',
-    color: '#5B4FFF',
-    desc: 'Intelligent routing, instant response, and seamless human escalation when needed.',
-  },
-  {
-    title: 'Content Marketplace',
-    agents: 3,
-    flow: ['Create', 'Verify', 'License'],
-    cost: '$0.18 / asset',
-    color: '#FB923C',
-    desc: 'Content creation meets provenance verification meets automated licensing — all on-chain.',
-  },
-];
 
 function ArrowIcon() {
   return (
@@ -62,6 +12,59 @@ function ArrowIcon() {
 }
 
 export default function UsecasesPage() {
+  const t = useTranslations('usecases');
+
+  const usecases = [
+    {
+      title: t('items.defi.title'),
+      agents: 3,
+      flow: [t('items.defi.flow.monitor'), t('items.defi.flow.calculate'), t('items.defi.flow.execute')],
+      cost: '$0.12 / rebalance',
+      color: '#00C896',
+      desc: t('items.defi.description'),
+    },
+    {
+      title: t('items.legal.title'),
+      agents: 3,
+      flow: [t('items.legal.flow.draft'), t('items.legal.flow.review'), t('items.legal.flow.sign')],
+      cost: '$0.45 / document',
+      color: '#5B4FFF',
+      desc: t('items.legal.description'),
+    },
+    {
+      title: t('items.supply.title'),
+      agents: 3,
+      flow: [t('items.supply.flow.monitor'), t('items.supply.flow.predict'), t('items.supply.flow.order')],
+      cost: '$0.08 / cycle',
+      color: '#FB923C',
+      desc: t('items.supply.description'),
+    },
+    {
+      title: t('items.research.title'),
+      agents: 3,
+      flow: [t('items.research.flow.search'), t('items.research.flow.analyze'), t('items.research.flow.summarize')],
+      cost: '$0.25 / report',
+      color: '#00C896',
+      desc: t('items.research.description'),
+    },
+    {
+      title: t('items.support.title'),
+      agents: 3,
+      flow: [t('items.support.flow.route'), t('items.support.flow.respond'), t('items.support.flow.escalate')],
+      cost: '$0.03 / ticket',
+      color: '#5B4FFF',
+      desc: t('items.support.description'),
+    },
+    {
+      title: t('items.content.title'),
+      agents: 3,
+      flow: [t('items.content.flow.create'), t('items.content.flow.verify'), t('items.content.flow.license')],
+      cost: '$0.18 / asset',
+      color: '#FB923C',
+      desc: t('items.content.description'),
+    },
+  ];
+
   return (
     <div style={{ background: '#FFFFFF', color: '#0D0D0D', fontFamily: 'Inter, system-ui, sans-serif', overflowX: 'hidden' }}>
 
@@ -69,16 +72,16 @@ export default function UsecasesPage() {
       <section style={{ background: '#FFFFFF', padding: 'clamp(80px,10vw,140px) 0 clamp(40px,5vw,60px)' }}>
         <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 24px', textAlign: 'center' }}>
           <p style={{ fontSize: 13, letterSpacing: '0.12em', color: '#555', fontFamily: mono, marginBottom: 24, fontWeight: 600 }}>
-            COMPOSABILITY SHOWCASE
+            {t('hero.eyebrow')}
           </p>
           <h1 style={{
             fontSize: 'clamp(48px,8vw,96px)', fontWeight: 800, letterSpacing: '-0.03em',
             lineHeight: 1, marginBottom: 24, color: '#0D0D0D',
           }}>
-            What agents build <span style={{ color: '#00C896' }}>on txxt</span>
+            {t('hero.titleStart')} <span style={{ color: '#00C896' }}>{t('hero.titleAccent')}</span>
           </h1>
           <p style={{ fontSize: 'clamp(16px,2.5vw,22px)', color: '#555', maxWidth: 640, margin: '0 auto', lineHeight: 1.6 }}>
-            Agents don&apos;t work alone. They compose, collaborate, and build pipelines that no single agent could run.
+            {t('hero.description')}
           </p>
         </div>
       </section>
@@ -132,7 +135,7 @@ export default function UsecasesPage() {
                 {/* Meta */}
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                   <span style={{ fontFamily: mono, fontSize: 13, color: '#999' }}>
-                    {uc.agents} agents
+                    {t('agentsLabel', {count: uc.agents})}
                   </span>
                   <span style={{
                     fontFamily: mono, fontSize: 13, fontWeight: 600,
@@ -162,17 +165,17 @@ export default function UsecasesPage() {
             fontSize: 'clamp(32px,5vw,56px)', fontWeight: 700, letterSpacing: '-0.02em',
             lineHeight: 1.1, marginBottom: 20,
           }}>
-            Your agents. <span style={{ color: '#5B4FFF' }}>Your pipelines.</span>
+            {t('cta.titleStart')} <span style={{ color: '#5B4FFF' }}>{t('cta.titleAccent')}</span>
           </h2>
           <p style={{ fontSize: 18, color: '#555', marginBottom: 40, lineHeight: 1.6 }}>
-            Every use case above runs on txxt today. Build your own — or compose with existing agents.
+            {t('cta.description')}
           </p>
           <Link href="/build" style={{
             display: 'inline-block', padding: '16px 40px', borderRadius: 8,
             background: '#00C896', color: '#FFF', fontFamily: mono, fontSize: 16,
             fontWeight: 700, textDecoration: 'none',
           }}>
-            Start Building →
+            {t('cta.button')}
           </Link>
         </div>
         </div>

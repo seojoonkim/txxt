@@ -1,7 +1,8 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import Link from 'next/link';
+import {Link} from '@/i18n/navigation';
+import {useTranslations} from 'next-intl';
 
 const mono = "var(--font-fira), 'Courier New', monospace";
 
@@ -27,6 +28,7 @@ function TerminalCursor() {
 
 /* ===== Layered Architecture Diagram (Card-based) ===== */
 function LayeredArchDiagram() {
+  const t = useTranslations('home.diagram');
   const agents = [
     { label: 'TravelBot', color: '#5B4FFF' },
     { label: 'TradeAgent', color: '#00BF8A' },
@@ -42,9 +44,9 @@ function LayeredArchDiagram() {
     { label: 'Arbitrum', color: '#28A0F0' },
   ];
   const protocols = [
-    { label: 'x402 Payments', color: '#00BF8A' },
-    { label: 'ERC-8004 Identity', color: '#5B4FFF' },
-    { label: 'PoAW Validation', color: '#00BF8A' },
+    { label: t('paymentLabel'), color: '#00BF8A' },
+    { label: t('identityLabel'), color: '#5B4FFF' },
+    { label: t('validationLabel'), color: '#00BF8A' },
   ];
 
   const cardBase: React.CSSProperties = {
@@ -89,7 +91,7 @@ function LayeredArchDiagram() {
           color: '#888', fontFamily: mono, margin: '0 0 14px',
           textTransform: 'uppercase', textAlign: 'center',
         }}>
-          AI Agents — Request Layer
+          {t('agentsLayer')}
         </p>
         <div style={{ display: 'flex', flexWrap: 'wrap' as const, gap: 8, justifyContent: 'center' }}>
           {agents.map(a => (
@@ -131,7 +133,7 @@ function LayeredArchDiagram() {
             fontSize: 11, letterSpacing: '0.14em', fontWeight: 700,
             color: '#888', fontFamily: mono, textTransform: 'uppercase',
           }}>
-            Middleware Layer
+            {t('middlewareLayer')}
           </span>
         </div>
         <div style={{ display: 'flex', flexWrap: 'wrap' as const, gap: 8, justifyContent: 'center' }}>
@@ -151,7 +153,7 @@ function LayeredArchDiagram() {
           fontSize: 12, color: 'rgba(0,0,0,0.4)', fontFamily: mono,
           margin: '14px 0 0', lineHeight: 1.6, textAlign: 'center',
         }}>
-          x402 payment + ERC-8004 identity + PoAW verification → one atomic call, routed to any chain
+          {t('middlewareDescription')}
         </p>
       </div>
 
@@ -169,7 +171,7 @@ function LayeredArchDiagram() {
           color: '#888', fontFamily: mono, margin: '0 0 14px',
           textTransform: 'uppercase', textAlign: 'center',
         }}>
-          Settlement Chains
+          {t('settlementLayer')}
         </p>
         <div style={{ display: 'flex', flexWrap: 'wrap' as const, gap: 8, justifyContent: 'center' }}>
           {chains.map(c => (
@@ -189,8 +191,45 @@ function LayeredArchDiagram() {
 }
 
 export default function Home() {
+  const t = useTranslations('home');
   const [copied, setCopied] = useState(false);
   const [txCount, setTxCount] = useState(10000);
+
+  const differentiators = [
+    { icon: (color: string) => <svg width="56" height="56" viewBox="0 0 56 56" fill="none"><rect width="56" height="56" rx="14" fill={color}/><rect x="12" y="18" width="32" height="20" rx="4" stroke="white" strokeWidth="2.5"/><path d="M12 26h32" stroke="white" strokeWidth="2.5"/><rect x="16" y="30" width="8" height="3" rx="1.5" fill="white"/><rect x="27" y="30" width="5" height="3" rx="1.5" fill="white"/></svg>, word: t('solution.cards.payments.word'), title: t('solution.cards.payments.title'), desc: t('solution.cards.payments.description'), color: '#00BF8A', num: '01' },
+    { icon: (color: string) => <svg width="56" height="56" viewBox="0 0 56 56" fill="none"><rect width="56" height="56" rx="14" fill={color}/><circle cx="28" cy="21" r="7" stroke="white" strokeWidth="2.5"/><path d="M14 42c0-7.732 6.268-14 14-14s14 6.268 14 14" stroke="white" strokeWidth="2.5" strokeLinecap="round"/></svg>, word: t('solution.cards.identity.word'), title: t('solution.cards.identity.title'), desc: t('solution.cards.identity.description'), color: '#5B4FFF', num: '02' },
+    { icon: (color: string) => <svg width="56" height="56" viewBox="0 0 56 56" fill="none"><rect width="56" height="56" rx="14" fill={color}/><path d="M28 12L34 22H44L36 29L39 40L28 33L17 40L20 29L12 22H22L28 12Z" stroke="white" strokeWidth="2.5" strokeLinejoin="round"/></svg>, word: t('solution.cards.atomic.word'), title: t('solution.cards.atomic.title'), desc: t('solution.cards.atomic.description'), color: '#F59E0B', num: '03' },
+    { icon: (color: string) => <svg width="56" height="56" viewBox="0 0 56 56" fill="none"><rect width="56" height="56" rx="14" fill={color}/><path d="M28 10L30.5 20H40L32.5 26L35 36L28 30.5L21 36L23.5 26L16 20H25.5L28 10Z" fill="white"/><circle cx="28" cy="46" r="2.5" fill="white"/></svg>, word: t('solution.cards.result.word'), title: t('solution.cards.result.title'), desc: t('solution.cards.result.description'), color: '#00BF8A', num: '04' },
+  ];
+
+  const comparisonRows = [
+    { area: t('comparison.rows.identity.area'), diy: t('comparison.rows.identity.diy'), txxt: t('comparison.rows.identity.txxt'), color: '#5B4FFF' },
+    { area: t('comparison.rows.payments.area'), diy: t('comparison.rows.payments.diy'), txxt: t('comparison.rows.payments.txxt'), color: '#00BF8A' },
+    { area: t('comparison.rows.verification.area'), diy: t('comparison.rows.verification.diy'), txxt: t('comparison.rows.verification.txxt'), color: '#00BF8A' },
+    { area: t('comparison.rows.multichain.area'), diy: t('comparison.rows.multichain.diy'), txxt: t('comparison.rows.multichain.txxt'), color: '#5B4FFF' },
+    { area: t('comparison.rows.onboarding.area'), diy: t('comparison.rows.onboarding.diy'), txxt: t('comparison.rows.onboarding.txxt'), color: '#00BF8A' },
+  ];
+
+  const proofRows = [
+    { label: t('proof.table.gasFees.label'), them: t('proof.table.gasFees.them'), us: t('proof.table.gasFees.us') },
+    { label: t('proof.table.cost.label'), them: t('proof.table.cost.them'), us: t('proof.table.cost.us') },
+    { label: 'x402', them: t('proof.table.x402.them'), us: t('proof.table.x402.us') },
+    { label: 'ERC-8004', them: t('proof.table.erc8004.them'), us: t('proof.table.erc8004.us') },
+    { label: t('proof.table.atomic.label'), them: t('proof.table.atomic.them'), us: t('proof.table.atomic.us') },
+    { label: t('proof.table.governance.label'), them: t('proof.table.governance.them'), us: t('proof.table.governance.us') },
+  ];
+
+  const integrationCards = [
+    { label: 'MCP', fullName: t('integrations.cards.mcp.fullName'), by: t('integrations.cards.mcp.by'), desc: t('integrations.cards.mcp.description'), color: '#FF6B35' },
+    { label: 'A2A', fullName: t('integrations.cards.a2a.fullName'), by: t('integrations.cards.a2a.by'), desc: t('integrations.cards.a2a.description'), color: '#4285F4' },
+    { label: 'ACP', fullName: t('integrations.cards.acp.fullName'), by: t('integrations.cards.acp.by'), desc: t('integrations.cards.acp.description'), color: '#10A37F' },
+    { label: 'ERC-8004', fullName: t('integrations.cards.erc8004.fullName'), by: t('integrations.cards.erc8004.by'), desc: t('integrations.cards.erc8004.description'), color: '#5B4FFF' },
+    { label: 'x402', fullName: t('integrations.cards.x402.fullName'), by: t('integrations.cards.x402.by'), desc: t('integrations.cards.x402.description'), color: '#00BF8A' },
+    { label: 'CLI', fullName: t('integrations.cards.cli.fullName'), by: t('integrations.cards.cli.by'), desc: t('integrations.cards.cli.description'), color: '#F59E0B' },
+    { label: 'SDK', fullName: t('integrations.cards.sdk.fullName'), by: t('integrations.cards.sdk.by'), desc: t('integrations.cards.sdk.description'), color: '#5B4FFF' },
+    { label: 'REST', fullName: t('integrations.cards.rest.fullName'), by: t('integrations.cards.rest.by'), desc: t('integrations.cards.rest.description'), color: '#5B4FFF' },
+  ];
+
   return (
     <div style={{ background: '#FFFFFF', color: '#0D0D0D', fontFamily: 'Inter, system-ui, sans-serif', overflowX: 'hidden' }}>
 
@@ -229,8 +268,8 @@ export default function Home() {
               color: '#555555',
               marginBottom: 16,
             }}>
-              The internet runs on txt.<br />
-              <span style={{ color: '#00BF8A' }}>The agent economy runs on <strong>txxt</strong>.</span>
+              {t('hero.taglineLine1')}<br />
+              <span style={{ color: '#00BF8A' }}>{t('hero.taglineLine2')} <strong>txxt</strong>.</span>
             </p>
 
             {/* Giant txxt logo — character animation */}
@@ -324,7 +363,7 @@ export default function Home() {
               fontSize: 'clamp(14px, 3vw, 18px)', color: '#444444', lineHeight: 1.75,
               marginBottom: 40, maxWidth: 480,
             }}>
-              txxt is the middleware that makes any blockchain agent-ready. x402 payments. ERC-8004 identity. Works on top of Ethereum, Solana, Base, and more.
+              {t('hero.description')}
             </p>
 
             {/* Buttons */}
@@ -339,7 +378,7 @@ export default function Home() {
                 textAlign: 'center' as const,
                 whiteSpace: 'nowrap' as const,
                 flex: '1 1 0',
-              }}>Build</Link>
+              }}>{t('hero.buttons.build')}</Link>
               <Link href="/protocol" style={{
                 padding: '13px 0', borderRadius: 10,
                 background: '#fff',
@@ -350,7 +389,7 @@ export default function Home() {
                 textAlign: 'center' as const,
                 whiteSpace: 'nowrap' as const,
                 flex: '1 1 0',
-              }}>Protocol</Link>
+              }}>{t('hero.buttons.protocol')}</Link>
               <Link href="https://docs.txxt.network" target="_blank" style={{
                 padding: '13px 0', borderRadius: 10,
                 background: 'transparent',
@@ -361,7 +400,7 @@ export default function Home() {
                 textAlign: 'center' as const,
                 whiteSpace: 'nowrap' as const,
                 flex: '1 1 0',
-              }}>Docs</Link>
+              }}>{t('hero.buttons.docs')}</Link>
             </div>
 
           </div>
@@ -387,10 +426,10 @@ export default function Home() {
             borderTop: '1px solid rgba(0,0,0,0.06)',
           }}>
             {[
-              { value: '<10ms', label: 'Latency' },
-              { value: '$0.0003', label: 'Per tx' },
-              { value: '5+', label: 'Chains' },
-              { value: '100%', label: 'USDC Gas' },
+               { value: '<10ms', label: t('hero.stats.latency') },
+               { value: '$0.0003', label: t('hero.stats.perTx') },
+               { value: '5+', label: t('hero.stats.chains') },
+               { value: '100%', label: t('hero.stats.usdcGas') },
             ].map(({ value, label }) => (
               <div key={label} style={{ textAlign: 'center', flex: '1 1 0', minWidth: 0 }}>
                 <div style={{ fontSize: 'clamp(13px, 2.5vw, 22px)', fontWeight: 800, color: '#00BF8A', fontFamily: mono, whiteSpace: 'nowrap' }}>{value}</div>
@@ -421,7 +460,7 @@ export default function Home() {
             fontSize: 13, letterSpacing: '0.12em', color: '#888888',
             fontFamily: mono, marginBottom: 24, fontWeight: 700,
           }}>
-            THE PROBLEM
+            {t('problem.eyebrow')}
           </p>
 
           <h2 style={{
@@ -432,7 +471,7 @@ export default function Home() {
             margin: '0 0 24px 0',
             color: '#FFFFFF',
           }}>
-            Blockchains have no agent layer.<br />So agents can&apos;t transact.
+            {t('problem.titleLine1')}<br />{t('problem.titleLine2')}
           </h2>
           <h3 style={{
             fontSize: 'clamp(16px, 2.5vw, 22px)',
@@ -440,7 +479,7 @@ export default function Home() {
             color: 'rgba(255,255,255,0.7)',
             margin: '0 0 40px 0',
           }}>
-            No native payment protocol. No machine-readable identity. No work verification. Three missing primitives — one middleware to fix all of them.
+            {t('problem.description')}
           </h3>
 
           {/* Two protocol cards */}
@@ -457,12 +496,12 @@ export default function Home() {
               background: 'rgba(0,191,138,0.08)',
               textAlign: 'left' as const,
             }}>
-              <div style={{ fontSize: 13, fontFamily: mono, fontWeight: 700, color: '#00BF8A', letterSpacing: '0.08em', marginBottom: 12 }}>x402 PROTOCOL — PAYMENT</div>
+              <div style={{ fontSize: 13, fontFamily: mono, fontWeight: 700, color: '#00BF8A', letterSpacing: '0.08em', marginBottom: 12 }}>{t('problem.cards.payment.label')}</div>
               <p style={{ fontSize: 'clamp(15px, 2vw, 18px)', fontWeight: 600, color: '#FFFFFF', margin: '0 0 8px', lineHeight: 1.3 }}>
-                Agents have no way to pay each other.
+                {t('problem.cards.payment.title')}
               </p>
               <p style={{ fontSize: 'clamp(14px, 1.8vw, 16px)', color: 'rgba(255,255,255,0.7)', lineHeight: 1.75, margin: 0 }}>
-                HTTP has status codes for everything — except payment. x402 fixes that, but the spec alone doesn&apos;t solve cross-chain. Your Base agent can&apos;t pay a Solana agent without custom bridge code, chain-specific USDC routing, and manual gas estimation. Every chain pair = new integration.
+                {t('problem.cards.payment.description')}
               </p>
             </div>
 
@@ -473,12 +512,12 @@ export default function Home() {
               background: 'rgba(91,79,255,0.08)',
               textAlign: 'left' as const,
             }}>
-              <div style={{ fontSize: 13, fontFamily: mono, fontWeight: 700, color: '#5B4FFF', letterSpacing: '0.08em', marginBottom: 12 }}>ERC-8004 STANDARD — IDENTITY</div>
+              <div style={{ fontSize: 13, fontFamily: mono, fontWeight: 700, color: '#5B4FFF', letterSpacing: '0.08em', marginBottom: 12 }}>{t('problem.cards.identity.label')}</div>
               <p style={{ fontSize: 'clamp(15px, 2vw, 18px)', fontWeight: 600, color: '#FFFFFF', margin: '0 0 8px', lineHeight: 1.3 }}>
-                Agents have no verifiable identity.
+                {t('problem.cards.identity.title')}
               </p>
               <p style={{ fontSize: 'clamp(14px, 1.8vw, 16px)', color: 'rgba(255,255,255,0.7)', lineHeight: 1.75, margin: 0 }}>
-                A wallet address isn&apos;t an identity. ERC-8004 gives agents on-chain credentials — capabilities, reputation, owner provenance — but it&apos;s Ethereum-only. Deploy on Solana? New contract. Base? Another. Each chain is a siloed identity that can&apos;t be verified anywhere else.
+                {t('problem.cards.identity.description')}
               </p>
             </div>
           </div>
@@ -497,7 +536,7 @@ export default function Home() {
               lineHeight: 1.75,
               margin: 0,
             }}>
-              <strong style={{ color: '#E53E3E' }}>The missing piece:</strong> payment (x402), identity (ERC-8004), and work verification (PoAW) are three separate standards on three separate layers. Without middleware to unify them, an agent checks identity on Ethereum, routes payment on Base, and hopes neither fails — 3 calls, 2 failure points, zero atomicity. That&apos;s not infrastructure. That&apos;s duct tape.
+              <strong style={{ color: '#E53E3E' }}>{t('problem.missingPieceLabel')}</strong> {t('problem.missingPieceDescription')}
             </p>
           </div>
         </div>
@@ -510,19 +549,19 @@ export default function Home() {
             fontSize: 12, letterSpacing: '0.12em', fontWeight: 700, color: '#5B4FFF',
             fontFamily: mono, marginBottom: 16, textTransform: 'uppercase', textAlign: 'center',
           }}>
-            HOW IT WORKS
+            {t('architecture.eyebrow')}
           </p>
           <h2 style={{
             fontSize: 'clamp(28px, 4vw, 48px)', fontWeight: 800, color: '#0D0D0D',
             textAlign: 'center', marginBottom: 16, letterSpacing: '-0.03em',
           }}>
-            txxt sits between<br />agents and blockchains.
+            {t('architecture.titleLine1')}<br />{t('architecture.titleLine2')}
           </h2>
           <p style={{
             fontSize: 'clamp(15px, 1.8vw, 18px)', color: '#666666',
             textAlign: 'center', maxWidth: 560, margin: '0 auto 64px', lineHeight: 1.75,
           }}>
-            Your agent makes one API call. txxt resolves identity (ERC-8004), routes payment (x402), and verifies work (PoAW) — then settles on whichever chain you choose. No chain-specific code. No bridge logic.
+            {t('architecture.description')}
           </p>
           <LayeredArchDiagram />
         </div>
@@ -536,30 +575,25 @@ export default function Home() {
             fontSize: 13, letterSpacing: '0.1em', color: '#5B4FFF',
             fontFamily: mono, margin: 0, fontWeight: 700,
           }}>
-            THE SOLUTION
+            {t('solution.eyebrow')}
           </p>
           <h2 style={{
             fontSize: 'clamp(28px, 5vw, 48px)', fontWeight: 700, color: '#0D0D0D',
             margin: '24px 0 16px', letterSpacing: '-0.03em', lineHeight: 1.15,
           }}>
-            One middleware call.<br />Identity + payment + any chain.
+            {t('solution.titleLine1')}<br />{t('solution.titleLine2')}
           </h2>
           <p style={{
             fontSize: 'clamp(16px, 2.5vw, 20px)', color: '#666666', lineHeight: 1.6,
             margin: '0 auto', maxWidth: 600,
           }}>
-            Other approaches require separate contracts for identity and payment on each chain. txxt unifies both into a single middleware layer — deploy once, work everywhere.
+            {t('solution.description')}
           </p>
         </div>
 
         {/* Four differentiators */}
         <div style={{ maxWidth: 900, margin: '0 auto', padding: '40px 24px 0' }}>
-          {[
-            { icon: (color: string) => <svg width="56" height="56" viewBox="0 0 56 56" fill="none"><rect width="56" height="56" rx="14" fill={color}/><rect x="12" y="18" width="32" height="20" rx="4" stroke="white" strokeWidth="2.5"/><path d="M12 26h32" stroke="white" strokeWidth="2.5"/><rect x="16" y="30" width="8" height="3" rx="1.5" fill="white"/><rect x="27" y="30" width="5" height="3" rx="1.5" fill="white"/></svg>, word: 'x402 Native', title: 'Payments as infrastructure.', desc: 'Implementing x402 on Ethereum alone requires custom contracts, unpredictable gas, and weeks of testing. Through txxt, agent.pay() works on ETH, SOL, Base, Polygon — same call, same $0.0003 cost, always.', color: '#00BF8A', num: '01' },
-            { icon: (color: string) => <svg width="56" height="56" viewBox="0 0 56 56" fill="none"><rect width="56" height="56" rx="14" fill={color}/><circle cx="28" cy="21" r="7" stroke="white" strokeWidth="2.5"/><path d="M14 42c0-7.732 6.268-14 14-14s14 6.268 14 14" stroke="white" strokeWidth="2.5" strokeLinecap="round"/></svg>, word: 'ERC-8004 Native', title: 'Identity without overhead.', desc: 'Without txxt, ERC-8004 requires deploying and maintaining a separate smart contract on every chain your agent touches. With txxt, one registration creates a verified identity that works on every supported chain — zero contracts, zero gas overhead.', color: '#5B4FFF', num: '02' },
-            { icon: (color: string) => <svg width="56" height="56" viewBox="0 0 56 56" fill="none"><rect width="56" height="56" rx="14" fill={color}/><path d="M28 12L34 22H44L36 29L39 40L28 33L17 40L20 29L12 22H22L28 12Z" stroke="white" strokeWidth="2.5" strokeLinejoin="round"/></svg>, word: 'Atomic Integration', title: 'One transaction does both.', desc: 'Imagine: your agent verifies a counterpart\'s identity, then sends payment — and the identity check passes but the payment fails. Now you\'ve trusted an agent you never paid. txxt makes identity + payment atomic. Both succeed or neither does.', color: '#F59E0B', num: '03' },
-            { icon: (color: string) => <svg width="56" height="56" viewBox="0 0 56 56" fill="none"><rect width="56" height="56" rx="14" fill={color}/><path d="M28 10L30.5 20H40L32.5 26L35 36L28 30.5L21 36L23.5 26L16 20H25.5L28 10Z" fill="white"/><circle cx="28" cy="46" r="2.5" fill="white"/></svg>, word: 'The Result', title: 'Agent commerce at machine speed.', desc: 'Check identity → confirm capabilities → settle payment → update reputation. Four operations, one atomic transaction. Under 10ms. $0.0003 in USDC gas — whether settling on Ethereum, Solana, or Base.', color: '#00BF8A', num: '04' },
-          ].map((item, i) => (
+          {differentiators.map((item, i) => (
             <div key={i} style={{
               display: 'flex',
               gap: 32,
@@ -596,7 +630,7 @@ export default function Home() {
             fontSize: 14, color: '#666666', fontStyle: 'italic',
             fontFamily: mono, margin: 0, maxWidth: 600, marginLeft: 'auto', marginRight: 'auto',
           }}>
-            &ldquo;x402 tells agents how to pay. ERC-8004 tells agents who to trust. txxt is the middleware layer where both work natively — on every blockchain.&rdquo;
+            {t('solution.quote')}
           </p>
         </div>
         </div>
@@ -606,13 +640,13 @@ export default function Home() {
       <section style={{ background: '#FFFFFF', borderTop: '1px solid rgba(0,0,0,0.06)' }}>
         <div style={{ maxWidth: 1300, margin: '0 auto', padding: 'clamp(80px, 10vw, 140px) 24px' }}>
           <p style={{ fontSize: 13, letterSpacing: '0.15em', color: '#888888', fontFamily: mono, marginBottom: 24, textTransform: 'uppercase' as const, fontWeight: 700 }}>
-            WHY TXXT
+            {t('comparison.eyebrow')}
           </p>
           <h2 style={{ fontSize: 'clamp(28px, 4vw, 48px)', fontWeight: 700, letterSpacing: '-0.03em', lineHeight: 1.1, marginBottom: 16 }}>
-            DIY agent infra<br />vs txxt middleware.
+            {t('comparison.titleLine1')}<br />{t('comparison.titleLine2')}
           </h2>
           <p style={{ fontSize: 'clamp(15px, 1.8vw, 18px)', color: '#555555', lineHeight: 1.75, maxWidth: 580, marginBottom: 48 }}>
-            Building it yourself means integrating 6+ protocols (x402, ERC-8004, PoAW, bridge SDKs, gas oracles, chain RPCs), writing adapters for every chain, and rewriting them when specs change. Or you use the middleware that ships with all of it.
+            {t('comparison.description')}
           
           </p>
 
@@ -621,19 +655,13 @@ export default function Home() {
             {/* Header */}
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
               <div style={{ padding: '12px 20px', borderRadius: 10, background: '#F5F5F5', fontFamily: mono, fontSize: 11, fontWeight: 700, color: '#888', letterSpacing: '0.1em', textTransform: 'uppercase' as const }}>
-                DIY Approach
+                {t('comparison.diyHeader')}
               </div>
               <div style={{ padding: '12px 20px', borderRadius: 10, background: 'rgba(0,191,138,0.08)', fontFamily: mono, fontSize: 11, fontWeight: 700, color: '#00BF8A', letterSpacing: '0.1em', textTransform: 'uppercase' as const }}>
-                With txxt
+                {t('comparison.txxtHeader')}
               </div>
             </div>
-            {[
-              { area: 'Agent Identity', diy: 'Deploy ERC-8004 contract per chain. 5 chains = 5 contracts, 5 ABIs, 5 gas configs to maintain.', txxt: 'txxt.register() — one call, identity works on ETH, SOL, Base, Polygon', color: '#5B4FFF' },
-              { area: 'Agent Payments', diy: 'Write x402 adapter per chain + bridge SDK + USDC routing. Rewrite when specs update.', txxt: 'txxt.pay() — $0.0003 fixed, settles on whichever chain you choose', color: '#00BF8A' },
-              { area: 'Work Verification', diy: 'Build custom oracle, reputation aggregator, and dispute resolution from scratch.', txxt: 'PoAW built-in — self-attest, peer-verify, protocol-confirm. Automatic reputation.', color: '#00BF8A' },
-              { area: 'Multi-chain Support', diy: 'N chains = N deployments. Identity on ETH can\'t verify on SOL. State never syncs.', txxt: 'One agent identity, one reputation score, portable across every supported chain', color: '#5B4FFF' },
-              { area: 'Onboarding Time', diy: '2-6 weeks per chain. Add a new chain? Start over from scratch.', txxt: 'Under 5 minutes — any chain, any agent framework. New chains auto-supported.', color: '#00BF8A' },
-            ].map(row => (
+            {comparisonRows.map(row => (
               <div key={row.area} style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
                 {/* DIY */}
                 <div style={{ padding: '20px', borderRadius: 12, background: '#FAFAFA', border: '1px solid rgba(0,0,0,0.06)' }}>
@@ -662,10 +690,10 @@ export default function Home() {
           {/* Code Comparison */}
           <div style={{ marginBottom: 16 }}>
             <p style={{ fontSize: 13, letterSpacing: '0.15em', color: '#888888', fontFamily: mono, marginBottom: 16, textTransform: 'uppercase' as const, fontWeight: 700 }}>
-              Code Comparison
+              {t('comparison.code.eyebrow')}
             </p>
             <h3 style={{ fontSize: 'clamp(22px, 3.5vw, 32px)', fontWeight: 700, letterSpacing: '-0.03em', lineHeight: 1.1, marginBottom: 40 }}>
-              100+ lines of glue code<br />vs 5 lines.
+              {t('comparison.code.titleLine1')}<br />{t('comparison.code.titleLine2')}
             </h3>
           </div>
 
@@ -677,35 +705,35 @@ export default function Home() {
                 borderBottom: '1px solid rgba(0,0,0,0.08)',
                 display: 'flex', justifyContent: 'space-between', alignItems: 'center',
               }}>
-                <span style={{ fontSize: 13, fontFamily: mono, fontWeight: 700, color: '#666666' }}>DIY Multi-chain</span>
-                <span style={{ fontSize: 11, fontFamily: mono, color: '#FF3366', fontWeight: 600 }}>~100+ lines per chain</span>
+                <span style={{ fontSize: 13, fontFamily: mono, fontWeight: 700, color: '#666666' }}>{t('comparison.code.diyTitle')}</span>
+                <span style={{ fontSize: 11, fontFamily: mono, color: '#FF3366', fontWeight: 600 }}>{t('comparison.code.diyBadge')}</span>
               </div>
               <pre style={{
                 padding: 20, margin: 0, fontFamily: mono,
                 fontSize: 'clamp(11px, 1.2vw, 13px)', lineHeight: 1.65,
                 color: '#444444', background: '#FAFAFA',
                 overflow: 'auto', maxHeight: 400,
-              }}>{`// DIY: agent payments across chains
+              }}>{`${t('comparison.code.diySnippet.comment')}
 import { ethers } from 'ethers';
 import { Connection } from '@solana/web3.js';
 import { PaymentChannel } from './custom-x402-adapter';
 import { IdentityRegistry } from './custom-erc8004';
 
-// 1. Deploy identity on Ethereum
+${t('comparison.code.diySnippet.step1')}
 const ethIdentity = await IdentityRegistry.deploy(
   ethProvider, agentMetadata
 );
-// 2. Deploy identity on Solana (different SDK!)
+${t('comparison.code.diySnippet.step2')}
 const solIdentity = await createSolanaIdentity(
   connection, agentKeypair, metadata
 );
-// 3. Build payment channel per chain
+${t('comparison.code.diySnippet.step3')}
 const ethPayment = await PaymentChannel.create(
   ethProvider, USDC_ETH, recipient
 );
-// 4. Route payments based on chain
-// 5. Sync identity across chains
-// ... 100+ lines of glue code per chain`}</pre>
+${t('comparison.code.diySnippet.step4')}
+${t('comparison.code.diySnippet.step5')}
+${t('comparison.code.diySnippet.step6')}`}</pre>
             </div>
 
             {/* txxt */}
@@ -715,22 +743,22 @@ const ethPayment = await PaymentChannel.create(
                 borderBottom: '1px solid rgba(0,191,138,0.15)',
                 display: 'flex', justifyContent: 'space-between', alignItems: 'center',
               }}>
-                <span style={{ fontSize: 13, fontFamily: mono, fontWeight: 700, color: '#00BF8A' }}>txxt Middleware</span>
-                <span style={{ fontSize: 11, fontFamily: mono, color: '#00BF8A', fontWeight: 600 }}>5 lines · any chain</span>
+                <span style={{ fontSize: 13, fontFamily: mono, fontWeight: 700, color: '#00BF8A' }}>{t('comparison.code.txxtTitle')}</span>
+                <span style={{ fontSize: 11, fontFamily: mono, color: '#00BF8A', fontWeight: 600 }}>{t('comparison.code.txxtBadge')}</span>
               </div>
               <div style={{ padding: '28px 20px', fontFamily: mono, fontSize: 'clamp(12px, 1.3vw, 14px)', lineHeight: 2.4, background: '#FFFFFF', overflow: 'auto' }}>
                 <div><span style={{ color: '#5B4FFF' }}>import</span>{' '}<span style={{ color: '#0D0D0D' }}>{'{ txxt }'}</span>{' '}<span style={{ color: '#5B4FFF' }}>from</span>{' '}<span style={{ color: '#00BF8A' }}>{`'@txxt/sdk'`}</span>;</div>
                 <div><span style={{ color: '#5B4FFF' }}>const</span>{' '}<span style={{ color: '#FB923C', fontWeight: 600 }}>agent</span>{' = '}<span style={{ color: '#0D0D0D' }}>txxt</span>.<span style={{ color: '#00BF8A', fontWeight: 600 }}>connect</span>{'({ apiKey, chains: ['}<span style={{ color: '#00BF8A' }}>{`'eth'`}</span>{', '}<span style={{ color: '#00BF8A' }}>{`'sol'`}</span>{', '}<span style={{ color: '#00BF8A' }}>{`'base'`}</span>{'] });'}</div>
                 <div><span style={{ color: '#5B4FFF' }}>await</span>{' '}agent.<span style={{ color: '#00BF8A', fontWeight: 600 }}>register</span>{'({ capabilities: ['}<span style={{ color: '#00BF8A' }}>{`'translate'`}</span>{'] });'}</div>
                 <div><span style={{ color: '#5B4FFF' }}>await</span>{' '}agent.<span style={{ color: '#00BF8A', fontWeight: 600 }}>pay</span>{'(url, '}<span style={{ color: '#00BF8A' }}>{`'$0.01'`}</span>{', { chain: '}<span style={{ color: '#00BF8A' }}>{`'base'`}</span>{' });'}</div>
-                <div><span style={{ color: '#94A3B8' }}>{'// done. identity + payment. any chain.'}</span></div>
+                <div><span style={{ color: '#94A3B8' }}>{t('comparison.code.txxtSnippet.comment')}</span></div>
               </div>
               <div style={{
                 padding: '16px 20px', background: 'rgba(0,191,138,0.04)',
                 borderTop: '1px solid rgba(0,191,138,0.1)',
                 fontSize: 13, color: '#00BF8A', fontFamily: mono, fontWeight: 600,
               }}>
-                One identity. One payment layer. Any chain underneath.
+                {t('comparison.code.footer')}
               </div>
             </div>
           </div>
@@ -745,13 +773,13 @@ const ethPayment = await PaymentChannel.create(
             fontSize: 13, letterSpacing: '0.1em', color: '#5B4FFF',
             fontFamily: mono, marginBottom: 20, fontWeight: 700,
           }}>
-            HOW IT WORKS
+            {t('pillars.eyebrow')}
           </p>
           <h2 style={{
             fontSize: 'clamp(28px, 5vw, 48px)', fontWeight: 700,
             letterSpacing: '-0.04em', margin: '0 0 64px 0',
           }}>
-            Three pillars.<br />Zero compromise.
+            {t('pillars.titleLine1')}<br />{t('pillars.titleLine2')}
           </h2>
         </div>
 
@@ -771,13 +799,13 @@ const ethPayment = await PaymentChannel.create(
               color: 'rgba(167,139,250,0.08)', fontFamily: mono,
               lineHeight: 1, marginBottom: 24, letterSpacing: '-0.05em',
             }}>01</div>
-            <p style={{ fontSize: 13, letterSpacing: '0.12em', color: '#5B4FFF', fontFamily: mono, marginBottom: 16, fontWeight: 600 }}>IDENTITY</p>
-            <h3 style={{ fontSize: 'clamp(24px, 4vw, 36px)', fontWeight: 700, marginBottom: 16, letterSpacing: '-0.03em', lineHeight: 1.2 }}>
-              Every agent gets<br />a passport.
-            </h3>
-            <p style={{ fontSize: 'clamp(14px, 2vw, 16px)', color: '#444444', lineHeight: 1.8, maxWidth: 400 }}>
-              ERC-8004 compliant. Registered once, valid on every chain. Declares what your agent can do, who created it, and how long it&apos;s been working — all on-chain, all verifiable.
-            </p>
+             <p style={{ fontSize: 13, letterSpacing: '0.12em', color: '#5B4FFF', fontFamily: mono, marginBottom: 16, fontWeight: 600 }}>{t('pillars.identity.label')}</p>
+             <h3 style={{ fontSize: 'clamp(24px, 4vw, 36px)', fontWeight: 700, marginBottom: 16, letterSpacing: '-0.03em', lineHeight: 1.2 }}>
+               {t('pillars.identity.titleLine1')}<br />{t('pillars.identity.titleLine2')}
+             </h3>
+             <p style={{ fontSize: 'clamp(14px, 2vw, 16px)', color: '#444444', lineHeight: 1.8, maxWidth: 400 }}>
+               {t('pillars.identity.description')}
+             </p>
           </div>
           <div style={{
             flex: '1 1 50%', minWidth: 300,
@@ -841,13 +869,13 @@ const ethPayment = await PaymentChannel.create(
               color: 'rgba(0,245,196,0.06)', fontFamily: mono,
               lineHeight: 1, marginBottom: 24, letterSpacing: '-0.05em',
             }}>02</div>
-            <p style={{ fontSize: 13, letterSpacing: '0.12em', color: '#00BF8A', fontFamily: mono, marginBottom: 16, fontWeight: 600 }}>REPUTATION</p>
-            <h3 style={{ fontSize: 'clamp(24px, 4vw, 36px)', fontWeight: 700, marginBottom: 16, letterSpacing: '-0.03em', lineHeight: 1.2 }}>
-              Trust is earned<br />on-chain.
-            </h3>
-            <p style={{ fontSize: 'clamp(14px, 2vw, 16px)', color: '#444444', lineHeight: 1.8, maxWidth: 400 }}>
-              Forget star ratings. A score of 94 means 12,847 tasks completed, zero disputes, 99.9% uptime. All on-chain. All auditable. An agent&apos;s track record speaks for itself.
-            </p>
+             <p style={{ fontSize: 13, letterSpacing: '0.12em', color: '#00BF8A', fontFamily: mono, marginBottom: 16, fontWeight: 600 }}>{t('pillars.reputation.label')}</p>
+             <h3 style={{ fontSize: 'clamp(24px, 4vw, 36px)', fontWeight: 700, marginBottom: 16, letterSpacing: '-0.03em', lineHeight: 1.2 }}>
+               {t('pillars.reputation.titleLine1')}<br />{t('pillars.reputation.titleLine2')}
+             </h3>
+             <p style={{ fontSize: 'clamp(14px, 2vw, 16px)', color: '#444444', lineHeight: 1.8, maxWidth: 400 }}>
+               {t('pillars.reputation.description')}
+             </p>
           </div>
         </div>
 
@@ -868,13 +896,13 @@ const ethPayment = await PaymentChannel.create(
               color: 'rgba(0,191,138,0.06)', fontFamily: mono,
               lineHeight: 1, marginBottom: 24, letterSpacing: '-0.05em',
             }}>03</div>
-            <p style={{ fontSize: 13, letterSpacing: '0.12em', color: '#00BF8A', fontFamily: mono, marginBottom: 16, fontWeight: 600 }}>VALIDATION</p>
-            <h3 style={{ fontSize: 'clamp(24px, 4vw, 36px)', fontWeight: 700, marginBottom: 16, letterSpacing: '-0.03em', lineHeight: 1.2 }}>
-              Three layers.<br />Zero doubt.
-            </h3>
-            <p style={{ fontSize: 'clamp(14px, 2vw, 16px)', color: '#444444', lineHeight: 1.8, maxWidth: 400 }}>
-              Before any deal closes: the agent self-attests, peer agents cross-verify, and the protocol confirms on-chain. Three independent layers. All complete in under 10ms. If any layer fails, the transaction doesn&apos;t happen.
-            </p>
+             <p style={{ fontSize: 13, letterSpacing: '0.12em', color: '#00BF8A', fontFamily: mono, marginBottom: 16, fontWeight: 600 }}>{t('pillars.validation.label')}</p>
+             <h3 style={{ fontSize: 'clamp(24px, 4vw, 36px)', fontWeight: 700, marginBottom: 16, letterSpacing: '-0.03em', lineHeight: 1.2 }}>
+               {t('pillars.validation.titleLine1')}<br />{t('pillars.validation.titleLine2')}
+             </h3>
+             <p style={{ fontSize: 'clamp(14px, 2vw, 16px)', color: '#444444', lineHeight: 1.8, maxWidth: 400 }}>
+               {t('pillars.validation.description')}
+             </p>
           </div>
           <div style={{
             flex: '1 1 50%', minWidth: 300,
@@ -922,7 +950,7 @@ const ethPayment = await PaymentChannel.create(
             fontSize: 13, letterSpacing: '0.12em', color: '#F59E0B',
             fontFamily: mono, marginBottom: 24, fontWeight: 700,
           }}>
-            THE PROOF
+            {t('proof.eyebrow')}
           </p>
 
           <h2 style={{
@@ -933,8 +961,8 @@ const ethPayment = await PaymentChannel.create(
             margin: '0 0 32px 0',
             color: '#0D0D0D',
           }}>
-            No token.<br />
-            <span style={{ fontSize: '0.85em', color: '#00BF8A' }}>Stable gas.</span>
+            {t('proof.titleLine1')}<br />
+            <span style={{ fontSize: '0.85em', color: '#00BF8A' }}>{t('proof.titleLine2')}</span>
           </h2>
 
           <p style={{
@@ -944,7 +972,7 @@ const ethPayment = await PaymentChannel.create(
             maxWidth: 560,
             margin: '0 auto 16px',
           }}>
-            Most chains force you to hold a volatile native token just to pay gas. ETH gas spiked 4,000% during the 2024 memecoin season. For autonomous agents that need predictable budgets, volatile gas is a dealbreaker.
+            {t('proof.description')}
           </p>
 
           <p style={{
@@ -956,7 +984,7 @@ const ethPayment = await PaymentChannel.create(
             fontWeight: 700,
             fontFamily: mono,
           }}>
-            txxt gas: USDC/USDT. $0.0003 per tx. Always.
+            {t('proof.highlight')}
           </p>
 
           {/* Gas Cost Simulator */}
@@ -968,7 +996,7 @@ const ethPayment = await PaymentChannel.create(
             border: '1px solid rgba(0,0,0,0.08)',
             boxShadow: '0 1px 3px rgba(0,0,0,0.04)',
           }}>
-            <p style={{ fontSize: 13, fontFamily: mono, fontWeight: 700, color: '#888', letterSpacing: '0.08em', marginBottom: 16 }}>GAS COST SIMULATOR</p>
+            <p style={{ fontSize: 13, fontFamily: mono, fontWeight: 700, color: '#888', letterSpacing: '0.08em', marginBottom: 16 }}>{t('proof.simulator.title')}</p>
             <input
               type="range"
               min={1000}
@@ -979,11 +1007,11 @@ const ethPayment = await PaymentChannel.create(
               style={{ width: '100%', accentColor: '#00BF8A', marginBottom: 16 }}
             />
             <p style={{ fontSize: 'clamp(14px, 2vw, 16px)', color: '#444', margin: '0 0 12px', fontFamily: mono }}>
-              At <strong style={{ color: '#0D0D0D' }}>{txCount.toLocaleString()}</strong> transactions/month:
+              {t('proof.simulator.at')} <strong style={{ color: '#0D0D0D' }}>{txCount.toLocaleString()}</strong> {t('proof.simulator.perMonth')}
             </p>
             <div style={{ display: 'flex', justifyContent: 'space-between', gap: 16 }}>
               <div style={{ flex: 1, textAlign: 'center', padding: '12px', borderRadius: 8, background: 'rgba(239,68,68,0.05)', border: '1px solid rgba(239,68,68,0.1)' }}>
-                <div style={{ fontSize: 11, color: '#888', fontFamily: mono, marginBottom: 4 }}>Others</div>
+                <div style={{ fontSize: 11, color: '#888', fontFamily: mono, marginBottom: 4 }}>{t('proof.simulator.others')}</div>
                 <div style={{ fontSize: 'clamp(18px, 3vw, 24px)', fontWeight: 800, color: '#EF4444', fontFamily: mono }}>${(txCount * 0.05).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
               </div>
               <div style={{ flex: 1, textAlign: 'center', padding: '12px', borderRadius: 8, background: 'rgba(0,191,138,0.05)', border: '1px solid rgba(0,191,138,0.1)' }}>
@@ -992,7 +1020,7 @@ const ethPayment = await PaymentChannel.create(
               </div>
             </div>
             <p style={{ fontSize: 'clamp(14px, 2vw, 16px)', color: '#00BF8A', fontWeight: 700, fontFamily: mono, marginTop: 12, textAlign: 'center' }}>
-              You save: ${((txCount * 0.05) - (txCount * 0.0003)).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+              {t('proof.simulator.save')} ${((txCount * 0.05) - (txCount * 0.0003)).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
             </p>
           </div>
 
@@ -1014,17 +1042,10 @@ const ethPayment = await PaymentChannel.create(
               borderBottom: '1px solid rgba(0,0,0,0.12)',
             }}>
               <div style={{ padding: '16px 20px', fontSize: 13, fontFamily: mono, color: '#555555', fontWeight: 600, letterSpacing: '0.05em' }}></div>
-              <div style={{ padding: '16px 20px', fontSize: 13, fontFamily: mono, color: '#555555', fontWeight: 600, letterSpacing: '0.05em', textAlign: 'center' }}>Others</div>
+              <div style={{ padding: '16px 20px', fontSize: 13, fontFamily: mono, color: '#555555', fontWeight: 600, letterSpacing: '0.05em', textAlign: 'center' }}>{t('proof.simulator.others')}</div>
               <div style={{ padding: '16px 20px', fontSize: 13, fontFamily: mono, color: '#00BF8A', fontWeight: 700, letterSpacing: '0.05em', textAlign: 'center' }}>txxt</div>
             </div>
-            {[
-              { label: 'Gas fees', them: 'Volatile tokens', us: 'USDC stable' },
-              { label: 'Cost', them: 'Can spike 100×', us: 'Always $0.0003' },
-              { label: 'x402', them: 'Custom contracts', us: 'Native middleware' },
-              { label: 'ERC-8004', them: 'Plugin/Contract', us: 'Native middleware' },
-              { label: 'Atomic ID+pay', them: 'Impossible', us: 'Yes, <10ms' },
-              { label: 'Governance', them: 'Token theater', us: 'Pure utility' },
-            ].map((row, i) => (
+            {proofRows.map((row, i) => (
               <div key={i} style={{
                 display: 'grid', gridTemplateColumns: '1fr 1fr 1fr',
                 borderBottom: i < 5 ? '1px solid rgba(0,0,0,0.06)' : 'none',
@@ -1049,13 +1070,13 @@ const ethPayment = await PaymentChannel.create(
         <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 24px' }}>
           {/* Eyebrow */}
           <p style={{ fontSize: 12, letterSpacing: '0.12em', fontWeight: 700, color: '#888888', fontFamily: mono, marginBottom: 16, textTransform: 'uppercase' }}>
-            INTEGRATIONS
+            {t('integrations.eyebrow')}
           </p>
           <h2 style={{ fontSize: 'clamp(28px, 4vw, 48px)', fontWeight: 800, letterSpacing: '-0.03em', lineHeight: 1.1, marginBottom: 16 }}>
-            txxt speaks every<br />agent language.
+            {t('integrations.titleLine1')}<br />{t('integrations.titleLine2')}
           </h2>
           <p style={{ fontSize: 'clamp(15px, 1.8vw, 18px)', color: '#444', lineHeight: 1.75, maxWidth: 600, marginBottom: 64 }}>
-            Whether you&apos;re building with MCP, A2A, CLI, or raw SDK — txxt is the agent layer underneath. One middleware. Every protocol. Every chain.
+            {t('integrations.description')}
           </p>
 
           {/* 좌우 분할 — 다이어그램 + 카드 그리드 */}
@@ -1081,16 +1102,16 @@ const ethPayment = await PaymentChannel.create(
               </div>
 
               {/* 주변 프로토콜 노드 8개 */}
-              {[
-                { label: 'MCP', color: '#FF6B35', angle: 0, desc: 'Anthropic' },
-                { label: 'A2A', color: '#4285F4', angle: 45, desc: 'Google' },
-                { label: 'ACP', color: '#10A37F', angle: 90, desc: 'OpenAI' },
-                { label: 'x402', color: '#00BF8A', angle: 135, desc: 'Payments' },
-                { label: 'SDK', color: '#5B4FFF', angle: 180, desc: '@txxt/sdk' },
-                { label: 'CLI', color: '#F59E0B', angle: 225, desc: 'Terminal' },
-                { label: 'REST', color: '#5B4FFF', angle: 270, desc: 'Universal' },
-                { label: 'ERC-8004', color: '#5B4FFF', angle: 315, desc: 'Identity' },
-              ].map(({ label, color, angle, desc }) => {
+                {[
+                  { label: 'MCP', color: '#FF6B35', angle: 0, desc: t('integrations.nodes.mcp') },
+                  { label: 'A2A', color: '#4285F4', angle: 45, desc: t('integrations.nodes.a2a') },
+                  { label: 'ACP', color: '#10A37F', angle: 90, desc: t('integrations.nodes.acp') },
+                  { label: 'x402', color: '#00BF8A', angle: 135, desc: t('integrations.nodes.x402') },
+                  { label: 'SDK', color: '#5B4FFF', angle: 180, desc: '@txxt/sdk' },
+                  { label: 'CLI', color: '#F59E0B', angle: 225, desc: t('integrations.nodes.cli') },
+                  { label: 'REST', color: '#5B4FFF', angle: 270, desc: t('integrations.nodes.rest') },
+                  { label: 'ERC-8004', color: '#5B4FFF', angle: 315, desc: t('integrations.nodes.erc8004') },
+                ].map(({ label, color, angle, desc }) => {
                 const rad = (angle * Math.PI) / 180;
                 const r = 260;
                 const x = 50 + (r / 7) * Math.cos(rad);
@@ -1133,16 +1154,7 @@ const ethPayment = await PaymentChannel.create(
 
             {/* 오른쪽 — 8카드 그리드 */}
             <div className="integrations-cards" style={{ flex: 1, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
-              {[
-                { label: 'MCP', fullName: 'Model Context Protocol', by: 'Anthropic', desc: 'AI assistants connect to txxt as a tool. Register, pay, verify — from natural language.', color: '#FF6B35' },
-                { label: 'A2A', fullName: 'Agent-to-Agent Protocol', by: 'Google', desc: 'Agents discover and communicate with each other on txxt. Native handshakes and task delegation.', color: '#4285F4' },
-                { label: 'ACP', fullName: 'Agent Communication Protocol', by: 'OpenAI', desc: 'Agents exchange structured tasks and payment receipts through a shared protocol.', color: '#10A37F' },
-                { label: 'ERC-8004', fullName: 'Agent Identity Standard', by: 'Built-in', desc: 'On-chain identity, portable across chains. One registration. Reputation follows everywhere.', color: '#5B4FFF' },
-                { label: 'x402', fullName: 'Agent Payment Protocol', by: 'Built-in', desc: 'HTTP-native agent payment. Per call, per result, per task — settled for $0.0003.', color: '#00BF8A' },
-                { label: 'CLI', fullName: 'Command Line Interface', by: 'txxt', desc: 'Deploy and manage agents from your terminal. The fastest path to a deployed agent.', color: '#F59E0B' },
-                { label: 'SDK', fullName: '@txxt/sdk', by: 'txxt', desc: 'TypeScript-first SDK with full x402 and ERC-8004 support. Python SDK coming Q2.', color: '#5B4FFF' },
-                { label: 'REST', fullName: 'Universal REST API', by: 'txxt', desc: 'HTTP endpoints for any language. If you can make an HTTP request, you can build on txxt.', color: '#5B4FFF' },
-              ].map((item) => (
+              {integrationCards.map((item) => (
                 <div key={item.label} style={{
                   padding: '20px 24px', borderRadius: 16,
                   background: '#F8F8F8',
@@ -1170,7 +1182,7 @@ const ethPayment = await PaymentChannel.create(
           }
         `}</style>
         <p style={{ fontSize: 12, letterSpacing: '0.12em', fontWeight: 700, color: '#888', fontFamily: mono, textAlign: 'center', marginBottom: 24, textTransform: 'uppercase' }}>
-          BUILT WITH
+            {t('builtWith')}
         </p>
         <div style={{ display: 'flex', animation: 'marquee 30s linear infinite', width: 'max-content' }}>
           {[...Array(2)].map((_, setIdx) => (
@@ -1205,13 +1217,13 @@ const ethPayment = await PaymentChannel.create(
               fontSize: 13, letterSpacing: '0.1em', color: '#5B4FFF',
               fontFamily: mono, marginBottom: 16, fontWeight: 700,
             }}>
-              AGENTSCRIPT
+              {t('agentscript.eyebrow')}
             </p>
             <h2 style={{
               fontSize: 'clamp(28px, 5vw, 48px)', fontWeight: 700,
               letterSpacing: '-0.04em', margin: '0 0 16px 0', lineHeight: 1.2,
             }}>
-              Code for agents,<br />by agents.
+              {t('agentscript.titleLine1')}<br />{t('agentscript.titleLine2')}
             </h2>
             <p style={{
               fontSize: 'clamp(14px, 1.8vw, 17px)',
@@ -1220,7 +1232,7 @@ const ethPayment = await PaymentChannel.create(
               maxWidth: 520,
               margin: '0 0 16px 0',
             }}>
-              AgentScript is the native language of txxt. Discover, verify, pay, and update reputation — all first-class operations in one coherent syntax.
+              {t('agentscript.description')}
             </p>
             <p style={{
               fontSize: 'clamp(13px, 1.6vw, 15px)',
@@ -1231,7 +1243,7 @@ const ethPayment = await PaymentChannel.create(
               fontFamily: mono,
               fontWeight: 600,
             }}>
-              x402 + ERC-8004 = native primitives. Not plugins. Not imports.
+              {t('agentscript.subdescription')}
             </p>
           </div>
 
@@ -1255,7 +1267,7 @@ const ethPayment = await PaymentChannel.create(
                 ))}
               </div>
               <span style={{ fontSize: 13, color: 'rgba(255,255,255,0.5)', fontFamily: mono, marginLeft: 8 }}>
-                travel_planner.agent
+                {t('agentscript.filename')}
               </span>
               <button
                 onClick={() => {
@@ -1294,7 +1306,7 @@ const ethPayment = await PaymentChannel.create(
                   transition: 'all 0.2s ease',
                 }}
               >
-                {copied ? '✓ Copied!' : 'Copy'}
+                {copied ? t('agentscript.copied') : t('agentscript.copy')}
               </button>
             </div>
             <div style={{ padding: 'clamp(24px, 4vw, 40px)' }}>
@@ -1303,18 +1315,18 @@ const ethPayment = await PaymentChannel.create(
                   <span style={{ color: '#5B4FFF' }}>agent</span>{' '}
                   <span style={{ color: '#00BF8A' }}>TravelPlanner</span>{' '}
                   <span style={{ color: 'rgba(255,255,255,0.5)' }}>{'{'}</span>{'\n'}
-                  {'  '}<span style={{ color: 'rgba(255,255,255,0.6)' }}>{'// ERC-8004: on-chain identity auto-registered'}</span>{'\n'}
+                  {'  '}<span style={{ color: 'rgba(255,255,255,0.6)' }}>{t('agentscript.comments.identity')}</span>{'\n'}
                   {'  '}<span style={{ color: 'rgba(255,255,255,0.75)' }}>identity:</span>{' '}
                   <span style={{ color: '#f59e0b' }}>&quot;txxt:0x1a2b...verified&quot;</span>{'\n'}
                   {'  '}<span style={{ color: 'rgba(255,255,255,0.75)' }}>reputation_minimum:</span>{' '}
                   <span style={{ color: '#00BF8A' }}>80</span>{' '}
-                  <span style={{ color: 'rgba(255,255,255,0.6)' }}>{'// ERC-8004 score gate'}</span>{'\n'}
+                  <span style={{ color: 'rgba(255,255,255,0.6)' }}>{t('agentscript.comments.scoreGate')}</span>{'\n'}
                   {'\n'}
                   {'  '}<span style={{ color: '#5B4FFF' }}>task</span>{' '}
                   <span style={{ color: '#FFFFFF' }}>hire_flight_agent</span>
                   <span style={{ color: 'rgba(255,255,255,0.75)' }}>(destination)</span>{' '}
                   <span style={{ color: 'rgba(255,255,255,0.5)' }}>{'{'}</span>{'\n'}
-                  {'    '}<span style={{ color: 'rgba(255,255,255,0.6)' }}>{'// ERC-8004: verify counterpart identity'}</span>{'\n'}
+                  {'    '}<span style={{ color: 'rgba(255,255,255,0.6)' }}>{t('agentscript.comments.verify')}</span>{'\n'}
                   {'    '}<span style={{ color: '#5B4FFF' }}>let</span>{' '}
                   <span style={{ color: '#FFFFFF' }}>agent</span>{' = '}
                   <span style={{ color: '#00BF8A' }}>discover</span>
@@ -1327,11 +1339,11 @@ const ethPayment = await PaymentChannel.create(
                   {'      '}
                   <span style={{ color: 'rgba(255,255,255,0.75)' }}>min_reputation: </span>
                   <span style={{ color: '#00BF8A' }}>85</span>{' '}
-                  <span style={{ color: 'rgba(255,255,255,0.6)' }}>{'// ERC-8004 check'}</span>{'\n'}
+                  <span style={{ color: 'rgba(255,255,255,0.6)' }}>{t('agentscript.comments.check')}</span>{'\n'}
                   {'    '}<span style={{ color: 'rgba(255,255,255,0.5)' }}>{'}'}</span>
                   <span style={{ color: 'rgba(255,255,255,0.75)' }}>)</span>{'\n'}
                   {'\n'}
-                  {'    '}<span style={{ color: 'rgba(255,255,255,0.6)' }}>{'// x402: atomic payment — same tx as identity check'}</span>{'\n'}
+                  {'    '}<span style={{ color: 'rgba(255,255,255,0.6)' }}>{t('agentscript.comments.atomic')}</span>{'\n'}
                   {'    '}<span style={{ color: '#5B4FFF' }}>let</span>{' '}
                   <span style={{ color: '#FFFFFF' }}>result</span>{' = '}
                   <span style={{ color: '#00BF8A' }}>delegate</span>
@@ -1340,15 +1352,15 @@ const ethPayment = await PaymentChannel.create(
                   {'      '}
                   <span style={{ color: 'rgba(255,255,255,0.75)' }}>payment: </span>
                   <span style={{ color: '#f59e0b' }}>&quot;0.004 USDC&quot;</span>{' '}
-                  <span style={{ color: 'rgba(255,255,255,0.6)' }}>{'// x402 native'}</span>{'\n'}
+                  <span style={{ color: 'rgba(255,255,255,0.6)' }}>{t('agentscript.comments.native')}</span>{'\n'}
                   {'      '}
                   <span style={{ color: 'rgba(255,255,255,0.75)' }}>gas: </span>
                   <span style={{ color: '#f59e0b' }}>&quot;0.0003 USDC&quot;</span>{' '}
-                  <span style={{ color: 'rgba(255,255,255,0.6)' }}>{'// always fixed'}</span>{'\n'}
+                  <span style={{ color: 'rgba(255,255,255,0.6)' }}>{t('agentscript.comments.fixed')}</span>{'\n'}
                   {'    '}<span style={{ color: 'rgba(255,255,255,0.5)' }}>{'}'}</span>
                   <span style={{ color: 'rgba(255,255,255,0.75)' }}>)</span>{'\n'}
                   {'\n'}
-                  {'    '}<span style={{ color: 'rgba(255,255,255,0.6)' }}>{'// x402 receipt + ERC-8004 reputation update'}</span>{'\n'}
+                  {'    '}<span style={{ color: 'rgba(255,255,255,0.6)' }}>{t('agentscript.comments.receipt')}</span>{'\n'}
                   {'    '}<span style={{ color: '#00BF8A' }}>rate</span>
                   <span style={{ color: 'rgba(255,255,255,0.75)' }}>(agent, score: </span>
                   <span style={{ color: '#00BF8A' }}>95</span>
@@ -1385,8 +1397,8 @@ const ethPayment = await PaymentChannel.create(
             margin: '0 0 16px 0',
             color: '#0D0D0D',
           }}>
-            The agent layer for<br />
-            <span style={{ color: '#00BF8A' }}>every</span> blockchain.
+            {t('finalCta.titleLine1')}<br />
+            <span style={{ color: '#00BF8A' }}>{t('finalCta.titleAccent')}</span> {t('finalCta.titleLine2')}
           </h2>
 
           <p style={{
@@ -1397,7 +1409,7 @@ const ethPayment = await PaymentChannel.create(
             margin: '0 auto 48px',
             fontFamily: mono,
           }}>
-            txxt doesn&apos;t replace your blockchain. It makes your blockchain agent-ready.
+            {t('finalCta.description')}
           </p>
 
           <Link href="/build" className="cta-final-btn" style={{
@@ -1414,7 +1426,7 @@ const ethPayment = await PaymentChannel.create(
             boxShadow: '0 4px 14px rgba(0,191,138,0.25)',
             textAlign: 'center' as const,
           }}>
-            Start Building
+            {t('finalCta.button')}
           </Link>
         </div>
       </section>

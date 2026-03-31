@@ -1,21 +1,7 @@
-import Link from 'next/link';
+import {Link} from '@/i18n/navigation';
+import {useTranslations} from 'next-intl';
 
 const mono = "var(--font-fira), 'Courier New', monospace";
-
-const navLinks = [
-  { label: 'Protocol',  href: '/protocol' },
-  { label: 'Identity',  href: '/identity' },
-  { label: 'Build',     href: '/build' },
-  { label: 'Ecosystem', href: '/ecosystem' },
-  { label: 'Litepaper', href: '/litepaper' },
-];
-
-const resourceLinks = [
-  { label: 'Docs',    href: '#' },
-  { label: 'GitHub',  href: 'https://github.com' },
-  { label: 'Discord', href: '#' },
-  { label: 'Blog',    href: '#' },
-];
 
 const groupTitleStyle: React.CSSProperties = {
   fontSize: 11,
@@ -34,6 +20,23 @@ const linkStyle: React.CSSProperties = {
 };
 
 export default function Footer() {
+  const t = useTranslations('footer');
+
+  const navLinks = [
+    {label: t('links.protocol'), href: '/protocol'},
+    {label: t('links.identity'), href: '/identity'},
+    {label: t('links.build'), href: '/build'},
+    {label: t('links.ecosystem'), href: '/ecosystem'},
+    {label: t('links.litepaper'), href: '/litepaper'},
+  ];
+
+  const resourceLinks = [
+    {label: t('resources.docs'), href: '#'},
+    {label: t('resources.github'), href: 'https://github.com'},
+    {label: t('resources.discord'), href: '#'},
+    {label: t('resources.blog'), href: '#'},
+  ];
+
   return (
     <footer style={{
       borderTop: '1px solid rgba(255,255,255,0.08)',
@@ -73,13 +76,13 @@ export default function Footer() {
               </span>
             </div>
             <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.35)', lineHeight: 1.7, maxWidth: 200 }}>
-              The agent middleware layer for every blockchain.
+              {t('tagline')}
             </p>
           </div>
 
           {/* Navigate */}
           <div>
-            <h4 style={groupTitleStyle}>Navigate</h4>
+            <h4 style={groupTitleStyle}>{t('navigate')}</h4>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
               {navLinks.map((link) => (
                 <Link
@@ -96,7 +99,7 @@ export default function Footer() {
 
           {/* Resources */}
           <div>
-            <h4 style={groupTitleStyle}>Resources</h4>
+            <h4 style={groupTitleStyle}>{t('resourcesTitle')}</h4>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
               {resourceLinks.map((link) => (
                 <Link
@@ -126,10 +129,10 @@ export default function Footer() {
           gap: 8,
         }}>
           <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.3)' }}>
-            © 2026 txxt. Agent-Native Infrastructure.
+            {t('copyright')}
           </p>
           <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.2)', fontFamily: mono }}>
-            The agent layer for every blockchain.
+            {t('bottomTagline')}
           </p>
         </div>
 

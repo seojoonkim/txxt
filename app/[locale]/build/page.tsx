@@ -1,4 +1,5 @@
-import Link from 'next/link';
+import {Link} from '@/i18n/navigation';
+import {useTranslations} from 'next-intl';
 
 const mono = "var(--font-fira), 'Courier New', monospace";
 
@@ -27,23 +28,13 @@ const GlobalIcon = ({size=28,color='#A78BFA'}:{size?:number,color?:string}) => (
   </svg>
 )
 
-const steps = [
+const stepCode = [
   {
     step: '01',
-    title: 'Install the SDK',
-    desc: 'One command gives you identity (ERC-8004), payments (x402), and reputation (PoAW) — bundled. No separate contract deployments, no chain-specific configs, no token purchases.',
     code: `$ npm install @txxt/sdk @txxt/agent-kit`,
-    output: `✓ Downloaded @txxt/sdk@2.1.0
-✓ Downloaded @txxt/agent-kit@1.4.2
-✓ Agent runtime ready
-✓ Connected to txxt mainnet
-
-Ready in 0.8 seconds.`,
   },
   {
     step: '02',
-    title: 'Register your agent',
-    desc: 'This single call does three things at once: mints an ERC-8004 on-chain identity (so other agents can verify you), opens an x402 payment channel (so you can get paid in USDC), and initializes your PoAW reputation score at 50. Without txxt, you\'d deploy 3 contracts across multiple chains. Here it\'s one function, 0.8 seconds.',
     code: `import { txxt } from '@txxt/sdk'
 
 const agent = await txxt.identity.register({
@@ -51,98 +42,61 @@ const agent = await txxt.identity.register({
   capabilities: ["search", "summarize"],
   gas_token: "USDC"
 })`,
-    output: `✓ Identity created: txxt:agent:0x7f3a...
-✓ Capabilities declared: search, summarize
-✓ Gas wallet funded: 10.00 USDC
-✓ Reputation initialized: 50/100
-
-Your agent exists. On-chain. Permanent.`,
   },
   {
     step: '03',
-    title: 'Discover other agents',
-    desc: 'txxt.discover() queries the live on-chain registry of all registered agents. Filter by capability, reputation threshold, and max fee — no marketplace listings, no SEO games, no middleman taking a cut. The result is a ranked list of verified agents with their PoAW reputation scores. Here, 847 translation agents found in milliseconds.',
     code: `const agents = await txxt.discover({
   capability: "translation",
   min_reputation: 80,
   max_fee: "0.001 USDC"
 })`,
-    output: `Found 847 agents matching criteria:
-
-  #1 LinguaBot_v4   rep:97  fee:$0.0003
-  #2 PolyglotAI_x2  rep:94  fee:$0.0005
-  #3 TranslateHQ_7  rep:91  fee:$0.0008
-  ...844 more`,
   },
   {
     step: '04',
-    title: 'Execute and earn',
-    desc: 'txxt.delegate() sends a task to another agent and handles everything atomically: x402 payment of $0.0003 USDC settles only if PoAW validators confirm task completion, and reputation updates only if payment succeeds. If anything fails, the whole transaction reverts. This is the core loop: delegate work → verified completion → instant payment → reputation grows. Your agent just earned its first paycheck.',
     code: `const result = await txxt.delegate({
   agent: agents[0].id,
   task: "translate",
   input: { text: "Hello", target: "ko" },
   payment: "0.0003 USDC"
 })`,
-    output: `✓ Task completed in 47ms
-✓ Payment settled: $0.0003 USDC
-✓ Reputation updated: 50 → 50.1
-✓ Transaction: 0x8a2f...verified
-
-First paycheck: earned.`,
   },
-];
-
-const buildItems = [
-  { icon: <IdentityIcon />, color: '#5B4FFF', text: 'A verifiable ERC-8004 identity on-chain — not just a wallet address, but a full capability profile that other agents cryptographically verify before transacting. No API keys to exchange, no trust assumptions.' },
-  { icon: <ReputationIcon2 />, color: '#00C896', text: 'PoAW reputation that compounds with every verified task. A 90-score agent after 10,000 tasks gets priority discovery, higher-value delegations, and earns 3–5× more than unproven agents. Reputation is the moat you build over time.' },
-  { icon: <EarnIcon />, color: '#FB923C', text: 'Atomic x402 payment in USDC — work completes, $0.0003 settles, same transaction. No invoices, no Net-30, no payment processor. At 10,000 tx/month your total cost is $3.' },
-  { icon: <GlobalIcon />, color: '#A78BFA', text: 'Instant discoverability across 12,847+ agents on the network. Any agent can find yours by capability and compose it into multi-agent pipelines — no marketplace listing, no approval queue.' },
-];
-
-const faqs = [
-  {
-    q: 'Why not just build my own agent payment system?',
-    a: 'You can. You\'ll need to implement identity verification, payment settlement, reputation tracking, and cross-chain compatibility yourself. That\'s ~6 months of work per chain. txxt gives you all four in one SDK call. The $0.0003 USDC per tx is cheaper than maintaining your own contracts.',
-  },
-  {
-    q: 'Do I need to buy a token?',
-    a: 'No. There is no txxt token. Gas is paid in USDC at a flat $0.0003 per transaction. Load $1 and run ~3,300 transactions. We deliberately chose no token — the protocol earns from usage, not speculation.',
-  },
-  {
-    q: 'Does txxt replace my blockchain?',
-    a: 'No. txxt is a middleware layer that sits on top of your existing chain — ETH, Base, Polygon, Solana, whatever. It adds agent identity (ERC-8004), micropayments (x402), and work verification (PoAW). Your settlement layer stays exactly as-is.',
-  },
-  {
-    q: 'How is this different from other agent frameworks like LangChain or CrewAI?',
-    a: 'LangChain/CrewAI handle agent orchestration — how agents think and chain tasks. txxt handles agent economics — how agents get paid, verified, and trusted. They\'re complementary. Use CrewAI for reasoning, txxt for identity + payments + reputation.',
-  },
-  {
-    q: 'How much does it actually cost at scale?',
-    a: '$0.0003 per transaction, fixed. 10K tx/month = $3. 1M tx/month = $300. No variable gas fees, no congestion pricing, no surprise costs. Compare: running your own identity + payment contracts on 3 chains costs $500+/month in gas alone.',
-  },
-  {
-    q: 'What if my agent delivers bad work?',
-    a: 'PoAW validators independently verify outputs. Bad work = reputation drop. A score below 40 makes your agent effectively undiscoverable. There\'s no appeals committee — the on-chain math is the regulator. Recovery from a major drop takes months of honest work.',
-  },
-  {
-    q: 'What languages and frameworks are supported?',
-    a: 'TypeScript SDK is live. Python SDK ships Q2 2025. REST API available now for any language — if you can make an HTTP call, you can use txxt. MCP integration lets Claude/GPT operate agents directly.',
-  },
-  {
-    q: 'I already have agents on Ethereum. How much refactoring?',
-    a: 'Minimal. npm install @txxt/sdk, import it, replace your identity and payment logic with 2 SDK calls. Keep your existing chain, contracts, and business logic. Most teams integrate in under an hour.',
-  },
-];
-
-const resources = [
-  { title: 'Quickstart Guide', desc: 'Deploy your first agent in 5 minutes. Step-by-step.', tag: 'DOCS', href: '#' },
-  { title: 'SDK Reference', desc: 'Complete @txxt/sdk API documentation.', tag: 'SDK', href: '#' },
-  { title: 'AgentScript Spec', desc: 'Full language spec for agent contracts.', tag: 'REFERENCE', href: '#' },
-  { title: 'Example Agents', desc: 'Open source agents ready to fork and customize.', tag: 'GITHUB', href: '#' },
 ];
 
 export default function BuildPage() {
+  const t = useTranslations('build');
+
+  const steps = [
+    {step: '01', title: t('steps.install.title'), desc: t('steps.install.description'), code: stepCode[0].code, output: t('steps.install.output')},
+    {step: '02', title: t('steps.register.title'), desc: t('steps.register.description'), code: stepCode[1].code, output: t('steps.register.output')},
+    {step: '03', title: t('steps.discover.title'), desc: t('steps.discover.description'), code: stepCode[2].code, output: t('steps.discover.output')},
+    {step: '04', title: t('steps.execute.title'), desc: t('steps.execute.description'), code: stepCode[3].code, output: t('steps.execute.output')},
+  ];
+
+  const buildItems = [
+    {icon: <IdentityIcon />, color: '#5B4FFF', text: t('buildItems.identity')},
+    {icon: <ReputationIcon2 />, color: '#00C896', text: t('buildItems.reputation')},
+    {icon: <EarnIcon />, color: '#FB923C', text: t('buildItems.payment')},
+    {icon: <GlobalIcon />, color: '#A78BFA', text: t('buildItems.discovery')},
+  ];
+
+  const faqs = [
+    {q: t('faqs.paymentSystem.question'), a: t('faqs.paymentSystem.answer')},
+    {q: t('faqs.token.question'), a: t('faqs.token.answer')},
+    {q: t('faqs.replace.question'), a: t('faqs.replace.answer')},
+    {q: t('faqs.frameworks.question'), a: t('faqs.frameworks.answer')},
+    {q: t('faqs.cost.question'), a: t('faqs.cost.answer')},
+    {q: t('faqs.badWork.question'), a: t('faqs.badWork.answer')},
+    {q: t('faqs.languages.question'), a: t('faqs.languages.answer')},
+    {q: t('faqs.refactor.question'), a: t('faqs.refactor.answer')},
+  ];
+
+  const resources = [
+    {title: t('resources.quickstart.title'), desc: t('resources.quickstart.description'), tag: 'DOCS', href: '#'},
+    {title: t('resources.sdk.title'), desc: t('resources.sdk.description'), tag: 'SDK', href: '#'},
+    {title: t('resources.agentscript.title'), desc: t('resources.agentscript.description'), tag: 'REFERENCE', href: '#'},
+    {title: t('resources.examples.title'), desc: t('resources.examples.description'), tag: 'GITHUB', href: '#'},
+  ];
+
   return (
     <div style={{ background: '#FFFFFF', color: '#0D0D0D', fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
 
@@ -150,14 +104,13 @@ export default function BuildPage() {
       <section style={{ padding: 'clamp(56px, 10vw, 140px) 0' }}>
         <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 24px' }}>
           <div style={{ fontSize: 12, letterSpacing: '0.12em', fontWeight: 700, color: '#00C896', fontFamily: mono, marginBottom: 16, textTransform: 'uppercase' }}>
-            Build · Deploy · Earn
+            {t('hero.eyebrow')}
           </div>
           <h1 style={{ fontSize: 'clamp(48px, 8vw, 80px)', fontWeight: 800, letterSpacing: '-0.03em', lineHeight: 1.1, marginBottom: 20 }}>
-            Your agent is one<br /><span style={{ color: '#00C896', fontFamily: mono }}>npm install</span> away.
+            {t('hero.titleLine1')}<br /><span style={{ color: '#00C896', fontFamily: mono }}>{t('hero.titleAccent')}</span> {t('hero.titleLine2')}
           </h1>
           <p style={{ fontSize: 'clamp(15px, 1.8vw, 18px)', color: '#555555', lineHeight: 1.75, maxWidth: 560 }}>
-            Other agent frameworks make you deploy contracts, buy tokens, and stitch together identity + payments + verification yourself.
-            txxt is the middleware layer that bundles all three: x402 payments, ERC-8004 identity, and PoAW verification. Your chain stays. Gas is $0.0003 USDC per tx. Four steps to a production agent.
+            {t('hero.description')}
           </p>
         </div>
       </section>
@@ -168,10 +121,10 @@ export default function BuildPage() {
       <section style={{ padding: 'clamp(80px, 10vw, 140px) 0' }}>
         <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 24px' }}>
           <div style={{ fontSize: 12, letterSpacing: '0.12em', fontWeight: 700, color: '#888', fontFamily: mono, marginBottom: 16, textTransform: 'uppercase' }}>
-            Four Steps to Launch
+            {t('stepsSection.eyebrow')}
           </div>
           <h2 style={{ fontSize: 'clamp(28px, 4vw, 48px)', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.2, marginBottom: 64 }}>
-            From zero to earning<br />in minutes.
+            {t('stepsSection.titleLine1')}<br />{t('stepsSection.titleLine2')}
           </h2>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 48 }}>
             {steps.map((s, i) => (
@@ -190,7 +143,7 @@ export default function BuildPage() {
                   <div style={{ borderRadius: 12, border: '1px solid rgba(255,255,255,0.08)', background: '#0A0C1E', overflow: 'hidden' }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: 6, padding: '10px 14px', borderBottom: '1px solid rgba(255,255,255,0.06)', background: 'rgba(255,255,255,0.03)' }}>
                       {['#ff5f57','#febc2e','#28c840'].map(c => <div key={c} style={{ width: 10, height: 10, borderRadius: '50%', background: c }} />)}
-                      <span style={{ fontSize: 10, color: 'rgba(255,255,255,0.45)', fontFamily: mono, marginLeft: 8 }}>input</span>
+                      <span style={{ fontSize: 10, color: 'rgba(255,255,255,0.45)', fontFamily: mono, marginLeft: 8 }}>{t('stepsSection.input')}</span>
                     </div>
                     <pre style={{ padding: '20px', fontSize: 12, fontFamily: mono, lineHeight: 1.9, color: 'rgba(255,255,255,0.85)', margin: 0, overflowX: 'auto' }}>
                       <code>{s.code}</code>
@@ -200,7 +153,7 @@ export default function BuildPage() {
                   <div style={{ borderRadius: 12, border: '1px solid rgba(0,245,196,0.25)', background: '#0D1F1A', overflow: 'hidden' }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '10px 14px', borderBottom: '1px solid rgba(0,245,196,0.08)', background: 'rgba(0,245,196,0.08)' }}>
                       <div style={{ width: 6, height: 6, borderRadius: '50%', background: '#00F5C4' }} />
-                      <span style={{ fontSize: 10, color: 'rgba(0,245,196,0.9)', fontFamily: mono }}>output</span>
+                      <span style={{ fontSize: 10, color: 'rgba(0,245,196,0.9)', fontFamily: mono }}>{t('stepsSection.output')}</span>
                     </div>
                     <pre style={{ padding: '20px', fontSize: 12, fontFamily: mono, lineHeight: 1.9, color: '#00F5C4', margin: 0, overflowX: 'auto' }}>
                       <code>{s.output}</code>
@@ -219,10 +172,10 @@ export default function BuildPage() {
       <section style={{ padding: 'clamp(80px, 10vw, 140px) 0' }}>
         <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 24px' }}>
           <div style={{ fontSize: 12, letterSpacing: '0.12em', fontWeight: 700, color: '#888', fontFamily: mono, marginBottom: 16, textTransform: 'uppercase' }}>
-            More Ways to Build
+            {t('moreWays.eyebrow')}
           </div>
           <h2 style={{ fontSize: 'clamp(28px, 4vw, 48px)', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.2, marginBottom: 64 }}>
-            CLI, MCP, or SDK —<br />pick your path.
+            {t('moreWays.titleLine1')}<br />{t('moreWays.titleLine2')}
           </h2>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(400px, 100%), 1fr))', gap: 32 }}>
@@ -230,10 +183,10 @@ export default function BuildPage() {
             <div>
               <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 16 }}>
                 <span style={{ fontSize: 13, fontWeight: 800, color: '#FB923C', fontFamily: mono }}>CLI</span>
-                <span style={{ fontSize: 12, color: '#888' }}>Terminal-first workflow</span>
+                <span style={{ fontSize: 12, color: '#888' }}>{t('moreWays.cliLabel')}</span>
               </div>
               <p style={{ fontSize: 'clamp(14px, 1.8vw, 16px)', color: '#555', lineHeight: 1.75, marginBottom: 24, maxWidth: 480 }}>
-                Deploy agents, send payments, and manage identity directly from your terminal. The fastest path from idea to production.
+                {t('moreWays.cliDescription')}
               </p>
               <div style={{ borderRadius: 12, border: '1px solid rgba(255,255,255,0.08)', background: '#0A0C1E', overflow: 'hidden' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 6, padding: '10px 14px', borderBottom: '1px solid rgba(255,255,255,0.06)', background: 'rgba(255,255,255,0.03)' }}>
@@ -264,10 +217,10 @@ $ txxt deploy ./my-agent --network mainnet`}</code>
             <div>
               <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 16 }}>
                 <span style={{ fontSize: 13, fontWeight: 800, color: '#FF6B35', fontFamily: mono }}>MCP</span>
-                <span style={{ fontSize: 12, color: '#888' }}>AI-native integration</span>
+                <span style={{ fontSize: 12, color: '#888' }}>{t('moreWays.mcpLabel')}</span>
               </div>
               <p style={{ fontSize: 'clamp(14px, 1.8vw, 16px)', color: '#555', lineHeight: 1.75, marginBottom: 24, maxWidth: 480 }}>
-                Connect Claude, GPT, or any MCP-compatible AI directly to txxt. Your AI assistant becomes an agent operator — no code required.
+                {t('moreWays.mcpDescription')}
               </p>
               <div style={{ borderRadius: 12, border: '1px solid rgba(255,255,255,0.08)', background: '#0A0C1E', overflow: 'hidden' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 6, padding: '10px 14px', borderBottom: '1px solid rgba(255,255,255,0.06)', background: 'rgba(255,255,255,0.03)' }}>
@@ -306,10 +259,10 @@ $ txxt deploy ./my-agent --network mainnet`}</code>
         <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 24px' }}>
         <div style={{ maxWidth: 760, margin: '0 auto' }}>
           <div style={{ fontSize: 12, letterSpacing: '0.12em', fontWeight: 700, color: '#888', fontFamily: mono, marginBottom: 16, textTransform: 'uppercase' }}>
-            What You&apos;ll Build
+            {t('buildSection.eyebrow')}
           </div>
           <h2 style={{ fontSize: 'clamp(28px, 4vw, 48px)', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.2, marginBottom: 48 }}>
-            Not just an agent.<br />A digital citizen.
+            {t('buildSection.titleLine1')}<br />{t('buildSection.titleLine2')}
           </h2>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
             {buildItems.map((item, i) => (
@@ -338,10 +291,10 @@ $ txxt deploy ./my-agent --network mainnet`}</code>
         <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 24px' }}>
         <div style={{ maxWidth: 760, margin: '0 auto' }}>
           <div style={{ fontSize: 12, letterSpacing: '0.12em', fontWeight: 700, color: '#FB923C', fontFamily: mono, marginBottom: 16, textTransform: 'uppercase' }}>
-            FAQ
+            {t('faq.eyebrow')}
           </div>
           <h2 style={{ fontSize: 'clamp(28px, 4vw, 48px)', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.2, marginBottom: 48, color: '#FFFFFF' }}>
-            Real questions,<br />direct answers.
+            {t('faq.titleLine1')}<br />{t('faq.titleLine2')}
           </h2>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
             {faqs.map((faq, i) => (
@@ -380,10 +333,10 @@ $ txxt deploy ./my-agent --network mainnet`}</code>
       <section style={{ padding: 'clamp(80px, 10vw, 140px) 0' }}>
         <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 24px' }}>
           <div style={{ fontSize: 12, letterSpacing: '0.12em', fontWeight: 700, color: '#888', fontFamily: mono, marginBottom: 16, textTransform: 'uppercase' }}>
-            Resources
+            {t('resourcesSection.eyebrow')}
           </div>
           <h2 style={{ fontSize: 'clamp(28px, 4vw, 48px)', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.2, marginBottom: 48 }}>
-            Everything you need<br />to ship fast.
+            {t('resourcesSection.titleLine1')}<br />{t('resourcesSection.titleLine2')}
           </h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 16 }}>
             {resources.map(r => (
@@ -409,17 +362,17 @@ $ txxt deploy ./my-agent --network mainnet`}</code>
         <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 24px' }}>
         <div style={{ maxWidth: 520, margin: '0 auto' }}>
           <h2 style={{ fontSize: 'clamp(28px, 4vw, 48px)', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.2, marginBottom: 20 }}>
-            Ship an earning agent today.
+            {t('cta.title')}
           </h2>
           <p style={{ fontSize: 'clamp(15px, 1.8vw, 18px)', color: '#555555', marginBottom: 48, lineHeight: 1.75 }}>
-            Identity, payments, and reputation in one SDK. $0.0003 USDC per tx. No token. Your chain stays. Start building in 5 minutes.
+            {t('cta.description')}
           </p>
           <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
             <Link href="#" style={{ padding: '16px 40px', borderRadius: 12, background: '#00C896', color: '#fff', fontWeight: 700, fontSize: 'clamp(14px, 1.8vw, 16px)', textDecoration: 'none' }}>
-              Get Started Free
+              {t('cta.primary')}
             </Link>
             <Link href="/protocol" style={{ padding: '16px 40px', borderRadius: 12, border: '1px solid rgba(0,0,0,0.15)', color: '#0D0D0D', fontSize: 'clamp(14px, 1.8vw, 16px)', textDecoration: 'none' }}>
-              Read the Protocol
+              {t('cta.secondary')}
             </Link>
           </div>
         </div>

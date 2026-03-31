@@ -1,0 +1,502 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e3]:
+    - link "txxt" [ref=e4] [cursor=pointer]:
+      - /url: /ko
+    - generic [ref=e5]:
+      - link "프로토콜" [ref=e6] [cursor=pointer]:
+        - /url: /ko/protocol
+      - link "아이덴티티" [ref=e7] [cursor=pointer]:
+        - /url: /ko/identity
+      - link "빌드" [ref=e8] [cursor=pointer]:
+        - /url: /ko/build
+      - link "생태계" [ref=e9] [cursor=pointer]:
+        - /url: /ko/ecosystem
+      - link "라이트페이퍼" [ref=e10] [cursor=pointer]:
+        - /url: /ko/litepaper
+    - generic [ref=e11]:
+      - generic [ref=e12]:
+        - link "🇰🇷 한국어" [ref=e13] [cursor=pointer]:
+          - /url: /ko
+        - link "🇬🇧 English" [ref=e14] [cursor=pointer]:
+          - /url: /en
+      - link "빌드 시작" [ref=e15] [cursor=pointer]:
+        - /url: /ko/build
+  - main [ref=e16]:
+    - generic [ref=e17]:
+      - generic [ref=e19]:
+        - generic [ref=e21]:
+          - paragraph [ref=e22]:
+            - text: 인터넷은 txt 위에서 돌아갑니다.
+            - generic [ref=e23]:
+              - text: 에이전트 경제는
+              - strong [ref=e24]: txxt
+              - text: .
+          - generic [ref=e25]:
+            - generic [ref=e26]: t
+            - generic [ref=e27]: x
+            - generic [ref=e28]: x
+            - generic [ref=e29]: t
+          - paragraph [ref=e30]: txxt는 어떤 블록체인도 에이전트 준비 상태로 만들어 주는 미들웨어입니다. x402 결제, ERC-8004 아이덴티티, 그리고 Ethereum·Solana·Base 등 다양한 체인 위에서 동작합니다.
+          - generic [ref=e31]:
+            - link "빌드" [ref=e32] [cursor=pointer]:
+              - /url: /ko/build
+            - link "프로토콜" [ref=e33] [cursor=pointer]:
+              - /url: /ko/protocol
+            - link "문서" [ref=e34] [cursor=pointer]:
+              - /url: https://docs.txxt.network
+        - generic [ref=e37]:
+          - generic [ref=e38]:
+            - generic [ref=e39]: <10ms
+            - generic [ref=e40]: 지연시간
+          - generic [ref=e41]:
+            - generic [ref=e42]: $0.0003
+            - generic [ref=e43]: 거래당
+          - generic [ref=e44]:
+            - generic [ref=e45]: 5+
+            - generic [ref=e46]: 체인
+          - generic [ref=e47]:
+            - generic [ref=e48]: 100%
+            - generic [ref=e49]: USDC 가스
+      - generic [ref=e51]:
+        - paragraph [ref=e52]: 문제
+        - heading "블록체인에는 에이전트 레이어가 없습니다. 그래서 에이전트는 거래할 수 없습니다." [level=2] [ref=e53]:
+          - text: 블록체인에는 에이전트 레이어가 없습니다.
+          - text: 그래서 에이전트는 거래할 수 없습니다.
+        - heading "기본 결제 프로토콜도, 기계가 읽을 수 있는 아이덴티티도, 작업 검증도 없습니다. 빠져 있는 세 가지 원시 기능을 하나의 미들웨어가 해결합니다." [level=3] [ref=e54]
+        - generic [ref=e55]:
+          - generic [ref=e56]:
+            - generic [ref=e57]: x402 프로토콜 — 결제
+            - paragraph [ref=e58]: 에이전트끼리 결제할 방법이 없습니다.
+            - paragraph [ref=e59]: HTTP에는 거의 모든 상태 코드가 있지만 결제는 없습니다. x402가 이를 보완하지만, 명세만으로는 크로스체인을 해결하지 못합니다. Base 에이전트가 Solana 에이전트에게 결제하려면 브리지 코드, 체인별 USDC 라우팅, 수동 가스 추정이 필요합니다. 체인 조합마다 새로운 통합이 생깁니다.
+          - generic [ref=e60]:
+            - generic [ref=e61]: ERC-8004 표준 — 아이덴티티
+            - paragraph [ref=e62]: 검증 가능한 에이전트 아이덴티티가 없습니다.
+            - paragraph [ref=e63]: 지갑 주소는 아이덴티티가 아닙니다. ERC-8004는 에이전트에게 온체인 자격 정보—능력, 평판, 소유자 출처—를 제공하지만 Ethereum에만 묶여 있습니다. Solana에 배포하면 새 컨트랙트, Base에 가면 또 다른 컨트랙트가 필요합니다. 각 체인은 어디서도 검증되지 않는 사일로가 됩니다.
+        - paragraph [ref=e65]:
+          - strong [ref=e66]: "빠진 조각:"
+          - text: 결제(x402), 아이덴티티(ERC-8004), 작업 검증(PoAW)은 서로 다른 레이어의 별도 표준입니다. 이를 하나로 묶는 미들웨어가 없으면 에이전트는 Ethereum에서 아이덴티티를 확인하고, Base에서 결제를 라우팅하고, 둘 다 실패하지 않기를 바랄 뿐입니다. 호출은 3번, 실패 지점은 2곳, 원자성은 0입니다. 이건 인프라가 아니라 임시방편입니다.
+      - generic [ref=e68]:
+        - paragraph [ref=e69]: 작동 방식
+        - heading "txxt는 에이전트와 블록체인 사이에 위치합니다." [level=2] [ref=e70]:
+          - text: txxt는
+          - text: 에이전트와 블록체인 사이에 위치합니다.
+        - paragraph [ref=e71]: 에이전트는 API 호출 한 번만 하면 됩니다. txxt가 아이덴티티(ERC-8004)를 해석하고, 결제(x402)를 라우팅하고, 작업(PoAW)을 검증한 뒤, 원하는 체인에 정산합니다. 체인별 코드도 브리지 로직도 필요 없습니다.
+        - generic [ref=e72]:
+          - generic [ref=e73]:
+            - paragraph [ref=e74]: AI 에이전트 — 요청 레이어
+            - generic [ref=e75]:
+              - generic [ref=e76]: TravelBot
+              - generic [ref=e78]: TradeAgent
+              - generic [ref=e80]: DataBot
+              - generic [ref=e82]: LegalAI
+              - generic [ref=e84]: SearchAgent
+          - img [ref=e87]
+          - generic [ref=e89]:
+            - generic [ref=e90]:
+              - generic [ref=e91]: txxt
+              - generic [ref=e92]: 미들웨어 레이어
+            - generic [ref=e93]:
+              - generic [ref=e94]: x402 Payments
+              - generic [ref=e95]: ERC-8004 Identity
+              - generic [ref=e96]: PoAW Validation
+            - paragraph [ref=e97]: x402 결제 + ERC-8004 아이덴티티 + PoAW 검증 → 한 번의 원자적 호출로 어떤 체인에도 라우팅
+          - img [ref=e99]
+          - generic [ref=e101]:
+            - paragraph [ref=e102]: 정산 체인
+            - generic [ref=e103]:
+              - generic [ref=e104]: Ethereum
+              - generic [ref=e105]: Solana
+              - generic [ref=e106]: Base
+              - generic [ref=e107]: Polygon
+              - generic [ref=e108]: Arbitrum
+      - generic [ref=e110]:
+        - generic [ref=e111]:
+          - paragraph [ref=e112]: 해결책
+          - heading "미들웨어 호출 한 번으로 아이덴티티 + 결제 + 모든 체인." [level=2] [ref=e113]:
+            - text: 미들웨어 호출 한 번으로
+            - text: 아이덴티티 + 결제 + 모든 체인.
+          - paragraph [ref=e114]: 기존 방식은 체인마다 아이덴티티와 결제를 위한 별도 컨트랙트를 요구합니다. txxt는 둘을 하나의 미들웨어 레이어로 통합해 한 번 배포하면 어디서나 동작하게 만듭니다.
+        - generic [ref=e115]:
+          - generic [ref=e116]:
+            - img [ref=e118]
+            - generic [ref=e123]:
+              - generic [ref=e124]: x402 네이티브
+              - heading "결제가 곧 인프라입니다." [level=3] [ref=e125]
+              - paragraph [ref=e126]: Ethereum에서만 x402를 구현해도 맞춤 컨트랙트, 예측 불가능한 가스, 수주간의 테스트가 필요합니다. txxt를 쓰면 agent.pay()가 ETH, SOL, Base, Polygon에서 같은 호출·같은 비용($0.0003)으로 항상 동작합니다.
+          - generic [ref=e127]:
+            - img [ref=e129]
+            - generic [ref=e133]:
+              - generic [ref=e134]: ERC-8004 네이티브
+              - heading "오버헤드 없는 아이덴티티." [level=3] [ref=e135]
+              - paragraph [ref=e136]: txxt 없이 ERC-8004를 쓰려면 에이전트가 닿는 모든 체인에 별도 스마트 컨트랙트를 배포하고 유지해야 합니다. txxt에서는 한 번의 등록으로 모든 지원 체인에서 통하는 검증된 아이덴티티를 만들 수 있습니다.
+          - generic [ref=e137]:
+            - img [ref=e139]
+            - generic [ref=e142]:
+              - generic [ref=e143]: 원자적 통합
+              - heading "하나의 트랜잭션이 둘 다 처리합니다." [level=3] [ref=e144]
+              - paragraph [ref=e145]: 상대의 아이덴티티를 검증한 뒤 결제를 보냈는데, 아이덴티티 검사는 통과하고 결제는 실패했다고 상상해 보세요. txxt는 아이덴티티와 결제를 원자적으로 묶어 둘 다 성공하거나 둘 다 실패하게 만듭니다.
+          - generic [ref=e146]:
+            - img [ref=e148]
+            - generic [ref=e152]:
+              - generic [ref=e153]: 결과
+              - heading "머신 속도로 동작하는 에이전트 커머스." [level=3] [ref=e154]
+              - paragraph [ref=e155]: 아이덴티티 확인 → 능력 확인 → 결제 정산 → 평판 업데이트. 네 가지 연산이 하나의 원자적 트랜잭션으로 처리됩니다. 10ms 미만, USDC 가스는 $0.0003입니다. 정산 체인이 Ethereum이든 Solana든 Base든 동일합니다.
+        - paragraph [ref=e157]: “x402는 에이전트에게 어떻게 결제할지를 알려 주고, ERC-8004는 누구를 신뢰할지 알려 줍니다. txxt는 이 둘이 모든 블록체인에서 네이티브하게 함께 동작하는 미들웨어 레이어입니다.”
+      - generic [ref=e159]:
+        - paragraph [ref=e160]: 왜 TXXT인가
+        - heading "직접 만드는 에이전트 인프라 vs txxt 미들웨어" [level=2] [ref=e161]:
+          - text: 직접 만드는 에이전트 인프라
+          - text: vs txxt 미들웨어
+        - paragraph [ref=e162]: 직접 만들려면 x402, ERC-8004, PoAW, 브리지 SDK, 가스 오라클, 체인 RPC 등 6개 이상의 프로토콜을 통합하고, 체인별 어댑터를 작성하고, 사양이 바뀔 때마다 다시 고쳐야 합니다. 아니면 이미 이 모든 것을 담은 미들웨어를 쓰면 됩니다.
+        - generic [ref=e163]:
+          - generic [ref=e164]:
+            - generic [ref=e165]: 직접 구현
+            - generic [ref=e166]: txxt 사용
+          - generic [ref=e167]:
+            - generic [ref=e168]:
+              - generic [ref=e169]: 에이전트 아이덴티티
+              - generic [ref=e170]:
+                - img [ref=e171]
+                - generic [ref=e173]: 체인마다 ERC-8004 컨트랙트 배포. 5개 체인이면 5개 컨트랙트, 5개 ABI, 5개 가스 구성이 필요합니다.
+            - generic [ref=e174]:
+              - generic [ref=e175]: 에이전트 아이덴티티
+              - generic [ref=e176]:
+                - img [ref=e177]
+                - generic [ref=e179]: txxt.register() — 한 번의 호출로 ETH, SOL, Base, Polygon 전체에서 사용
+          - generic [ref=e180]:
+            - generic [ref=e181]:
+              - generic [ref=e182]: 에이전트 결제
+              - generic [ref=e183]:
+                - img [ref=e184]
+                - generic [ref=e186]: 체인마다 x402 어댑터 + 브리지 SDK + USDC 라우팅을 작성하고, 사양이 바뀌면 다시 고칩니다.
+            - generic [ref=e187]:
+              - generic [ref=e188]: 에이전트 결제
+              - generic [ref=e189]:
+                - img [ref=e190]
+                - generic [ref=e192]: txxt.pay() — 고정 $0.0003, 원하는 체인에 정산
+          - generic [ref=e193]:
+            - generic [ref=e194]:
+              - generic [ref=e195]: 작업 검증
+              - generic [ref=e196]:
+                - img [ref=e197]
+                - generic [ref=e199]: 오라클, 평판 집계기, 분쟁 해결을 모두 직접 구축합니다.
+            - generic [ref=e200]:
+              - generic [ref=e201]: 작업 검증
+              - generic [ref=e202]:
+                - img [ref=e203]
+                - generic [ref=e205]: PoAW 내장 — 자기 증명, 피어 검증, 프로토콜 확인, 자동 평판 업데이트
+          - generic [ref=e206]:
+            - generic [ref=e207]:
+              - generic [ref=e208]: 멀티체인 지원
+              - generic [ref=e209]:
+                - img [ref=e210]
+                - generic [ref=e212]: 체인 수 N이면 배포도 N개입니다. ETH에서의 아이덴티티는 SOL에서 검증되지 않고 상태도 동기화되지 않습니다.
+            - generic [ref=e213]:
+              - generic [ref=e214]: 멀티체인 지원
+              - generic [ref=e215]:
+                - img [ref=e216]
+                - generic [ref=e218]: 하나의 에이전트 아이덴티티, 하나의 평판 점수, 모든 지원 체인으로 이동
+          - generic [ref=e219]:
+            - generic [ref=e220]:
+              - generic [ref=e221]: 온보딩 시간
+              - generic [ref=e222]:
+                - img [ref=e223]
+                - generic [ref=e225]: 체인마다 2~6주. 새 체인을 추가할 때마다 처음부터 다시 시작합니다.
+            - generic [ref=e226]:
+              - generic [ref=e227]: 온보딩 시간
+              - generic [ref=e228]:
+                - img [ref=e229]
+                - generic [ref=e231]: 5분 이내 — 어떤 체인, 어떤 프레임워크든. 새 체인도 자동 지원
+        - generic [ref=e232]:
+          - paragraph [ref=e233]: 코드 비교
+          - heading "접착 코드 100줄+ vs 5줄" [level=3] [ref=e234]:
+            - text: 접착 코드 100줄+
+            - text: vs 5줄
+        - generic [ref=e235]:
+          - generic [ref=e236]:
+            - generic [ref=e237]:
+              - generic [ref=e238]: 직접 구현 멀티체인
+              - generic [ref=e239]: 체인당 약 100줄+
+            - generic [ref=e240]: "// 직접 구현: 체인 간 에이전트 결제 import { ethers } from 'ethers'; import { Connection } from '@solana/web3.js'; import { PaymentChannel } from './custom-x402-adapter'; import { IdentityRegistry } from './custom-erc8004'; // 1. Ethereum에 아이덴티티 배포 const ethIdentity = await IdentityRegistry.deploy( ethProvider, agentMetadata ); // 2. Solana에 아이덴티티 배포 (SDK도 다름!) const solIdentity = await createSolanaIdentity( connection, agentKeypair, metadata ); // 3. 체인별 결제 채널 구성 const ethPayment = await PaymentChannel.create( ethProvider, USDC_ETH, recipient ); // 4. 체인에 따라 결제 라우팅 // 5. 체인 간 아이덴티티 동기화 // ... 체인마다 100줄이 넘는 접착 코드"
+          - generic [ref=e241]:
+            - generic [ref=e242]:
+              - generic [ref=e243]: txxt 미들웨어
+              - generic [ref=e244]: 5줄 · 모든 체인
+            - generic [ref=e245]:
+              - generic [ref=e246]: "import { txxt } from '@txxt/sdk';"
+              - generic [ref=e247]: "const agent = txxt.connect({ apiKey, chains: ['eth', 'sol', 'base'] });"
+              - generic [ref=e248]: "await agent.register({ capabilities: ['translate'] });"
+              - generic [ref=e249]: "await agent.pay(url, '$0.01', { chain: 'base' });"
+              - generic [ref=e250]: // 완료. 아이덴티티 + 결제. 어떤 체인이든.
+            - generic [ref=e251]: 하나의 아이덴티티. 하나의 결제 레이어. 아래에는 어떤 체인이든.
+      - generic [ref=e253]:
+        - generic [ref=e254]:
+          - paragraph [ref=e255]: 작동 방식
+          - heading "세 개의 기둥. 타협은 없습니다." [level=2] [ref=e256]:
+            - text: 세 개의 기둥.
+            - text: 타협은 없습니다.
+        - generic [ref=e257]:
+          - generic [ref=e258]:
+            - generic [ref=e259]: "01"
+            - paragraph [ref=e260]: 아이덴티티
+            - heading "모든 에이전트는 여권을 가집니다." [level=3] [ref=e261]:
+              - text: 모든 에이전트는
+              - text: 여권을 가집니다.
+            - paragraph [ref=e262]: ERC-8004를 준수하며 한 번 등록하면 모든 체인에서 유효합니다. 에이전트가 무엇을 할 수 있고, 누가 만들었고, 얼마나 오래 일했는지 모두 온체인에서 검증 가능합니다.
+          - code [ref=e265]: "txxt.identity.register({ name: \"TravelBot\", capabilities: [\"search\", \"book\"], owner: \"0x1a2b...3c4d\" })"
+        - generic [ref=e266]:
+          - code [ref=e269]: "const score = await txxt .reputation.get(agentId) // { score: 94, // txCount: 12847, // disputes: 0, // uptime: 99.9 }"
+          - generic [ref=e270]:
+            - generic [ref=e271]: "02"
+            - paragraph [ref=e272]: 평판
+            - heading "신뢰는 온체인에서 쌓입니다." [level=3] [ref=e273]:
+              - text: 신뢰는
+              - text: 온체인에서 쌓입니다.
+            - paragraph [ref=e274]: 별점은 잊으세요. 점수 94는 12,847건의 작업, 분쟁 0건, 업타임 99.9%를 의미합니다. 모두 온체인, 모두 감사 가능합니다. 에이전트의 이력이 그 자체로 증거가 됩니다.
+        - generic [ref=e275]:
+          - generic [ref=e276]:
+            - generic [ref=e277]: "03"
+            - paragraph [ref=e278]: 검증
+            - heading "세 개의 레이어. 의심은 없습니다." [level=3] [ref=e279]:
+              - text: 세 개의 레이어.
+              - text: 의심은 없습니다.
+            - paragraph [ref=e280]: 딜이 성사되기 전, 에이전트의 자기 증명과 피어 교차 검증, 프로토콜 온체인 확인이 모두 진행됩니다. 세 레이어는 모두 10ms 이내에 끝나며, 하나라도 실패하면 트랜잭션은 일어나지 않습니다.
+          - code [ref=e283]: "txxt.validate({ agent: agentId, layers: [ \"self\", \"peer\", \"protocol\" ] }) // ✓ triple-verified"
+      - generic [ref=e285]:
+        - paragraph [ref=e286]: 증명
+        - heading "토큰은 없습니다. 가스는 안정적입니다." [level=2] [ref=e287]:
+          - text: 토큰은 없습니다.
+          - text: 가스는 안정적입니다.
+        - paragraph [ref=e288]: 대부분의 체인은 가스를 내기 위해 변동성이 큰 네이티브 토큰을 들고 있어야 합니다. 2024년 밈코인 시즌에는 ETH 가스가 4,000% 급등했습니다. 예측 가능한 예산이 필요한 자율 에이전트에게 변동성 가스는 치명적입니다.
+        - paragraph [ref=e289]: "txxt 가스: USDC/USDT. 거래당 $0.0003. 언제나 동일합니다."
+        - generic [ref=e290]:
+          - paragraph [ref=e291]: 가스 비용 시뮬레이터
+          - slider [ref=e292]: "10000"
+          - paragraph [ref=e293]:
+            - text: 월간
+            - strong [ref=e294]: 10,000
+            - text: "건의 트랜잭션일 때:"
+          - generic [ref=e295]:
+            - generic [ref=e296]:
+              - generic [ref=e297]: 기타
+              - generic [ref=e298]: $500.00
+            - generic [ref=e299]:
+              - generic [ref=e300]: txxt
+              - generic [ref=e301]: $3.00
+          - paragraph [ref=e302]: "절감액: $497.00"
+        - generic [ref=e304]:
+          - generic [ref=e305]:
+            - generic [ref=e307]: 기타
+            - generic [ref=e308]: txxt
+          - generic [ref=e309]:
+            - generic [ref=e310]: 가스 수수료
+            - generic [ref=e311]:
+              - img [ref=e312]
+              - text: 변동성 토큰
+            - generic [ref=e314]:
+              - img [ref=e315]
+              - text: 안정적인 USDC
+          - generic [ref=e317]:
+            - generic [ref=e318]: 비용
+            - generic [ref=e319]:
+              - img [ref=e320]
+              - text: 100배까지 급등 가능
+            - generic [ref=e322]:
+              - img [ref=e323]
+              - text: 항상 $0.0003
+          - generic [ref=e325]:
+            - generic [ref=e326]: x402
+            - generic [ref=e327]:
+              - img [ref=e328]
+              - text: 맞춤 컨트랙트
+            - generic [ref=e330]:
+              - img [ref=e331]
+              - text: 네이티브 미들웨어
+          - generic [ref=e333]:
+            - generic [ref=e334]: ERC-8004
+            - generic [ref=e335]:
+              - img [ref=e336]
+              - text: 플러그인/컨트랙트
+            - generic [ref=e338]:
+              - img [ref=e339]
+              - text: 네이티브 미들웨어
+          - generic [ref=e341]:
+            - generic [ref=e342]: 원자적 ID+결제
+            - generic [ref=e343]:
+              - img [ref=e344]
+              - text: 불가능
+            - generic [ref=e346]:
+              - img [ref=e347]
+              - text: 가능, <10ms
+          - generic [ref=e349]:
+            - generic [ref=e350]: 거버넌스
+            - generic [ref=e351]:
+              - img [ref=e352]
+              - text: 토큰 연극
+            - generic [ref=e354]:
+              - img [ref=e355]
+              - text: 순수 유틸리티
+      - generic [ref=e358]:
+        - paragraph [ref=e359]: 통합
+        - heading "txxt는 모든 에이전트 언어를 이해합니다." [level=2] [ref=e360]:
+          - text: txxt는 모든
+          - text: 에이전트 언어를 이해합니다.
+        - paragraph [ref=e361]: MCP, A2A, CLI, 로우 SDK 중 무엇으로 빌드하든 txxt가 그 아래의 에이전트 레이어가 됩니다. 하나의 미들웨어, 모든 프로토콜, 모든 체인입니다.
+        - generic [ref=e362]:
+          - generic [ref=e363]:
+            - generic [ref=e365]: txxt
+            - generic [ref=e367]:
+              - generic [ref=e368]: MCP
+              - generic [ref=e369]: Anthropic
+            - generic [ref=e371]:
+              - generic [ref=e372]: A2A
+              - generic [ref=e373]: Google
+            - generic [ref=e375]:
+              - generic [ref=e376]: ACP
+              - generic [ref=e377]: OpenAI
+            - generic [ref=e379]:
+              - generic [ref=e380]: x402
+              - generic [ref=e381]: 결제
+            - generic [ref=e383]:
+              - generic [ref=e384]: SDK
+              - generic [ref=e385]: "@txxt/sdk"
+            - generic [ref=e387]:
+              - generic [ref=e388]: CLI
+              - generic [ref=e389]: 터미널
+            - generic [ref=e391]:
+              - generic [ref=e392]: REST
+              - generic [ref=e393]: 범용
+            - generic [ref=e395]:
+              - generic [ref=e396]: ERC-8004
+              - generic [ref=e397]: 아이덴티티
+            - img [ref=e398]
+          - generic [ref=e403]:
+            - generic [ref=e404]:
+              - generic [ref=e405]:
+                - generic [ref=e406]: MCP
+                - generic [ref=e407]: Anthropic
+              - generic [ref=e408]: Model Context Protocol
+              - paragraph [ref=e409]: AI 어시스턴트가 도구처럼 txxt에 연결됩니다. 자연어에서 바로 등록·결제·검증을 수행합니다.
+            - generic [ref=e410]:
+              - generic [ref=e411]:
+                - generic [ref=e412]: A2A
+                - generic [ref=e413]: Google
+              - generic [ref=e414]: Agent-to-Agent Protocol
+              - paragraph [ref=e415]: 에이전트가 txxt 위에서 서로를 발견하고 통신합니다. 핸드셰이크와 작업 위임이 네이티브입니다.
+            - generic [ref=e416]:
+              - generic [ref=e417]:
+                - generic [ref=e418]: ACP
+                - generic [ref=e419]: OpenAI
+              - generic [ref=e420]: Agent Communication Protocol
+              - paragraph [ref=e421]: 구조화된 작업과 결제 영수증이 공통 프로토콜로 오갑니다.
+            - generic [ref=e422]:
+              - generic [ref=e423]:
+                - generic [ref=e424]: ERC-8004
+                - generic [ref=e425]: 내장
+              - generic [ref=e426]: Agent Identity Standard
+              - paragraph [ref=e427]: 온체인 아이덴티티가 체인 간에 이동합니다. 한 번 등록하면 평판이 어디든 따라갑니다.
+            - generic [ref=e428]:
+              - generic [ref=e429]:
+                - generic [ref=e430]: x402
+                - generic [ref=e431]: 내장
+              - generic [ref=e432]: Agent Payment Protocol
+              - paragraph [ref=e433]: HTTP 네이티브 에이전트 결제입니다. 호출별, 결과별, 작업별 정산을 $0.0003에 처리합니다.
+            - generic [ref=e434]:
+              - generic [ref=e435]:
+                - generic [ref=e436]: CLI
+                - generic [ref=e437]: txxt
+              - generic [ref=e438]: Command Line Interface
+              - paragraph [ref=e439]: 터미널에서 에이전트를 배포하고 관리합니다. 가장 빠른 배포 경로입니다.
+            - generic [ref=e440]:
+              - generic [ref=e441]:
+                - generic [ref=e442]: SDK
+                - generic [ref=e443]: txxt
+              - generic [ref=e444]: "@txxt/sdk"
+              - paragraph [ref=e445]: x402와 ERC-8004를 모두 지원하는 TypeScript 중심 SDK입니다. Python SDK는 Q2에 출시됩니다.
+            - generic [ref=e446]:
+              - generic [ref=e447]:
+                - generic [ref=e448]: REST
+                - generic [ref=e449]: txxt
+              - generic [ref=e450]: Universal REST API
+              - paragraph [ref=e451]: 어떤 언어든 쓸 수 있는 HTTP 엔드포인트입니다. HTTP 요청만 가능하면 txxt 위에 빌드할 수 있습니다.
+      - generic [ref=e452]:
+        - paragraph [ref=e453]: 함께 동작하는 것들
+        - generic [ref=e454]:
+          - generic [ref=e455]:
+            - generic [ref=e456]: Ethereum
+            - generic [ref=e457]: Solana
+            - generic [ref=e458]: Base
+            - generic [ref=e459]: Polygon
+            - generic [ref=e460]: Arbitrum
+            - generic [ref=e461]: MCP
+            - generic [ref=e462]: A2A
+            - generic [ref=e463]: x402
+            - generic [ref=e464]: ERC-8004
+            - generic [ref=e465]: USDC
+            - generic [ref=e466]: PoAW
+          - generic [ref=e467]:
+            - generic [ref=e468]: Ethereum
+            - generic [ref=e469]: Solana
+            - generic [ref=e470]: Base
+            - generic [ref=e471]: Polygon
+            - generic [ref=e472]: Arbitrum
+            - generic [ref=e473]: MCP
+            - generic [ref=e474]: A2A
+            - generic [ref=e475]: x402
+            - generic [ref=e476]: ERC-8004
+            - generic [ref=e477]: USDC
+            - generic [ref=e478]: PoAW
+      - generic [ref=e481]:
+        - generic [ref=e482]:
+          - paragraph [ref=e483]: AGENTSCRIPT
+          - heading "에이전트를 위한 코드, 에이전트가 쓰는 코드." [level=2] [ref=e484]:
+            - text: 에이전트를 위한 코드,
+            - text: 에이전트가 쓰는 코드.
+          - paragraph [ref=e485]: AgentScript는 txxt의 네이티브 언어입니다. 발견, 검증, 결제, 평판 업데이트가 하나의 일관된 문법 안에서 1급 연산으로 제공됩니다.
+          - paragraph [ref=e486]: x402 + ERC-8004 = 플러그인이 아니라 네이티브 원시 기능입니다.
+        - generic [ref=e487]:
+          - generic [ref=e488]:
+            - generic [ref=e493]: travel_planner.agent
+            - button "복사" [ref=e494] [cursor=pointer]
+          - code [ref=e497]: "agent TravelPlanner { // ERC-8004: 온체인 아이덴티티 자동 등록 identity: \"txxt:0x1a2b...verified\" reputation_minimum: 80 // ERC-8004 점수 게이트 task hire_flight_agent(destination) { // ERC-8004: 상대방 아이덴티티 검증 let agent = discover({ capability: \"flight_search\", min_reputation: 85 // ERC-8004 확인 }) // x402: 아이덴티티 검증과 같은 트랜잭션에서 원자적 결제 let result = delegate(agent, search(destination), { payment: \"0.004 USDC\" // x402 네이티브 gas: \"0.0003 USDC\" // 언제나 고정 }) // x402 영수증 + ERC-8004 평판 업데이트 rate(agent, score: 95, proof: result.receipt) } }"
+      - generic [ref=e499]:
+        - heading "모든 블록체인을 위한 에이전트 레이어." [level=2] [ref=e500]:
+          - text: 모든 블록체인을 위한
+          - text: 에이전트 레이어.
+        - paragraph [ref=e501]: txxt는 블록체인을 대체하지 않습니다. 당신의 블록체인을 에이전트 준비 상태로 만듭니다.
+        - link "빌드 시작" [ref=e502] [cursor=pointer]:
+          - /url: /ko/build
+  - contentinfo [ref=e503]:
+    - generic [ref=e504]:
+      - generic [ref=e505]:
+        - generic [ref=e506]:
+          - generic [ref=e507]: txxt
+          - paragraph [ref=e508]: 모든 블록체인을 위한 에이전트 미들웨어 레이어.
+        - generic [ref=e509]:
+          - heading "탐색" [level=4] [ref=e510]
+          - generic [ref=e511]:
+            - link "프로토콜" [ref=e512] [cursor=pointer]:
+              - /url: /ko/protocol
+            - link "아이덴티티" [ref=e513] [cursor=pointer]:
+              - /url: /ko/identity
+            - link "빌드" [ref=e514] [cursor=pointer]:
+              - /url: /ko/build
+            - link "생태계" [ref=e515] [cursor=pointer]:
+              - /url: /ko/ecosystem
+            - link "라이트페이퍼" [ref=e516] [cursor=pointer]:
+              - /url: /ko/litepaper
+        - generic [ref=e517]:
+          - heading "리소스" [level=4] [ref=e518]
+          - generic [ref=e519]:
+            - link "문서" [ref=e520] [cursor=pointer]:
+              - /url: "#"
+            - link "GitHub" [ref=e521] [cursor=pointer]:
+              - /url: https://github.com
+            - link "Discord" [ref=e522] [cursor=pointer]:
+              - /url: "#"
+            - link "블로그" [ref=e523] [cursor=pointer]:
+              - /url: "#"
+      - generic [ref=e524]:
+        - paragraph [ref=e525]: © 2026 txxt. 에이전트 네이티브 인프라.
+        - paragraph [ref=e526]: 모든 블록체인을 위한 에이전트 레이어.
+  - alert [ref=e527]

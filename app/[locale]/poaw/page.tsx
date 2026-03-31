@@ -1,5 +1,6 @@
 import React from 'react';
-import Link from 'next/link';
+import {Link} from '@/i18n/navigation';
+import {useTranslations} from 'next-intl';
 
 const mono = "var(--font-fira), 'Courier New', monospace";
 
@@ -42,31 +43,33 @@ const GovernIcon = ({size=32,color='currentColor'}:{size?:number,color?:string})
   </svg>
 )
 
-const consensusCompare = [
-  { label: 'PoW', tagline: '"I burned electricity"', desc: 'Proof of wasted energy. Verifies blocks, not work quality. No concept of agent reputation or task completion.', color: '#FF3366' },
-  { label: 'PoS', tagline: '"I have money"', desc: 'Proof of capital. Validators are selected by stake, not competence. Knows nothing about agent work.', color: '#FB923C' },
-  { label: 'PoAW', tagline: '"I did useful work"', desc: 'Proof of value creation. Verifies that agents actually completed real tasks. Reputation is earned, not bought. Works across any underlying chain.', color: '#00C896' },
-];
-
-const steps: { num: string; title: string; desc: string; icon: React.ReactNode; color: string }[] = [
-  { num: '01', title: 'Agent does work', desc: 'An agent completes a task on any chain — data analysis on Base, trade execution on Ethereum, translation settling on Solana. txxt records the work attestation.', icon: <AgentIcon size={28} color="#5B4FFF" />, color: '#5B4FFF' },
-  { num: '02', title: 'Work gets verified', desc: 'PoAW verifiers — a decentralized network within the txxt middleware — confirm the work actually happened. Cross-chain verification, chain-agnostic trust.', icon: <VerifyIcon size={28} color="#00C896" />, color: '#00C896' },
-  { num: '03', title: 'Reputation updates', desc: 'The agent\'s reputation score updates across the txxt layer. This reputation is portable — it follows the agent from Ethereum to Solana to Base. One identity, one score.', icon: <StarIcon2 size={28} color="#FB923C" />, color: '#FB923C' },
-  { num: '04', title: 'Verifiers earn', desc: 'High-reputation verifiers process more attestations. The best workers validate the network. Rewards settle on whichever chain the verifier prefers.', icon: <GovernIcon size={28} color="#5B4FFF" />, color: '#5B4FFF' },
-];
-
-const specs = [
-  { label: 'BFT Threshold', value: '⅔ + 1', desc: 'Byzantine fault tolerant with 67%+ honest verifier requirement across the middleware layer.' },
-  { label: 'Slashing — Downtime', value: '0.1% stake/hour', desc: 'Verifiers offline for >1 hour begin losing stake. Gradual, not punitive.' },
-  { label: 'Slashing — Equivocation', value: '100% stake', desc: 'Conflicting attestations = total stake loss. Zero tolerance for dishonesty.' },
-  { label: 'Slashing — Bad Verification', value: '5–50% stake', desc: 'Approving fraudulent work results. Severity scales with damage caused.' },
-  { label: 'Reputation Weight', value: '40% of selection', desc: 'Verifier selection: 40% reputation, 30% stake, 30% randomness.' },
-  { label: 'Reputation Decay', value: '2% / 30 days', desc: 'Inactive agents lose reputation gradually. Consistent contribution rewarded.' },
-  { label: 'Min Reputation to Verify', value: '75 / 100', desc: 'Only agents with proven cross-chain track records can become verifiers.' },
-  { label: 'Attestation Finality', value: '< 2 seconds', desc: 'Work attestations finalize in under 2s — regardless of underlying chain speed.' },
-];
-
 export default function PoawPage() {
+  const t = useTranslations('poaw');
+
+  const consensusCompare = [
+    { label: 'PoW', tagline: t('comparison.pow.tagline'), desc: t('comparison.pow.description'), color: '#FF3366' },
+    { label: 'PoS', tagline: t('comparison.pos.tagline'), desc: t('comparison.pos.description'), color: '#FB923C' },
+    { label: 'PoAW', tagline: t('comparison.poaw.tagline'), desc: t('comparison.poaw.description'), color: '#00C896' },
+  ];
+
+  const steps: { num: string; title: string; desc: string; icon: React.ReactNode; color: string }[] = [
+    { num: '01', title: t('steps.step1.title'), desc: t('steps.step1.description'), icon: <AgentIcon size={28} color="#5B4FFF" />, color: '#5B4FFF' },
+    { num: '02', title: t('steps.step2.title'), desc: t('steps.step2.description'), icon: <VerifyIcon size={28} color="#00C896" />, color: '#00C896' },
+    { num: '03', title: t('steps.step3.title'), desc: t('steps.step3.description'), icon: <StarIcon2 size={28} color="#FB923C" />, color: '#FB923C' },
+    { num: '04', title: t('steps.step4.title'), desc: t('steps.step4.description'), icon: <GovernIcon size={28} color="#5B4FFF" />, color: '#5B4FFF' },
+  ];
+
+  const specs = [
+    { label: t('specs.bft.label'), value: '⅔ + 1', desc: t('specs.bft.description') },
+    { label: t('specs.downtime.label'), value: '0.1% stake/hour', desc: t('specs.downtime.description') },
+    { label: t('specs.equivocation.label'), value: '100% stake', desc: t('specs.equivocation.description') },
+    { label: t('specs.badVerification.label'), value: '5–50% stake', desc: t('specs.badVerification.description') },
+    { label: t('specs.weight.label'), value: '40% of selection', desc: t('specs.weight.description') },
+    { label: t('specs.decay.label'), value: '2% / 30 days', desc: t('specs.decay.description') },
+    { label: t('specs.minimum.label'), value: '75 / 100', desc: t('specs.minimum.description') },
+    { label: t('specs.finality.label'), value: '< 2 seconds', desc: t('specs.finality.description') },
+  ];
+
   return (
     <div style={{ background: '#FFFFFF', color: '#0D0D0D', fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
 
@@ -74,16 +77,16 @@ export default function PoawPage() {
       <section style={{ padding: 'clamp(56px, 10vw, 140px) 0' }}>
         <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 24px' }}>
           <div style={{ fontSize: 12, letterSpacing: '0.12em', fontWeight: 700, color: '#00C896', fontFamily: mono, marginBottom: 16, textTransform: 'uppercase' }}>
-            Verification Layer
+            {t('hero.eyebrow')}
           </div>
           <h1 style={{ fontSize: 'clamp(48px, 8vw, 80px)', fontWeight: 800, letterSpacing: '-0.03em', lineHeight: 1.1, marginBottom: 20 }}>
-            Proof of<br />Actual Work.
+            {t('hero.titleLine1')}<br />{t('hero.titleLine2')}
           </h1>
           <p style={{ fontSize: 'clamp(15px, 1.8vw, 18px)', color: '#555555', lineHeight: 1.75, maxWidth: 560 }}>
-            Blockchains verify transactions. But who verifies that an agent <em>actually did the work it claims?</em> PoAW is the verification layer inside txxt — it works across every chain, attesting agent work and building portable reputation.
+            {t('hero.descriptionStart')} <em>{t('hero.descriptionEmphasis')}</em> {t('hero.descriptionEnd')}
           </p>
           <p style={{ fontSize: 'clamp(14px, 1.6vw, 16px)', color: '#00C896', fontFamily: mono, marginTop: 20, fontWeight: 600 }}>
-            Chain-agnostic. Framework-agnostic. Merit-based.
+            {t('hero.note')}
           </p>
         </div>
       </section>
@@ -104,7 +107,7 @@ export default function PoawPage() {
             lineHeight: 2,
             color: '#555555',
           }}>
-            <div style={{ color: '#999999', marginBottom: 12 }}>{'// where PoAW lives'}</div>
+            <div style={{ color: '#999999', marginBottom: 12 }}>{t('placement.comment')}</div>
             <div style={{ marginBottom: 4 }}>
               <span style={{ color: '#5B4FFF' }}>Agent</span> completes task on <span style={{ color: '#FB923C' }}>any chain</span>
             </div>
@@ -132,7 +135,7 @@ export default function PoawPage() {
         <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 24px' }}>
         <div style={{ maxWidth: 1000, margin: '0 auto' }}>
           <div style={{ fontSize: 12, letterSpacing: '0.12em', fontWeight: 700, color: '#888', fontFamily: mono, marginBottom: 16, textTransform: 'uppercase' }}>
-            Verification Models
+            {t('comparison.eyebrow')}
           </div>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(280px, 100%), 1fr))', gap: 16 }}>
@@ -155,7 +158,7 @@ export default function PoawPage() {
                 </p>
                 {c.label === 'PoAW' && (
                   <div style={{ marginTop: 16, fontSize: 13, fontFamily: mono, color: '#00C896', fontWeight: 700 }}>
-                    ✓ The txxt verification layer
+                    {t('comparison.badge')}
                   </div>
                 )}
               </div>
@@ -172,10 +175,10 @@ export default function PoawPage() {
         <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 24px' }}>
         <div style={{ maxWidth: 900, margin: '0 auto' }}>
           <div style={{ fontSize: 12, letterSpacing: '0.12em', fontWeight: 700, color: '#888', fontFamily: mono, marginBottom: 16, textTransform: 'uppercase' }}>
-            How It Works
+            {t('stepsSection.eyebrow')}
           </div>
           <h2 style={{ fontSize: 'clamp(28px, 4vw, 48px)', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.2, marginBottom: 48 }}>
-            Four steps. Any chain.
+            {t('stepsSection.title')}
           </h2>
 
           <div style={{ position: 'relative' }}>
@@ -221,7 +224,7 @@ export default function PoawPage() {
               display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8,
             }}>
               <span style={{ fontSize: 18 }}>↻</span>
-              <span>Continuous loop — every agent, every chain, every task</span>
+              <span>{t('stepsSection.loop')}</span>
             </div>
           </div>
         </div>
@@ -235,10 +238,10 @@ export default function PoawPage() {
         <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 24px' }}>
         <div style={{ maxWidth: 900, margin: '0 auto' }}>
           <div style={{ fontSize: 12, letterSpacing: '0.12em', fontWeight: 700, color: '#FB923C', fontFamily: mono, marginBottom: 16, textTransform: 'uppercase' }}>
-            Technical Specification
+            {t('specsSection.eyebrow')}
           </div>
           <h2 style={{ fontSize: 'clamp(28px, 4vw, 48px)', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.2, marginBottom: 16, color: '#FFFFFF' }}>
-            The numbers<br />behind the trust.
+            {t('specsSection.titleLine1')}<br />{t('specsSection.titleLine2')}
           </h2>
 
           <div style={{
@@ -269,10 +272,10 @@ export default function PoawPage() {
         <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 24px' }}>
         <div style={{ maxWidth: 760, margin: '0 auto' }}>
           <div style={{ fontSize: 12, letterSpacing: '0.12em', fontWeight: 700, color: '#888', fontFamily: mono, marginBottom: 16, textTransform: 'uppercase' }}>
-            Portable Reputation
+            {t('portable.eyebrow')}
           </div>
           <h2 style={{ fontSize: 'clamp(28px, 4vw, 44px)', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.15, marginBottom: 40 }}>
-            One reputation.<br />Every chain.
+            {t('portable.titleLine1')}<br />{t('portable.titleLine2')}
           </h2>
 
           {/* SVG Diagram */}
@@ -297,13 +300,13 @@ export default function PoawPage() {
 
               {/* txxt middleware layer */}
               <rect x="30" y="100" width="505" height="50" rx="12" fill="#00C896" fillOpacity="0.08" stroke="#00C896" strokeWidth="2" />
-              <text x="282" y="122" textAnchor="middle" fontSize="12" fontWeight="800" fill="#00C896" fontFamily="monospace">txxt — PoAW Verification + Portable Reputation</text>
-              <text x="282" y="138" textAnchor="middle" fontSize="9" fill="#00C896" fontFamily="monospace" opacity="0.7">one score · every chain · non-purchasable</text>
+              <text x="282" y="122" textAnchor="middle" fontSize="12" fontWeight="800" fill="#00C896" fontFamily="monospace">{t('portable.diagramLayerTitle')}</text>
+              <text x="282" y="138" textAnchor="middle" fontSize="9" fill="#00C896" fontFamily="monospace" opacity="0.7">{t('portable.diagramLayerSubtitle')}</text>
 
               {/* Agent at top */}
               <rect x="215" y="20" width="135" height="45" rx="10" fill="#5B4FFF" fillOpacity="0.1" stroke="#5B4FFF" strokeWidth="1.5" />
-              <text x="282" y="40" textAnchor="middle" fontSize="11" fontWeight="700" fill="#5B4FFF" fontFamily="monospace">Agent</text>
-              <text x="282" y="54" textAnchor="middle" fontSize="9" fill="#5B4FFF" fontFamily="monospace" opacity="0.7">rep: 94/100</text>
+              <text x="282" y="40" textAnchor="middle" fontSize="11" fontWeight="700" fill="#5B4FFF" fontFamily="monospace">{t('portable.diagramAgent')}</text>
+              <text x="282" y="54" textAnchor="middle" fontSize="9" fill="#5B4FFF" fontFamily="monospace" opacity="0.7">{t('portable.diagramReputation')}</text>
 
               {/* Arrows */}
               <path d="M282 65 L282 100" stroke="#5B4FFF" strokeWidth="1.5" strokeDasharray="4 3" />
@@ -319,7 +322,7 @@ export default function PoawPage() {
             background: 'rgba(0,200,150,0.04)', border: '1px solid rgba(0,200,150,0.12)',
             fontFamily: mono, fontSize: 13, lineHeight: 1.8, color: '#555555',
           }}>
-            <span style={{ color: '#00C896', fontWeight: 700 }}>Key insight:</span> PoAW reputation is non-transferable, non-purchasable, and chain-agnostic. An agent&apos;s work on Ethereum contributes to the same score visible on Solana. This makes Sybil attacks economically irrational across all chains simultaneously.
+            <span style={{ color: '#00C896', fontWeight: 700 }}>{t('portable.keyInsight')}</span> {t('portable.description')}
           </div>
         </div>
         </div>
@@ -332,17 +335,17 @@ export default function PoawPage() {
         <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 24px' }}>
         <div style={{ maxWidth: 480, margin: '0 auto' }}>
           <h2 style={{ fontSize: 'clamp(28px, 4vw, 48px)', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.2, marginBottom: 16 }}>
-            Read the full protocol.
+            {t('cta.title')}
           </h2>
           <p style={{ fontSize: 'clamp(14px, 2vw, 15px)', color: '#555555', marginBottom: 40, lineHeight: 1.8 }}>
-            PoAW is the verification engine inside the txxt middleware. Dive deeper into the mechanism that makes cross-chain agent trust possible.
+            {t('cta.description')}
           </p>
           <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
             <Link href="/protocol" style={{ padding: '14px 32px', borderRadius: 10, background: '#00C896', color: '#fff', fontWeight: 600, fontSize: 'clamp(13px, 2vw, 14px)', textDecoration: 'none' }}>
-              Read the Protocol<ArrowRightIcon />
+              {t('cta.primary')}<ArrowRightIcon />
             </Link>
             <Link href="/build" style={{ padding: '14px 32px', borderRadius: 10, border: '1px solid rgba(0,0,0,0.15)', color: '#0D0D0D', fontSize: 'clamp(13px, 2vw, 14px)', textDecoration: 'none' }}>
-              Start Building
+              {t('cta.secondary')}
             </Link>
           </div>
         </div>

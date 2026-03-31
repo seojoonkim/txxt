@@ -1,15 +1,7 @@
-import Link from 'next/link';
+import {Link} from '@/i18n/navigation';
+import {useTranslations} from 'next-intl';
 
 const mono = "var(--font-fira), 'Courier New', monospace";
-
-const withoutRows = [
-  { area: 'Agent Identity', diy: 'Build custom ERC-8004 contracts per chain', txxt: 'One SDK call — works on ETH, SOL, Base, Polygon', color: '#5B4FFF' },
-  { area: 'Agent Payments', diy: 'Implement x402 adapters for each chain', txxt: 'txxt.pay() — settles on whichever chain you choose', color: '#00C896' },
-  { area: 'Work Verification', diy: 'Roll your own oracle + reputation system', txxt: 'PoAW built-in — cross-chain work verification', color: '#FB923C' },
-  { area: 'Multi-chain Support', diy: 'Separate deployments, separate state', txxt: 'One agent identity, portable across every chain', color: '#5B4FFF' },
-  { area: 'Agent Discovery', diy: 'Build a registry per chain or centralized DB', txxt: 'Universal on-chain capability discovery', color: '#00C896' },
-  { area: 'Onboarding Time', diy: 'Weeks per chain integration', txxt: '< 5 minutes — any chain, any agent framework', color: '#FB923C' },
-];
 
 const diyCode = `// DIY: agent payments across chains
 import { ethers } from 'ethers';
@@ -54,6 +46,17 @@ await agent.pay(url, '$0.01', { chain: 'base' });
 // Done. One identity. Any chain. Any framework.`;
 
 export default function ComparePage() {
+  const t = useTranslations('compare');
+
+  const withoutRows = [
+    { area: t('rows.identity.area'), diy: t('rows.identity.diy'), txxt: t('rows.identity.txxt'), color: '#5B4FFF' },
+    { area: t('rows.payments.area'), diy: t('rows.payments.diy'), txxt: t('rows.payments.txxt'), color: '#00C896' },
+    { area: t('rows.verification.area'), diy: t('rows.verification.diy'), txxt: t('rows.verification.txxt'), color: '#FB923C' },
+    { area: t('rows.multichain.area'), diy: t('rows.multichain.diy'), txxt: t('rows.multichain.txxt'), color: '#5B4FFF' },
+    { area: t('rows.discovery.area'), diy: t('rows.discovery.diy'), txxt: t('rows.discovery.txxt'), color: '#00C896' },
+    { area: t('rows.onboarding.area'), diy: t('rows.onboarding.diy'), txxt: t('rows.onboarding.txxt'), color: '#FB923C' },
+  ];
+
   return (
     <div style={{ background: '#FFFFFF', color: '#0D0D0D', fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
 
@@ -61,16 +64,16 @@ export default function ComparePage() {
       <section style={{ padding: 'clamp(80px, 12vw, 140px) 24px 80px' }}>
         <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 24px' }}>
           <div style={{ fontSize: 13, letterSpacing: '0.15em', color: '#FF3366', fontFamily: mono, marginBottom: 24, textTransform: 'uppercase' }}>
-            Compare
+            {t('hero.eyebrow')}
           </div>
           <h1 style={{ fontSize: 'clamp(48px, 8vw, 96px)', fontWeight: 800, letterSpacing: '-0.04em', lineHeight: 1.0, marginBottom: 28 }}>
-            Why not just<br />build it yourself?
+            {t('hero.titleLine1')}<br />{t('hero.titleLine2')}
           </h1>
           <p style={{ fontSize: 'clamp(15px, 1.8vw, 18px)', color: '#555555', lineHeight: 1.75, maxWidth: 640 }}>
-            You could wire up x402 adapters, deploy identity contracts, and build reputation oracles on every chain — or you could use the middleware layer that already does all of it.
+            {t('hero.description')}
           </p>
           <p style={{ fontSize: 'clamp(14px, 1.6vw, 16px)', color: '#00C896', fontFamily: mono, marginTop: 20, fontWeight: 600 }}>
-            txxt doesn&apos;t replace your blockchain. It makes your blockchain agent-ready.
+            {t('hero.note')}
           </p>
         </div>
       </section>
@@ -82,7 +85,7 @@ export default function ComparePage() {
         <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 24px' }}>
         <div style={{ maxWidth: 800, margin: '0 auto' }}>
           <div style={{ fontSize: 13, letterSpacing: '0.15em', color: '#666666', fontFamily: mono, marginBottom: 48, textTransform: 'uppercase' }}>
-            Where txxt sits
+            {t('architecture.eyebrow')}
           </div>
 
           {/* Stack Diagram */}
@@ -95,9 +98,9 @@ export default function ComparePage() {
               background: 'rgba(91,79,255,0.04)',
               textAlign: 'center',
             }}>
-              <div style={{ fontSize: 11, letterSpacing: '0.12em', color: '#5B4FFF', marginBottom: 8, textTransform: 'uppercase' }}>AI Agents</div>
+              <div style={{ fontSize: 11, letterSpacing: '0.12em', color: '#5B4FFF', marginBottom: 8, textTransform: 'uppercase' }}>{t('architecture.agents')}</div>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, justifyContent: 'center' }}>
-                {['MCP (Anthropic)', 'A2A (Google)', 'ACP', 'Custom Agents'].map(f => (
+                {['MCP (Anthropic)', 'A2A (Google)', 'ACP', t('architecture.customAgents')].map(f => (
                   <span key={f} style={{ fontSize: 12, padding: '5px 12px', borderRadius: 6, background: '#5B4FFF0A', border: '1px solid #5B4FFF22', color: '#5B4FFF', fontWeight: 600 }}>{f}</span>
                 ))}
               </div>
@@ -114,12 +117,12 @@ export default function ComparePage() {
               textAlign: 'center',
               boxShadow: '0 4px 24px rgba(0,200,150,0.1)',
             }}>
-              <div style={{ fontSize: 13, letterSpacing: '0.12em', color: '#00C896', marginBottom: 12, fontWeight: 800 }}>txxt MIDDLEWARE LAYER</div>
+              <div style={{ fontSize: 13, letterSpacing: '0.12em', color: '#00C896', marginBottom: 12, fontWeight: 800 }}>{t('architecture.middleware')}</div>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, justifyContent: 'center' }}>
                 {[
-                  { label: 'x402 Payments', color: '#00C896' },
-                  { label: 'ERC-8004 Identity', color: '#5B4FFF' },
-                  { label: 'PoAW Verification', color: '#FB923C' },
+                  { label: t('architecture.middlewarePayment'), color: '#00C896' },
+                  { label: t('architecture.middlewareIdentity'), color: '#5B4FFF' },
+                  { label: t('architecture.middlewareVerification'), color: '#FB923C' },
                   { label: 'AgentScript', color: '#FF3366' },
                 ].map(f => (
                   <span key={f.label} style={{ fontSize: 12, padding: '6px 14px', borderRadius: 6, background: `${f.color}0F`, border: `1px solid ${f.color}33`, color: f.color, fontWeight: 700 }}>{f.label}</span>
@@ -137,9 +140,9 @@ export default function ComparePage() {
               background: 'rgba(251,146,60,0.04)',
               textAlign: 'center',
             }}>
-              <div style={{ fontSize: 11, letterSpacing: '0.12em', color: '#FB923C', marginBottom: 8, textTransform: 'uppercase' }}>Settlement Layer (Your Choice)</div>
+              <div style={{ fontSize: 11, letterSpacing: '0.12em', color: '#FB923C', marginBottom: 8, textTransform: 'uppercase' }}>{t('architecture.settlement')}</div>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, justifyContent: 'center' }}>
-                {['Ethereum', 'Solana', 'Base', 'Polygon', 'Arbitrum', 'Any EVM'].map(c => (
+                {['Ethereum', 'Solana', 'Base', 'Polygon', 'Arbitrum', t('architecture.anyEvm')].map(c => (
                   <span key={c} style={{ fontSize: 12, padding: '5px 12px', borderRadius: 6, background: '#FB923C0A', border: '1px solid #FB923C22', color: '#FB923C', fontWeight: 600 }}>{c}</span>
                 ))}
               </div>
@@ -147,7 +150,7 @@ export default function ComparePage() {
           </div>
 
           <div style={{ textAlign: 'center', marginTop: 20, fontSize: 13, color: '#555555', fontFamily: mono }}>
-            txxt = the missing layer between AI agents and blockchains
+            {t('architecture.caption')}
           </div>
         </div>
         </div>
@@ -160,10 +163,10 @@ export default function ComparePage() {
         <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 24px' }}>
         <div style={{ maxWidth: 1000, margin: '0 auto' }}>
           <div style={{ fontSize: 13, letterSpacing: '0.15em', color: '#5B4FFF', fontFamily: mono, marginBottom: 24, textTransform: 'uppercase' }}>
-            Side by Side
+            {t('comparison.eyebrow')}
           </div>
           <h2 style={{ fontSize: 'clamp(32px, 5vw, 56px)', fontWeight: 700, letterSpacing: '-0.03em', lineHeight: 1.1, marginBottom: 48 }}>
-            DIY agent infra<br />vs txxt middleware.
+            {t('comparison.titleLine1')}<br />{t('comparison.titleLine2')}
           </h2>
 
           <div style={{
@@ -177,10 +180,10 @@ export default function ComparePage() {
           }}>
             {/* Header */}
             <div style={{ padding: '16px 20px', background: '#F5F5F5', fontFamily: mono, fontSize: 12, fontWeight: 700, color: '#666666', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
-              DIY Approach
+              {t('comparison.diyHeader')}
             </div>
             <div style={{ padding: '16px 20px', background: 'rgba(0,200,150,0.06)', fontFamily: mono, fontSize: 12, fontWeight: 700, color: '#00C896', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
-              With txxt
+              {t('comparison.txxtHeader')}
             </div>
 
             {withoutRows.map(row => (
@@ -211,13 +214,13 @@ export default function ComparePage() {
         <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 24px' }}>
         <div style={{ maxWidth: 1000, margin: '0 auto' }}>
           <div style={{ fontSize: 13, letterSpacing: '0.15em', color: '#FB923C', fontFamily: mono, marginBottom: 24, textTransform: 'uppercase' }}>
-            Code Comparison
+            {t('code.eyebrow')}
           </div>
           <h2 style={{ fontSize: 'clamp(32px, 5vw, 56px)', fontWeight: 700, letterSpacing: '-0.03em', lineHeight: 1.1, marginBottom: 16 }}>
-            100+ lines of glue code<br />vs 5 lines.
+            {t('code.titleLine1')}<br />{t('code.titleLine2')}
           </h2>
           <p style={{ fontSize: 'clamp(15px, 1.8vw, 18px)', color: '#555555', lineHeight: 1.75, maxWidth: 580, marginBottom: 48 }}>
-            Building agent infrastructure across multiple chains requires separate SDKs, separate contracts, and mountains of glue code. txxt is the universal adapter.
+            {t('code.description')}
           </p>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(420px, 100%), 1fr))', gap: 16 }}>
@@ -228,8 +231,8 @@ export default function ComparePage() {
                 borderBottom: '1px solid rgba(0,0,0,0.08)',
                 display: 'flex', justifyContent: 'space-between', alignItems: 'center',
               }}>
-                <span style={{ fontSize: 13, fontFamily: mono, fontWeight: 700, color: '#666666' }}>DIY Multi-chain</span>
-                <span style={{ fontSize: 11, fontFamily: mono, color: '#FF3366', fontWeight: 600 }}>~100+ lines per chain</span>
+                <span style={{ fontSize: 13, fontFamily: mono, fontWeight: 700, color: '#666666' }}>{t('code.diyTitle')}</span>
+                <span style={{ fontSize: 11, fontFamily: mono, color: '#FF3366', fontWeight: 600 }}>{t('code.diyBadge')}</span>
               </div>
               <pre style={{
                 padding: 20, margin: 0, fontFamily: mono,
@@ -246,8 +249,8 @@ export default function ComparePage() {
                 borderBottom: '1px solid rgba(0,200,150,0.15)',
                 display: 'flex', justifyContent: 'space-between', alignItems: 'center',
               }}>
-                <span style={{ fontSize: 13, fontFamily: mono, fontWeight: 700, color: '#00C896' }}>txxt Middleware</span>
-                <span style={{ fontSize: 11, fontFamily: mono, color: '#00C896', fontWeight: 600 }}>5 lines · any chain</span>
+                <span style={{ fontSize: 13, fontFamily: mono, fontWeight: 700, color: '#00C896' }}>{t('code.txxtTitle')}</span>
+                <span style={{ fontSize: 11, fontFamily: mono, color: '#00C896', fontWeight: 600 }}>{t('code.txxtBadge')}</span>
               </div>
               <pre style={{
                 padding: 20, margin: 0, fontFamily: mono,
@@ -260,7 +263,7 @@ export default function ComparePage() {
                 borderTop: '1px solid rgba(0,200,150,0.1)',
                 fontSize: 13, color: '#00C896', fontFamily: mono, fontWeight: 600,
               }}>
-                One identity. One payment layer. Any chain underneath.
+                {t('code.footer')}
               </div>
             </div>
           </div>
@@ -275,7 +278,7 @@ export default function ComparePage() {
         <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 24px' }}>
         <div style={{ maxWidth: 760, margin: '0 auto' }}>
           <div style={{ fontSize: 13, letterSpacing: '0.15em', color: '#666666', fontFamily: mono, marginBottom: 48, textTransform: 'uppercase' }}>
-            The Bottom Line
+            {t('bottom.eyebrow')}
           </div>
 
           <div style={{
@@ -284,12 +287,12 @@ export default function ComparePage() {
             fontFamily: mono, fontSize: 'clamp(13px, 1.6vw, 15px)',
             lineHeight: 2, color: '#444444',
           }}>
-            <div style={{ color: '#999999', marginBottom: 16 }}>{'// the honest answer'}</div>
+            <div style={{ color: '#999999', marginBottom: 16 }}>{t('bottom.comment')}</div>
             <div style={{ marginBottom: 12 }}>
-              <span style={{ color: '#FF3366', fontWeight: 700 }}>Without txxt:</span> You build agent infra per chain. Months of work. Fragmented identity. Brittle payments.
+              <span style={{ color: '#FF3366', fontWeight: 700 }}>{t('bottom.withoutLabel')}</span> {t('bottom.withoutText')}
             </div>
             <div style={{ paddingTop: 16, borderTop: '1px dashed rgba(0,0,0,0.12)', marginTop: 16 }}>
-              <span style={{ color: '#00C896', fontWeight: 700 }}>With txxt:</span> <span style={{ color: '#00C896' }}>One middleware layer. Any chain. Any agent framework. Ship in minutes.</span>
+              <span style={{ color: '#00C896', fontWeight: 700 }}>{t('bottom.withLabel')}</span> <span style={{ color: '#00C896' }}>{t('bottom.withText')}</span>
             </div>
           </div>
         </div>
@@ -303,17 +306,17 @@ export default function ComparePage() {
         <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 24px' }}>
         <div style={{ maxWidth: 480, margin: '0 auto' }}>
           <h2 style={{ fontSize: 'clamp(28px, 4vw, 40px)', fontWeight: 700, letterSpacing: '-0.02em', marginBottom: 16 }}>
-            Make your chain agent-ready.
+            {t('cta.title')}
           </h2>
           <p style={{ fontSize: 'clamp(14px, 2vw, 15px)', color: '#555555', marginBottom: 40, lineHeight: 1.8 }}>
-            Keep your chain. Add the agent layer. It takes 5 minutes.
+            {t('cta.description')}
           </p>
           <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
             <Link href="/build" style={{ padding: '14px 32px', borderRadius: 10, background: '#00C896', color: '#fff', fontWeight: 600, fontSize: 'clamp(13px, 2vw, 14px)', textDecoration: 'none' }}>
-              Start Building →
+              {t('cta.primary')}
             </Link>
             <Link href="/protocol" style={{ padding: '14px 32px', borderRadius: 10, border: '1px solid rgba(0,0,0,0.15)', color: '#0D0D0D', fontSize: 'clamp(13px, 2vw, 14px)', textDecoration: 'none' }}>
-              Explore Protocol
+              {t('cta.secondary')}
             </Link>
           </div>
         </div>

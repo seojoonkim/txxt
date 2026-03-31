@@ -1,13 +1,13 @@
 'use client';
 
 import { useState } from 'react';
-import Link from 'next/link';
+import {Link} from '@/i18n/navigation';
+import {useTranslations} from 'next-intl';
 
 const mono = "var(--font-fira), 'Courier New', monospace";
 
-const presets: { label: string; code: string; output: string }[] = [
+const presetSource = [
   {
-    label: 'Register Agent',
     code: `// Register a new agent on txxt
 import { txxt } from '@txxt/sdk';
 
@@ -21,20 +21,8 @@ const agent = await txxt.agent.register({
 console.log('Agent ID:', agent.id);
 console.log('Reputation:', agent.reputation);
 console.log('Status:', agent.status);`,
-    output: `> Connecting to txxt testnet...
-> Identity created (ERC-8004): 0xa7f3...c91e
-> Staking 50 USDC...
-> Agent registered successfully.
-
-Agent ID:    agent:atlas-finance-v2:0xa7f3
-Reputation:  1000 (genesis)
-Status:      ACTIVE
-Capabilities: defi, rebalance, reporting
-
-✓ Ready to receive tasks.`,
   },
   {
-    label: 'Send Payment',
     code: `// Send x402 payment between agents
 import { txxt } from '@txxt/sdk';
 
@@ -49,20 +37,8 @@ const payment = await txxt.x402.pay({
 console.log('Tx Hash:', payment.txHash);
 console.log('Gas Cost:', payment.gasCost);
 console.log('Settled:', payment.settledAt);`,
-    output: `> Initiating x402 payment...
-> Verifying sender identity...
-> Routing through AgentVM...
-
-Tx Hash:     0x4e2b...8f1a
-Amount:      0.15 USDC
-Gas Cost:    $0.0003
-Settled:     2026-03-26T05:30:12Z (8ms)
-Auto-Renew:  enabled (daily)
-
-✓ Payment confirmed. Oracle subscription active.`,
   },
   {
-    label: 'Check Reputation',
     code: `// Query agent reputation score
 import { txxt } from '@txxt/sdk';
 
@@ -76,23 +52,16 @@ console.log('Score:', rep.score);
 console.log('Tasks:', rep.tasksCompleted);
 console.log('Disputes:', rep.disputes);
 console.log('Trend:', rep.trend);`,
-    output: `> Querying reputation oracle...
-> Fetching 30-day history...
-
-Score:          9,847 / 10,000
-Tasks (30d):    1,203
-Success Rate:   99.7%
-Disputes:       2 (both resolved)
-Trend:          ↑ +342 this month
-
-Peer Reviews:   4.9/5.0 (87 reviews)
-Top Category:   DeFi Rebalancing
-
-✓ Agent in excellent standing.`,
   },
 ];
 
 export default function PlaygroundPage() {
+  const t = useTranslations('playground');
+  const presets: { label: string; code: string; output: string }[] = [
+    {label: t('presets.register'), code: presetSource[0].code, output: t('samples.registerOutput')},
+    {label: t('presets.payment'), code: presetSource[1].code, output: t('samples.paymentOutput')},
+    {label: t('presets.reputation'), code: presetSource[2].code, output: t('samples.reputationOutput')},
+  ];
   const [activePreset, setActivePreset] = useState(0);
   const [code, setCode] = useState(presets[0].code);
   const [output, setOutput] = useState('');
@@ -107,7 +76,7 @@ export default function PlaygroundPage() {
 
   const runSimulation = () => {
     setRunning(true);
-    setOutput('> Connecting to txxt testnet...\n');
+    setOutput(`${t('samples.connecting')}\n`);
     setTimeout(() => {
       setOutput(presets[activePreset].output);
       setRunning(false);
@@ -121,16 +90,16 @@ export default function PlaygroundPage() {
       <section style={{ background: '#FFFFFF', padding: 'clamp(80px,10vw,140px) 0 clamp(40px,5vw,60px)' }}>
         <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 24px', textAlign: 'center' }}>
           <p style={{ fontSize: 13, letterSpacing: '0.12em', color: '#555', fontFamily: mono, marginBottom: 24, fontWeight: 600 }}>
-            INTERACTIVE PLAYGROUND
+            {t('hero.eyebrow')}
           </p>
           <h1 style={{
             fontSize: 'clamp(48px,8vw,96px)', fontWeight: 800, letterSpacing: '-0.03em',
             lineHeight: 1, marginBottom: 24, color: '#0D0D0D',
           }}>
-            Try txxt. <span style={{ color: '#00C896' }}>Right now.</span>
+            {t('hero.titleStart')} <span style={{ color: '#00C896' }}>{t('hero.titleAccent')}</span>
           </h1>
           <p style={{ fontSize: 'clamp(16px,2.5vw,22px)', color: '#555', maxWidth: 600, margin: '0 auto', lineHeight: 1.6 }}>
-            Write AgentScript, hit run, see it execute. No setup, no wallet, no waiting.
+            {t('hero.description')}
           </p>
         </div>
       </section>
@@ -192,7 +161,7 @@ export default function PlaygroundPage() {
                   transition: 'background 0.2s',
                 }}
               >
-                {running ? '⏳ Running...' : '▶ Run Simulation'}
+                {running ? t('editor.running') : t('editor.run')}
               </button>
             </div>
 
@@ -202,12 +171,12 @@ export default function PlaygroundPage() {
                 background: '#1A1A2E', borderRadius: '12px 12px 0 0', padding: '12px 20px',
                 display: 'flex', alignItems: 'center', justifyContent: 'space-between',
               }}>
-                <span style={{ fontFamily: mono, fontSize: 12, color: '#00C896', fontWeight: 600 }}>OUTPUT</span>
+                <span style={{ fontFamily: mono, fontSize: 12, color: '#00C896', fontWeight: 600 }}>{t('output.title')}</span>
                 <span style={{
                   fontFamily: mono, fontSize: 11, color: '#FB923C', background: 'rgba(251,146,60,0.15)',
                   padding: '3px 10px', borderRadius: 4,
                 }}>
-                  Simulated on testnet
+                  {t('output.badge')}
                 </span>
               </div>
               <div style={{
@@ -215,7 +184,7 @@ export default function PlaygroundPage() {
                 fontSize: 13, lineHeight: 1.8, padding: 20, borderRadius: '0 0 12px 12px',
                 whiteSpace: 'pre-wrap', minHeight: 320, overflow: 'auto',
               }}>
-                {output || <span style={{ color: '#555' }}>// Click &quot;Run Simulation&quot; to see output...</span>}
+                {output || <span style={{ color: '#555' }}>{t('output.placeholder')}</span>}
               </div>
             </div>
           </div>
@@ -236,17 +205,17 @@ export default function PlaygroundPage() {
             fontSize: 'clamp(32px,5vw,56px)', fontWeight: 700, letterSpacing: '-0.02em',
             lineHeight: 1.1, marginBottom: 20,
           }}>
-            Ready to build <span style={{ color: '#00C896' }}>for real?</span>
+            {t('cta.titleStart')} <span style={{ color: '#00C896' }}>{t('cta.titleAccent')}</span>
           </h2>
           <p style={{ fontSize: 18, color: '#555', marginBottom: 40, lineHeight: 1.6 }}>
-            Move from playground to production. Deploy your first agent on txxt.
+            {t('cta.description')}
           </p>
           <Link href="/build" style={{
             display: 'inline-block', padding: '16px 40px', borderRadius: 8,
             background: '#00C896', color: '#FFF', fontFamily: mono, fontSize: 16,
             fontWeight: 700, textDecoration: 'none', transition: 'transform 0.15s',
           }}>
-            Start Building →
+            {t('cta.button')}
           </Link>
         </div>
         </div>
