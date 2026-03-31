@@ -1,5 +1,5 @@
 import type {Metadata, Viewport} from 'next';
-import {Inter, Fira_Code} from 'next/font/google';
+import {Noto_Sans_KR, Fira_Code} from 'next/font/google';
 import {NextIntlClientProvider} from 'next-intl';
 import {getMessages, getTranslations, setRequestLocale} from 'next-intl/server';
 import {notFound} from 'next/navigation';
@@ -10,10 +10,11 @@ import {isLocale, locales} from '@/i18n/routing';
 
 import '../globals.css';
 
-const inter = Inter({
+const notoSansKR = Noto_Sans_KR({
   subsets: ["latin"],
   variable: "--font-inter",
   display: "swap",
+  weight: ["300", "400", "500", "600", "700"],
 });
 
 const firaCode = Fira_Code({
@@ -74,7 +75,7 @@ export default async function LocaleLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale} className={`dark ${inter.variable} ${firaCode.variable}`}>
+    <html lang={locale} className={`dark ${notoSansKR.variable} ${firaCode.variable}`}>
       <body
         className="min-h-screen bg-white text-white antialiased"
         style={{
