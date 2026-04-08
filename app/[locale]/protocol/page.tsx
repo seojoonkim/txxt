@@ -48,10 +48,10 @@ const StarIcon = ({color='#F59E0B',size=18}:{color?:string,size?:number}) => (
 
 const specBase = [
   { value: '100,000 TPS', color: '#5B4FFF' },
-  { value: '<10ms Blocks', color: '#00BF8A' },
+  { value: '<10ms Blocks', color: '#F59E0B' },
   { value: '$0.0003 USDC', color: '#FB923C' },
   { value: 'AgentVM', color: '#5B4FFF' },
-  { value: 'Agent-Centric State', color: '#00BF8A' },
+  { value: 'Agent-Centric State', color: '#F59E0B' },
   { value: 'PoAW Consensus', color: '#F59E0B' },
   { value: 'x402 Native', color: '#00BF8A' },
   { value: 'ERC-8004 Native', color: '#5B4FFF' },
@@ -103,7 +103,7 @@ export default function ProtocolPage() {
     <div style={{ background: '#FFFFFF', color: '#0D0D0D', fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
 
       {/* Hero */}
-      <section style={{ padding: 'clamp(56px, 10vw, 140px) 0' }}>
+      <section style={{ padding: 'clamp(48px, 8vw, 140px) 0' }}>
         <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 24px' }}>
           <div style={{ fontSize: 12, letterSpacing: '0.12em', fontWeight: 700, color: '#00BF8A', fontFamily: mono, marginBottom: 16, textTransform: 'uppercase' as const }}>
             {t('hero.eyebrow')}
